@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About ReflexTester.fun — Our Mission</title>
+    <meta name="description"
+        content="Learn about ReflexTester.fun, the free platform for testing and improving your reflexes. Our mission is to help gamers and athletes reach peak performance.">
+    <link rel="canonical" href="https://reflextester.fun/about.html">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .about-hero {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .about-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .team-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .team-card .avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-tertiary);
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .team-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 4px;
+        }
+
+        .team-card .role {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .values-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 24px;
+        }
+
+        .values-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .values-list .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="index.html#tools" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <section class="about-hero">
+            <div class="container">
+                <h1>About ReflexTester.fun</h1>
+                <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                    Helping gamers and athletes unlock their peak performance through precision reflex training.
+                </p>
+            </div>
+        </section>
+
+        <section class="about-content">
+            <h2>Our Mission</h2>
+            <p>ReflexTester.fun was created with a simple goal: provide free, professional-grade reflex testing tools to
+                everyone. Whether you're a competitive esports player looking to shave milliseconds off your reaction
+                time or someone curious about their cognitive abilities, our platform offers the tools you need.</p>
+
+            <h2>Why Reflexes Matter</h2>
+            <p>In competitive gaming, the difference between victory and defeat often comes down to fractions of a
+                second. A 50ms improvement in reaction time can mean the difference between landing a headshot or
+                getting eliminated first. But reflex training isn't just for gamers—athletes, drivers, surgeons, and
+                countless other professionals rely on quick reactions in their daily work.</p>
+
+            <h2>Our Values</h2>
+            <ul class="values-list">
+                <li>
+                    <span class="icon">🆓</span>
+                    <div>
+                        <strong>Free Forever</strong>
+                        <p style="margin-bottom: 0;">All our tools are completely free with no hidden paywalls or
+                            premium tiers.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="icon">🔒</span>
+                    <div>
+                        <strong>Privacy First</strong>
+                        <p style="margin-bottom: 0;">Your data stays on your device. We don't track, sell, or share your
+                            information.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="icon">🎯</span>
+                    <div>
+                        <strong>Accuracy Focused</strong>
+                        <p style="margin-bottom: 0;">We use high-precision timing APIs to ensure your results are as
+                            accurate as possible.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="icon">🌍</span>
+                    <div>
+                        <strong>Accessible</strong>
+                        <p style="margin-bottom: 0;">Our tools work on any device with a modern browser, no downloads
+                            required.</p>
+                    </div>
+                </li>
+            </ul>
+
+            <h2>The Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="avatar">👨‍💻</div>
+                    <h3>Alex Chen</h3>
+                    <p class="role">Lead Developer</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">🎮</div>
+                    <h3>Sarah Kim</h3>
+                    <p class="role">Gaming Consultant</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">🧠</div>
+                    <h3>Dr. Mark Rivera</h3>
+                    <p class="role">Cognitive Science Advisor</p>
+                </div>
+            </div>
+
+            <h2>Contact Us</h2>
+            <p>Have questions, feedback, or feature requests? We'd love to hear from you! Visit our <a
+                    href="contact.html">contact page</a> or email us directly at hello@reflextester.fun.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="animations.js"></script>
+</body>
+
+</html>

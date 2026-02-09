@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Reflex Test — Test Your Sound Reaction Time [Free Online]</title>
+    <meta name="description" content="Test how fast you react to sound. Audio reflexes are 20-40ms faster than visual — measure yours now. Free instant results, no registration. Perfect for gamers and musicians.">
+    <meta name="keywords" content="audio reflex test, sound reaction time test, audio reaction time, hearing reflex test, sound reflex tester, react to sound, audio reaction test online, auditory reflex, how fast can i react to sound, reflex test sound, ear reaction time">
+    <link rel="canonical" href="https://reflextester.fun/tools/audio-reflex-test.html">
+
+    <meta property="og:title" content="Audio Reflex Test — Sound Reaction Time">
+    <meta property="og:description"
+        content="Test your audio reaction time. React when you hear the beep. Typically 20-40ms faster than visual tests.">
+    <meta property="og:url" content="https://reflextester.fun/tools/audio-reflex-test.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Audio Reflex Test",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Professional audio reaction time tester. Measures response speed to auditory stimuli."
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../index.html#tools" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../index.html#tools">Tools</a>
+                <span class="separator">›</span>
+                <span>Audio Reflex Test</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🔊 Audio Reflex Test</h1>
+                <p class="test-desc">Click when you hear the <strong style="color: var(--accent-cyan);">BEEP</strong>.
+                    Use headphones for best accuracy. Audio reflexes are typically 20-40ms faster than visual!</p>
+
+                <div class="game-circle waiting" id="gameArea" role="button" tabindex="0"
+                    aria-label="Click when you hear beep">
+                    <span id="gameText">Click to Start</span>
+                </div>
+
+                <div class="reaction-display" id="reactionDisplay" style="display: none;"></div>
+
+                <div class="test-actions">
+                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
+                </div>
+
+                <div class="stats-panel" id="statsPanel" style="display: none;">
+                    <h4>🎵 Your Results</h4>
+                    <div class="stat-row">
+                        <span class="stat-label">Latest Time</span>
+                        <span class="stat-value" id="latestTime">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Best Time</span>
+                        <span class="stat-value" id="bestTime">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Average Time</span>
+                        <span class="stat-value" id="avgTime">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Tests Completed</span>
+                        <span class="stat-value" id="testCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About the Audio Reflex Test</h2>
+                <p>The audio reflex test measures your reaction time to sound. Unlike visual stimuli, auditory signals
+                    are processed faster by the brain — the auditory cortex responds more quickly to sudden sounds than
+                    the visual cortex does to color changes. This is why most people score 20-40ms faster on audio
+                    tests.</p>
+
+                <h3>Why Audio Reflexes Matter</h3>
+                <p>In gaming, audio cues are just as important as visual information:</p>
+                <ul>
+                    <li><strong>Footsteps:</strong> Hear enemies before you see them in CS:GO and Valorant</li>
+                    <li><strong>Gunfire direction:</strong> React to shots faster with good audio awareness</li>
+                    <li><strong>Ability sounds:</strong> Respond to ultimates and special abilities instantly</li>
+                    <li><strong>Environmental cues:</strong> Doors, reloads, and item pickups all provide audio
+                        information</li>
+                </ul>
+
+                <h3>Tips for Better Audio Reaction</h3>
+                <ul>
+                    <li>Use quality headphones — they reduce latency compared to speakers</li>
+                    <li>Minimize background noise for clearer audio perception</li>
+                    <li>Focus on anticipating the sound, not predicting it</li>
+                </ul>
+
+                <h3>Related Tests</h3>
+                <p>Compare with your <a href="visual-reflex-test.html">Visual Reflex Test</a> results. Most people are
+                    faster with audio — if you're not, it might indicate you're a more visual processor.</p>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="visual-reflex-test.html" class="rec-card">
+                        <div class="rec-icon">⚡</div>
+                        <h3>Visual Reflex Test</h3>
+                        <p>Test your visual reaction time</p>
+                    </a>
+                    <a href="memory-sequence-test.html" class="rec-card">
+                        <div class="rec-icon">🧠</div>
+                        <h3>Memory Sequence</h3>
+                        <p>Test working memory and recall</p>
+                    </a>
+                    <a href="typing-speed-test.html" class="rec-card">
+                        <div class="rec-icon">⌨️</div>
+                        <h3>Typing Speed Test</h3>
+                        <p>Measure WPM and accuracy</p>
+                    </a>
+                    <a href="stroop-effect-test.html" class="rec-card">
+                        <div class="rec-icon">🧪</div>
+                        <h3>Stroop Effect Test</h3>
+                        <p>Test cognitive flexibility</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            const gameArea = document.getElementById('gameArea');
+            const gameText = document.getElementById('gameText');
+            const reactionDisplay = document.getElementById('reactionDisplay');
+            const statsPanel = document.getElementById('statsPanel');
+            const resetBtn = document.getElementById('resetBtn');
+
+            let audioCtx = null;
+            let state = 'waiting';
+            let startTime = 0;
+            let timeoutId = null;
+            let results = ReflexStore.get('audio_results', []);
+
+            function playBeep() {
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.frequency.value = 800;
+                gain.gain.value = 0.3;
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.15);
+            }
+
+            function updateStats() {
+                if (results.length === 0) {
+                    statsPanel.style.display = 'none';
+                    return;
+                }
+                statsPanel.style.display = 'block';
+                document.getElementById('latestTime').textContent = results[results.length - 1] + 'ms';
+                document.getElementById('bestTime').textContent = Math.min(...results) + 'ms';
+                document.getElementById('avgTime').textContent = Math.round(results.reduce((a, b) => a + b, 0) / results.length) + 'ms';
+                document.getElementById('testCount').textContent = results.length;
+            }
+
+            function setState(newState) {
+                state = newState;
+                gameArea.className = 'game-circle ' + (newState === 'go' ? 'go' : newState === 'ready' ? 'ready' : 'waiting');
+
+                if (newState === 'waiting') {
+                    gameText.textContent = 'Click to Start';
+                    reactionDisplay.style.display = 'none';
+                } else if (newState === 'ready') {
+                    gameText.textContent = 'Wait for BEEP...';
+                } else if (newState === 'go') {
+                    gameText.textContent = 'CLICK NOW!';
+                    playBeep();
+                    startTime = performance.now();
+                } else if (newState === 'result') {
+                    gameText.textContent = 'Click to try again';
+                }
+            }
+
+            function handleClick() {
+                if (state === 'waiting') {
+                    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+                    setState('ready');
+                    const delay = 1500 + Math.random() * 3000;
+                    timeoutId = setTimeout(function () { setState('go'); }, delay);
+                } else if (state === 'ready') {
+                    clearTimeout(timeoutId);
+                    gameText.textContent = 'Too early! Click to retry';
+                    gameArea.className = 'game-circle waiting';
+                    state = 'waiting';
+                } else if (state === 'go') {
+                    const reactionTime = Math.round(performance.now() - startTime);
+                    results.push(reactionTime);
+                    ReflexStore.set('audio_results', results);
+                    reactionDisplay.textContent = reactionTime + 'ms';
+                    reactionDisplay.style.display = 'block';
+                    setState('result');
+                    updateStats();
+                } else if (state === 'result') {
+                    setState('waiting');
+                }
+            }
+
+            gameArea.addEventListener('click', handleClick);
+            gameArea.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleClick(); }
+            });
+
+            resetBtn.addEventListener('click', function () {
+                results = [];
+                ReflexStore.set('audio_results', []);
+                reactionDisplay.style.display = 'none';
+                updateStats();
+                setState('waiting');
+            });
+
+            updateStats();
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite Aim Trainer — Free BR Aim Practice [3D Browser]</title>
+    <meta name="description" content="Train your Fortnite aim free in a colorful 3D arena. Practice shotgun flicks, AR tracking, and build battles. Game-accurate sensitivity — runs in your browser, no download needed.">
+    <meta name="keywords" content="fortnite aim trainer, fortnite aim practice, free fortnite aim trainer, fortnite aim training, br aim trainer, fortnite shotgun practice, fortnite flick practice, fortnite aim course, aim trainer fortnite free, fortnite shooting practice, battle royale aim trainer">
+    <link rel="canonical" href="https://reflextester.fun/tools/fortnite-aim-trainer.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Fortnite Aim Trainer",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .aim-canvas-wrap {
+            position: relative;
+            width: 100%;
+            height: 520px;
+            background: #0d0d18;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: crosshair;
+            user-select: none;
+        }
+
+        #aimCanvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .crosshair-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            width: 28px;
+            height: 28px;
+        }
+
+        .crosshair-overlay svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .aim-hud {
+            position: absolute;
+            top: 16px;
+            left: 20px;
+            display: flex;
+            gap: 28px;
+            font-size: 0.95rem;
+            color: #e0e0e0;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+        }
+
+        .aim-hud-item span {
+            color: #a855f7;
+            font-weight: 700;
+        }
+
+        .aim-timer-display {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #a855f7;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+        }
+
+        .hitmarker {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            font-size: 2rem;
+            color: #a855f7;
+            text-shadow: 0 0 6px #9333ea;
+        }
+
+        .hitmarker.show {
+            opacity: 1;
+        }
+
+        .aim-mode-btns {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .aim-mode-btn {
+            padding: 10px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .aim-mode-btn:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .aim-mode-btn.active {
+            background: #a855f7;
+            color: #fff;
+            border-color: #a855f7;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../index.html#tools" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../index.html#tools">Tools</a>
+                <span class="separator">›</span>
+                <span>Fortnite Aim Trainer</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🎮 Fortnite Aim Trainer</h1>
+                <p class="test-desc">Eliminate character targets in our 3D arena. Practice shotgun flicks, AR tracking,
+                    and fast edit plays!</p>
+
+                <div class="aim-mode-btns">
+                    <button class="aim-mode-btn active" data-mode="shotgun">Shotgun</button>
+                    <button class="aim-mode-btn" data-mode="ar">AR Tracking</button>
+                    <button class="aim-mode-btn" data-mode="edit">Edit Play</button>
+                </div>
+
+                <div class="aim-canvas-wrap" id="canvasContainer">
+                    <canvas id="aimCanvas"></canvas>
+                    <div class="crosshair-overlay">
+                        <svg viewBox="0 0 28 28" fill="none">
+                            <circle cx="14" cy="14" r="6" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3 3" />
+                            <circle cx="14" cy="14" r="1.5" fill="#a855f7" />
+                            <line x1="14" y1="2" x2="14" y2="8" stroke="#a855f7" stroke-width="1" />
+                            <line x1="14" y1="20" x2="14" y2="26" stroke="#a855f7" stroke-width="1" />
+                            <line x1="2" y1="14" x2="8" y2="14" stroke="#a855f7" stroke-width="1" />
+                            <line x1="20" y1="14" x2="26" y2="14" stroke="#a855f7" stroke-width="1" />
+                        </svg>
+                    </div>
+                    <div class="aim-hud">
+                        <div class="aim-hud-item">Elims: <span id="hitCount">0</span></div>
+                        <div class="aim-hud-item">Whiffed: <span id="missCount">0</span></div>
+                        <div class="aim-hud-item">Accuracy: <span id="accuracyDisplay">0%</span></div>
+                    </div>
+                    <div class="aim-timer-display" id="timerDisplay">30s</div>
+                    <div class="hitmarker" id="hitmarker">✕</div>
+                </div>
+
+                <div class="reaction-display" id="scoreDisplay" style="display: none;"></div>
+
+                <div class="test-actions">
+                    <button class="btn btn-primary" id="startBtn">Start Training</button>
+                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
+                </div>
+
+                <div class="stats-panel" id="statsPanel" style="display: none;">
+                    <h4>🎮 Your Fortnite Stats</h4>
+                    <div class="stat-row"><span class="stat-label">Last Score</span><span class="stat-value"
+                            id="lastScore">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Best Score</span><span class="stat-value"
+                            id="bestScore">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Best Accuracy</span><span class="stat-value"
+                            id="bestAccuracy">—</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About Fortnite Aim Training</h2>
+                <p>Fortnite demands both building and aiming skills. This 3D arena gives you character-shaped targets at
+                    various distances, perfect for warming up before matches or training specific weaknesses in your
+                    aim.</p>
+
+                <h3>Training Modes</h3>
+                <ul>
+                    <li><strong>Shotgun:</strong> Close-range targets spawn fast — practice pump flick shots</li>
+                    <li><strong>AR Tracking:</strong> Moving targets at mid-range — practice smooth tracking aim</li>
+                    <li><strong>Edit Play:</strong> Small targets appear briefly — simulate quick edit-shot combos</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="csgo-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🎯</div>
+                        <h3>CS:GO Aim Trainer</h3>
+                        <p>3D shooting range with flick and tracking modes</p>
+                    </a>
+                    <a href="cod-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🔫</div>
+                        <h3>COD Aim Trainer</h3>
+                        <p>Military range with pop-up silhouettes</p>
+                    </a>
+                    <a href="click-speed-test.html" class="rec-card">
+                        <div class="rec-icon">🖱️</div>
+                        <h3>Click Speed Test</h3>
+                        <p>Measure your clicks per second</p>
+                    </a>
+                    <a href="peripheral-vision-test.html" class="rec-card">
+                        <div class="rec-icon">👁️</div>
+                        <h3>Peripheral Vision</h3>
+                        <p>Spot targets in your side vision</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            const container = document.getElementById('canvasContainer');
+            const canvas = document.getElementById('aimCanvas');
+            const hitCountEl = document.getElementById('hitCount');
+            const missCountEl = document.getElementById('missCount');
+            const accuracyDisplay = document.getElementById('accuracyDisplay');
+            const timerDisplay = document.getElementById('timerDisplay');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const startBtn = document.getElementById('startBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const statsPanel = document.getElementById('statsPanel');
+            const hitmarkerEl = document.getElementById('hitmarker');
+            const modeBtns = document.querySelectorAll('.aim-mode-btn');
+
+            let scene, camera, renderer;
+            let dummies = [];
+            let isPlaying = false;
+            let hits = 0, misses = 0, timeLeft = 30, intervalId = null;
+            let mode = 'shotgun';
+            let results = ReflexStore.get('fn_results', []);
+
+            function createCharacter(x, y, z, scale) {
+                const group = new THREE.Group();
+                const skinColor = 0xeebb99;
+                const shirtColor = 0x6633cc;
+                const pantColor = 0x333355;
+
+                const torsoGeo = new THREE.BoxGeometry(0.5 * scale, 0.85 * scale, 0.25 * scale);
+                const torsoMat = new THREE.MeshStandardMaterial({ color: shirtColor });
+                const torso = new THREE.Mesh(torsoGeo, torsoMat);
+                group.add(torso);
+
+                const headGeo = new THREE.BoxGeometry(0.28 * scale, 0.3 * scale, 0.28 * scale);
+                const headMat = new THREE.MeshStandardMaterial({ color: skinColor });
+                const head = new THREE.Mesh(headGeo, headMat);
+                head.position.y = 0.62 * scale;
+                group.add(head);
+
+                const visorGeo = new THREE.BoxGeometry(0.3 * scale, 0.08 * scale, 0.05 * scale);
+                const visorMat = new THREE.MeshStandardMaterial({ color: 0x22ccff, emissive: 0x22ccff, emissiveIntensity: 0.5 });
+                const visor = new THREE.Mesh(visorGeo, visorMat);
+                visor.position.set(0, 0.62 * scale, 0.15 * scale);
+                group.add(visor);
+
+                const armGeo = new THREE.BoxGeometry(0.13 * scale, 0.65 * scale, 0.13 * scale);
+                const armMat = new THREE.MeshStandardMaterial({ color: shirtColor });
+                const leftArm = new THREE.Mesh(armGeo, armMat);
+                leftArm.position.set(-0.34 * scale, -0.05 * scale, 0);
+                group.add(leftArm);
+                const rightArm = new THREE.Mesh(armGeo, armMat);
+                rightArm.position.set(0.34 * scale, -0.05 * scale, 0);
+                group.add(rightArm);
+
+                const legGeo = new THREE.BoxGeometry(0.15 * scale, 0.8 * scale, 0.15 * scale);
+                const legMat = new THREE.MeshStandardMaterial({ color: pantColor });
+                const leftLeg = new THREE.Mesh(legGeo, legMat);
+                leftLeg.position.set(-0.13 * scale, -0.82 * scale, 0);
+                group.add(leftLeg);
+                const rightLeg = new THREE.Mesh(legGeo, legMat);
+                rightLeg.position.set(0.13 * scale, -0.82 * scale, 0);
+                group.add(rightLeg);
+
+                const postGeo = new THREE.CylinderGeometry(0.03, 0.04, 0.5, 8);
+                const postMat = new THREE.MeshStandardMaterial({ color: 0x555555 });
+                const post = new THREE.Mesh(postGeo, postMat);
+                post.position.y = -1.45 * scale;
+                group.add(post);
+
+                const baseGeo = new THREE.CylinderGeometry(0.2, 0.2, 0.04, 12);
+                const baseMat = new THREE.MeshStandardMaterial({ color: 0x444444 });
+                const base = new THREE.Mesh(baseGeo, baseMat);
+                base.position.y = -1.7 * scale;
+                group.add(base);
+
+                group.position.set(x, y, z);
+                group.userData = { vx: (Math.random() - 0.5) * 0.03, alive: true, scale: scale };
+                return group;
+            }
+
+            function buildArena() {
+                const floorGeo = new THREE.PlaneGeometry(40, 30);
+                const floorMat = new THREE.MeshStandardMaterial({ color: 0x1a1a2e, roughness: 0.8 });
+                const floor = new THREE.Mesh(floorGeo, floorMat);
+                floor.rotation.x = -Math.PI / 2;
+                floor.position.y = -2;
+                scene.add(floor);
+
+                const wallGeo = new THREE.PlaneGeometry(40, 12);
+                const wallMat = new THREE.MeshStandardMaterial({ color: 0x12122a });
+                const backWall = new THREE.Mesh(wallGeo, wallMat);
+                backWall.position.set(0, 4, -12);
+                scene.add(backWall);
+
+                for (let i = 0; i < 6; i++) {
+                    const pGeo = new THREE.BoxGeometry(0.15, 3.5, 0.15);
+                    const pMat = new THREE.MeshStandardMaterial({ color: 0x6633cc, emissive: 0x6633cc, emissiveIntensity: 0.15 });
+                    const pillar = new THREE.Mesh(pGeo, pMat);
+                    pillar.position.set(-10 + i * 4, 0, -11.8);
+                    scene.add(pillar);
+                }
+
+                for (let i = 0; i < 8; i++) {
+                    const stripGeo = new THREE.BoxGeometry(0.08, 0.08, 24);
+                    const hue = (i / 8) * 0.8;
+                    const stripColor = new THREE.Color().setHSL(hue, 0.7, 0.35);
+                    const stripMat = new THREE.MeshStandardMaterial({ color: stripColor, emissive: stripColor, emissiveIntensity: 0.2 });
+                    const strip = new THREE.Mesh(stripGeo, stripMat);
+                    strip.position.set(-14 + i * 4, -1.96, -3);
+                    scene.add(strip);
+                }
+
+                const gridGeo = new THREE.BoxGeometry(30, 0.02, 0.03);
+                const gridMat = new THREE.MeshStandardMaterial({ color: 0x553399, emissive: 0x553399, emissiveIntensity: 0.2 });
+                for (let d = 0; d < 4; d++) {
+                    const line = new THREE.Mesh(gridGeo, gridMat);
+                    line.position.set(0, -1.98, -4 - d * 2.5);
+                    scene.add(line);
+                }
+            }
+
+            function initThree() {
+                scene = new THREE.Scene();
+                scene.background = new THREE.Color(0x0d0d18);
+                scene.fog = new THREE.Fog(0x0d0d18, 10, 22);
+
+                camera = new THREE.PerspectiveCamera(65, container.clientWidth / container.clientHeight, 0.1, 100);
+                camera.position.set(0, 1.2, 4);
+                camera.lookAt(0, 0.5, -6);
+
+                renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+                renderer.setSize(container.clientWidth, container.clientHeight);
+
+                scene.add(new THREE.AmbientLight(0xddc0ff, 0.3));
+
+                const main = new THREE.DirectionalLight(0xffeeff, 0.6);
+                main.position.set(2, 8, 3);
+                scene.add(main);
+
+                const spotA = new THREE.SpotLight(0xa855f7, 0.5, 25, Math.PI / 5, 0.5);
+                spotA.position.set(-5, 5, 0);
+                spotA.target.position.set(0, 0, -8);
+                scene.add(spotA);
+                scene.add(spotA.target);
+
+                const spotB = new THREE.SpotLight(0x22ccff, 0.4, 25, Math.PI / 5, 0.5);
+                spotB.position.set(5, 5, 0);
+                spotB.target.position.set(0, 0, -8);
+                scene.add(spotB);
+                scene.add(spotB.target);
+
+                buildArena();
+                animate();
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                if (isPlaying && mode === 'ar') {
+                    dummies.forEach(d => {
+                        if (!d.userData.alive) return;
+                        d.position.x += d.userData.vx;
+                        if (d.position.x > 6 || d.position.x < -6) d.userData.vx *= -1;
+                    });
+                }
+                renderer.render(scene, camera);
+            }
+
+            function spawnDummy() {
+                let scale = 1.0;
+                let x = (Math.random() - 0.5) * 12;
+                let z = -5 - Math.random() * 5;
+                if (mode === 'shotgun') { scale = 1.0; z = -3 - Math.random() * 3; }
+                if (mode === 'edit') { scale = 0.55; }
+                const dummy = createCharacter(x, -0.2, z, scale);
+                scene.add(dummy);
+                dummies.push(dummy);
+
+                if (mode === 'edit') {
+                    setTimeout(() => {
+                        if (dummy.userData.alive && isPlaying) {
+                            scene.remove(dummy);
+                            dummies = dummies.filter(d => d !== dummy);
+                            misses++;
+                            updateHud();
+                            spawnDummy();
+                        }
+                    }, 1800);
+                }
+            }
+
+            function clearDummies() { dummies.forEach(d => scene.remove(d)); dummies = []; }
+
+            function showHitmarker(cx, cy) {
+                const rect = container.getBoundingClientRect();
+                hitmarkerEl.style.left = (cx - rect.left - 12) + 'px';
+                hitmarkerEl.style.top = (cy - rect.top - 12) + 'px';
+                hitmarkerEl.classList.add('show');
+                setTimeout(() => hitmarkerEl.classList.remove('show'), 200);
+            }
+
+            function updateHud() {
+                hitCountEl.textContent = hits;
+                missCountEl.textContent = misses;
+                const total = hits + misses;
+                accuracyDisplay.textContent = total > 0 ? ((hits / total) * 100).toFixed(1) + '%' : '0%';
+            }
+
+            function updateStats() {
+                if (results.length === 0) { statsPanel.style.display = 'none'; return; }
+                statsPanel.style.display = 'block';
+                const last = results[results.length - 1];
+                document.getElementById('lastScore').textContent = last.score + ' pts';
+                document.getElementById('bestScore').textContent = Math.max(...results.map(r => r.score)) + ' pts';
+                document.getElementById('bestAccuracy').textContent = Math.max(...results.map(r => r.accuracy)).toFixed(1) + '%';
+            }
+
+            function startGame() {
+                isPlaying = true; hits = 0; misses = 0; timeLeft = 30;
+                hitCountEl.textContent = '0'; missCountEl.textContent = '0';
+                accuracyDisplay.textContent = '0%'; timerDisplay.textContent = '30s';
+                scoreDisplay.style.display = 'none'; startBtn.disabled = true;
+                clearDummies();
+                for (let i = 0; i < 3; i++) spawnDummy();
+                intervalId = setInterval(() => { timeLeft--; timerDisplay.textContent = timeLeft + 's'; if (timeLeft <= 0) endGame(); }, 1000);
+            }
+
+            function endGame() {
+                isPlaying = false; clearInterval(intervalId); clearDummies();
+                startBtn.disabled = false; startBtn.textContent = 'Play Again';
+                const total = hits + misses;
+                const accuracy = total > 0 ? (hits / total) * 100 : 0;
+                const score = hits * 100 + Math.round(accuracy * 2);
+                results.push({ score, accuracy, hits, misses });
+                ReflexStore.set('fn_results', results);
+                scoreDisplay.textContent = 'Score: ' + score + ' pts — Elims: ' + hits + ' — Accuracy: ' + accuracy.toFixed(1) + '%';
+                scoreDisplay.style.display = 'block';
+                updateStats();
+            }
+
+            function handleClick(e) {
+                if (!isPlaying) return;
+                const rect = canvas.getBoundingClientRect();
+                const mouse = new THREE.Vector2();
+                mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+                mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+                const raycaster = new THREE.Raycaster();
+                raycaster.setFromCamera(mouse, camera);
+
+                let hitSomething = false;
+                for (let i = 0; i < dummies.length; i++) {
+                    const dummy = dummies[i];
+                    if (!dummy.userData.alive) continue;
+                    const parts = [];
+                    dummy.traverse(child => { if (child.isMesh) parts.push(child); });
+                    const intersects = raycaster.intersectObjects(parts);
+                    if (intersects.length > 0) {
+                        hits++; hitSomething = true;
+                        showHitmarker(e.clientX, e.clientY);
+                        dummy.userData.alive = false;
+                        dummy.traverse(child => {
+                            if (child.isMesh && child.material) {
+                                child.material = new THREE.MeshStandardMaterial({ color: 0xaa33ff, emissive: 0x9922ee, emissiveIntensity: 0.4 });
+                            }
+                        });
+                        setTimeout(() => { scene.remove(dummy); dummies = dummies.filter(d => d !== dummy); spawnDummy(); }, 300);
+                        break;
+                    }
+                }
+                if (!hitSomething) misses++;
+                updateHud();
+            }
+
+            modeBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (isPlaying) return;
+                    modeBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    mode = this.dataset.mode;
+                });
+            });
+
+            canvas.addEventListener('click', handleClick);
+            startBtn.addEventListener('click', startGame);
+            resetBtn.addEventListener('click', function () {
+                results = []; ReflexStore.set('fn_results', []);
+                scoreDisplay.style.display = 'none'; hits = 0; misses = 0;
+                hitCountEl.textContent = '0'; missCountEl.textContent = '0';
+                accuracyDisplay.textContent = '0%'; startBtn.textContent = 'Start Training';
+                updateStats();
+            });
+
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+
+            initThree();
+            updateStats();
+        })();
+    </script>
+</body>
+
+</html>

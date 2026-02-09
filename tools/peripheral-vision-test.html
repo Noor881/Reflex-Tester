@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peripheral Vision Test — How Wide Can You See? [Free Online]</title>
+    <meta name="description" content="How wide is your field of vision? Spot targets at the edge of your sight — critical for gaming, driving, and sports. Free peripheral vision test with instant results. No sign-up needed.">
+    <meta name="keywords" content="peripheral vision test, side vision test, peripheral vision training, field of vision test, peripheral awareness test, side vision training, visual field test online, peripheral vision game, eye test online, peripheral vision exercise, gaming vision test">
+    <link rel="canonical" href="https://reflextester.fun/tools/peripheral-vision-test.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Peripheral Vision Test",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../index.html#tools" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../index.html#tools">Tools</a>
+                <span class="separator">›</span>
+                <span>Peripheral Vision Test</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>👁️ Peripheral Vision Test</h1>
+                <p class="test-desc">Keep your eyes on the <strong style="color: var(--accent-cyan);">CENTER
+                        DOT</strong>. Press the arrow key matching where the target appears (← Left / → Right)!</p>
+
+                <div class="peripheral-area" id="peripheralArea">
+                    <div class="peripheral-center" id="centerDot"></div>
+                    <div class="peripheral-target left" id="targetLeft" style="display: none;"></div>
+                    <div class="peripheral-target right" id="targetRight" style="display: none;"></div>
+                    <div id="peripheralOverlay">Focus on center dot. Press Space to start.</div>
+                </div>
+
+                <div class="reaction-display" id="reactionDisplay" style="display: none;"></div>
+
+                <div class="test-actions">
+                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
+                </div>
+
+                <div class="stats-panel" id="statsPanel" style="display: none;">
+                    <h4>👁️ Your Results</h4>
+                    <div class="stat-row">
+                        <span class="stat-label">Latest Time</span>
+                        <span class="stat-value" id="latestTime">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Best Time</span>
+                        <span class="stat-value" id="bestTime">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Accuracy</span>
+                        <span class="stat-value" id="accuracy">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Tests Completed</span>
+                        <span class="stat-value" id="testCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About Peripheral Vision</h2>
+                <p>Peripheral vision is your ability to see objects and movement outside your direct line of sight.
+                    While we focus on what's in front of us, our peripheral vision covers about 180 degrees and is
+                    crucial for detecting motion and potential threats.</p>
+
+                <h3>Why Peripheral Vision Matters for Gaming</h3>
+                <ul>
+                    <li><strong>Flanking detection:</strong> Notice enemies approaching from the sides</li>
+                    <li><strong>Minimap awareness:</strong> Process map information without looking away from the center
+                    </li>
+                    <li><strong>Movement tracking:</strong> Detect player movement in your side vision</li>
+                    <li><strong>Multi-target awareness:</strong> Keep track of multiple enemies simultaneously</li>
+                </ul>
+
+                <h3>Training Tips</h3>
+                <ul>
+                    <li>Practice keeping your eyes fixed on the center while being aware of the edges</li>
+                    <li>Try to detect movement rather than identifying shapes</li>
+                    <li>Peripheral vision is more sensitive to motion than to static objects</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="hand-eye-coordination-test.html" class="rec-card">
+                        <div class="rec-icon">🎯</div>
+                        <h3>Hand-Eye Coordination</h3>
+                        <p>Hit moving targets with precision</p>
+                    </a>
+                    <a href="csgo-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🎯</div>
+                        <h3>CS:GO Aim Trainer</h3>
+                        <p>3D shooting range practice</p>
+                    </a>
+                    <a href="visual-reflex-test.html" class="rec-card">
+                        <div class="rec-icon">⚡</div>
+                        <h3>Visual Reflex Test</h3>
+                        <p>Measure raw reaction time</p>
+                    </a>
+                    <a href="fortnite-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🎮</div>
+                        <h3>Fortnite Aim Trainer</h3>
+                        <p>Arena shooting with character targets</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            const peripheralArea = document.getElementById('peripheralArea');
+            const centerDot = document.getElementById('centerDot');
+            const targetLeft = document.getElementById('targetLeft');
+            const targetRight = document.getElementById('targetRight');
+            const peripheralOverlay = document.getElementById('peripheralOverlay');
+            const reactionDisplay = document.getElementById('reactionDisplay');
+            const resetBtn = document.getElementById('resetBtn');
+            const statsPanel = document.getElementById('statsPanel');
+
+            let state = 'waiting';
+            let currentSide = '';
+            let startTime = 0;
+            let timeoutId = null;
+            let results = ReflexStore.get('peripheral_results', []);
+            let correct = ReflexStore.get('peripheral_correct', 0);
+            let total = ReflexStore.get('peripheral_total', 0);
+
+            function updateStats() {
+                if (results.length === 0) {
+                    statsPanel.style.display = 'none';
+                    return;
+                }
+                statsPanel.style.display = 'block';
+                document.getElementById('latestTime').textContent = results[results.length - 1] + 'ms';
+                document.getElementById('bestTime').textContent = Math.min(...results) + 'ms';
+                document.getElementById('accuracy').textContent = total > 0 ? Math.round((correct / total) * 100) + '%' : '—';
+                document.getElementById('testCount').textContent = results.length;
+            }
+
+            function showTarget() {
+                currentSide = Math.random() > 0.5 ? 'left' : 'right';
+                const target = currentSide === 'left' ? targetLeft : targetRight;
+                target.style.display = 'block';
+                startTime = performance.now();
+                state = 'active';
+
+                timeoutId = setTimeout(() => {
+                    target.style.display = 'none';
+                    total++;
+                    ReflexStore.set('peripheral_total', total);
+                    reactionDisplay.textContent = 'Too slow!';
+                    reactionDisplay.style.color = 'var(--accent-red)';
+                    reactionDisplay.style.display = 'block';
+                    state = 'waiting';
+                    peripheralOverlay.textContent = 'Press Space to try again';
+                    peripheralOverlay.style.display = 'block';
+                    updateStats();
+                }, 1500);
+            }
+
+            function startRound() {
+                state = 'ready';
+                peripheralOverlay.textContent = 'Focus on center...';
+                peripheralOverlay.style.display = 'block';
+                reactionDisplay.style.display = 'none';
+                targetLeft.style.display = 'none';
+                targetRight.style.display = 'none';
+
+                timeoutId = setTimeout(() => {
+                    peripheralOverlay.style.display = 'none';
+                    showTarget();
+                }, 1000 + Math.random() * 2000);
+            }
+
+            function handleKeyPress(e) {
+                if (e.key === ' ' && state === 'waiting') {
+                    e.preventDefault();
+                    startRound();
+                } else if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && state === 'active') {
+                    e.preventDefault();
+                    clearTimeout(timeoutId);
+                    const pressed = e.key === 'ArrowLeft' ? 'left' : 'right';
+                    const reactionTime = Math.round(performance.now() - startTime);
+                    total++;
+
+                    targetLeft.style.display = 'none';
+                    targetRight.style.display = 'none';
+
+                    if (pressed === currentSide) {
+                        correct++;
+                        results.push(reactionTime);
+                        reactionDisplay.textContent = reactionTime + 'ms ✓';
+                        reactionDisplay.style.color = 'var(--accent-green)';
+                    } else {
+                        reactionDisplay.textContent = 'Wrong side!';
+                        reactionDisplay.style.color = 'var(--accent-red)';
+                    }
+
+                    reactionDisplay.style.display = 'block';
+                    ReflexStore.set('peripheral_results', results);
+                    ReflexStore.set('peripheral_correct', correct);
+                    ReflexStore.set('peripheral_total', total);
+                    updateStats();
+
+                    state = 'waiting';
+                    peripheralOverlay.textContent = 'Press Space to continue';
+                    peripheralOverlay.style.display = 'block';
+                } else if (state === 'ready') {
+                    clearTimeout(timeoutId);
+                    reactionDisplay.textContent = 'Too early!';
+                    reactionDisplay.style.color = 'var(--accent-red)';
+                    reactionDisplay.style.display = 'block';
+                    state = 'waiting';
+                    peripheralOverlay.textContent = 'Press Space to retry';
+                    peripheralOverlay.style.display = 'block';
+                }
+            }
+
+            document.addEventListener('keydown', handleKeyPress);
+
+            resetBtn.addEventListener('click', function () {
+                results = [];
+                correct = 0;
+                total = 0;
+                ReflexStore.set('peripheral_results', []);
+                ReflexStore.set('peripheral_correct', 0);
+                ReflexStore.set('peripheral_total', 0);
+                reactionDisplay.style.display = 'none';
+                peripheralOverlay.textContent = 'Focus on center dot. Press Space to start.';
+                peripheralOverlay.style.display = 'block';
+                state = 'waiting';
+                updateStats();
+            });
+
+            updateStats();
+        })();
+    </script>
+</body>
+
+</html>

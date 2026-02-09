@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Reflex Test — Reaction Time Tester | ReflexTester.fun</title>
+    <meta name="description"
+        content="Test your visual reaction time with our professional-grade reflex tester. Click when the screen turns green and measure your response speed in milliseconds. Free online tool for gamers and athletes.">
+    <meta name="keywords"
+        content="visual reflex test, reaction time test, reflex tester, click speed test, gaming reflexes, response time">
+    <link rel="canonical" href="https://reflextester.fun/tools/visual-reflex-test.html">
+
+    <meta property="og:title" content="Visual Reflex Test — Reaction Time Tester">
+    <meta property="og:description"
+        content="Test your visual reaction time. Click when the screen turns green. Free professional reflex testing tool.">
+    <meta property="og:url" content="https://reflextester.fun/tools/visual-reflex-test.html">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Visual Reflex Test",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Professional visual reaction time tester. Measures response speed when a visual stimulus appears.",
+        "url": "https://reflextester.fun/tools/visual-reflex-test.html"
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../index.html#tools" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../index.html#tools">Tools</a>
+                <span class="separator">›</span>
+                <span>Visual Reflex Test</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active" id="visualTest">
+                <h1>⚡ Visual Reflex Test</h1>
+                <p class="test-desc">Click the circle as soon as it turns <strong
+                        style="color: var(--accent-green);">GREEN</strong>. Wait for the signal, then react as fast as
+                    you can!</p>
+
+                <div class="game-circle waiting" id="gameArea" role="button" tabindex="0" aria-label="Click when green">
+                    <span id="gameText">Click to Start</span>
+                </div>
+
+                <div class="reaction-display" id="reactionDisplay" style="display: none;"></div>
+
+                <div class="test-actions">
+                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
+                </div>
+
+                <div class="stats-panel" id="statsPanel" style="display: none;">
+                    <h4>📊 Your Results</h4>
+                    <div class="stat-row">
+                        <span class="stat-label">Latest Time</span>
+                        <span class="stat-value" id="latestTime">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Best Time</span>
+                        <span class="stat-value" id="bestTime">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Average Time</span>
+                        <span class="stat-value" id="avgTime">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Tests Completed</span>
+                        <span class="stat-value" id="testCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About the Visual Reflex Test</h2>
+                <p>The visual reflex test measures how quickly you can respond to a visual stimulus. When the circle
+                    changes from red to green, your brain processes the color change through the visual cortex, then
+                    sends a motor command to your hand to click. This entire process typically takes between 150-300
+                    milliseconds for most people.</p>
+
+                <h3>Why Visual Reaction Time Matters for Gaming</h3>
+                <p>In competitive FPS games like CS:GO, Valorant, and Fortnite, the difference between winning and
+                    losing a gunfight often comes down to 50-100ms. Players with faster visual reflexes can:</p>
+                <ul>
+                    <li>Spot enemies faster and begin aiming sooner</li>
+                    <li>React to peek situations more effectively</li>
+                    <li>Dodge incoming abilities and projectiles</li>
+                    <li>Win more 50/50 engagements against equally-skilled opponents</li>
+                </ul>
+
+                <h3>How to Improve Your Score</h3>
+                <ul>
+                    <li><strong>Practice daily:</strong> 10-15 minutes of consistent training yields better results than
+                        occasional long sessions</li>
+                    <li><strong>Optimize your setup:</strong> Use a 144Hz+ monitor and a gaming mouse with low latency
+                    </li>
+                    <li><strong>Stay alert:</strong> Focus your eyes on the center of the circle and be ready to click
+                    </li>
+                    <li><strong>Get enough sleep:</strong> Fatigue can slow reaction times by 20-30%</li>
+                </ul>
+
+                <h3>Related Tests</h3>
+                <p>Try our <a href="audio-reflex-test.html">Audio Reflex Test</a> to compare your auditory reaction time
+                    — most people are 20-40ms faster with sound. For a more complex challenge, test your <a
+                        href="hand-eye-coordination-test.html">Hand-Eye Coordination</a> with moving targets.</p>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="audio-reflex-test.html" class="rec-card">
+                        <div class="rec-icon">🔊</div>
+                        <h3>Audio Reflex Test</h3>
+                        <p>React to sound instead of sight</p>
+                    </a>
+                    <a href="click-speed-test.html" class="rec-card">
+                        <div class="rec-icon">🖱️</div>
+                        <h3>Click Speed Test</h3>
+                        <p>Measure your clicks per second</p>
+                    </a>
+                    <a href="csgo-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🎯</div>
+                        <h3>CS:GO Aim Trainer</h3>
+                        <p>3D shooting range with flick practice</p>
+                    </a>
+                    <a href="hand-eye-coordination-test.html" class="rec-card">
+                        <div class="rec-icon">🎯</div>
+                        <h3>Hand-Eye Coordination</h3>
+                        <p>Hit moving targets with precision</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            const gameArea = document.getElementById('gameArea');
+            const gameText = document.getElementById('gameText');
+            const reactionDisplay = document.getElementById('reactionDisplay');
+            const statsPanel = document.getElementById('statsPanel');
+            const resetBtn = document.getElementById('resetBtn');
+
+            let state = 'waiting';
+            let startTime = 0;
+            let timeoutId = null;
+            let results = ReflexStore.get('visual_results', []);
+
+            function updateStats() {
+                if (results.length === 0) {
+                    statsPanel.style.display = 'none';
+                    return;
+                }
+                statsPanel.style.display = 'block';
+                document.getElementById('latestTime').textContent = results[results.length - 1] + 'ms';
+                document.getElementById('bestTime').textContent = Math.min(...results) + 'ms';
+                document.getElementById('avgTime').textContent = Math.round(results.reduce((a, b) => a + b, 0) / results.length) + 'ms';
+                document.getElementById('testCount').textContent = results.length;
+            }
+
+            function setState(newState) {
+                state = newState;
+                gameArea.className = 'game-circle ' + newState;
+
+                if (newState === 'waiting') {
+                    gameText.textContent = 'Click to Start';
+                    reactionDisplay.style.display = 'none';
+                } else if (newState === 'ready') {
+                    gameText.textContent = 'Wait for GREEN...';
+                } else if (newState === 'go') {
+                    gameText.textContent = 'CLICK NOW!';
+                    startTime = performance.now();
+                } else if (newState === 'result') {
+                    gameText.textContent = 'Click to try again';
+                }
+            }
+
+            function handleClick() {
+                if (state === 'waiting') {
+                    setState('ready');
+                    const delay = 1500 + Math.random() * 3000;
+                    timeoutId = setTimeout(function () {
+                        setState('go');
+                    }, delay);
+                } else if (state === 'ready') {
+                    clearTimeout(timeoutId);
+                    gameText.textContent = 'Too early! Click to retry';
+                    gameArea.className = 'game-circle waiting';
+                    state = 'waiting';
+                } else if (state === 'go') {
+                    const reactionTime = Math.round(performance.now() - startTime);
+                    results.push(reactionTime);
+                    ReflexStore.set('visual_results', results);
+                    reactionDisplay.textContent = reactionTime + 'ms';
+                    reactionDisplay.style.display = 'block';
+                    setState('result');
+                    updateStats();
+                } else if (state === 'result') {
+                    setState('waiting');
+                }
+            }
+
+            gameArea.addEventListener('click', handleClick);
+            gameArea.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleClick();
+                }
+            });
+
+            resetBtn.addEventListener('click', function () {
+                results = [];
+                ReflexStore.set('visual_results', []);
+                reactionDisplay.style.display = 'none';
+                updateStats();
+                setState('waiting');
+            });
+
+            updateStats();
+        })();
+    </script>
+</body>
+
+</html>

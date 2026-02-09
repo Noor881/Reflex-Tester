@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test — Check Your WPM in 60 Seconds [Free]</title>
+    <meta name="description" content="How fast do you type? Measure your WPM (words per minute) and accuracy with real sentences. Average is 40 WPM — are you faster? Instant results, track your progress over time.">
+    <meta name="keywords" content="typing speed test, wpm test, words per minute test, typing test online, how fast do i type, typing speed checker, keyboard speed test, typing accuracy test, wpm calculator, typing test free, type speed test, typing speed game, fast typing test, 1 minute typing test">
+    <link rel="canonical" href="https://reflextester.fun/tools/typing-speed-test.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Typing Speed Test",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../index.html#tools" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../index.html#tools">Tools</a>
+                <span class="separator">›</span>
+                <span>Typing Speed Test</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>⌨️ Typing Speed Test</h1>
+                <p class="test-desc">Type the text below as fast and accurately as possible. Your WPM and accuracy will
+                    be calculated in real-time.</p>
+
+                <div class="typing-area">
+                    <div class="typing-text" id="textDisplay"></div>
+                    <input type="text" class="typing-input" id="typingInput"
+                        placeholder="Click here and start typing..." autocomplete="off" autocorrect="off"
+                        autocapitalize="off" spellcheck="false">
+                </div>
+
+                <div class="typing-stats" id="typingStats">
+                    <div class="typing-stat">
+                        <div class="stat-value" id="wpmValue">0</div>
+                        <div class="stat-label">WPM</div>
+                    </div>
+                    <div class="typing-stat">
+                        <div class="stat-value" id="accuracyValue">100%</div>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                    <div class="typing-stat">
+                        <div class="stat-value" id="timeValue">0s</div>
+                        <div class="stat-label">Time</div>
+                    </div>
+                </div>
+
+                <div class="test-actions">
+                    <button class="btn btn-primary" id="newTestBtn">New Test</button>
+                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
+                </div>
+
+                <div class="stats-panel" id="statsPanel" style="display: none;">
+                    <h4>⌨️ Your Best Results</h4>
+                    <div class="stat-row">
+                        <span class="stat-label">Best WPM</span>
+                        <span class="stat-value" id="bestWpm">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Best Accuracy</span>
+                        <span class="stat-value" id="bestAccuracy">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Tests Completed</span>
+                        <span class="stat-value" id="testCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About the Typing Speed Test</h2>
+                <p>Typing speed is measured in WPM (words per minute), where a "word" is standardized as 5 characters
+                    including spaces. Professional typists average 60-80 WPM, while competitive typists can exceed 150
+                    WPM.</p>
+
+                <h3>WPM Benchmarks</h3>
+                <ul>
+                    <li><strong>20-40 WPM:</strong> Beginner — Hunt and peck typing</li>
+                    <li><strong>40-60 WPM:</strong> Average — Typical office worker</li>
+                    <li><strong>60-80 WPM:</strong> Fast — Above average, good for productivity</li>
+                    <li><strong>80-100 WPM:</strong> Very Fast — Professional level</li>
+                    <li><strong>100+ WPM:</strong> Expert — Competitive typist level</li>
+                </ul>
+
+                <h3>Tips to Improve</h3>
+                <ul>
+                    <li>Learn proper touch typing technique — keep fingers on home row</li>
+                    <li>Practice daily for 15-20 minutes for consistent improvement</li>
+                    <li>Focus on accuracy first, then speed will follow</li>
+                    <li>Use all ten fingers and avoid looking at the keyboard</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="click-speed-test.html" class="rec-card">
+                        <div class="rec-icon">🖱️</div>
+                        <h3>Click Speed Test</h3>
+                        <p>Measure your CPS performance</p>
+                    </a>
+                    <a href="memory-sequence-test.html" class="rec-card">
+                        <div class="rec-icon">🧠</div>
+                        <h3>Memory Sequence</h3>
+                        <p>Test working memory and recall</p>
+                    </a>
+                    <a href="number-speed-test.html" class="rec-card">
+                        <div class="rec-icon">🔢</div>
+                        <h3>Number Speed Test</h3>
+                        <p>Click numbers in order quickly</p>
+                    </a>
+                    <a href="visual-reflex-test.html" class="rec-card">
+                        <div class="rec-icon">⚡</div>
+                        <h3>Visual Reflex Test</h3>
+                        <p>Test raw reaction time</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            const sentences = [
+                "The quick brown fox jumps over the lazy dog near the riverbank.",
+                "Gaming requires fast reflexes and precise hand-eye coordination.",
+                "Professional esports players practice for hours every single day.",
+                "A good keyboard can significantly improve your typing speed.",
+                "Practice makes perfect when it comes to building muscle memory.",
+                "Competitive gamers often have reaction times under 200 milliseconds.",
+                "The best aim trainers help you build consistent flick accuracy.",
+                "Warming up before a match can improve your overall performance.",
+                "Focus on accuracy first and speed will naturally follow over time.",
+                "Regular breaks help prevent fatigue and maintain peak performance."
+            ];
+
+            const textDisplay = document.getElementById('textDisplay');
+            const typingInput = document.getElementById('typingInput');
+            const wpmValue = document.getElementById('wpmValue');
+            const accuracyValue = document.getElementById('accuracyValue');
+            const timeValue = document.getElementById('timeValue');
+            const newTestBtn = document.getElementById('newTestBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const statsPanel = document.getElementById('statsPanel');
+
+            let currentText = '';
+            let startTime = null;
+            let intervalId = null;
+            let results = ReflexStore.get('typing_results', []);
+
+            function updateStats() {
+                if (results.length === 0) {
+                    statsPanel.style.display = 'none';
+                    return;
+                }
+                statsPanel.style.display = 'block';
+                document.getElementById('bestWpm').textContent = Math.max(...results.map(r => r.wpm));
+                document.getElementById('bestAccuracy').textContent = Math.max(...results.map(r => r.accuracy)).toFixed(1) + '%';
+                document.getElementById('testCount').textContent = results.length;
+            }
+
+            function loadNewText() {
+                currentText = sentences[Math.floor(Math.random() * sentences.length)];
+                renderText('');
+                typingInput.value = '';
+                typingInput.disabled = false;
+                typingInput.focus();
+                startTime = null;
+                clearInterval(intervalId);
+                wpmValue.textContent = '0';
+                accuracyValue.textContent = '100%';
+                timeValue.textContent = '0s';
+            }
+
+            function renderText(typed) {
+                let html = '';
+                for (let i = 0; i < currentText.length; i++) {
+                    if (i < typed.length) {
+                        if (typed[i] === currentText[i]) {
+                            html += '<span class="correct-char">' + currentText[i] + '</span>';
+                        } else {
+                            html += '<span class="wrong-char">' + currentText[i] + '</span>';
+                        }
+                    } else if (i === typed.length) {
+                        html += '<span class="current-char">' + currentText[i] + '</span>';
+                    } else {
+                        html += '<span class="pending-char">' + currentText[i] + '</span>';
+                    }
+                }
+                textDisplay.innerHTML = html;
+            }
+
+            function calculateStats(typed) {
+                const elapsed = (Date.now() - startTime) / 1000 / 60;
+                const wordsTyped = typed.length / 5;
+                const wpm = elapsed > 0 ? Math.round(wordsTyped / elapsed) : 0;
+
+                let correct = 0;
+                for (let i = 0; i < typed.length; i++) {
+                    if (typed[i] === currentText[i]) correct++;
+                }
+                const accuracy = typed.length > 0 ? (correct / typed.length) * 100 : 100;
+
+                return { wpm, accuracy };
+            }
+
+            typingInput.addEventListener('input', function () {
+                const typed = this.value;
+
+                if (!startTime && typed.length > 0) {
+                    startTime = Date.now();
+                    intervalId = setInterval(function () {
+                        const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                        timeValue.textContent = elapsed + 's';
+                    }, 100);
+                }
+
+                renderText(typed);
+                const stats = calculateStats(typed);
+                wpmValue.textContent = stats.wpm;
+                accuracyValue.textContent = stats.accuracy.toFixed(1) + '%';
+
+                if (typed.length >= currentText.length) {
+                    clearInterval(intervalId);
+                    typingInput.disabled = true;
+                    results.push(stats);
+                    ReflexStore.set('typing_results', results);
+                    updateStats();
+                }
+            });
+
+            newTestBtn.addEventListener('click', loadNewText);
+
+            resetBtn.addEventListener('click', function () {
+                results = [];
+                ReflexStore.set('typing_results', []);
+                updateStats();
+                loadNewText();
+            });
+
+            loadNewText();
+            updateStats();
+        })();
+    </script>
+</body>
+
+</html>

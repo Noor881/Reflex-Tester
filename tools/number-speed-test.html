@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Speed Test — Click Numbers in Order [Free Brain Game]</title>
+    <meta name="description" content="How fast can you process numbers? Click 1 through 25 in order as fast as possible. Average time is 35 seconds — can you go faster? Free cognitive speed test, instant results.">
+    <meta name="keywords" content="number speed test, number processing test, click numbers in order, number game, schulte table, cognitive speed test, brain speed test, number reaction test, processing speed test, mental speed test, number sequence game, brain game free">
+    <link rel="canonical" href="https://reflextester.fun/tools/number-speed-test.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Number Speed Test",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../index.html#tools" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../index.html#tools">Tools</a>
+                <span class="separator">›</span>
+                <span>Number Speed Test</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🔢 Number Speed Test</h1>
+                <p class="test-desc">A number from 1-9 will appear on screen. Click the matching number key on your
+                    keyboard as fast as possible!</p>
+
+                <div class="number-display" id="numberDisplay">
+                    <span id="displayText">Press any key to start</span>
+                </div>
+
+                <div class="reaction-display" id="reactionDisplay" style="display: none;"></div>
+
+                <div class="test-actions">
+                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
+                </div>
+
+                <div class="stats-panel" id="statsPanel" style="display: none;">
+                    <h4>🔢 Your Results</h4>
+                    <div class="stat-row">
+                        <span class="stat-label">Latest Time</span>
+                        <span class="stat-value" id="latestTime">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Best Time</span>
+                        <span class="stat-value" id="bestTime">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Average Time</span>
+                        <span class="stat-value" id="avgTime">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Accuracy</span>
+                        <span class="stat-value" id="accuracy">—</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About the Number Speed Test</h2>
+                <p>The number speed test measures how quickly you can recognize and respond to numerical stimuli. This
+                    involves symbol recognition, short-term memory recall, and motor response — all compressed into
+                    milliseconds.</p>
+
+                <h3>Why Number Processing Matters</h3>
+                <ul>
+                    <li><strong>In-game HUD reading:</strong> Process ammo counts, health values, and timers instantly
+                    </li>
+                    <li><strong>Economy management:</strong> Quick calculations for buy rounds and resource tracking
+                    </li>
+                    <li><strong>Callouts:</strong> Instantly recognize and communicate enemy counts and positions</li>
+                </ul>
+
+                <h3>Tips for Improvement</h3>
+                <ul>
+                    <li>Use the number row keys rather than the numpad for faster access</li>
+                    <li>Keep your fingers positioned near the number keys during practice</li>
+                    <li>Focus on the center of the screen where the number appears</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="memory-sequence-test.html" class="rec-card">
+                        <div class="rec-icon">🧠</div>
+                        <h3>Memory Sequence</h3>
+                        <p>Test pattern memory and recall</p>
+                    </a>
+                    <a href="typing-speed-test.html" class="rec-card">
+                        <div class="rec-icon">⌨️</div>
+                        <h3>Typing Speed Test</h3>
+                        <p>Measure WPM and accuracy</p>
+                    </a>
+                    <a href="click-speed-test.html" class="rec-card">
+                        <div class="rec-icon">🖱️</div>
+                        <h3>Click Speed Test</h3>
+                        <p>Measure your CPS rate</p>
+                    </a>
+                    <a href="color-match-test.html" class="rec-card">
+                        <div class="rec-icon">🎨</div>
+                        <h3>Color Match Test</h3>
+                        <p>Match colors quickly</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            const numberDisplay = document.getElementById('numberDisplay');
+            const displayText = document.getElementById('displayText');
+            const reactionDisplay = document.getElementById('reactionDisplay');
+            const resetBtn = document.getElementById('resetBtn');
+            const statsPanel = document.getElementById('statsPanel');
+
+            let currentNumber = null;
+            let startTime = 0;
+            let state = 'waiting';
+            let timeoutId = null;
+            let results = ReflexStore.get('number_results', []);
+            let correct = ReflexStore.get('number_correct', 0);
+            let total = ReflexStore.get('number_total', 0);
+
+            function updateStats() {
+                if (results.length === 0) {
+                    statsPanel.style.display = 'none';
+                    return;
+                }
+                statsPanel.style.display = 'block';
+                document.getElementById('latestTime').textContent = results[results.length - 1] + 'ms';
+                document.getElementById('bestTime').textContent = Math.min(...results) + 'ms';
+                document.getElementById('avgTime').textContent = Math.round(results.reduce((a, b) => a + b, 0) / results.length) + 'ms';
+                document.getElementById('accuracy').textContent = total > 0 ? Math.round((correct / total) * 100) + '%' : '—';
+            }
+
+            function showNumber() {
+                currentNumber = Math.floor(Math.random() * 9) + 1;
+                displayText.textContent = currentNumber;
+                displayText.style.fontSize = '6rem';
+                numberDisplay.classList.add('active');
+                startTime = performance.now();
+                state = 'active';
+            }
+
+            function startRound() {
+                state = 'ready';
+                displayText.textContent = 'Get ready...';
+                displayText.style.fontSize = '1.5rem';
+                reactionDisplay.style.display = 'none';
+                numberDisplay.classList.remove('active');
+
+                timeoutId = setTimeout(() => {
+                    showNumber();
+                }, 1000 + Math.random() * 2000);
+            }
+
+            function handleKeyPress(e) {
+                if (e.key >= '1' && e.key <= '9') {
+                    if (state === 'waiting') {
+                        startRound();
+                    } else if (state === 'ready') {
+                        clearTimeout(timeoutId);
+                        displayText.textContent = 'Too early! Press any key...';
+                        state = 'waiting';
+                    } else if (state === 'active') {
+                        const reactionTime = Math.round(performance.now() - startTime);
+                        const pressed = parseInt(e.key);
+                        total++;
+
+                        if (pressed === currentNumber) {
+                            correct++;
+                            results.push(reactionTime);
+                            reactionDisplay.textContent = reactionTime + 'ms ✓';
+                            reactionDisplay.style.color = 'var(--accent-green)';
+                        } else {
+                            reactionDisplay.textContent = 'Wrong! Was ' + currentNumber;
+                            reactionDisplay.style.color = 'var(--accent-red)';
+                        }
+
+                        reactionDisplay.style.display = 'block';
+                        ReflexStore.set('number_results', results);
+                        ReflexStore.set('number_correct', correct);
+                        ReflexStore.set('number_total', total);
+                        updateStats();
+
+                        numberDisplay.classList.remove('active');
+                        displayText.textContent = 'Press any key...';
+                        displayText.style.fontSize = '1.5rem';
+                        state = 'waiting';
+                    }
+                }
+            }
+
+            document.addEventListener('keydown', handleKeyPress);
+
+            resetBtn.addEventListener('click', function () {
+                results = [];
+                correct = 0;
+                total = 0;
+                ReflexStore.set('number_results', []);
+                ReflexStore.set('number_correct', 0);
+                ReflexStore.set('number_total', 0);
+                reactionDisplay.style.display = 'none';
+                displayText.textContent = 'Press any key to start';
+                state = 'waiting';
+                updateStats();
+            });
+
+            updateStats();
+        })();
+    </script>
+</body>
+
+</html>

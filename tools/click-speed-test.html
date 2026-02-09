@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Speed Test (CPS) — How Fast Can You Click? [Free 2025]</title>
+    <meta name="description" content="How many clicks per second can you do? Test your CPS with our instant click speed counter. Average is 6.5 CPS — try to beat it. Choose 5s, 10s, or 30s intervals. 100% free.">
+    <meta name="keywords" content="click speed test, cps test, clicks per second test, how fast can i click, click counter, cps counter, jitter click test, butterfly click test, click speed challenge, mouse click speed, cps test online, clicking speed test, fast clicker test, click test game">
+    <link rel="canonical" href="https://reflextester.fun/tools/click-speed-test.html">
+
+    <meta property="og:title" content="Click Speed Test — CPS Counter">
+    <meta property="og:description"
+        content="How fast can you click? Measure your CPS (clicks per second) with timed challenges.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Click Speed Test",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../index.html#tools" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../index.html#tools">Tools</a>
+                <span class="separator">›</span>
+                <span>Click Speed Test</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🖱️ Click Speed Test</h1>
+                <p class="test-desc">Click as fast as you can! Measure your CPS (clicks per second) over different time
+                    intervals.</p>
+
+                <div class="cps-duration-options">
+                    <button class="cps-duration-btn active" data-duration="5">5 Sec</button>
+                    <button class="cps-duration-btn" data-duration="10">10 Sec</button>
+                    <button class="cps-duration-btn" data-duration="30">30 Sec</button>
+                </div>
+
+                <div class="cps-area" id="cpsArea" role="button" tabindex="0">
+                    <div class="cps-count" id="clickCount">0</div>
+                    <div class="cps-timer" id="timerDisplay">Click to Start</div>
+                </div>
+
+                <div class="reaction-display" id="resultDisplay" style="display: none;"></div>
+
+                <div class="test-actions">
+                    <button class="btn btn-secondary" id="resetBtn">Reset</button>
+                </div>
+
+                <div class="stats-panel" id="statsPanel" style="display: none;">
+                    <h4>🖱️ Your CPS Results</h4>
+                    <div class="stat-row">
+                        <span class="stat-label">Latest CPS</span>
+                        <span class="stat-value" id="latestCps">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Best CPS</span>
+                        <span class="stat-value" id="bestCps">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Total Clicks</span>
+                        <span class="stat-value" id="totalClicks">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About the Click Speed Test</h2>
+                <p>The CPS (clicks per second) test measures how rapidly you can click your mouse button. This skill is
+                    particularly important in games like Minecraft PvP, where higher click rates can give you a
+                    significant advantage in combat.</p>
+
+                <h3>Click Techniques</h3>
+                <ul>
+                    <li><strong>Regular clicking:</strong> 4-6 CPS — Standard clicking with your index finger</li>
+                    <li><strong>Jitter clicking:</strong> 8-14 CPS — Tensing your arm to create rapid vibrations</li>
+                    <li><strong>Butterfly clicking:</strong> 15-25+ CPS — Alternating between two fingers rapidly</li>
+                    <li><strong>Drag clicking:</strong> 25-100+ CPS — Dragging finger across textured mouse buttons</li>
+                </ul>
+
+                <h3>Average CPS Benchmarks</h3>
+                <ul>
+                    <li><strong>1-4 CPS:</strong> Slow — Below average clicking speed</li>
+                    <li><strong>5-7 CPS:</strong> Average — Normal clicking for most users</li>
+                    <li><strong>8-10 CPS:</strong> Fast — Above average, good for gaming</li>
+                    <li><strong>11-14 CPS:</strong> Very Fast — Competitive level for Minecraft PvP</li>
+                    <li><strong>15+ CPS:</strong> Exceptional — Pro-level clicking techniques required</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="visual-reflex-test.html" class="rec-card">
+                        <div class="rec-icon">⚡</div>
+                        <h3>Visual Reflex Test</h3>
+                        <p>Measure raw reaction time</p>
+                    </a>
+                    <a href="csgo-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🎯</div>
+                        <h3>CS:GO Aim Trainer</h3>
+                        <p>3D shooting range practice</p>
+                    </a>
+                    <a href="cod-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🔫</div>
+                        <h3>COD Aim Trainer</h3>
+                        <p>Military shooting range targets</p>
+                    </a>
+                    <a href="hand-eye-coordination-test.html" class="rec-card">
+                        <div class="rec-icon">🎯</div>
+                        <h3>Hand-Eye Coordination</h3>
+                        <p>Hit moving targets with precision</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            const cpsArea = document.getElementById('cpsArea');
+            const clickCount = document.getElementById('clickCount');
+            const timerDisplay = document.getElementById('timerDisplay');
+            const resultDisplay = document.getElementById('resultDisplay');
+            const statsPanel = document.getElementById('statsPanel');
+            const resetBtn = document.getElementById('resetBtn');
+            const durationBtns = document.querySelectorAll('.cps-duration-btn');
+
+            let duration = 5;
+            let clicks = 0;
+            let isRunning = false;
+            let intervalId = null;
+            let timeLeft = 0;
+            let results = ReflexStore.get('cps_results', []);
+
+            durationBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (isRunning) return;
+                    durationBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    duration = parseInt(this.dataset.duration);
+                    reset();
+                });
+            });
+
+            function updateStats() {
+                if (results.length === 0) {
+                    statsPanel.style.display = 'none';
+                    return;
+                }
+                statsPanel.style.display = 'block';
+                document.getElementById('latestCps').textContent = results[results.length - 1].toFixed(2);
+                document.getElementById('bestCps').textContent = Math.max(...results).toFixed(2);
+                document.getElementById('totalClicks').textContent = results.reduce((a, b) => a + Math.round(b * duration), 0);
+            }
+
+            function startTest() {
+                isRunning = true;
+                clicks = 0;
+                timeLeft = duration;
+                clickCount.textContent = '0';
+                timerDisplay.textContent = timeLeft + 's remaining';
+                resultDisplay.style.display = 'none';
+                cpsArea.classList.add('active');
+
+                intervalId = setInterval(function () {
+                    timeLeft--;
+                    timerDisplay.textContent = timeLeft + 's remaining';
+                    if (timeLeft <= 0) {
+                        endTest();
+                    }
+                }, 1000);
+            }
+
+            function endTest() {
+                clearInterval(intervalId);
+                isRunning = false;
+                cpsArea.classList.remove('active');
+                const cps = clicks / duration;
+                results.push(cps);
+                ReflexStore.set('cps_results', results);
+                resultDisplay.textContent = cps.toFixed(2) + ' CPS';
+                resultDisplay.style.display = 'block';
+                timerDisplay.textContent = 'Click to try again';
+                updateStats();
+            }
+
+            function reset() {
+                clearInterval(intervalId);
+                isRunning = false;
+                clicks = 0;
+                clickCount.textContent = '0';
+                timerDisplay.textContent = 'Click to Start';
+                resultDisplay.style.display = 'none';
+                cpsArea.classList.remove('active');
+            }
+
+            cpsArea.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (!isRunning) {
+                    startTest();
+                }
+                if (isRunning) {
+                    clicks++;
+                    clickCount.textContent = clicks;
+                }
+            });
+
+            resetBtn.addEventListener('click', function () {
+                results = [];
+                ReflexStore.set('cps_results', []);
+                reset();
+                updateStats();
+            });
+
+            updateStats();
+        })();
+    </script>
+</body>
+
+</html>

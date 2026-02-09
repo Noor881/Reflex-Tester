@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stroop Effect Test — Can Your Brain Beat the Trick? [Free]</title>
+    <meta name="description" content="Can your brain ignore the trick? Word says RED but it is blue — pick the right color. Tests cognitive flexibility and focus. Most people get 70% right — can you beat it? Free online test.">
+    <meta name="keywords" content="stroop effect test, stroop test, cognitive interference test, color word test, brain test, stroop test online free, cognitive flexibility test, stroop challenge, attention test, focus test, brain trick test, mental interference test, psychology test free">
+    <link rel="canonical" href="https://reflextester.fun/tools/stroop-effect-test.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Stroop Effect Test",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../index.html#tools" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../index.html#tools">Tools</a>
+                <span class="separator">›</span>
+                <span>Stroop Effect Test</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🧩 Stroop Effect Test</h1>
+                <p class="test-desc">Click the button that matches the <strong>COLOR</strong> of the text, not what the
+                    word says!</p>
+
+                <div class="stroop-word" id="stroopWord">RED</div>
+
+                <div class="stroop-options" id="stroopOptions">
+                    <button class="stroop-btn" data-color="red" style="background: #ff6b6b;">RED</button>
+                    <button class="stroop-btn" data-color="blue" style="background: #45b7d1;">BLUE</button>
+                    <button class="stroop-btn" data-color="green" style="background: #4cd964;">GREEN</button>
+                    <button class="stroop-btn" data-color="yellow"
+                        style="background: #ffc107; color: #1a1a2e;">YELLOW</button>
+                </div>
+
+                <div class="stroop-progress">
+                    <span id="progressText">Round 0 / 20</span>
+                </div>
+
+                <div class="reaction-display" id="resultDisplay" style="display: none;"></div>
+
+                <div class="test-actions">
+                    <button class="btn btn-primary" id="startBtn">Start Test</button>
+                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
+                </div>
+
+                <div class="stats-panel" id="statsPanel" style="display: none;">
+                    <h4>🧩 Your Results</h4>
+                    <div class="stat-row">
+                        <span class="stat-label">Last Score</span>
+                        <span class="stat-value" id="lastScore">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Best Score</span>
+                        <span class="stat-value" id="bestScore">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Avg Reaction</span>
+                        <span class="stat-value" id="avgReaction">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Tests Completed</span>
+                        <span class="stat-value" id="testCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About the Stroop Effect</h2>
+                <p>The Stroop effect demonstrates the interference that occurs when the brain tries to process
+                    conflicting information. When you see the word "RED" printed in blue ink, your brain automatically
+                    reads the word, creating conflict with the task of naming the ink color.</p>
+
+                <h3>How It Works</h3>
+                <p>Reading is a highly automated process — we do it without thinking. But when the word meaning
+                    conflicts with the visual information (the ink color), your brain needs extra time to resolve the
+                    conflict. This is why Stroop tasks are slower and more error-prone than simple color naming.</p>
+
+                <h3>Why This Matters for Gaming</h3>
+                <ul>
+                    <li><strong>Information filtering:</strong> Ignore irrelevant UI elements during combat</li>
+                    <li><strong>Focus under pressure:</strong> Maintain concentration when multiple things compete for
+                        attention</li>
+                    <li><strong>Decision making:</strong> Choose the right action when conflicting inputs exist</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="color-match-test.html" class="rec-card">
+                        <div class="rec-icon">🎨</div>
+                        <h3>Color Match Test</h3>
+                        <p>Match colors as fast as possible</p>
+                    </a>
+                    <a href="memory-sequence-test.html" class="rec-card">
+                        <div class="rec-icon">🧠</div>
+                        <h3>Memory Sequence</h3>
+                        <p>Test pattern memory and recall</p>
+                    </a>
+                    <a href="visual-reflex-test.html" class="rec-card">
+                        <div class="rec-icon">⚡</div>
+                        <h3>Visual Reflex Test</h3>
+                        <p>Measure raw reaction time</p>
+                    </a>
+                    <a href="peripheral-vision-test.html" class="rec-card">
+                        <div class="rec-icon">👁️</div>
+                        <h3>Peripheral Vision</h3>
+                        <p>Spot targets in your side vision</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            const stroopWord = document.getElementById('stroopWord');
+            const stroopOptions = document.getElementById('stroopOptions');
+            const buttons = document.querySelectorAll('.stroop-btn');
+            const progressText = document.getElementById('progressText');
+            const resultDisplay = document.getElementById('resultDisplay');
+            const startBtn = document.getElementById('startBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const statsPanel = document.getElementById('statsPanel');
+
+            const colors = {
+                red: '#ff6b6b',
+                blue: '#45b7d1',
+                green: '#4cd964',
+                yellow: '#ffc107'
+            };
+            const colorNames = Object.keys(colors);
+            const TOTAL_ROUNDS = 20;
+
+            let isPlaying = false;
+            let round = 0;
+            let correctColor = '';
+            let startTime = 0;
+            let reactionTimes = [];
+            let correctCount = 0;
+            let results = ReflexStore.get('stroop_results', []);
+
+            function updateStats() {
+                if (results.length === 0) {
+                    statsPanel.style.display = 'none';
+                    return;
+                }
+                statsPanel.style.display = 'block';
+                const last = results[results.length - 1];
+                document.getElementById('lastScore').textContent = last.score + ' / ' + TOTAL_ROUNDS;
+                document.getElementById('bestScore').textContent = Math.max(...results.map(r => r.score)) + ' / ' + TOTAL_ROUNDS;
+                document.getElementById('avgReaction').textContent = last.avgTime + 'ms';
+                document.getElementById('testCount').textContent = results.length;
+            }
+
+            function showWord() {
+                const wordName = colorNames[Math.floor(Math.random() * colorNames.length)];
+                correctColor = colorNames[Math.floor(Math.random() * colorNames.length)];
+
+                stroopWord.textContent = wordName.toUpperCase();
+                stroopWord.style.color = colors[correctColor];
+                startTime = performance.now();
+            }
+
+            function startGame() {
+                isPlaying = true;
+                round = 0;
+                reactionTimes = [];
+                correctCount = 0;
+                resultDisplay.style.display = 'none';
+                startBtn.disabled = true;
+                stroopOptions.style.pointerEvents = 'auto';
+                nextRound();
+            }
+
+            function nextRound() {
+                if (round >= TOTAL_ROUNDS) {
+                    endGame();
+                    return;
+                }
+                round++;
+                progressText.textContent = 'Round ' + round + ' / ' + TOTAL_ROUNDS;
+                showWord();
+            }
+
+            function endGame() {
+                isPlaying = false;
+                startBtn.disabled = false;
+                startBtn.textContent = 'Play Again';
+                stroopOptions.style.pointerEvents = 'none';
+
+                const avgTime = reactionTimes.length > 0 ? Math.round(reactionTimes.reduce((a, b) => a + b, 0) / reactionTimes.length) : 0;
+                const result = { score: correctCount, avgTime };
+                results.push(result);
+                ReflexStore.set('stroop_results', results);
+
+                resultDisplay.textContent = 'Score: ' + correctCount + '/' + TOTAL_ROUNDS + ' — Avg: ' + avgTime + 'ms';
+                resultDisplay.style.display = 'block';
+                updateStats();
+            }
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (!isPlaying) return;
+                    const reactionTime = Math.round(performance.now() - startTime);
+                    reactionTimes.push(reactionTime);
+
+                    if (this.dataset.color === correctColor) {
+                        correctCount++;
+                        this.classList.add('correct');
+                    } else {
+                        this.classList.add('wrong');
+                    }
+
+                    setTimeout(() => {
+                        buttons.forEach(b => b.classList.remove('correct', 'wrong'));
+                        nextRound();
+                    }, 200);
+                });
+            });
+
+            startBtn.addEventListener('click', startGame);
+
+            resetBtn.addEventListener('click', function () {
+                results = [];
+                ReflexStore.set('stroop_results', []);
+                resultDisplay.style.display = 'none';
+                stroopWord.textContent = 'RED';
+                stroopWord.style.color = colors.blue;
+                progressText.textContent = 'Round 0 / 20';
+                startBtn.textContent = 'Start Test';
+                updateStats();
+            });
+
+            stroopOptions.style.pointerEvents = 'none';
+            updateStats();
+        })();
+    </script>
+</body>
+
+</html>

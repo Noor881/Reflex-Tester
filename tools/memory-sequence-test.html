@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Sequence Test — How Good Is Your Memory? [Free Game]</title>
+    <meta name="description" content="How many patterns can you remember? Test your short-term memory by repeating sequences. Most people fail at level 7 — how far can you go? Free, no sign-up, instant results.">
+    <meta name="keywords" content="memory sequence test, memory test, sequence memory game, short term memory test, working memory test, memory test online free, pattern memory test, memory game online, brain memory test, how good is my memory, memory training game, cognitive memory test">
+    <link rel="canonical" href="https://reflextester.fun/tools/memory-sequence-test.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Memory Sequence Test",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../index.html#tools" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../index.html#tools">Tools</a>
+                <span class="separator">›</span>
+                <span>Memory Sequence Test</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🧠 Memory Sequence Test</h1>
+                <p class="test-desc">Watch the tiles light up, then repeat the sequence in the same order. How far can
+                    you go?</p>
+
+                <div class="sequence-grid" id="sequenceGrid">
+                    <div class="sequence-tile" data-index="0">1</div>
+                    <div class="sequence-tile" data-index="1">2</div>
+                    <div class="sequence-tile" data-index="2">3</div>
+                    <div class="sequence-tile" data-index="3">4</div>
+                    <div class="sequence-tile" data-index="4">5</div>
+                    <div class="sequence-tile" data-index="5">6</div>
+                    <div class="sequence-tile" data-index="6">7</div>
+                    <div class="sequence-tile" data-index="7">8</div>
+                    <div class="sequence-tile" data-index="8">9</div>
+                </div>
+
+                <div id="statusDisplay" style="font-size: 1.2em; margin: 20px 0; color: var(--text-secondary);">Click
+                    "Start" to begin</div>
+
+                <div class="test-actions">
+                    <button class="btn btn-primary" id="startBtn">Start Game</button>
+                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
+                </div>
+
+                <div class="stats-panel" id="statsPanel" style="display: none;">
+                    <h4>🧠 Your Memory Stats</h4>
+                    <div class="stat-row">
+                        <span class="stat-label">Current Level</span>
+                        <span class="stat-value" id="currentLevel">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Best Level</span>
+                        <span class="stat-value" id="bestLevel">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Games Played</span>
+                        <span class="stat-value" id="gamesPlayed">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About the Memory Sequence Test</h2>
+                <p>The memory sequence test measures your working memory capacity — the ability to hold and manipulate
+                    information in your mind for short periods. This cognitive function is crucial for gaming, where you
+                    need to track multiple elements simultaneously.</p>
+
+                <h3>Working Memory in Gaming</h3>
+                <ul>
+                    <li><strong>Tracking enemies:</strong> Remember positions of multiple opponents</li>
+                    <li><strong>Ability cooldowns:</strong> Keep track of which abilities are available</li>
+                    <li><strong>Map awareness:</strong> Remember callouts and locations</li>
+                    <li><strong>Economy:</strong> Track team resources in competitive games</li>
+                </ul>
+
+                <h3>Memory Level Benchmarks</h3>
+                <ul>
+                    <li><strong>Level 3-4:</strong> Average — Normal working memory capacity</li>
+                    <li><strong>Level 5-6:</strong> Good — Above average memory span</li>
+                    <li><strong>Level 7-8:</strong> Excellent — Well-trained working memory</li>
+                    <li><strong>Level 9+:</strong> Exceptional — Elite cognitive capacity</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="color-match-test.html" class="rec-card">
+                        <div class="rec-icon">🎨</div>
+                        <h3>Color Match Test</h3>
+                        <p>Match colors as fast as possible</p>
+                    </a>
+                    <a href="number-speed-test.html" class="rec-card">
+                        <div class="rec-icon">🔢</div>
+                        <h3>Number Speed Test</h3>
+                        <p>Click numbers in ascending order</p>
+                    </a>
+                    <a href="stroop-effect-test.html" class="rec-card">
+                        <div class="rec-icon">🧪</div>
+                        <h3>Stroop Effect Test</h3>
+                        <p>Test cognitive flexibility</p>
+                    </a>
+                    <a href="peripheral-vision-test.html" class="rec-card">
+                        <div class="rec-icon">👁️</div>
+                        <h3>Peripheral Vision</h3>
+                        <p>Spot targets in side vision</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            const grid = document.getElementById('sequenceGrid');
+            const tiles = grid.querySelectorAll('.sequence-tile');
+            const statusDisplay = document.getElementById('statusDisplay');
+            const startBtn = document.getElementById('startBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const statsPanel = document.getElementById('statsPanel');
+
+            let sequence = [];
+            let playerIndex = 0;
+            let level = 0;
+            let isPlaying = false;
+            let isShowingSequence = false;
+            let bestLevel = ReflexStore.get('memory_best', 0);
+            let gamesPlayed = ReflexStore.get('memory_games', 0);
+
+            function updateStats() {
+                if (gamesPlayed === 0 && bestLevel === 0) {
+                    statsPanel.style.display = 'none';
+                    return;
+                }
+                statsPanel.style.display = 'block';
+                document.getElementById('currentLevel').textContent = level || '—';
+                document.getElementById('bestLevel').textContent = bestLevel || '—';
+                document.getElementById('gamesPlayed').textContent = gamesPlayed;
+            }
+
+            function flashTile(index, duration) {
+                return new Promise(resolve => {
+                    tiles[index].classList.add('active');
+                    setTimeout(() => {
+                        tiles[index].classList.remove('active');
+                        setTimeout(resolve, 200);
+                    }, duration);
+                });
+            }
+
+            async function showSequence() {
+                isShowingSequence = true;
+                statusDisplay.textContent = 'Watch the sequence...';
+                await new Promise(r => setTimeout(r, 500));
+
+                for (let i = 0; i < sequence.length; i++) {
+                    await flashTile(sequence[i], 400);
+                }
+
+                isShowingSequence = false;
+                statusDisplay.textContent = 'Your turn! Repeat the sequence';
+            }
+
+            function addToSequence() {
+                sequence.push(Math.floor(Math.random() * 9));
+                level = sequence.length;
+                document.getElementById('currentLevel').textContent = level;
+            }
+
+            function startGame() {
+                sequence = [];
+                playerIndex = 0;
+                level = 0;
+                isPlaying = true;
+                startBtn.textContent = 'Playing...';
+                startBtn.disabled = true;
+                addToSequence();
+                showSequence();
+                updateStats();
+            }
+
+            function endGame() {
+                isPlaying = false;
+                startBtn.textContent = 'Play Again';
+                startBtn.disabled = false;
+                gamesPlayed++;
+                if (level > bestLevel) bestLevel = level;
+                ReflexStore.set('memory_best', bestLevel);
+                ReflexStore.set('memory_games', gamesPlayed);
+                statusDisplay.textContent = 'Game Over! You reached level ' + level;
+                updateStats();
+            }
+
+            function handleTileClick(index) {
+                if (!isPlaying || isShowingSequence) return;
+
+                tiles[index].classList.add('active');
+                setTimeout(() => tiles[index].classList.remove('active'), 150);
+
+                if (index === sequence[playerIndex]) {
+                    playerIndex++;
+                    if (playerIndex === sequence.length) {
+                        playerIndex = 0;
+                        statusDisplay.textContent = 'Correct! Next level...';
+                        setTimeout(() => {
+                            addToSequence();
+                            showSequence();
+                        }, 800);
+                    }
+                } else {
+                    endGame();
+                }
+            }
+
+            tiles.forEach((tile, i) => {
+                tile.addEventListener('click', () => handleTileClick(i));
+            });
+
+            startBtn.addEventListener('click', startGame);
+
+            resetBtn.addEventListener('click', function () {
+                bestLevel = 0;
+                gamesPlayed = 0;
+                ReflexStore.set('memory_best', 0);
+                ReflexStore.set('memory_games', 0);
+                updateStats();
+            });
+
+            updateStats();
+        })();
+    </script>
+</body>
+
+</html>

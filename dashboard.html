@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dashboard — Track Progress | ReflexTester.fun</title>
+    <meta name="description"
+        content="View your personal reflex testing stats and track progress over time. See your best scores, averages, and improvement trends.">
+    <link rel="canonical" href="https://reflextester.fun/dashboard.html">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .dashboard-hero {
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+
+        .dashboard-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            padding: 40px 0;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .stat-card h3 {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat-card .value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .stat-card .subtitle {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .history-section {
+            margin-top: 40px;
+        }
+
+        .history-section h2 {
+            margin-bottom: 24px;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .history-table th,
+        .history-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .history-table th {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 60px;
+            color: var(--text-muted);
+        }
+
+        .no-data .icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .clear-btn {
+            margin-top: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="index.html#tools" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <section class="dashboard-hero">
+            <div class="container">
+                <h1>📊 Your Dashboard</h1>
+                <p>Track your reflex testing progress and see how you stack up against benchmarks.</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="dashboard-grid" id="statsGrid">
+                <div class="stat-card">
+                    <h3>⚡ Visual Reflex</h3>
+                    <div class="value" id="visualBest">—</div>
+                    <div class="subtitle">Best Time (ms)</div>
+                </div>
+                <div class="stat-card">
+                    <h3>🔊 Audio Reflex</h3>
+                    <div class="value" id="audioBest">—</div>
+                    <div class="subtitle">Best Time (ms)</div>
+                </div>
+                <div class="stat-card">
+                    <h3>🖱️ Click Speed</h3>
+                    <div class="value" id="cpsBest">—</div>
+                    <div class="subtitle">Best CPS</div>
+                </div>
+                <div class="stat-card">
+                    <h3>⌨️ Typing Speed</h3>
+                    <div class="value" id="typingBest">—</div>
+                    <div class="subtitle">Best WPM</div>
+                </div>
+                <div class="stat-card">
+                    <h3>🧠 Memory Sequence</h3>
+                    <div class="value" id="memoryBest">—</div>
+                    <div class="subtitle">Best Level</div>
+                </div>
+                <div class="stat-card">
+                    <h3>🎯 CS:GO Aim</h3>
+                    <div class="value" id="csgoBest">—</div>
+                    <div class="subtitle">Best Score</div>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h2>Test History</h2>
+                <div id="historyContainer">
+                    <div class="no-data">
+                        <div class="icon">📋</div>
+                        <p>No test data yet. Complete some tests to see your history!</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-secondary clear-btn" id="clearBtn">Clear All Data</button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        (function () {
+            function loadStats() {
+                const visual = ReflexStore.get('visual_results', []);
+                const audio = ReflexStore.get('audio_results', []);
+                const cps = ReflexStore.get('cps_results', []);
+                const typing = ReflexStore.get('typing_results', []);
+                const memory = ReflexStore.get('memory_results', []);
+                const csgo = ReflexStore.get('csgo_results', []);
+
+                document.getElementById('visualBest').textContent = visual.length ? Math.min(...visual) + 'ms' : '—';
+                document.getElementById('audioBest').textContent = audio.length ? Math.min(...audio) + 'ms' : '—';
+                document.getElementById('cpsBest').textContent = cps.length ? Math.max(...cps.map(r => r.cps)).toFixed(1) : '—';
+                document.getElementById('typingBest').textContent = typing.length ? Math.max(...typing.map(r => r.wpm)) : '—';
+                document.getElementById('memoryBest').textContent = memory.length ? Math.max(...memory.map(r => r.level)) : '—';
+                document.getElementById('csgoBest').textContent = csgo.length ? Math.max(...csgo.map(r => r.score)) : '—';
+
+                const historyContainer = document.getElementById('historyContainer');
+                const allResults = [];
+
+                visual.forEach((r, i) => allResults.push({ test: 'Visual Reflex', result: r + 'ms', index: i }));
+                audio.forEach((r, i) => allResults.push({ test: 'Audio Reflex', result: r + 'ms', index: i }));
+                cps.forEach((r, i) => allResults.push({ test: 'Click Speed', result: r.cps.toFixed(1) + ' CPS', index: i }));
+
+                if (allResults.length > 0) {
+                    const table = document.createElement('table');
+                    table.className = 'history-table';
+                    table.innerHTML = '<thead><tr><th>Test</th><th>Result</th></tr></thead><tbody>' +
+                        allResults.slice(-20).reverse().map(r => '<tr><td>' + r.test + '</td><td>' + r.result + '</td></tr>').join('') +
+                        '</tbody>';
+                    historyContainer.innerHTML = '';
+                    historyContainer.appendChild(table);
+                }
+            }
+
+            document.getElementById('clearBtn').addEventListener('click', function () {
+                if (confirm('Are you sure you want to clear all test data?')) {
+                    localStorage.clear();
+                    location.reload();
+                }
+            });
+
+            loadStats();
+        })();
+    </script>
+</body>
+
+</html>

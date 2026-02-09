@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Reflex Training Tips & Guides | ReflexTester.fun</title>
+    <meta name="description"
+        content="Read our latest articles on improving reaction time, gaming performance, and cognitive training. Expert tips for gamers and athletes.">
+    <link rel="canonical" href="https://reflextester.fun/blog.html">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-hero {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+
+        .blog-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            padding: 40px 0 80px;
+        }
+
+        .blog-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-card-image {
+            height: 200px;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .blog-card-content {
+            padding: 24px;
+        }
+
+        .blog-card-meta {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .blog-card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .blog-card h2 a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .blog-card h2 a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .blog-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .blog-card-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--bg-tertiary);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            margin-top: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="blog.html" class="nav-link active">Blog</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="index.html#tools" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <section class="blog-hero">
+            <div class="container">
+                <h1>📚 Blog</h1>
+                <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                    Tips, guides, and insights to help you improve your reflexes and gaming performance.
+                </p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-card-image">⚡</div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">January 15, 2025 • 8 min read</div>
+                        <h2><a href="#">How to Improve Your Reaction Time: A Complete Guide</a></h2>
+                        <p>Learn the science behind reaction time and discover proven techniques to shave milliseconds
+                            off your response speed.</p>
+                        <span class="blog-card-tag">Training Tips</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-image">🎮</div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">January 10, 2025 • 6 min read</div>
+                        <h2><a href="#">Why Pro Gamers Have Faster Reflexes (And How You Can Too)</a></h2>
+                        <p>Discover the training routines and habits that separate professional esports players from
+                            average gamers.</p>
+                        <span class="blog-card-tag">Gaming</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-image">🧠</div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">January 5, 2025 • 10 min read</div>
+                        <h2><a href="#">The Neuroscience of Fast Reactions</a></h2>
+                        <p>Explore how your brain processes stimuli and sends motor commands, and what you can do to
+                            optimize this pathway.</p>
+                        <span class="blog-card-tag">Science</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-image">🖥️</div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">December 28, 2024 • 5 min read</div>
+                        <h2><a href="#">Best Gaming Monitor Settings for Lower Input Lag</a></h2>
+                        <p>Optimize your display settings to minimize input lag and get the most accurate reflex test
+                            results.</p>
+                        <span class="blog-card-tag">Hardware</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-image">😴</div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">December 20, 2024 • 7 min read</div>
+                        <h2><a href="#">How Sleep Affects Your Gaming Performance</a></h2>
+                        <p>Research shows that sleep-deprived gamers have 30% slower reaction times. Here's how to
+                            optimize your rest.</p>
+                        <span class="blog-card-tag">Health</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-image">🎯</div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">December 15, 2024 • 9 min read</div>
+                        <h2><a href="#">CS:GO Aim Training: From Beginner to Pro</a></h2>
+                        <p>A comprehensive aim training routine used by professional Counter-Strike players to maintain
+                            peak performance.</p>
+                        <span class="blog-card-tag">Training Tips</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="animations.js"></script>
+</body>
+
+</html>
