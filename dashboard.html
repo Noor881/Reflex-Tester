@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Dashboard — Track Progress | ReflexTester.fun</title>
+    <title>Your Dashboard — Track Progress | ReflexTester</title>
     <meta name="description"
         content="View your personal reflex testing stats and track progress over time. See your best scores, averages, and improvement trends.">
     <link rel="canonical" href="https://reflextester.fun/dashboard.html">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Your Dashboard — Track Progress | ReflexTester.fun">
+    <meta property="og:title" content="Your Dashboard — Track Progress | ReflexTester">
     <meta property="og:description"
         content="View your personal reflex testing stats and track progress over time. See your best scores, averages, and improvement trends.">
     <meta property="og:url" content="https://reflextester.fun/dashboard.html">
@@ -19,190 +19,414 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Dashboard — Track Your Progress | ReflexTester.fun">
+    <meta name="twitter:title" content="Dashboard — Track Your Progress | ReflexTester">
     <meta name="twitter:description" content="View your reflex testing stats and track progress over time.">
-    <link rel="stylesheet" href="styles.css">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        .dashboard-hero {
-            padding: 100px 0 60px;
+        :root {
+            --cream: #FAF7F2;
+            --charcoal: #2D2A24;
+            --gold: #C9A961;
+            --white: #FFFFFF;
+            --border: rgba(45, 42, 36, 0.2);
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--charcoal);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-family: 'Newsreader', serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .logo-text span {
+            color: var(--gold);
+            margin-left: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgba(45, 42, 36, 0.6);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--charcoal);
+        }
+
+        /* Page Header */
+        .page-hero {
+            padding: 80px 0 60px;
             text-align: center;
         }
 
-        .dashboard-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
+        .page-title {
+            font-family: 'Newsreader', serif;
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--charcoal);
         }
 
-        .dashboard-hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
+        .page-subtitle {
+            color: rgba(45, 42, 36, 0.6);
+            max-width: 640px;
             margin: 0 auto;
         }
 
-        .dashboard-grid {
+        /* Stats Grid */
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            padding: 40px 0;
+            margin: 48px 0;
+        }
+
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .stat-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            padding: 24px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 28px;
+            transition: all 0.3s;
         }
 
-        .stat-card h3 {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: rgba(45, 42, 36, 0.5);
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .stat-card .value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
+        .stat-value {
+            font-family: 'Newsreader', serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 8px;
         }
 
-        .stat-card .subtitle {
-            font-size: 0.875rem;
-            color: var(--text-muted);
+        .stat-subtitle {
+            font-size: 13px;
+            color: rgba(45, 42, 36, 0.6);
         }
 
+        /* History Section */
         .history-section {
-            margin-top: 40px;
+            margin: 80px 0;
         }
 
-        .history-section h2 {
-            margin-bottom: 24px;
+        .section-title {
+            font-family: 'Newsreader', serif;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            color: var(--charcoal);
         }
 
         .history-table {
             width: 100%;
-            border-collapse: collapse;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         .history-table th,
         .history-table td {
-            padding: 16px;
+            padding: 16px 24px;
             text-align: left;
-            border-bottom: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border);
         }
 
-        .history-table th {
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 0.875rem;
+        .history-table thead th {
+            background: rgba(45, 42, 36, 0.02);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: rgba(45, 42, 36, 0.5);
+        }
+
+        .history-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .history-table tbody tr:hover {
+            background: rgba(201, 169, 97, 0.05);
         }
 
         .no-data {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 80px 40px;
             text-align: center;
-            padding: 60px;
-            color: var(--text-muted);
         }
 
-        .no-data .icon {
-            font-size: 3rem;
-            margin-bottom: 16px;
+        .no-data-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.3;
         }
 
+        .no-data-text {
+            color: rgba(45, 42, 36, 0.6);
+            font-size: 16px;
+        }
+
+        /* Clear Button */
         .clear-btn {
             margin-top: 24px;
+            padding: 12px 24px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: rgba(45, 42, 36, 0.7);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .clear-btn:hover {
+            border-color: var(--charcoal);
+            color: var(--charcoal);
+            background: rgba(45, 42, 36, 0.02);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 48px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 40px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .footer-links a {
+            color: rgba(45, 42, 36, 0.6);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--charcoal);
+        }
+
+        .copyright {
+            color: rgba(45, 42, 36, 0.4);
+            font-size: 12px;
         }
     </style>
 </head>
 
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <div class="scroll-progress"></div>
-
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="dashboard.html" class="nav-link active">Dashboard</a>
-                <a href="blog.html" class="nav-link">Blog</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="index.html#tools" class="nav-cta">All Tools</a>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <div class="logo-icon">@</div>
+                    <div class="logo-text">ReflexTester<span>.fun</span></div>
+                </a>
+                <nav>
+                    <a href="/">Dashboard</a>
+                    <a href="/tools.html">All Tools</a>
+                    <a href="/blog.html">Blog</a>
+                    <a href="/about.html">About</a>
+                </nav>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
         </div>
-    </nav>
+    </header>
 
-    <main class="main-content" id="main">
-        <section class="dashboard-hero">
+    <main>
+        <section class="page-hero">
             <div class="container">
-                <h1>📊 Your Dashboard</h1>
-                <p>Track your reflex testing progress and see how you stack up against benchmarks.</p>
+                <h1 class="page-title">Your Dashboard</h1>
+                <p class="page-subtitle">
+                    Track your reflex testing progress and see how you stack up against benchmarks
+                </p>
             </div>
         </section>
 
-        <section class="container">
-            <div class="dashboard-grid" id="statsGrid">
+        <div class="container">
+            <div class="stats-grid">
                 <div class="stat-card">
-                    <h3>⚡ Visual Reflex</h3>
-                    <div class="value" id="visualBest">—</div>
-                    <div class="subtitle">Best Time (ms)</div>
+                    <div class="stat-label">⚡ Visual Reflex</div>
+                    <div class="stat-value" id="visualBest">—</div>
+                    <div class="stat-subtitle">Best Time (ms)</div>
                 </div>
                 <div class="stat-card">
-                    <h3>🔊 Audio Reflex</h3>
-                    <div class="value" id="audioBest">—</div>
-                    <div class="subtitle">Best Time (ms)</div>
+                    <div class="stat-label">🔊 Audio Reflex</div>
+                    <div class="stat-value" id="audioBest">—</div>
+                    <div class="stat-subtitle">Best Time (ms)</div>
                 </div>
                 <div class="stat-card">
-                    <h3>🖱️ Click Speed</h3>
-                    <div class="value" id="cpsBest">—</div>
-                    <div class="subtitle">Best CPS</div>
+                    <div class="stat-label">🖱 Click Speed</div>
+                    <div class="stat-value" id="cpsBest">—</div>
+                    <div class="stat-subtitle">Best CPS</div>
                 </div>
                 <div class="stat-card">
-                    <h3>⌨️ Typing Speed</h3>
-                    <div class="value" id="typingBest">—</div>
-                    <div class="subtitle">Best WPM</div>
+                    <div class="stat-label">⌨️ Typing Speed</div>
+                    <div class="stat-value" id="typingBest">—</div>
+                    <div class="stat-subtitle">Best WPM</div>
                 </div>
                 <div class="stat-card">
-                    <h3>🧠 Memory Sequence</h3>
-                    <div class="value" id="memoryBest">—</div>
-                    <div class="subtitle">Best Level</div>
+                    <div class="stat-label">🧠 Memory Sequence</div>
+                    <div class="stat-value" id="memoryBest">—</div>
+                    <div class="stat-subtitle">Best Level</div>
                 </div>
                 <div class="stat-card">
-                    <h3>🎯 CS:GO Aim</h3>
-                    <div class="value" id="csgoBest">—</div>
-                    <div class="subtitle">Best Score</div>
+                    <div class="stat-label">🎯 CS:GO Aim</div>
+                    <div class="stat-value" id="csgoBest">—</div>
+                    <div class="stat-subtitle">Best Score</div>
                 </div>
             </div>
 
-            <div class="history-section">
-                <h2>Test History</h2>
+            <section class="history-section">
+                <h2 class="section-title">Test History</h2>
                 <div id="historyContainer">
                     <div class="no-data">
-                        <div class="icon">📋</div>
-                        <p>No test data yet. Complete some tests to see your history!</p>
+                        <div class="no-data-icon">📋</div>
+                        <p class="no-data-text">No test data yet. Complete some tests to see your history!</p>
                     </div>
                 </div>
-            </div>
-
-            <button class="btn btn-secondary clear-btn" id="clearBtn">Clear All Data</button>
-        </section>
+                <button class="clear-btn" id="clearBtn">Clear All Data</button>
+            </section>
+        </div>
     </main>
 
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="/privacy-policy.html">Privacy Policy</a>
+                    <a href="/terms-of-service.html">Terms of Service</a>
+                    <a href="/contact.html">Contact</a>
+                </div>
+                <div class="copyright">
+                    © 2025 ReflexTester.fun — All rights reserved
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="app.js"></script>
-    <script src="animations.js"></script>
     <script>
+        // ReflexStore utility (minimal localStorage wrapper)
+        const ReflexStore = {
+            get: function (key, defaultValue) {
+                try {
+                    const value = localStorage.getItem(key);
+                    return value ? JSON.parse(value) : defaultValue;
+                } catch (e) {
+                    return defaultValue;
+                }
+            }
+        };
+
         (function () {
             function loadStats() {
                 const visual = ReflexStore.get('visual_results', []);
@@ -212,8 +436,8 @@
                 const memory = ReflexStore.get('memory_results', []);
                 const csgo = ReflexStore.get('csgo_results', []);
 
-                document.getElementById('visualBest').textContent = visual.length ? Math.min(...visual) + 'ms' : '—';
-                document.getElementById('audioBest').textContent = audio.length ? Math.min(...audio) + 'ms' : '—';
+                document.getElementById('visualBest').textContent = visual.length ? Math.min(...visual) : '—';
+                document.getElementById('audioBest').textContent = audio.length ? Math.min(...audio) : '—';
                 document.getElementById('cpsBest').textContent = cps.length ? Math.max(...cps.map(r => r.cps)).toFixed(1) : '—';
                 document.getElementById('typingBest').textContent = typing.length ? Math.max(...typing.map(r => r.wpm)) : '—';
                 document.getElementById('memoryBest').textContent = memory.length ? Math.max(...memory.map(r => r.level)) : '—';
@@ -225,6 +449,9 @@
                 visual.forEach((r, i) => allResults.push({ test: 'Visual Reflex', result: r + 'ms', index: i }));
                 audio.forEach((r, i) => allResults.push({ test: 'Audio Reflex', result: r + 'ms', index: i }));
                 cps.forEach((r, i) => allResults.push({ test: 'Click Speed', result: r.cps.toFixed(1) + ' CPS', index: i }));
+                typing.forEach((r, i) => allResults.push({ test: 'Typing Speed', result: r.wpm + ' WPM', index: i }));
+                memory.forEach((r, i) => allResults.push({ test: 'Memory Sequence', result: 'Level ' + r.level, index: i }));
+                csgo.forEach((r, i) => allResults.push({ test: 'CS:GO Aim', result: r.score + ' pts', index: i }));
 
                 if (allResults.length > 0) {
                     const table = document.createElement('table');

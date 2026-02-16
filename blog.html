@@ -4,579 +4,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog — Reflex Training Tips | ReflexTester.fun</title>
+    <title>Blog — Research & Insights on Human Performance | ReflexTester</title>
     <meta name="description"
-        content="Read our latest articles on improving reaction time, gaming performance, and cognitive training. Expert tips for gamers and athletes.">
+        content="Research, insights, and science behind human performance. Expert articles on reaction time, cognitive training, and performance optimization.">
     <link rel="canonical" href="https://reflextester.fun/blog.html">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Blog — Reflex Training Tips & Guides | ReflexTester.fun">
-    <meta property="og:description"
-        content="Read our latest articles on improving reaction time, gaming performance, and cognitive training. Expert tips for gamers and athletes.">
-    <meta property="og:url" content="https://reflextester.fun/blog.html">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="ReflexTester.fun">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Reflex Training Tips & Guides | ReflexTester.fun">
-    <meta name="twitter:description"
-        content="Expert articles on improving reaction time, gaming performance, and cognitive training.">
-    <link rel="stylesheet" href="styles.css">
     <style>
-        .blog-hero {
-            padding: 120px 0 60px;
-            text-align: center;
+        :root {
+            --cream: #FAF7F2;
+            --charcoal: #2D2A24;
+            --gold: #C9A961;
+            --white: #FFFFFF;
+            --border: rgba(45, 42, 36, 0.2);
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
         }
 
-        .blog-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-            padding: 40px 0 80px;
-        }
-
-        .blog-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .blog-card-image {
-            height: 200px;
-            background: var(--bg-tertiary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-
-        .blog-card-content {
-            padding: 24px;
-        }
-
-        .blog-card-meta {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-
-        .blog-card h2 {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .blog-card h2 a {
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .blog-card h2 a:hover {
-            color: var(--accent-cyan);
-        }
-
-        .blog-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
             line-height: 1.6;
         }
 
-        .blog-card-tag {
-            display: inline-block;
-            padding: 4px 10px;
-            background: var(--bg-tertiary);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            color: var(--accent-cyan);
-            margin-top: 16px;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
         }
 
-        /* Category Filter Pills */
-        .category-pill {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            border: 1px solid var(--border-subtle);
-            padding: 10px 20px;
-            border-radius: 30px;
-            margin: 0 8px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        /* Header */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .category-pill:hover {
-            background: var(--bg-secondary);
-            border-color: var(--accent-cyan);
-            color: var(--text-primary);
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .category-pill.active {
-            background: var(--accent-cyan);
-            color: #0a0a0f;
-            border-color: var(--accent-cyan);
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--charcoal);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-family: 'Newsreader', serif;
+            font-size: 20px;
             font-weight: 600;
         }
 
-        /* Hide cards by category */
-        .blog-card.hidden {
-            display: none;
+        .logo-text span {
+            color: var(--gold);
+            margin-left: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgba(45, 42, 36, 0.6);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--charcoal);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Newsreader', serif;
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--charcoal);
+        }
+
+        .page-subtitle {
+            color: rgba(45, 42, 36, 0.6);
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Article Grid */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin: 48px 0 80px;
+        }
+
+        @media (max-width: 768px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .article-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.1), rgba(45, 42, 36, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+        }
+
+        .article-content {
+            padding: 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-category {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(201, 169, 97, 0.1);
+            color: var(--gold);
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+            width: fit-content;
+        }
+
+        .article-title {
+            font-family: 'Newsreader', serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--charcoal);
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            font-size: 15px;
+            color: rgba(45, 42, 36, 0.6);
+            line-height: 1.7;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 11px;
+            color: rgba(45, 42, 36, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 48px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 40px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .footer-links a {
+            color: rgba(45, 42, 36, 0.6);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--charcoal);
+        }
+
+        .copyright {
+            color: rgba(45, 42, 36, 0.4);
+            font-size: 12px;
         }
     </style>
 </head>
 
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <div class="scroll-progress"></div>
-
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="dashboard.html" class="nav-link">Dashboard</a>
-                <a href="blog.html" class="nav-link active">Blog</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="index.html#tools" class="nav-cta">All Tools</a>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <div class="logo-icon">@</div>
+                    <div class="logo-text">ReflexTester<span>.fun</span></div>
+                </a>
+                <nav>
+                    <a href="/">Dashboard</a>
+                    <a href="/tools.html">All Tools</a>
+                    <a href="/blog.html" class="active">Blog</a>
+                    <a href="/about.html">About</a>
+                </nav>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
         </div>
-    </nav>
+    </header>
 
-    <main class="main-content" id="main">
-        <section class="blog-hero">
-            <div class="container">
-                <h1>📚 Blog</h1>
-                <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
-                    Tips, guides, and insights to help you improve your reflexes and gaming performance.
-                </p>
-            </div>
-        </section>
+    <main class="container">
+        <div class="page-header">
+            <h1 class="page-title">Blog</h1>
+            <p class="page-subtitle">Research, insights, and science behind human performance</p>
+        </div>
 
-
-        <section class="container">
-            <!-- Category Filter Pills -->
-            <div style="text-align: center; margin-bottom: 40px;">
-                <button class="category-pill active" onclick="filterCategory('all')">All Posts</button>
-                <button class="category-pill" onclick="filterCategory('Science')">Science</button>
-                <button class="category-pill" onclick="filterCategory('Gaming')">Gaming</button>
-                <button class="category-pill" onclick="filterCategory('Training')">Training</button>
-                <button class="category-pill" onclick="filterCategory('Health')">Health</button>
-            </div>
-
-            <div class="blog-grid" id="blogGrid">
-                <!-- Science Category -->
-                <article class="blog-card" data-category="Science">
-                    <div class="blog-card-image">🧠</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 29, 2025 • 12 min read</div>
-                        <h2><a href="blog/what-is-reaction-time.html">What is Reaction Time? Complete Guide (2025)</a>
-                        </h2>
-                        <p>Everything you need to know about reaction time: definition, science, measurement, and
-                            benchmarks for gaming, sports, and health.</p>
-                        <span class="blog-card-tag">Science</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Science">
-                    <div class="blog-card-image">📊</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 28, 2025 • 10 min read</div>
-                        <h2><a href="blog/average-reaction-time-by-age.html">Average Reaction Time by Age: Complete 2025
-                                Data</a></h2>
-                        <p>Comprehensive age-based reaction time benchmarks from childhood to seniors, with scientific
-                            data and improvement strategies.</p>
-                        <span class="blog-card-tag">Science</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Science">
-                    <div class="blog-card-image">🔬</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 25, 2025 • 8 min read</div>
-                        <h2><a href="blog/reaction-time-age-study.html">Reaction Time & Age: Large-Scale Scientific
-                                Study</a></h2>
-                        <p>Analysis of reaction time changes across lifespan based on comprehensive research data.</p>
-                        <span class="blog-card-tag">Science</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Science">
-                    <div class="blog-card-image">⚖️</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 22, 2025 • 9 min read</div>
-                        <h2><a href="blog/female-vs-male-reaction-time-study.html">Female vs Male Reaction Time:
-                                Scientific Analysis</a></h2>
-                        <p>Evidence-based comparison of gender differences in reaction speed and performance.</p>
-                        <span class="blog-card-tag">Science</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Science">
-                    <div class="blog-card-image">🧬</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 20, 2025 • 11 min read</div>
-                        <h2><a href="blog/genetics-vs-training-reaction-time.html">Genetics vs Training: What Determines
-                                Reaction Time?</a></h2>
-                        <p>Discover how much of your reaction speed is genetic and how much you can improve through
-                            training.</p>
-                        <span class="blog-card-tag">Science</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Science">
-                    <div class="blog-card-image">⚡</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 18, 2025 • 7 min read</div>
-                        <h2><a href="blog/fastest-reaction-time-ever-recorded.html">Fastest Reaction Time Ever
-                                Recorded</a></h2>
-                        <p>Explore the limits of human reaction speed with records from athletes, gamers, and scientific
-                            studies.</p>
-                        <span class="blog-card-tag">Science</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Science">
-                    <div class="blog-card-image">👨‍✈️</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">December 26, 2024 • 10 min read</div>
-                        <h2><a href="blog/reaction-time-professions-comparison.html">Reaction Time by Profession:
-                                Complete Comparison</a></h2>
-                        <p>Pilots, surgeons, athletes, gamers: who has the fastest reflexes and why?</p>
-                        <span class="blog-card-tag">Science</span>
-                    </div>
-                </article>
-
-                <!-- Gaming Category -->
-                <article class="blog-card" data-category="Gaming">
-                    <div class="blog-card-image">🎮</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 27, 2025 • 10 min read</div>
-                        <h2><a href="blog/pro-gamer-reaction-times.html">Pro Gamer Reaction Times: Complete Analysis</a>
-                        </h2>
-                        <p>Detailed breakdown of professional esports player reaction times across different games and
-                            roles.</p>
-                        <span class="blog-card-tag">Gaming</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Gaming">
-                    <div class="blog-card-image">🏆</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 24, 2025 • 8 min read</div>
-                        <h2><a href="blog/reaction-time-gaming-advantage.html">How Reaction Time Gives Gaming
-                                Advantage</a></h2>
-                        <p>Why milliseconds matter in competitive gaming and how faster reactions translate to wins.</p>
-                        <span class="blog-card-tag">Gaming</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Gaming">
-                    <div class="blog-card-image">⌨️</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 21, 2025 • 12 min read</div>
-                        <h2><a href="blog/hardware-guide-reaction-time.html">Hardware Guide: Optimize Your Reaction
-                                Time</a></h2>
-                        <p>Best monitors, mice, and keyboards for minimizing input lag and maximizing response speed.
-                        </p>
-                        <span class="blog-card-tag">Gaming</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Gaming">
-                    <div class="blog-card-image">🖥️</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 19, 2025 • 9 min read</div>
-                        <h2><a href="blog/moniter-refresh-rate.html">Monitor Refresh Rate Impact on Reaction Time</a>
-                        </h2>
-                        <p>How 60Hz vs 144Hz vs 240Hz affects your visual reaction speed and gaming performance.</p>
-                        <span class="blog-card-tag">Gaming</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Gaming">
-                    <div class="blog-card-image">🖱️</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 17, 2025 • 8 min read</div>
-                        <h2><a href="blog/mouse-sensitivity-reaction-time.html">Mouse Sensitivity & Reaction Time
-                                Optimization</a></h2>
-                        <p>Find your perfect sensitivity settings for faster, more accurate reactions in FPS games.</p>
-                        <span class="blog-card-tag">Gaming</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Gaming">
-                    <div class="blog-card-image">🥽</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 15, 2025 • 10 min read</div>
-                        <h2><a href="blog/vr-reaction-time-training.html">VR Reaction Time Training: The Future is
-                                Here</a></h2>
-                        <p>How virtual reality is revolutionizing reflex training with immersive, 3D environments.</p>
-                        <span class="blog-card-tag">Gaming</span>
-                    </div>
-                </article>
-
-                <!-- Training Category -->
-                <article class="blog-card" data-category="Training">
-                    <div class="blog-card-image">💪</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 26, 2025 • 14 min read</div>
-                        <h2><a href="blog/improve-reaction-time.html">How to Improve Your Reaction Time: Complete
-                                Guide</a></h2>
-                        <p>Proven techniques and exercises to shave milliseconds off your reaction speed in 30 days.</p>
-                        <span class="blog-card-tag">Training</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Training">
-                    <div class="blog-card-image">📅</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 23, 2025 • 15 min read</div>
-                        <h2><a href="blog/improve-reflexes-30-days.html">Improve Reflexes in 30 Days: Step-by-Step
-                                Plan</a></h2>
-                        <p>Complete 30-day training program with daily exercises to dramatically improve reaction time.
-                        </p>
-                        <span class="blog-card-tag">Training</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Training">
-                    <div class="blog-card-image">⚾</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 16, 2025 • 11 min read</div>
-                        <h2><a href="blog/sports-reaction-time-training.html">Sports-Specific Reaction Time Training</a>
-                        </h2>
-                        <p>Targeted drills for tennis, baseball, boxing, and other sports requiring lightning reflexes.
-                        </p>
-                        <span class="blog-card-tag">Training</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Training">
-                    <div class="blog-card-image">👁️</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 14, 2025 • 9 min read</div>
-                        <h2><a href="blog/vision-training-faster-reactions.html">Vision Training for Faster
-                                Reactions</a></h2>
-                        <p>Eye exercises and visual processing drills to improve reaction speed at the source.</p>
-                        <span class="blog-card-tag">Training</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Training">
-                    <div class="blog-card-image">🌿</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 12, 2025 • 10 min read</div>
-                        <h2><a href="blog/improve-reaction-time-naturally.html">Natural Ways to Improve Reaction
-                                Time</a></h2>
-                        <p>No supplements needed: improve reflexes through diet, exercise, and lifestyle changes.</p>
-                        <span class="blog-card-tag">Training</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Training">
-                    <div class="blog-card-image">🫁</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 10, 2025 • 7 min read</div>
-                        <h2><a href="blog/breathing-techniques-faster-reflexes.html">Breathing Techniques for Faster
-                                Reflexes</a></h2>
-                        <p>How proper breathing patterns can enhance neural response and reaction speed.</p>
-                        <span class="blog-card-tag">Training</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Training">
-                    <div class="blog-card-image">🧘</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 8, 2025 • 8 min read</div>
-                        <h2><a href="blog/meditation-mindfulness-reaction-speed.html">Meditation & Mindfulness for
-                                Reaction Speed</a></h2>
-                        <p>Scientific evidence showing how meditation improves focus and reaction time.</p>
-                        <span class="blog-card-tag">Training</span>
-                    </div>
-                </article>
-
-                <!-- Health Category -->
-                <article class="blog-card" data-category="Health">
-                    <div class="blog-card-image">😴</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 13, 2025 • 9 min read</div>
-                        <h2><a href="blog/sleep-deprivation-reaction-time.html">Sleep Deprivation Impact on Reaction
-                                Time</a></h2>
-                        <p>How lack of sleep destroys your reflexes and what to do about it.</p>
-                        <span class="blog-card-tag">Health</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Health">
-                    <div class="blog-card-image">💧</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 11, 2025 • 7 min read</div>
-                        <h2><a href="blog/dehydration-reaction-time-study.html">Dehydration & Reaction Time: Scientific
-                                Study</a></h2>
-                        <p>Even mild dehydration slows reactions by 15%. Here's the research and solutions.</p>
-                        <span class="blog-card-tag">Health</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Health">
-                    <div class="blog-card-image">☕</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 9, 2025 • 8 min read</div>
-                        <h2><a href="blog/caffeine-cognitive-performance-timing.html">Caffeine's Effect on Cognitive
-                                Performance</a></h2>
-                        <p>When to drink coffee for peak performance and how much is optimal.</p>
-                        <span class="blog-card-tag">Health</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Health">
-                    <div class="blog-card-image">📈</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 7, 2025 • 10 min read</div>
-                        <h2><a href="blog/caffeine-reaction-time-study.html">Caffeine & Reaction Time: Complete Research
-                                Analysis</a></h2>
-                        <p>Meta-analysis of caffeine studies showing exact reaction time improvements.</p>
-                        <span class="blog-card-tag">Health</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Health">
-                    <div class="blog-card-image">🥗</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 6, 2025 • 12 min read</div>
-                        <h2><a href="blog/nutrition-reaction-time-performance.html">Nutrition Guide for Peak Reaction
-                                Performance</a></h2>
-                        <p>Foods, supplements, and meal timing for optimal neural speed and focus.</p>
-                        <span class="blog-card-tag">Health</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Health">
-                    <div class="blog-card-image">💊</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 5, 2025 • 11 min read</div>
-                        <h2><a href="blog/nootropics-reaction-time-enhancement.html">Nootropics for Reaction Time
-                                Enhancement</a></h2>
-                        <p>Evidence-based review of cognitive enhancers that improve reaction speed.</p>
-                        <span class="blog-card-tag">Health</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Health">
-                    <div class="blog-card-image">😰</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 4, 2025 • 9 min read</div>
-                        <h2><a href="blog/stress-anxiety-reaction-time-impact.html">Stress & Anxiety Impact on Reaction
-                                Time</a></h2>
-                        <p>How mental stress slows reflexes and techniques to stay calm under pressure.</p>
-                        <span class="blog-card-tag">Health</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Health">
-                    <div class="blog-card-image">🕐</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 3, 2025 • 8 min read</div>
-                        <h2><a href="blog/time-of-day-reaction-performance.html">Time of Day Effects on Reaction
-                                Performance</a></h2>
-                        <p>Circadian rhythm's impact on reflexes: when you're naturally fastest and slowest.</p>
-                        <span class="blog-card-tag">Health</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Health">
-                    <div class="blog-card-image">💤</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 2, 2025 • 7 min read</div>
-                        <h2><a href="blog/power-naps-vs-full-sleep.html">Power Naps vs Full Sleep for Performance</a>
-                        </h2>
-                        <p>Strategic napping to boost reaction time without sacrificing night sleep.</p>
-                        <span class="blog-card-tag">Health</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Health">
-                    <div class="blog-card-image">🌙</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">January 1, 2025 • 10 min read</div>
-                        <h2><a href="blog/rem-sleep-memory-consolidation.html">REM Sleep & Memory Consolidation for
-                                Reflexes</a></h2>
-                        <p>How deep sleep consolidates motor learning and improves reaction patterns.</p>
-                        <span class="blog-card-tag">Health</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Health">
-                    <div class="blog-card-image">🛡️</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">December 30, 2024 • 9 min read</div>
-                        <h2><a href="blog/sleep-deprivation-immune-function.html">Sleep Deprivation & Immune
-                                Function</a></h2>
-                        <p>Cascading effects of poor sleep on health, cognition, and physical performance.</p>
-                        <span class="blog-card-tag">Health</span>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="Health">
-                    <div class="blog-card-image">🏃</div>
-                    <div class="blog-card-content">
-                        <div class="blog-card-meta">December 28, 2024 • 11 min read</div>
-                        <h2><a href="blog/exercise-vs-medication-anxiety.html">Exercise vs Medication for Anxiety
-                                Management</a></h2>
-                        <p>Physical activity as a powerful tool for reducing stress and improving focus.</p>
-                        <span class="blog-card-tag">Health</span>
-                    </div>
-                </article>
-            </div>
-        </section>
+        <div class="article-grid" id="articleGrid">
+            <!-- Articles will be loaded here -->
+        </div>
     </main>
 
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="/privacy-policy.html">Privacy Policy</a>
+                    <a href="/terms-of-service.html">Terms of Service</a>
+                    <a href="/contact.html">Contact</a>
+                </div>
+                <div class="copyright">
+                    © 2025 ReflexTester.fun — All rights reserved
+                </div>
             </div>
         </div>
     </footer>
 
-
-    <script src="app.js"></script>
-    <script src="animations.js"></script>
+    <script src="blog/blog-articles-data.js"></script>
     <script>
-        // Category filter functionality
-        function filterCategory(category) {
-            const cards = document.querySelectorAll('.blog-card');
-            const pills = document.querySelectorAll('.category-pill');
+        // Load articles from data file
+        const articleGrid = document.getElementById('articleGrid');
 
-            // Update active pill
-            pills.forEach(pill => pill.classList.remove('active'));
-            event.target.classList.add('active');
+        blogArticles.forEach(article => {
+            const card = document.createElement('a');
+            card.href = `blog/${article.slug}`;
+            card.className = 'article-card';
 
-            //Filter cards
-            cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        }
+            card.innerHTML = `
+                <div class="article-image">${article.icon}</div>
+                <div class="article-content">
+                    <span class="article-category">${article.category}</span>
+                    <h2 class="article-title">${article.title}</h2>
+                    <p class="article-excerpt">${article.excerpt}</p>
+                    <div class="article-meta">
+                        <span>${article.date}</span>
+                        <span>${article.readTime}</span>
+                    </div>
+                </div>
+            `;
+
+            articleGrid.appendChild(card);
+        });
     </script>
 </body>
-
 
 </html>

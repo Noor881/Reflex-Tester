@@ -83,6 +83,7 @@
 
         .logo-text span {
             color: var(--primary);
+            margin-left: 1px;
         }
 
         nav {
@@ -145,6 +146,13 @@
         .stat-value {
             font-size: 18px;
             font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .stat-value .unit {
+            margin-left: 2px;
+            font-size: 12px;
+            opacity: 0.6;
         }
 
         .divider {
@@ -207,6 +215,7 @@
             color: rgba(45, 42, 36, 0.6);
             max-width: 640px;
             margin: 0 auto;
+            line-height: 1.6;
         }
 
         .tool-grid {
@@ -219,7 +228,7 @@
             position: relative;
             background: white;
             border: 1px solid rgba(45, 42, 36, 0.2);
-            padding: 24px;
+            padding: 28px;
             border-radius: 8px;
             text-decoration: none;
             color: inherit;
@@ -258,7 +267,7 @@
         .tool-description {
             font-size: 14px;
             color: rgba(45, 42, 36, 0.6);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .tool-launch {
@@ -272,6 +281,11 @@
             color: var(--primary);
             opacity: 0;
             transition: opacity 0.3s;
+        }
+
+        .arrow-icon {
+            font-size: 12px !important;
+            margin-left: 4px;
         }
 
         .tool-card:hover .tool-launch {
@@ -304,7 +318,7 @@
 
         .footer-links {
             display: flex;
-            gap: 32px;
+            gap: 40px;
             font-size: 11px;
             font-weight: bold;
             text-transform: uppercase;
@@ -373,7 +387,7 @@
             <div class="stat-group">
                 <div class="stat">
                     <span class="stat-label">Global Average</span>
-                    <span class="stat-value">215<span style="font-size: 12px; opacity: 0.6;">ms</span></span>
+                    <span class="stat-value">215&#8202;<span class="unit">ms</span></span>
                 </div>
                 <div class="divider"></div>
                 <div class="stat">

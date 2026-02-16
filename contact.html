@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us — ReflexTester.fun</title>
+    <title>Contact Us — ReflexTester</title>
     <meta name="description"
         content="Get in touch with the ReflexTester.fun team. Send us feedback, report bugs, or request new features.">
     <link rel="canonical" href="https://reflextester.fun/contact.html">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Contact Us — ReflexTester.fun">
+    <meta property="og:title" content="Contact Us — ReflexTester">
     <meta property="og:description"
         content="Get in touch with the ReflexTester.fun team. Send us feedback, report bugs, or request new features.">
     <meta property="og:url" content="https://reflextester.fun/contact.html">
@@ -19,130 +19,337 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Contact Us — ReflexTester.fun">
+    <meta name="twitter:title" content="Contact Us — ReflexTester">
     <meta name="twitter:description"
         content="Get in touch with the ReflexTester.fun team. Send feedback or request features.">
-    <link rel="stylesheet" href="styles.css">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        .contact-hero {
-            padding: 120px 0 60px;
+        :root {
+            --cream: #FAF7F2;
+            --charcoal: #2D2A24;
+            --gold: #C9A961;
+            --white: #FFFFFF;
+            --border: rgba(45, 42, 36, 0.2);
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--charcoal);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-family: 'Newsreader', serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .logo-text span {
+            color: var(--gold);
+            margin-left: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgba(45, 42, 36, 0.6);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--charcoal);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 100px 0 80px;
             text-align: center;
         }
 
-        .contact-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
+        .page-title {
+            font-family: 'Newsreader', serif;
+            font-size: 56px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--charcoal);
         }
 
-        .contact-container {
-            max-width: 600px;
+        .page-subtitle {
+            font-size: 18px;
+            color: rgba(45, 42, 36, 0.6);
+            max-width: 640px;
             margin: 0 auto;
-            padding: 40px 20px 80px;
+            line-height: 1.6;
         }
 
-        .contact-form .form-group {
+        /* Contact Container */
+        .contact-container {
+            max-width: 640px;
+            margin: 0 auto 80px;
+        }
+
+        /* Form */
+        .contact-form {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 40px;
+        }
+
+        .form-group {
             margin-bottom: 24px;
         }
 
-        .contact-form label {
+        .form-group label {
             display: block;
+            font-size: 13px;
+            font-weight: 600;
             margin-bottom: 8px;
-            font-weight: 500;
+            color: var(--charcoal);
         }
 
-        .contact-form input,
-        .contact-form textarea {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            padding: 14px 16px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-size: 1rem;
+            padding: 12px 16px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 15px;
             font-family: inherit;
-            transition: border-color 0.2s;
+            color: var(--charcoal);
+            transition: all 0.2s;
         }
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent-cyan);
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
         }
 
-        .contact-form textarea {
+        .form-group textarea {
             min-height: 150px;
             resize: vertical;
+            line-height: 1.6;
         }
 
-        .contact-form button {
+        .submit-btn {
             width: 100%;
-            padding: 16px;
-            font-size: 1rem;
+            padding: 14px 32px;
+            background: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
+        .submit-btn:hover {
+            background: #B89851;
+            transform: translateY(-1px);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Success Message */
+        .success-message {
+            background: rgba(201, 169, 97, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: var(--gold);
+            margin-bottom: 24px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Contact Info */
         .contact-info {
             margin-top: 48px;
             text-align: center;
+            padding: 48px 40px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
         }
 
         .contact-info h3 {
+            font-family: 'Newsreader', serif;
+            font-size: 24px;
+            font-weight: 600;
             margin-bottom: 16px;
+            color: var(--charcoal);
         }
 
         .contact-info p {
-            color: var(--text-secondary);
+            color: rgba(45, 42, 36, 0.6);
+            margin-bottom: 20px;
         }
 
         .contact-email {
             display: inline-block;
-            margin-top: 16px;
-            color: var(--accent-cyan);
-            font-size: 1.25rem;
+            font-size: 20px;
             font-weight: 600;
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
-        .success-message {
-            background: rgba(78, 255, 78, 0.1);
-            border: 1px solid var(--accent-green);
-            border-radius: 8px;
-            padding: 16px;
-            text-align: center;
-            color: var(--accent-green);
-            display: none;
+        .contact-email:hover {
+            color: #B89851;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 48px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 40px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .footer-links a {
+            color: rgba(45, 42, 36, 0.6);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--charcoal);
+        }
+
+        .copyright {
+            color: rgba(45, 42, 36, 0.4);
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 40px;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 32px 24px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <div class="scroll-progress"></div>
-
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="dashboard.html" class="nav-link">Dashboard</a>
-                <a href="blog.html" class="nav-link">Blog</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link active">Contact</a>
-                <a href="index.html#tools" class="nav-cta">All Tools</a>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <div class="logo-icon">@</div>
+                    <div class="logo-text">ReflexTester<span>.fun</span></div>
+                </a>
+                <nav>
+                    <a href="/">Dashboard</a>
+                    <a href="/tools.html">All Tools</a>
+                    <a href="/blog.html">Blog</a>
+                    <a href="/about.html">About</a>
+                </nav>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
         </div>
-    </nav>
+    </header>
 
-    <main class="main-content" id="main">
-        <section class="contact-hero">
+    <main>
+        <section class="page-hero">
             <div class="container">
-                <h1>Contact Us</h1>
-                <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
-                    Have questions, feedback, or feature requests? We'd love to hear from you.
+                <h1 class="page-title">Contact Us</h1>
+                <p class="page-subtitle">
+                    Have questions, feedback, or feature requests? We'd love to hear from you
                 </p>
             </div>
         </section>
 
-        <section class="contact-container">
+        <div class="contact-container">
             <div class="success-message" id="successMessage">
                 ✅ Thank you for your message! We'll get back to you soon.
             </div>
@@ -164,7 +371,7 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
 
             <div class="contact-info">
@@ -172,19 +379,24 @@
                 <p>For quick questions, you can also email us directly:</p>
                 <a href="mailto:hello@reflextester.fun" class="contact-email">hello@reflextester.fun</a>
             </div>
-        </section>
+        </div>
     </main>
 
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="/privacy-policy.html">Privacy Policy</a>
+                    <a href="/terms-of-service.html">Terms of Service</a>
+                    <a href="/contact.html">Contact</a>
+                </div>
+                <div class="copyright">
+                    © 2025 ReflexTester.fun — All rights reserved
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="app.js"></script>
-    <script src="animations.js"></script>
     <script>
         (function () {
             const form = document.getElementById('contactForm');
@@ -193,7 +405,10 @@
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 form.style.display = 'none';
-                successMessage.style.display = 'block';
+                successMessage.classList.add('show');
+
+                // Optional: scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
             });
         })();
     </script>
