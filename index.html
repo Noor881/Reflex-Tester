@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -8,573 +8,578 @@
     <meta name="description"
         content="Test reaction time in 5 seconds. 17 free tools: reflex tests, 3D aim trainers (Valorant, CS:GO, Apex), sensitivity calculator, flick trainer & cognitive tests. Used by 500K+ gamers. Start now →">
     <meta name="keywords"
-        content="reflex tester, reflex test, reaction time test, reaction time test online, aim trainer, aim training, csgo aim trainer, cs2 aim trainer, fortnite aim trainer, cod aim trainer, call of duty aim trainer, click speed test, cps test, clicks per second test, typing speed test, wpm test, hand eye coordination test, peripheral vision test, memory test, stroop test, color match test, number speed test, audio reflex test, sound reaction time test, gaming reflex test, reaction speed test, how fast are my reflexes, average reaction time, human reaction time, reflex test online free, best aim trainer, free aim trainer online, reaction time game, reflex game online, mouse accuracy test, flick shot trainer, target practice online, fps aim trainer, competitive gaming tools, esports training, reaction time benchmark, cognitive speed test, brain reaction test, visual reaction time">
+        content="reflex tester, reflex test, reaction time test, reaction time test online, aim trainer, aim training, csgo aim trainer, cs2 aim trainer, fortnite aim trainer, cod aim trainer">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://reflextester.fun/">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Test Your Reaction Time — 17 Free Tools | ReflexTester.fun">
-    <meta property="og:description"
-        content="How fast are your reflexes? Test your reaction time, train your aim with 3D shooters, and benchmark against 500K+ gamers. 100% free, no sign-up.">
-    <meta property="og:url" content="https://reflextester.fun/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="ReflexTester.fun">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,200..800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Test Your Reaction Time — 17 Free Tools | ReflexTester.fun">
-    <meta name="twitter:description"
-        content="How fast are your reflexes? 17 free tools: reflex tests, 3D aim trainers (Valorant, Apex, CS:GO), sensitivity calc, click speed & more. No sign-up needed.">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "ReflexTester.fun",
-        "url": "https://reflextester.fun",
-        "description": "Professional reflex testing and aim training platform with 17 free tools for gamers, athletes, and researchers.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://reflextester.fun/?q={search_term_string}",
-            "query-input": "required name=search_term_string"
+    <style>
+        :root {
+            --primary: #ecb613;
+            --bg-light: #f8f8f6;
+            --bg-dark: #221d10;
+            --charcoal: #2d2a24;
+            --cream-dark: #efede7;
         }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "ReflexTester.fun",
-        "url": "https://reflextester.fun",
-        "description": "Leading professional reflex testing and aim training platform.",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "noor2304f@gmail.com",
-            "contactType": "Customer Service"
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "How accurate is this online reflex tester?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Our reflex tester is accurate within ±10ms, accounting for typical computer/browser latency. For maximum accuracy, use a gaming mouse and high-refresh-rate monitor."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What's the difference between visual and audio reflex testing?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Audio reflex testing typically produces faster results because sound is processed faster by the brain. Our audio reflex tester usually shows 20-40ms faster times compared to visual reflex testing."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can regular reflex testing improve my gaming performance?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes. Regular use of reflex testers can improve gaming reflexes by 15-25% over 4-6 weeks. Pro gamers use reflex testers daily to maintain peak performance in competitive FPS games."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What aim trainers are available on this platform?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "We offer dedicated 3D aim trainers for CS:GO/CS2, Call of Duty, and Fortnite, each with game-specific sensitivity settings and target patterns. All aim trainers run directly in your browser using Three.js."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How often should I use the reflex tester for optimal results?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "For best results, train for 10-15 minutes daily. Consistency is key — regular short sessions are more effective than longer, infrequent ones for building reaction speed."
-                }
-            }
-        ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "ReflexTester.fun",
-        "url": "https://reflextester.fun",
-        "applicationCategory": "GameApplication",
-        "operatingSystem": "Web Browser",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "12450",
-            "bestRating": "5"
-        },
-        "description": "Professional reflex testing and aim training platform with 13 free tools for gamers, esports athletes, and researchers."
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://reflextester.fun/"
-            }
-        ]
-    }
-    </script>
 
-    <link rel="stylesheet" href="styles.css">
+        body {
+            font-family: 'Newsreader', serif;
+            background: var(--bg-light);
+            color: var(--charcoal);
+            min-height: 100vh;
+        }
 
-    <!-- Google Analytics (preserved) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
+        header {
+            border-bottom: 1px solid rgba(45, 42, 36, 0.1);
+            background: var(--bg-light);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--charcoal);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: -0.02em;
+            color: var(--charcoal);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        nav a {
+            color: rgba(45, 42, 36, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        .stats-bar {
+            margin-bottom: 32px;
+            padding: 16px;
+            background: var(--cream-dark);
+            border: 1px solid rgba(45, 42, 36, 0.1);
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .stat-group {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(45, 42, 36, 0.5);
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .divider {
+            width: 1px;
+            height: 32px;
+            background: rgba(45, 42, 36, 0.1);
+        }
+
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 12px;
+            background: rgba(236, 182, 19, 0.1);
+            border: 1px solid rgba(236, 182, 19, 0.2);
+            border-radius: 999px;
+        }
+
+        .pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .live-text {
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--primary);
+        }
+
+        .page-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 40px;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .page-description {
+            color: rgba(45, 42, 36, 0.6);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .tool-card {
+            position: relative;
+            background: white;
+            border: 1px solid rgba(45, 42, 36, 0.2);
+            padding: 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .tool-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(236, 182, 19, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .tool-icon {
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-size: 36px;
+            transition: transform 0.3s;
+        }
+
+        .tool-card:hover .tool-icon {
+            transform: scale(1.1);
+        }
+
+        .tool-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .tool-card:hover .tool-name {
+            color: var(--primary);
+        }
+
+        .tool-description {
+            font-size: 14px;
+            color: rgba(45, 42, 36, 0.6);
+            line-height: 1.6;
+        }
+
+        .tool-launch {
+            display: flex;
+            align-items: center;
+            margin-top: 16px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--primary);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tool-card:hover .tool-launch {
+            opacity: 1;
+        }
+
+        footer {
+            margin-top: 80px;
+            border-top: 1px solid rgba(45, 42, 36, 0.1);
+            padding: 48px 0;
+            background: var(--cream-dark);
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .footer-links a {
+            color: rgba(45, 42, 36, 0.5);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+        }
+
+        .copyright {
+            font-size: 10px;
+            color: rgba(45, 42, 36, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .tool-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header {
+                text-align: left;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Skip to Content -->
-    <a href="#main" class="skip-link">Skip to content</a>
-
-    <!-- Scroll Progress -->
-    <div class="scroll-progress" aria-hidden="true"></div>
-
-    <!-- Navigation -->
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">
-                <span class="logo-icon">⚡</span> ReflexTester
-            </a>
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="dashboard.html" class="nav-link">Dashboard</a>
-                <a href="blog.html" class="nav-link">Blog</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="tools.html" class="nav-cta">All Tools</a>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <span class="material-icons-outlined">speed</span>
+                </div>
+                <h1 class="logo-text">ReflexTester<span>.fun</span></h1>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu"
-                aria-expanded="false">☰</button>
+            <nav>
+                <a href="/">Dashboard</a>
+                <a href="/tools.html">All Tools</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/about.html">About</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Main Content -->
-    <main class="main-content" id="main">
-        <!-- Hero Section — Full Viewport -->
-        <section class="hero hero-fullscreen">
-            <div class="container">
-                <div class="hero-badge fade-in">
-                    <span class="badge-dot"></span>
-                    13 Professional Testing Tools — Free Forever
+    <main class="container">
+        <!-- Quick Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-group">
+                <div class="stat">
+                    <span class="stat-label">Global Average</span>
+                    <span class="stat-value">215<span style="font-size: 12px; opacity: 0.6;">ms</span></span>
                 </div>
-                <h1 class="fade-in">
-                    Test Your <span class="accent typing-word" id="typingTarget">Reflexes</span><span
-                        class="typing-cursor">|</span>
-                </h1>
-                <p class="hero-subtitle fade-in">
-                    Professional-grade reflex tester, aim trainer, and cognitive performance tools.
-                    Used by competitive gamers, esports athletes, and researchers worldwide.
-                    Sharpen your reaction time for CS:GO, Fortnite, COD, Valorant, and more.
-                </p>
-                <div class="hero-actions fade-in">
-                    <a href="tools.html" class="btn btn-primary btn-lg">Explore All Tools →</a>
-                    <a href="dashboard.html" class="btn btn-secondary btn-lg">View Dashboard</a>
+                <div class="divider"></div>
+                <div class="stat">
+                    <span class="stat-label">Active Users</span>
+                    <span class="stat-value">500K+</span>
                 </div>
-                <div class="hero-stats fade-in">
-                    <div class="hero-stat">
-                        <div class="stat-value" data-count="13" data-suffix="+">0+</div>
-                        <div class="stat-label">Testing Tools</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="stat-value" data-count="500000" data-suffix="+">0+</div>
-                        <div class="stat-label">Tests Taken</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="stat-value" data-count="150" data-suffix="+" data-prefix="<">0+</div>
-                        <div class="stat-label">Avg. Reaction (ms)</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="stat-value" data-count="100" data-suffix="%">0%</div>
-                        <div class="stat-label">Free To Use</div>
-                    </div>
+                <div class="divider"></div>
+                <div class="stat">
+                    <span class="stat-label">Tests Today</span>
+                    <span class="stat-value">12,847</span>
                 </div>
             </div>
-        </section>
-
-        <!-- Featured Tools -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Popular Tools</span>
-                    <h2 class="section-title">Start Training Now</h2>
-                    <p class="section-subtitle">Jump into our most popular tools or <a href="tools.html"
-                            style="color:var(--accent-cyan);text-decoration:underline;">browse all 13 tools</a>.</p>
-                </div>
-
-                <div class="featured-tools" data-stagger>
-                    <a href="tools/visual-reflex-test.html" class="featured-card"
-                        style="text-decoration:none;color:inherit;">
-                        <span class="featured-icon">⚡</span>
-                        <h3>Visual Reflex Test</h3>
-                        <p>Measure your raw reaction time with millisecond precision.</p>
-                        <span class="featured-arrow">→</span>
-                    </a>
-                    <a href="tools/csgo-aim-trainer.html" class="featured-card"
-                        style="text-decoration:none;color:inherit;">
-                        <span class="featured-icon">🎮</span>
-                        <h3>CS:GO Aim Trainer</h3>
-                        <p>3D shooting range with flick, tracking, and precision modes.</p>
-                        <span class="featured-arrow">→</span>
-                    </a>
-                    <a href="tools/click-speed-test.html" class="featured-card"
-                        style="text-decoration:none;color:inherit;">
-                        <span class="featured-icon">🖱️</span>
-                        <h3>Click Speed (CPS)</h3>
-                        <p>How fast can you click? Test your clicks per second.</p>
-                        <span class="featured-arrow">→</span>
-                    </a>
-                    <a href="tools/memory-sequence-test.html" class="featured-card"
-                        style="text-decoration:none;color:inherit;">
-                        <span class="featured-icon">🧠</span>
-                        <h3>Memory Sequence</h3>
-                        <p>Test working memory and cognitive processing speed.</p>
-                        <span class="featured-arrow">→</span>
-                    </a>
-                </div>
-
-                <div class="text-center" style="margin-top: var(--space-xl);">
-                    <a href="tools.html" class="btn btn-secondary">View All 13 Tools →</a>
-                </div>
+            <div class="live-badge">
+                <span class="pulse"></span>
+                <span class="live-text">Live Data Sync</span>
             </div>
-        </section>
+        </div>
 
-        <!-- Benefits Section -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Why Train With Us</span>
-                    <h2 class="section-title">Level Up Your Gaming Performance</h2>
-                    <p class="section-subtitle">Backed by neuroscience, built for gamers.</p>
+        <!-- Page Header -->
+        <div class="page-header">
+            <h2 class="page-title">Performance Assessment Suite</h2>
+            <p class="page-description">Standardized utility tools designed for high-precision measurement of human
+                cognitive and physical response times.</p>
+        </div>
+
+        <!-- Tool Grid -->
+        <div class="tool-grid">
+            <!-- Reaction Time Test -->
+            <a href="/tools/visual-reflex-test.html" class="tool-card">
+                <div class="tool-icon">
+                    <span class="material-icons-outlined">timer</span>
                 </div>
-
-                <div class="benefits-grid" data-stagger>
-                    <div class="benefit-card">
-                        <span class="benefit-icon">🎮</span>
-                        <h4>FPS Gaming Performance</h4>
-                        <p>Regular reflex training and aim practice improves competitive gaming performance by 15-25%
-                            over 4-6 weeks. Used by pro players in CS:GO, Valorant, and Fortnite teams.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <span class="benefit-icon">🧠</span>
-                        <h4>Cognitive Speed</h4>
-                        <p>Reaction time training strengthens neural pathways responsible for rapid decision-making.
-                            This translates to faster gameplay decisions and quicker target acquisition.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <span class="benefit-icon">🏆</span>
-                        <h4>Competitive Edge</h4>
-                        <p>The difference between winning and losing a gunfight is often 50-100ms. Dedicated training
-                            with our aim trainers gives you that critical millisecond advantage.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <span class="benefit-icon">📊</span>
-                        <h4>Track Your Progress</h4>
-                        <p>Every test result is saved locally. View your performance trends, best times, and improvement
-                            rates on your personal dashboard.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <span class="benefit-icon">🔬</span>
-                        <h4>Research-Grade Accuracy</h4>
-                        <p>Our testing methodology provides ±10ms accuracy, suitable for academic studies, occupational
-                            assessment, and sports science research.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <span class="benefit-icon">📱</span>
-                        <h4>Train Anywhere</h4>
-                        <p>All tools work on any device — desktop, tablet, or mobile. No downloads, no sign-ups. Just
-                            open and start training instantly.</p>
-                    </div>
+                <h3 class="tool-name">Reaction Time Test</h3>
+                <p class="tool-description">Measure your click response to visual stimulus shifts.</p>
+                <div class="tool-launch">
+                    Launch Tool <span class="material-icons-outlined"
+                        style="font-size: 12px; margin-left: 4px;">arrow_forward</span>
                 </div>
-            </div>
-        </section>
+            </a>
 
-        <!-- Benchmark Section -->
-        <section class="section">
-            <div class="container-narrow">
-                <div class="section-header">
-                    <span class="section-label">Benchmarks</span>
-                    <h2 class="section-title">How Fast Are Your Reflexes?</h2>
-                    <p class="section-subtitle">Compare your reaction time against these professional benchmarks.</p>
+            <!-- Click Speed Test -->
+            <a href="/tools/click-speed-test.html" class="tool-card">
+                <div class="tool-icon">
+                    <span class="material-icons-outlined">touch_app</span>
                 </div>
-
-                <table class="benchmark-table fade-in">
-                    <thead>
-                        <tr>
-                            <th>Reaction Time</th>
-                            <th>Rating</th>
-                            <th>Typical Profile</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="color: var(--accent-green); font-weight: 700;">
-                                < 150ms</td>
-                            <td>Exceptional</td>
-                            <td>Pro esports athletes, fighter pilots</td>
-                        </tr>
-                        <tr>
-                            <td style="color: var(--accent-cyan); font-weight: 700;">150-200ms</td>
-                            <td>Excellent</td>
-                            <td>Competitive gamers, trained athletes</td>
-                        </tr>
-                        <tr>
-                            <td style="color: var(--accent-yellow); font-weight: 700;">200-250ms</td>
-                            <td>Good</td>
-                            <td>Regular gamers, physically active individuals</td>
-                        </tr>
-                        <tr>
-                            <td style="color: var(--accent-orange); font-weight: 700;">250-300ms</td>
-                            <td>Average</td>
-                            <td>General population, casual gamers</td>
-                        </tr>
-                        <tr>
-                            <td style="color: var(--accent-red); font-weight: 700;">> 300ms</td>
-                            <td>Below Average</td>
-                            <td>Beginners, fatigue or distraction present</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="highlight-box fade-in">
-                    <strong>Pro Tip:</strong> Test yourself at the same time each day for consistent results. Morning
-                    sessions tend to be 10-20ms slower than afternoon testing. Caffeine can temporarily improve reaction
-                    time by 5-10ms.
+                <h3 class="tool-name">CPS Tracker</h3>
+                <p class="tool-description">Determine your raw clicks per second performance.</p>
+                <div class="tool-launch">
+                    Launch Tool <span class="material-icons-outlined"
+                        style="font-size: 12px; margin-left: 4px;">arrow_forward</span>
                 </div>
-            </div>
-        </section>
+            </a>
 
-        <!-- FAQ Section -->
-        <section class="section">
-            <div class="container-narrow">
-                <div class="section-header">
-                    <span class="section-label">FAQ</span>
-                    <h2 class="section-title">Frequently Asked Questions</h2>
+            <!-- Audio Reflex Test -->
+            <a href="/tools/audio-reflex-test.html" class="tool-card">
+                <div class="tool-icon">
+                    <span class="material-icons-outlined">hearing</span>
                 </div>
-
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            How accurate is this online reflex tester?
-                            <span class="faq-arrow">▼</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Our reflex tester is accurate within ±10ms, accounting for typical computer and browser
-                                latency. This level of accuracy aligns with laboratory standards used in professional
-                                research. For maximum accuracy, we recommend using a gaming mouse, a high-refresh-rate
-                                monitor (144Hz+), and closing unnecessary browser tabs to reduce system latency.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            What's the difference between visual and audio reflex testing?
-                            <span class="faq-arrow">▼</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Audio reflex testing typically produces faster results because sound is processed by the
-                                brain approximately 20-40ms faster than visual stimuli. The auditory cortex responds
-                                more quickly to sudden stimuli compared to the visual cortex. Our platform lets you test
-                                both to understand your complete reflex profile.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Can regular reflex testing improve my gaming performance?
-                            <span class="faq-arrow">▼</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Absolutely. Regular training with our reflex tester and aim trainers can improve your
-                                gaming reflexes by 15-25% over 4-6 weeks. This improvement comes from strengthening
-                                neural pathways and developing muscle memory. Many professional esports athletes include
-                                daily reflex training in their practice routines.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            What aim trainers are available on this platform?
-                            <span class="faq-arrow">▼</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>We offer three dedicated 3D aim trainers built with Three.js: CS:GO/CS2 Aim Trainer (with
-                                Counter-Strike sensitivity settings), Call of Duty Aim Trainer (Warzone and multiplayer
-                                patterns), and Fortnite Aim Trainer (with building-scenario targets). Each trainer
-                                features game-specific sensitivity options and target patterns to match the gameplay you
-                                want to improve.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            How often should I train for optimal results?
-                            <span class="faq-arrow">▼</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>For best results, we recommend 10-15 minutes of daily training. Consistency matters more
-                                than duration — regular short sessions are more effective than occasional long ones.
-                                Start with the reflex tests as warm-ups, then move to aim trainers for dedicated
-                                practice. Track your progress on the Dashboard to stay motivated.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Is this reflex tester suitable for professional or medical use?
-                            <span class="faq-arrow">▼</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Our reflex tester provides research-grade accuracy suitable for academic studies,
-                                occupational assessments, sports science research, and preliminary medical screening.
-                                However, for formal medical diagnosis or clinical evaluation, always consult with
-                                qualified healthcare professionals who use certified medical equipment.</p>
-                        </div>
-                    </div>
+                <h3 class="tool-name">Sound Perception</h3>
+                <p class="tool-description">Calculate reaction latency to audio-only triggers.</p>
+                <div class="tool-launch">
+                    Launch Tool <span class="material-icons-outlined"
+                        style="font-size: 12px; margin-left: 4px;">arrow_forward</span>
                 </div>
-            </div>
-        </section>
+            </a>
 
-        <!-- SEO Content Section -->
-        <section class="info-section">
-            <div class="container-narrow">
-                <h2>The Science Behind Reflex Testing & Aim Training</h2>
-                <p>Reaction time is the interval between a stimulus and your physical response. For gamers, this
-                    translates directly to how quickly you can spot an enemy and click your mouse. Professional reflex
-                    testing measures this interval with millisecond precision, providing actionable data to improve your
-                    performance.</p>
+            <!-- Memory Test -->
+            <a href="/tools/memory-sequence-test.html" class="tool-card">
+                <div class="tool-icon">
+                    <span class="material-icons-outlined">reorder</span>
+                </div>
+                <h3 class="tool-name">Sequence Memory</h3>
+                <p class="tool-description">Follow and replicate increasingly long sequences.</p>
+                <div class="tool-launch">
+                    Launch Tool <span class="material-icons-outlined"
+                        style="font-size: 12px; margin-left: 4px;">arrow_forward</span>
+                </div>
+            </a>
 
-                <h3>How Reflex Testing Works</h3>
-                <p>When you use our visual reflex tester, the moment the screen changes color, light enters your eyes
-                    and triggers a cascade of neural signals. These signals travel from your retina through the optic
-                    nerve to the visual cortex, where the change is processed. Your brain then sends a motor command
-                    through the spinal cord to the muscles in your hand, triggering a click. The entire process takes
-                    between 150-300ms for most people.</p>
+            <!-- Typing Speed -->
+            <a href="/tools/typing-speed-test.html" class="tool-card">
+                <div class="tool-icon">
+                    <span class="material-icons-outlined">keyboard</span>
+                </div>
+                <h3 class="tool-name">Typing Speed</h3>
+                <p class="tool-description">Advanced WPM and accuracy metrics evaluation.</p>
+                <div class="tool-launch">
+                    Launch Tool <span class="material-icons-outlined"
+                        style="font-size: 12px; margin-left: 4px;">arrow_forward</span>
+                </div>
+            </a>
 
-                <h3>Aim Training with Three.js Technology</h3>
-                <p>Our 3D aim trainers use WebGL-powered Three.js rendering to create realistic target scenarios that
-                    mirror real gameplay. Unlike 2D aim trainers, our 3D environment provides depth perception
-                    challenges, variable target distances, and game-specific sensitivity settings that directly
-                    translate to your in-game performance.</p>
+            <!-- Valorant Aim Trainer -->
+            <a href="/tools/valorant-aim-trainer.html" class="tool-card">
+                <div class="tool-icon">
+                    <span class="material-icons-outlined">my_location</span>
+                </div>
+                <h3 class="tool-name">Valorant Aim Trainer</h3>
+                <p class="tool-description">3D aim training with Valorant-specific settings.</p>
+                <div class="tool-launch">
+                    Launch Tool <span class="material-icons-outlined"
+                        style="font-size: 12px; margin-left: 4px;">arrow_forward</span>
+                </div>
+            </a>
 
-                <h4>CS:GO / CS2 Aim Trainer</h4>
-                <p>Practice Counter-Strike mechanics including crosshair placement, flick shots, spray control targets,
-                    and peek timing. Our CS:GO aim trainer supports custom sensitivity matching so your muscle memory
-                    transfers directly to competitive matches.</p>
+            <!-- CS:GO Aim Trainer -->
+            <a href="/tools/csgo-aim-trainer.html" class="tool-card">
+                <div class="tool-icon">
+                    <span class="material-icons-outlined">ads_click</span>
+                </div>
+                <h3 class="tool-name">CS:GO Aim Trainer</h3>
+                <p class="tool-description">Counter-Strike precision target tracking practice.</p>
+                <div class="tool-launch">
+                    Launch Tool <span class="material-icons-outlined"
+                        style="font-size: 12px; margin-left: 4px;">arrow_forward</span>
+                </div>
+            </a>
 
-                <h4>Call of Duty Aim Trainer</h4>
-                <p>Train for Warzone and multiplayer with fast-paced targets that simulate gunfights at various
-                    distances. The COD aim trainer features rapid target switching and tracking exercises designed for
-                    Call of Duty's faster time-to-kill scenarios.</p>
+            <!-- CoD Aim Trainer -->
+            <a href="/tools/cod-aim-trainer.html" class="tool-card">
+                <div class="tool-icon">
+                    <span class="material-icons-outlined">gps_fixed</span>
+                </div>
+                <h3 class="tool-name">CoD Aim Trainer</h3>
+                <p class="tool-description">Call of Duty aim practice with realistic movement.</p>
+                <div class="tool-launch">
+                    Launch Tool <span class="material-icons-outlined"
+                        style="font-size: 12px; margin-left: 4px;">arrow_forward</span>
+                </div>
+            </a>
 
-                <h4>Fortnite Aim Trainer</h4>
-                <p>Master Fortnite's unique combat with targets that simulate build fights, shotgun flick scenarios, and
-                    AR tracking at range. Our Fortnite aim trainer helps you develop the quick-switching accuracy needed
-                    for competitive building and shooting.</p>
+            <!-- Sensitivity Calculator -->
+            <a href="/tools/sensitivity-calculator.html" class="tool-card">
+                <div class="tool-icon">
+                    <span class="material-icons-outlined">tune</span>
+                </div>
+                <h3 class="tool-name">Sensitivity Calculator</h3>
+                <p class="tool-description">Convert mouse sensitivity across different games.</p>
+                <div class="tool-launch">
+                    Launch Tool <span class="material-icons-outlined"
+                        style="font-size: 12px; margin-left: 4px;">arrow_forward</span>
+                </div>
+            </a>
 
-                <h3>Factors That Affect Your Reaction Time</h3>
-                <ul>
-                    <li><strong>Age:</strong> Reaction times peak between ages 18-30 and gradually slow afterward</li>
-                    <li><strong>Sleep quality:</strong> Sleep deprivation can increase reaction time by 20-30%</li>
-                    <li><strong>Caffeine:</strong> Moderate caffeine intake can improve reaction time by 5-10ms</li>
-                    <li><strong>Practice frequency:</strong> Daily training yields the most consistent improvement</li>
-                    <li><strong>Hardware:</strong> Monitor refresh rate, input lag, and mouse polling rate all affect
-                        measured times</li>
-                    <li><strong>Stimulus type:</strong> Audio stimuli are processed 20-40ms faster than visual ones</li>
-                </ul>
-            </div>
-        </section>
+            <!-- Flick Shot Trainer -->
+            <a href="/tools/flick-shot-trainer.html" class="tool-card">
+                <div class="tool-icon">
+                    <span class="material-icons-outlined">flash_on</span>
+                </div>
+                <h3 class="tool-name">Flick Shot Trainer</h3>
+                <p class="tool-description">Practice rapid target acquisition and flicks.</p>
+                <div class="tool-launch">
+                    Launch Tool <span class="material-icons-outlined"
+                        style="font-size: 12px; margin-left: 4px;">arrow_forward</span>
+                </div>
+            </a>
+
+            <!-- Hand-Eye Coordination -->
+            <a href="/tools/hand-eye-coordination-test.html" class="tool-card">
+                <div class="tool-icon">
+                    <span class="material-icons-outlined">pan_tool</span>
+                </div>
+                <h3 class="tool-name">Hand-Eye Coordination</h3>
+                <p class="tool-description">Test coordination between visual input and movement.</p>
+                <div class="tool-launch">
+                    Launch Tool <span class="material-icons-outlined"
+                        style="font-size: 12px; margin-left: 4px;">arrow_forward</span>
+                </div>
+            </a>
+
+            <!-- Stroop Test -->
+            <a href="/tools/stroop-effect-test.html" class="tool-card">
+                <div class="tool-icon">
+                    <span class="material-icons-outlined">psychology</span>
+                </div>
+                <h3 class="tool-name">Stroop Effect Test</h3>
+                <p class="tool-description">Measure cognitive flexibility and processing speed.</p>
+                <div class="tool-launch">
+                    Launch Tool <span class="material-icons-outlined"
+                        style="font-size: 12px; margin-left: 4px;">arrow_forward</span>
+                </div>
+            </a>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>ReflexTester.fun</h4>
-                    <p>Professional reflex testing and aim training platform. Free forever, no sign-up required. Used by
-                        500,000+ gamers worldwide.</p>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="logo">
+                    <div class="logo-icon" style="width: 24px; height: 24px;">
+                        <span class="material-icons-outlined" style="font-size: 16px;">precision_manufacturing</span>
+                    </div>
+                    <span class="logo-text" style="font-size: 18px;">ReflexTester<span>.fun</span></span>
                 </div>
-                <div class="footer-section">
-                    <h4>Reflex Tests</h4>
-                    <ul>
-                        <li><a href="tools/visual-reflex-test.html">Visual Reflex Test</a></li>
-                        <li><a href="tools/audio-reflex-test.html">Audio Reflex Test</a></li>
-                        <li><a href="tools/memory-sequence-test.html">Memory Sequence</a></li>
-                        <li><a href="tools/color-match-test.html">Color Match Test</a></li>
-                        <li><a href="tools/number-speed-test.html">Number Speed Test</a></li>
-                        <li><a href="tools/hand-eye-coordination-test.html">Hand-Eye Coordination</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>New Tools</h4>
-                    <ul>
-                        <li><a href="tools/typing-speed-test.html">Typing Speed Test</a></li>
-                        <li><a href="tools/stroop-effect-test.html">Stroop Effect Test</a></li>
-                        <li><a href="tools/peripheral-vision-test.html">Peripheral Vision Test</a></li>
-                        <li><a href="tools/click-speed-test.html">Click Speed (CPS)</a></li>
-                        <li><a href="tools/csgo-aim-trainer.html">CS:GO Aim Trainer</a></li>
-                        <li><a href="tools/cod-aim-trainer.html">COD Aim Trainer</a></li>
-                        <li><a href="tools/fortnite-aim-trainer.html">Fortnite Aim Trainer</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html">Terms of Service</a></li>
-                    </ul>
+                <div class="footer-links">
+                    <a href="/privacy-policy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                    <a href="/contact.html">Contact</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform. All rights reserved.</p>
-                <div class="footer-tags">
-                    <span class="footer-tag">Reflex Tester</span>
-                    <span class="footer-tag">Aim Trainer</span>
-                    <span class="footer-tag">Reaction Time</span>
-                    <span class="footer-tag">CS:GO</span>
-                    <span class="footer-tag">Fortnite</span>
-                    <span class="footer-tag">COD</span>
-                </div>
+                <p class="copyright">© 2025 ReflexTester Labs. Precision Measurement Utility.</p>
             </div>
         </div>
     </footer>
-
-    <script src="app.js"></script>
-    <script src="animations.js"></script>
 </body>
 
 </html>
