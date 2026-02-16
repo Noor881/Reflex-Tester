@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite Sensitivity Finder — Perfect Sens Calculator [Free 2025]</title>
+    <meta name="description"
+        content="Find your perfect Fortnite sensitivity. Interactive sens finder for building + aim balance. Compare with pro players, convert from other games.">
+    <meta name="keywords"
+        content="fortnite sensitivity finder, fortnite sens calculator, perfect fortnite sens, pro fortnite sensitivity, sensitivity converter">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .sens-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+
+        @media (max-width: 968px) {
+            .sens-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sens-panel {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .sens-test {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+            border-radius: 16px;
+            padding: var(--space-2xl);
+            min-height: 400px;
+            position: relative;
+            border: 2px solid #a78bfa;
+            overflow: hidden;
+        }
+
+        .test-target {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 68, 68, 0.8);
+            border: 3px solid #ff4444;
+            border-radius: 50%;
+            position: absolute;
+            cursor: crosshair;
+            transition: all 0.2s;
+        }
+
+        .test-target:hover {
+            transform: scale(1.1);
+        }
+
+        .test-target.hit {
+            background: #10b981;
+            border-color: #059669;
+        }
+
+        .result-display {
+            background: var(--bg-tertiary);
+            padding: var(--space-lg);
+            border-radius: 12px;
+            margin-top: var(--space-lg);
+            border: 2px solid var(--primary);
+        }
+
+        .result-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .control-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .control-group select,
+        .control-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-medium);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .control-group input[type="range"] {
+            padding: 0;
+        }
+
+        .slider-value {
+            text-align: right;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .pro-presets {
+            background: var(--bg-tertiary);
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-top: var(--space-lg);
+        }
+
+        .pro-presets h4 {
+            margin-bottom: var(--space-sm);
+            font-size: 1.1rem;
+        }
+
+        .preset-btn {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-medium);
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 4px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .preset-btn:hover {
+            border-color: var(--primary);
+            background: var(--bg-secondary);
+        }
+
+        .test-timer {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fbbf24;
+            z-index: 5;
+        }
+
+        .test-score {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #10b981;
+            z-index: 5;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a> <span class="separator">›</span>
+                <a href="../tools.html">Tools</a> <span class="separator">›</span>
+                <span>Fortnite Sensitivity Finder</span>
+            </nav>
+        </div>
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🎯 Fortnite Sensitivity Finder</h1>
+                <p class="test-desc">Find your perfect Fortnite sensitivity through interactive testing. Balance aim
+                    precision with building speed.</p>
+
+                <div class="sens-container">
+                    <div class="sens-panel">
+                        <h3>Sensitivity Calculator</h3>
+
+                        <div class="control-group">
+                            <label>Playstyle</label>
+                            <select id="playstyle">
+                                <option value="low">Low Sens (Aim-focused)</option>
+                                <option value="medium" selected>Medium Sens (Balanced)</option>
+                                <option value="high">High Sens (Building-focused)</option>
+                            </select>
+                        </div>
+
+                        <div class="control-group">
+                            <label>Mouse DPI</label>
+                            <input type="number" id="dpi" value="800" min="100" max="3200" step="100">
+                        </div>
+
+                        <div class="control-group">
+                            <label>X/Y Sensitivity: <span id="sensValue">8.0</span>%</label>
+                            <input type="range" id="sensSlider" min="1" max="20" step="0.1" value="8.0">
+                        </div>
+
+                        <div class="control-group">
+                            <label>Building Sensitivity: <span id="buildValue">1.8</span>x</label>
+                            <input type="range" id="buildSlider" min="1.0" max="3.0" step="0.1" value="1.8">
+                        </div>
+
+                        <div class="control-group">
+                            <label>Convert From Game</label>
+                            <select id="convertGame">
+                                <option value="none">None</option>
+                                <option value="valorant">Valorant</option>
+                                <option value="csgo">CS:GO</option>
+                                <option value="apex">Apex Legends</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-primary" id="testBtn" style="width: 100%;">Test This Sensitivity</button>
+
+                        <div class="pro-presets">
+                            <h4>Pro Player Presets</h4>
+                            <button class="preset-btn" data-sens="6.8" data-build="1.9">Bugha (6.8%, 1.9x)</button>
+                            <button class="preset-btn" data-sens="7.0" data-build="2.0">Clix (7.0%, 2.0x)</button>
+                            <button class="preset-btn" data-sens="8.0" data-build="2.2">Benjyfishy (8.0%, 2.2x)</button>
+                            <button class="preset-btn" data-sens="10.0" data-build="2.4">Mero (10.0%, 2.4x)</button>
+                        </div>
+                    </div>
+
+                    <div class="sens-panel">
+                        <h3>Quick Test</h3>
+                        <div class="sens-test" id="sensTest">
+                            <div class="test-timer" id="timer">15s</div>
+                            <div class="test-score" id="score">0/0</div>
+                            <div class="test-target" id="target"></div>
+                        </div>
+
+                        <div class="result-display" id="results" style="display: none;">
+                            <div class="result-label">Recommended Sens</div>
+                            <div class="result-value" id="recSens">8.0%</div>
+                            <p id="recText"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>Finding Your Perfect Sensitivity</h2>
+                <p>Fortnite requires balancing two different sensitivities: aim sens for shooting and building sens for
+                    fast edits and builds.</p>
+
+                <h3>Sensitivity Guidelines</h3>
+                <ul>
+                    <li><strong>Low Sens (5-7%):</strong> Best for precise aim, harder for building</li>
+                    <li><strong>Medium Sens (7-10%):</strong> Balanced approach, most popular</li>
+                    <li><strong>High Sens (10-15%):</strong> Fast builds/edits, requires precise aim</li>
+                </ul>
+
+                <h3>Finding Your Sens</h3>
+                <ol>
+                    <li><strong>Start Medium:</strong> Begin with 8% and 1.8x building multiplier</li>
+                    <li><strong>Test Aim:</strong> Can you track moving targets consistently?</li>
+                    <li><strong>Test Building:</strong> Can you do 90s and tunnels comfortably?</li>
+                    <li><strong>Adjust:</strong> Lower for better aim, higher for faster building</li>
+                    <li><strong>Practice:</strong> Give new sens 2-3 days before changing</li>
+                </ol>
+
+                <h3>Pro Player Tips</h3>
+                <ul>
+                    <li><strong>eDPI Range:</strong> Most pros use 40-80 eDPI (DPI × Sens%)</li>
+                    <li><strong>Building Multiplier:</strong> 1.8x - 2.2x is most common</li>
+                    <li><strong>Arm vs Wrist:</strong> Lower sens = arm aim, higher = wrist aim</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            let testActive = false, timeLeft = 15, hits = 0, shots = 0;
+            const els = { sensSlider: document.getElementById('sensSlider'), sensValue: document.getElementById('sensValue'), buildSlider: document.getElementById('buildSlider'), buildValue: document.getElementById('buildValue'), playstyle: document.getElementById('playstyle'), dpi: document.getElementById('dpi'), convertGame: document.getElementById('convertGame'), testBtn: document.getElementById('testBtn'), sensTest: document.getElementById('sensTest'), target: document.getElementById('target'), timer: document.getElementById('timer'), score: document.getElementById('score'), results: document.getElementById('results'), recSens: document.getElementById('recSens'), recText: document.getElementById('recText') };
+
+            els.sensSlider.addEventListener('input', () => els.sensValue.textContent = els.sensSlider.value);
+            els.buildSlider.addEventListener('input', () => els.buildValue.textContent = els.buildSlider.value);
+
+            els.playstyle.addEventListener('change', () => {
+                const style = els.playstyle.value;
+                if (style === 'low') { els.sensSlider.value = 6.0; els.buildSlider.value = 1.6; }
+                else if (style === 'medium') { els.sensSlider.value = 8.0; els.buildSlider.value = 1.8; }
+                else { els.sensSlider.value = 11.0; els.buildSlider.value = 2.2; }
+                els.sensValue.textContent = els.sensSlider.value;
+                els.buildValue.textContent = els.buildSlider.value;
+            });
+
+            els.convertGame.addEventListener('change', () => {
+                const game = els.convertGame.value;
+                const conversions = { valorant: 0.315, csgo: 0.31, apex: 0.358 };
+                if (game !== 'none' && conversions[game]) {
+                    const prompt = window.prompt(`Enter your ${game} sensitivity:`);
+                    if (prompt) {
+                        const converted = parseFloat(prompt) * conversions[game];
+                        els.sensSlider.value = converted.toFixed(1);
+                        els.sensValue.textContent = converted.toFixed(1);
+                    }
+                }
+            });
+
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const sens = btn.dataset.sens;
+                    const build = btn.dataset.build;
+                    els.sensSlider.value = sens;
+                    els.buildSlider.value = build;
+                    els.sensValue.textContent = sens;
+                    els.buildValue.textContent = build;
+                });
+            });
+
+            function spawnTarget() {
+                const maxX = els.sensTest.offsetWidth - 80;
+                const maxY = els.sensTest.offsetHeight - 100;
+                els.target.style.left = Math.random() * maxX + 20 + 'px';
+                els.target.style.top = Math.random() * maxY + 60 + 'px';
+                els.target.classList.remove('hit');
+            }
+
+            function startTest() {
+                testActive = true;
+                timeLeft = 15;
+                hits = 0;
+                shots = 0;
+                els.results.style.display = 'none';
+                els.testBtn.disabled = true;
+                els.score.textContent = '0/0';
+                spawnTarget();
+
+                const interval = setInterval(() => {
+                    timeLeft--;
+                    els.timer.textContent = timeLeft + 's';
+                    if (timeLeft <= 0) {
+                        clearInterval(interval);
+                        endTest();
+                    }
+                }, 1000);
+            }
+
+            function endTest() {
+                testActive = false;
+                els.testBtn.disabled = false;
+                const acc = shots > 0 ? (hits / shots) * 100 : 0;
+                const currentSens = parseFloat(els.sensSlider.value);
+
+                let recommendation = currentSens;
+                let text = '';
+
+                if (acc < 50) {
+                    recommendation = Math.max(1, currentSens - 1.5);
+                    text = 'Your accuracy is low. Try lowering sensitivity for better precision.';
+                } else if (acc > 85) {
+                    recommendation = Math.min(20, currentSens + 1);
+                    text = 'Great accuracy! You might benefit from slightly higher sens for faster building.';
+                } else {
+                    text = 'Your sensitivity looks good! Keep practicing with this setting.';
+                }
+
+                els.recSens.textContent = recommendation.toFixed(1) + '%';
+                els.recText.textContent = text;
+                els.results.style.display = 'block';
+            }
+
+            els.target.addEventListener('click', () => {
+                if (!testActive) return;
+                hits++;
+                shots++;
+                els.score.textContent = hits + '/' + shots;
+                els.target.classList.add('hit');
+                setTimeout(spawnTarget, 300);
+            });
+
+            els.sensTest.addEventListener('click', e => {
+                if (!testActive || e.target === els.target) return;
+                shots++;
+                els.score.textContent = hits + '/' + shots;
+            });
+
+            els.testBtn.addEventListener('click', startTest);
+        })();
+    </script>
+</body>
+
+</html>

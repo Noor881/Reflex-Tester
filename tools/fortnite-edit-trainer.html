@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite Edit Course Trainer — Building Edit Practice [Free 2025]</title>
+    <meta name="description"
+        content="Free Fortnite edit course trainer. Practice building edits, cone edits, stair resets. Improve edit speed and accuracy with this interactive trainer.">
+    <meta name="keywords"
+        content="fortnite edit course, fortnite edit trainer, fortnite building practice, fortnite edit speed test, fortnite cone edits, fortnite stair edits, fortnite pyramid edits, edit course trainer">
+    <link rel="canonical" href="https://reflextester.fun/tools/fortnite-edit-trainer.html">
+
+    <meta property="og:title" content="Fortnite Edit Course Trainer — Building Practice">
+    <meta property="og:description"
+        content="Practice Fortnite building edits with this free interactive trainer. Improve edit speed and accuracy.">
+    <meta property="og:url" content="https://reflextester.fun/tools/fortnite-edit-trainer.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ReflexTester.fun">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fortnite Edit Course Trainer">
+    <meta name="twitter:description"
+        content="Free Fortnite edit practice tool. Train building edits, improve speed and muscle memory.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Fortnite Edit Course Trainer",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web Browser",
+        "description": "Fortnite building edit practice trainer with speed tracking and accuracy measurement",
+        "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .edit-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+
+        @media (max-width: 968px) {
+            .edit-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .edit-trainer {
+            background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);
+            border-radius: 16px;
+            padding: var(--space-2xl);
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 2px solid #a78bfa;
+        }
+
+        .edit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 120px);
+            grid-template-rows: repeat(3, 120px);
+            gap: 8px;
+            position: relative;
+        }
+
+        @media (max-width: 568px) {
+            .edit-grid {
+                grid-template-columns: repeat(3, 90px);
+                grid-template-rows: repeat(3, 90px);
+            }
+        }
+
+        .edit-tile {
+            background: rgba(255, 255, 255, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            user-select: none;
+        }
+
+        .edit-tile:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .edit-tile.selected {
+            background: #10b981;
+            border-color: #059669;
+        }
+
+        .edit-tile.target {
+            background: #fbbf24;
+            border-color: #f59e0b;
+            animation: pulse 0.5s ease-in-out infinite;
+        }
+
+        .edit-tile.correct {
+            background: #10b981;
+            border-color: #059669;
+            animation: correctFlash 0.3s;
+        }
+
+        .edit-tile.wrong {
+            background: #ef4444;
+            border-color: #dc2626;
+            animation: wrongShake 0.3s;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes correctFlash {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes wrongShake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        .edit-controls {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .edit-mode {
+            background: var(--bg-tertiary);
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-bottom: var(--space-lg);
+        }
+
+        .edit-mode label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .edit-mode select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-medium);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .stat-display {
+            background: var(--bg-tertiary);
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-bottom: var(--space-md);
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #a78bfa;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: var(--space-sm);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #7c3aed, #a78bfa);
+            transition: width 0.3s;
+        }
+
+        .timer-display {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fbbf24;
+        }
+
+        .score-display {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #10b981;
+        }
+
+        .start-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .start-overlay h2 {
+            color: white;
+            margin-bottom: var(--space-md);
+        }
+
+        .start-overlay p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: var(--space-xl);
+            text-align: center;
+            max-width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../tools.html">Tools</a>
+                <span class="separator">›</span>
+                <span>Fortnite Edit Trainer</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🏗️ Fortnite Edit Course Trainer</h1>
+                <p class="test-desc">Practice Fortnite building edits! Click tiles in the correct pattern to improve
+                    your edit speed and muscle memory.</p>
+
+                <div class="edit-container">
+                    <div class="edit-trainer" id="editTrainer">
+                        <div class="timer-display" id="timer">30</div>
+                        <div class="score-display" id="score">Score: 0</div>
+
+                        <div class="edit-grid" id="editGrid">
+                            <div class="edit-tile" data-pos="0"></div>
+                            <div class="edit-tile" data-pos="1"></div>
+                            <div class="edit-tile" data-pos="2"></div>
+                            <div class="edit-tile" data-pos="3"></div>
+                            <div class="edit-tile" data-pos="4"></div>
+                            <div class="edit-tile" data-pos="5"></div>
+                            <div class="edit-tile" data-pos="6"></div>
+                            <div class="edit-tile" data-pos="7"></div>
+                            <div class="edit-tile" data-pos="8"></div>
+                        </div>
+
+                        <div class="start-overlay" id="startOverlay">
+                            <h2>Edit Course Trainer</h2>
+                            <p>Click the highlighted tiles in the correct pattern. Practice common edit patterns to
+                                improve your speed!</p>
+                            <button class="btn btn-primary btn-large" id="startBtn">Start Training</button>
+                        </div>
+                    </div>
+
+                    <div class="edit-controls">
+                        <div class="stat-display">
+                            <div class="stat-label">Best Score</div>
+                            <div class="stat-value" id="bestScore">0</div>
+                        </div>
+
+                        <div class="stat-display">
+                            <div class="stat-label">Edits Per Minute</div>
+                            <div class="stat-value" id="epm">0</div>
+                        </div>
+
+                        <div class="stat-display">
+                            <div class="stat-label">Accuracy</div>
+                            <div class="stat-value" id="accuracy">0%</div>
+                        </div>
+
+                        <div class="edit-mode">
+                            <label>Edit Pattern</label>
+                            <select id="patternSelect">
+                                <option value="wall">Wall Window</option>
+                                <option value="door">Wall Door</option>
+                                <option value="cone">Cone Edit</option>
+                                <option value="stair">Stair Edit</option>
+                                <option value="random">Random Pattern</option>
+                            </select>
+                        </div>
+
+                        <div class="edit-mode">
+                            <label>Difficulty</label>
+                            <select id="difficultySelect">
+                                <option value="easy">Easy (2 tiles)</option>
+                                <option value="medium" selected>Medium (3-4 tiles)</option>
+                                <option value="hard">Hard (5-6 tiles)</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-primary" id="resetBtn"
+                            style="width: 100%; margin-top: var(--space-md);">🔄 Reset Stats</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About Fortnite Building Edits</h2>
+                <p>In Fortnite, mastering building edits is essential for high-level gameplay. Quick edits allow you to
+                    outmaneuver opponents, create windows for shots, and reset builds instantly. This trainer helps you
+                    develop the muscle memory needed for common edit patterns.</p>
+
+                <h3>Common Edit Patterns</h3>
+                <ul>
+                    <li><strong>Wall Window:</strong> Edit center square for a shooting window</li>
+                    <li><strong>Wall Door:</strong> Edit two bottom squares for a quick passage</li>
+                    <li><strong>Cone Edit:</strong> Edit corners for diagonal movement</li>
+                    <li><strong>Stair Edit:</strong> Edit top squares to flip stair direction</li>
+                </ul>
+
+                <h3>Edit Training Tips</h3>
+                <ul>
+                    <li><strong>Muscle Memory:</strong> Repetition is key — practice the same patterns until they're
+                        automatic</li>
+                    <li><strong>Speed vs Accuracy:</strong> Start slow and prioritize accuracy, speed will come
+                        naturally</li>
+                    <li><strong>Common Patterns:</strong> Focus on wall windows and doors first — they're the most used
+                        in combat</li>
+                    <li><strong>Crosshair Placement:</strong> Pre-aim where the first tile will be for faster edits</li>
+                </ul>
+
+                <h3>Progressive Training</h3>
+                <ol>
+                    <li><strong>Week 1:</strong> Practice wall windows and doors on Easy mode</li>
+                    <li><strong>Week 2:</strong> Add cone edits, increase to Medium difficulty</li>
+                    <li><strong>Week 3:</strong> Master stair edits, random patterns</li>
+                    <li><strong>Week 4:</strong> Hard mode, aim for 60+ EPM (edits per minute)</li>
+                </ol>
+
+                <h3>Keybind Recommendations</h3>
+                <ul>
+                    <li><strong>Edit Key:</strong> E or F (close to movement keys)</li>
+                    <li><strong>Confirm:</strong> Left Click or same as edit key (instant edit)</li>
+                    <li><strong>Reset:</strong> Right Click or separate key for quick build resets</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>More Fortnite Tools</h2>
+                <div class="rec-grid">
+                    <a href="fortnite-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🎯</div>
+                        <h3>Fortnite Aim Trainer</h3>
+                        <p>Practice tracking & shotgun aim</p>
+                    </a>
+                    <a href="sensitivity-calculator.html" class="rec-card">
+                        <div class="rec-icon">🎯</div>
+                        <h3>Sensitivity Calculator</h3>
+                        <p>Find perfect sens for building + aim</p>
+                    </a>
+                    <a href="flick-shot-trainer.html" class="rec-card">
+                        <div class="rec-icon">⚡</div>
+                        <h3>Flick Shot Trainer</h3>
+                        <p>Master shotgun flicks</p>
+                    </a>
+                    <a href="visual-reflex-test.html" class="rec-card">
+                        <div class="rec-icon">⚡</div>
+                        <h3>Reflex Test</h3>
+                        <p>Test reaction speed</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            const editPatterns = {
+                wall: [1, 4], // center + middle left
+                door: [3, 6], // bottom two
+                cone: [0, 2, 6, 8], // four corners
+                stair: [0, 1, 2], // top three
+                random: []
+            };
+
+            let gameActive = false;
+            let score = 0;
+            let timeLeft = 30;
+            let currentPattern = [];
+            let selectedTiles = [];
+            let totalEdits = 0;
+            let correctEdits = 0;
+            let startTime = 0;
+
+            const elements = {
+                grid: document.getElementById('editGrid'),
+                tiles: document.querySelectorAll('.edit-tile'),
+                startOverlay: document.getElementById('startOverlay'),
+                startBtn: document.getElementById('startBtn'),
+                timer: document.getElementById('timer'),
+                score: document.getElementById('score'),
+                bestScore: document.getElementById('bestScore'),
+                epm: document.getElementById('epm'),
+                accuracy: document.getElementById('accuracy'),
+                patternSelect: document.getElementById('patternSelect'),
+                difficultySelect: document.getElementById('difficultySelect'),
+                resetBtn: document.getElementById('resetBtn')
+            };
+
+            function loadStats() {
+                const saved = localStorage.getItem('fortniteEditStats');
+                if (saved) {
+                    try {
+                        const stats = JSON.parse(saved);
+                        elements.bestScore.textContent = stats.best || 0;
+                    } catch (e) { }
+                }
+            }
+
+            function saveStats() {
+                const current = parseInt(elements.bestScore.textContent) || 0;
+                if (score > current) {
+                    elements.bestScore.textContent = score;
+                    localStorage.setItem('fortniteEditStats', JSON.stringify({ best: score }));
+                }
+            }
+
+            function generatePattern() {
+                const patternType = elements.patternSelect.value;
+                const difficulty = elements.difficultySelect.value;
+
+                if (patternType === 'random') {
+                    const count = difficulty === 'easy' ? 2 : difficulty === 'medium' ? 3 : 5;
+                    const pattern = [];
+                    while (pattern.length < count) {
+                        const rand = Math.floor(Math.random() * 9);
+                        if (!pattern.includes(rand)) pattern.push(rand);
+                    }
+                    return pattern;
+                }
+
+                let basePattern = editPatterns[patternType];
+                if (difficulty === 'easy' && basePattern.length > 2) {
+                    basePattern = basePattern.slice(0, 2);
+                } else if (difficulty === 'hard' && basePattern.length < 4) {
+                    while (basePattern.length < 5) {
+                        const rand = Math.floor(Math.random() * 9);
+                        if (!basePattern.includes(rand)) basePattern.push(rand);
+                    }
+                }
+
+                return basePattern;
+            }
+
+            function showPattern() {
+                currentPattern = generatePattern();
+                selectedTiles = [];
+
+                elements.tiles.forEach((tile, idx) => {
+                    tile.className = 'edit-tile';
+                    if (currentPattern.includes(idx)) {
+                        tile.classList.add('target');
+                    }
+                });
+            }
+
+            function checkEdit(tileIndex) {
+                if (!gameActive) return;
+
+                if (currentPattern.includes(tileIndex) && !selectedTiles.includes(tileIndex)) {
+                    selectedTiles.push(tileIndex);
+                    elements.tiles[tileIndex].classList.remove('target');
+                    elements.tiles[tileIndex].classList.add('correct');
+
+                    if (selectedTiles.length === currentPattern.length) {
+                        score += currentPattern.length * 10;
+                        totalEdits++;
+                        correctEdits++;
+                        elements.score.textContent = `Score: ${score}`;
+
+                        setTimeout(() => {
+                            showPattern();
+                        }, 200);
+                    }
+                } else if (!currentPattern.includes(tileIndex)) {
+                    elements.tiles[tileIndex].classList.add('wrong');
+                    totalEdits++;
+                    score = Math.max(0, score - 5);
+                    elements.score.textContent = `Score: ${score}`;
+
+                    setTimeout(() => {
+                        elements.tiles[tileIndex].classList.remove('wrong');
+                    }, 300);
+                }
+
+                updateStats();
+            }
+
+            function updateStats() {
+                const elapsed = (Date.now() - startTime) / 1000;
+                const epmValue = elapsed > 0 ? Math.round((correctEdits / elapsed) * 60) : 0;
+                const accuracyValue = totalEdits > 0 ? Math.round((correctEdits / totalEdits) * 100) : 0;
+
+                elements.epm.textContent = epmValue;
+                elements.accuracy.textContent = accuracyValue + '%';
+            }
+
+            function startGame() {
+                gameActive = true;
+                score = 0;
+                timeLeft = 30;
+                totalEdits = 0;
+                correctEdits = 0;
+                startTime = Date.now();
+
+                elements.startOverlay.style.display = 'none';
+                elements.score.textContent = 'Score: 0';
+                elements.timer.textContent = timeLeft;
+
+                showPattern();
+
+                const timerInterval = setInterval(() => {
+                    timeLeft--;
+                    elements.timer.textContent = timeLeft;
+
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval);
+                        endGame();
+                    }
+                }, 1000);
+            }
+
+            function endGame() {
+                gameActive = false;
+                saveStats();
+                elements.startOverlay.style.display = 'flex';
+                elements.startOverlay.querySelector('h2').textContent = `Time's Up!`;
+                elements.startOverlay.querySelector('p').textContent = `You scored ${score} points! ${correctEdits} successful edits with ${Math.round((correctEdits / Math.max(totalEdits, 1)) * 100)}% accuracy.`;
+                elements.startBtn.textContent = 'Play Again';
+
+                elements.tiles.forEach(tile => {
+                    tile.className = 'edit-tile';
+                });
+            }
+
+            elements.tiles.forEach((tile, idx) => {
+                tile.addEventListener('click', () => checkEdit(idx));
+            });
+
+            elements.startBtn.addEventListener('click', () => {
+                elements.startOverlay.querySelector('h2').textContent = 'Edit Course Trainer';
+                elements.startOverlay.querySelector('p').textContent = 'Click the highlighted tiles in the correct pattern. Practice common edit patterns to improve your speed!';
+                elements.startBtn.textContent = 'Start Training';
+                startGame();
+            });
+
+            elements.resetBtn.addEventListener('click', () => {
+                if (confirm('Reset all stats? This cannot be undone.')) {
+                    localStorage.removeItem('fortniteEditStats');
+                    elements.bestScore.textContent = '0';
+                    elements.epm.textContent = '0';
+                    elements.accuracy.textContent = '0%';
+                }
+            });
+
+            loadStats();
+        })();
+    </script>
+</body>
+
+</html>

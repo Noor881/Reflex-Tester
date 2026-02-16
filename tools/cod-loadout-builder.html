@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COD Loadout Builder — Warzone & MW3 Gunsmith [Free 2025]</title>
+    <meta name="description"
+        content="Free COD Warzone and MW3 loadout builder. Create custom loadouts, share with friends, optimize attachments. Build the meta loadouts for Warzone and Modern Warfare 3.">
+    <meta name="keywords"
+        content="cod loadout builder, warzone loadout builder, mw3 loadout, warzone gunsmith, cod warzone loadouts, best warzone loadout, cod loadout, modern warfare 3 loadout, warzone meta loadout">
+    <link rel="canonical" href="https://reflextester.fun/tools/cod-loadout-builder.html">
+
+    <meta property="og:title" content="COD Loadout Builder — Warzone & MW3 Gunsmith">
+    <meta property="og:description"
+        content="Build and optimize Call of Duty Warzone and MW3 loadouts. Share loadouts with friends and find the meta.">
+    <meta property="og:url" content="https://reflextester.fun/tools/cod-loadout-builder.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ReflexTester.fun">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="COD Loadout Builder — Warzone & MW3">
+    <meta name="twitter:description"
+        content="Free Warzone and MW3 loadout builder. Create, optimize, and share loadouts.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "COD Loadout Builder",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web Browser",
+        "description": "Call of Duty loadout builder for Warzone and MW3 with meta recommendations and sharing",
+        "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .loadout-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+
+        @media (max-width: 968px) {
+            .loadout-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .loadout-section {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .loadout-section.primary-weapon {
+            border-top: 3px solid #10b981;
+        }
+
+        .loadout-section.secondary-weapon {
+            border-top: 3px solid #f59e0b;
+        }
+
+        .loadout-section.perks {
+            border-top: 3px solid #3b82f6;
+        }
+
+        .loadout-section.equipment {
+            border-top: 3px solid #ef4444;
+        }
+
+        .slot-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .slot-group label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .slot-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-medium);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .attachment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+
+        @media (max-width: 568px) {
+            .attachment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .loadout-preview {
+            background: linear-gradient(135deg, #0f4c1e 0%, #0a1f12 100%);
+            border-radius: 16px;
+            padding: var(--space-2xl);
+            margin-top: var(--space-xl);
+            border: 2px solid #10b981;
+        }
+
+        .loadout-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            color: #10b981;
+        }
+
+        .weapon-display {
+            background: var(--bg-tertiary);
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-bottom: var(--space-md);
+        }
+
+        .weapon-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .attachment-list {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .share-code {
+            background: var(--bg-tertiary);
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-top: var(--space-lg);
+        }
+
+        .share-code textarea {
+            width: 100%;
+            min-height: 60px;
+            padding: var(--space-sm);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-medium);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: monospace;
+            font-size: 0.85rem;
+            resize: vertical;
+        }
+
+        .meta-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ef4444, #f59e0b);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-left: var(--space-sm);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        .stat-item {
+            background: var(--bg-primary);
+            padding: var(--space-sm);
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #10b981;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../tools.html">Tools</a>
+                <span class="separator">›</span>
+                <span>COD Loadout Builder</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🎖️ COD Loadout Builder</h1>
+                <p class="test-desc">Build custom loadouts for Call of Duty Warzone and Modern Warfare 3. Optimize
+                    attachments, perks, and equipment!</p>
+
+                <div class="slot-group">
+                    <label>Game Mode</label>
+                    <select id="gameModeSelect" style="max-width: 300px;">
+                        <option value="warzone">Warzone (Battle Royale)</option>
+                        <option value="mw3">Modern Warfare 3 (Multiplayer)</option>
+                        <option value="rebirth">Rebirth Island</option>
+                    </select>
+                </div>
+
+                <div class="loadout-container">
+                    <div class="loadout-section primary-weapon">
+                        <h3>Primary Weapon</h3>
+                        <div class="slot-group">
+                            <label>Weapon Type</label>
+                            <select id="primaryType">
+                                <option value="assault">Assault Rifle</option>
+                                <option value="smg">SMG</option>
+                                <option value="lmg">LMG</option>
+                                <option value="marksman">Marksman Rifle</option>
+                                <option value="sniper">Sniper Rifle</option>
+                                <option value="shotgun">Shotgun</option>
+                            </select>
+                        </div>
+                        <div class="slot-group">
+                            <label>Weapon <span class="meta-badge" id="primaryMetaBadge"
+                                    style="display:none;">META</span></label>
+                            <select id="primaryWeapon">
+                                <option value="none">Select weapon type first</option>
+                            </select>
+                        </div>
+                        <div class="attachment-grid">
+                            <div class="slot-group">
+                                <label>Muzzle</label>
+                                <select id="primaryMuzzle">
+                                    <option value="none">None</option>
+                                    <option value="suppressor">Suppressor</option>
+                                    <option value="compensator">Compensator</option>
+                                    <option value="flashhider">Flash Hider</option>
+                                </select>
+                            </div>
+                            <div class="slot-group">
+                                <label>Barrel</label>
+                                <select id="primaryBarrel">
+                                    <option value="none">None</option>
+                                    <option value="long">Long Barrel</option>
+                                    <option value="short">Short Barrel</option>
+                                    <option value="heavy">Heavy Barrel</option>
+                                </select>
+                            </div>
+                            <div class="slot-group">
+                                <label>Optic</label>
+                                <select id="primaryOptic">
+                                    <option value="none">Iron Sights</option>
+                                    <option value="reddot">Red Dot</option>
+                                    <option value="holo">Holographic</option>
+                                    <option value="scope3x">3x Scope</option>
+                                    <option value="scope4x">4x Scope</option>
+                                </select>
+                            </div>
+                            <div class="slot-group">
+                                <label>Underbarrel</label>
+                                <select id="primaryUnderbarrel">
+                                    <option value="none">None</option>
+                                    <option value="foregrip">Foregrip</option>
+                                    <option value="bipod">Bipod</option>
+                                    <option value="angled">Angled Grip</option>
+                                </select>
+                            </div>
+                            <div class="slot-group">
+                                <label>Magazine</label>
+                                <select id="primaryMagazine">
+                                    <option value="none">Default</option>
+                                    <option value="extended">Extended Mag</option>
+                                    <option value="fast">Fast Mag</option>
+                                    <option value="drum">Drum Mag</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="loadout-section secondary-weapon">
+                        <h3>Secondary Weapon</h3>
+                        <div class="slot-group">
+                            <label>Weapon Type</label>
+                            <select id="secondaryType">
+                                <option value="pistol">Pistol</option>
+                                <option value="smg">SMG</option>
+                                <option value="shotgun">Shotgun</option>
+                                <option value="launcher">Launcher</option>
+                            </select>
+                        </div>
+                        <div class="slot-group">
+                            <label>Weapon</label>
+                            <select id="secondaryWeapon">
+                                <option value="x12">X12</option>
+                                <option value="p890">P890</option>
+                                <option value="basilisk">Basilisk</option>
+                                <option value="gsmagnum">GS Magnum</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="loadout-section perks">
+                        <h3>Perks & Field Upgrade</h3>
+                        <div class="slot-group">
+                            <label>Perk 1 (Vest)</label>
+                            <select id="perk1">
+                                <option value="infantry">Infantry Vest</option>
+                                <option value="engineer">Engineer Vest</option>
+                                <option value="demo">Demolition Vest</option>
+                                <option value="gunner">Gunner Vest</option>
+                            </select>
+                        </div>
+                        <div class="slot-group">
+                            <label>Perk 2 (Gloves)</label>
+                            <select id="perk2">
+                                <option value="commando">Commando Gloves</option>
+                                <option value="quick">Quick-Grip Gloves</option>
+                                <option value="marksman">Marksman Gloves</option>
+                                <option value="assault">Assault Gloves</option>
+                            </select>
+                        </div>
+                        <div class="slot-group">
+                            <label>Perk 3 (Boots)</label>
+                            <select id="perk3">
+                                <option value="lightweight">Lightweight Boots</option>
+                                <option value="tactical">Tactical Pads</option>
+                                <option value="stalker">Stalker Boots</option>
+                                <option value="running">Running Sneakers</option>
+                            </select>
+                        </div>
+                        <div class="slot-group">
+                            <label>Perk 4 (Gear)</label>
+                            <select id="perk4">
+                                <option value="eod">EOD Padding</option>
+                                <option value="tac">Tac Mask</option>
+                                <option value="ghost">Ghost T/V Camo</option>
+                                <option value="hardline">Hardline Comms</option>
+                            </select>
+                        </div>
+                        <div class="slot-group">
+                            <label>Field Upgrade</label>
+                            <select id="fieldUpgrade">
+                                <option value="dead">Dead Silence</option>
+                                <option value="munitions">Munitions Box</option>
+                                <option value="trophy">Trophy System</option>
+                                <option value="tac">Tac Insert</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="loadout-section equipment">
+                        <h3>Tactical & Lethal</h3>
+                        <div class="slot-group">
+                            <label>Lethal Equipment</label>
+                            <select id="lethal">
+                                <option value="frag">Frag Grenade</option>
+                                <option value="semtex">Semtex</option>
+                                <option value="throwing">Throwing Knife</option>
+                                <option value="proximity">Proximity Mine</option>
+                                <option value="c4">C4</option>
+                            </select>
+                        </div>
+                        <div class="slot-group">
+                            <label>Tactical Equipment</label>
+                            <select id="tactical">
+                                <option value="stun">Stun Grenade</option>
+                                <option value="flash">Flash Grenade</option>
+                                <option value="smoke">Smoke Grenade</option>
+                                <option value="heartbeat">Heartbeat Sensor</option>
+                                <option value="snapshot">Snapshot Grenade</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="loadout-preview">
+                    <div class="loadout-title" id="loadoutTitle">My Warzone Loadout</div>
+
+                    <div class="weapon-display">
+                        <div class="weapon-name" id="primaryDisplay">Primary: Select a weapon</div>
+                        <div class="attachment-list" id="primaryAttachments">No attachments selected</div>
+                    </div>
+
+                    <div class="weapon-display">
+                        <div class="weapon-name" id="secondaryDisplay">Secondary: X12</div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-label">Range</div>
+                            <div class="stat-value" id="rangeStat">—</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Mobility</div>
+                            <div class="stat-value" id="mobilityStat">—</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Control</div>
+                            <div class="stat-value" id="controlStat">—</div>
+                        </div>
+                    </div>
+
+                    <div class="share-code">
+                        <label><strong>Share Loadout Code</strong></label>
+                        <textarea id="shareCode" readonly>BUILD-AR-M4-SUPP-LONG-REDDOT-GRIP-EXT</textarea>
+                        <div class="btn-group" style="margin-top: var(--space-sm);">
+                            <button class="btn btn-primary" id="copyBtn">📋 Copy Code</button>
+                            <button class="btn btn-secondary" id="saveBtn">💾 Save Loadout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About COD Loadouts</h2>
+                <p>In Call of Duty Warzone and Modern Warfare 3, your loadout is your lifeline. The right combination of
+                    weapons, attachments, perks, and equipment can mean the difference between victory and the Gulag.
+                    Use this builder to experiment and optimize your setup.</p>
+
+                <h3>Meta Loadouts (Current Season)</h3>
+                <h4>Warzone Meta:</h4>
+                <ul>
+                    <li><strong>RAM-7 + HRM-9:</strong> Current AR/SMG meta for Urzikstan</li>
+                    <li><strong>SVA 545 + Superi 46:</strong> Laser beam accuracy at range</li>
+                    <li><strong>Holger 556 + Striker:</strong> LMG dominance for squads</li>
+                </ul>
+
+                <h4>MW3 Multiplayer Meta:</h4>
+                <ul>
+                    <li><strong>SVA 545:</strong> Zero recoil laser beam</li>
+                    <li><strong>Striker SMG:</strong> Fastest TTK in close range</li>
+                    <li><strong>AMR9:</strong> Run and gun king</li>
+                </ul>
+
+                <h3>Loadout Building Tips</h3>
+                <ul>
+                    <li><strong>Warzone:</strong> Balance range (AR) with close-quarters power (SMG)</li>
+                    <li><strong>Attachments:</strong> Prioritize recoil control and mobility</li>
+                    <li><strong>Perks:</strong> EOD Padding + Ghost are essential for Warzone</li>
+                    <li><strong>Field Upgrade:</strong> Dead Silence or Trophy System for endgame</li>
+                </ul>
+
+                <h3>How to Use Your Loadout</h3>
+                <ol>
+                    <li>Build your loadout using the tool above</li>
+                    <li>Copy your share code or screenshot your setup</li>
+                    <li>In Warzone, use Buy Stations to purchase your loadout drop</li>
+                    <li>In MW3, save your custom loadout in the Armory</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>More COD Tools</h2>
+                <div class="rec-grid">
+                    <a href="cod-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🎯</div>
+                        <h3>COD Aim Trainer</h3>
+                        <p>Practice tracking & flicks</p>
+                    </a>
+                    <a href="sensitivity-calculator.html" class="rec-card">
+                        <div class="rec-icon">🎯</div>
+                        <h3>Sensitivity Calculator</h3>
+                        <p>Convert sens between games</p>
+                    </a>
+                    <a href="flick-shot-trainer.html" class="rec-card">
+                        <div class="rec-icon">⚡</div>
+                        <h3>Flick Shot Trainer</h3>
+                        <p>Master 360° flicks</p>
+                    </a>
+                    <a href="visual-reflex-test.html" class="rec-card">
+                        <div class="rec-icon">⚡</div>
+                        <h3>Reflex Test</h3>
+                        <p>Test reaction speed</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            const weapons = {
+                assault: ['M4A1', 'RAM-7', 'SVA 545', 'Holger 556', 'MCW', 'STG44'],
+                smg: ['HRM-9', 'Superi 46', 'Striker', 'AMR9', 'WSP Swarm', 'Vel 46'],
+                lmg: ['Pulemyot 762', 'Holger 26', 'RPK', 'Bruen Mk9'],
+                marksman: ['DM56', 'MTZ Interceptor', 'KVD Enforcer', 'MCW 6.8'],
+                sniper: ['XRK Stalker', 'Longbow', 'KATT-AMR', 'KV Inhibitor'],
+                shotgun: ['Haymaker', 'Lockwood 680', 'Riveter', 'Bryson 800'],
+                pistol: ['X12', 'P890', 'Basilisk', 'GS Magnum'],
+                smg_secondary: ['HRM-9', 'Striker', 'AMR9'],
+                shotgun_secondary: ['Haymaker', 'Lockwood 680'],
+                launcher: ['JOKR', 'Strela-P', 'PILA', 'RPG-7']
+            };
+
+            const metaWeapons = ['RAM-7', 'SVA 545', 'HRM-9', 'Striker', 'Pulemyot 762'];
+
+            const elements = {
+                gameMode: document.getElementById('gameModeSelect'),
+                primaryType: document.getElementById('primaryType'),
+                primaryWeapon: document.getElementById('primaryWeapon'),
+                primaryMuzzle: document.getElementById('primaryMuzzle'),
+                primaryBarrel: document.getElementById('primaryBarrel'),
+                primaryOptic: document.getElementById('primaryOptic'),
+                primaryUnderbarrel: document.getElementById('primaryUnderbarrel'),
+                primaryMagazine: document.getElementById('primaryMagazine'),
+                secondaryType: document.getElementById('secondaryType'),
+                secondaryWeapon: document.getElementById('secondaryWeapon'),
+                perk1: document.getElementById('perk1'),
+                perk2: document.getElementById('perk2'),
+                perk3: document.getElementById('perk3'),
+                perk4: document.getElementById('perk4'),
+                fieldUpgrade: document.getElementById('fieldUpgrade'),
+                lethal: document.getElementById('lethal'),
+                tactical: document.getElementById('tactical'),
+                primaryDisplay: document.getElementById('primaryDisplay'),
+                primaryAttachments: document.getElementById('primaryAttachments'),
+                secondaryDisplay: document.getElementById('secondaryDisplay'),
+                loadoutTitle: document.getElementById('loadoutTitle'),
+                shareCode: document.getElementById('shareCode'),
+                rangeStat: document.getElementById('rangeStat'),
+                mobilityStat: document.getElementById('mobilityStat'),
+                controlStat: document.getElementById('controlStat'),
+                primaryMetaBadge: document.getElementById('primaryMetaBadge'),
+                copyBtn: document.getElementById('copyBtn'),
+                saveBtn: document.getElementById('saveBtn')
+            };
+
+            function updateWeaponList() {
+                const type = elements.primaryType.value;
+                const weaponList = weapons[type] || [];
+                elements.primaryWeapon.innerHTML = weaponList.map(w => `<option value="${w}">${w}</option>`).join('');
+                updateLoadout();
+            }
+
+            function updateSecondaryList() {
+                const type = elements.secondaryType.value;
+                let weaponList = [];
+                if (type === 'pistol') weaponList = weapons.pistol;
+                else if (type === 'smg') weaponList = weapons.smg_secondary;
+                else if (type === 'shotgun') weaponList = weapons.shotgun_secondary;
+                else if (type === 'launcher') weaponList = weapons.launcher;
+
+                elements.secondaryWeapon.innerHTML = weaponList.map(w => `<option value="${w}">${w}</option>`).join('');
+                updateLoadout();
+            }
+
+            function calculateStats() {
+                const muzzle = elements.primaryMuzzle.value;
+                const barrel = elements.primaryBarrel.value;
+                const optic = elements.primaryOptic.value;
+                const mag = elements.primaryMagazine.value;
+                const weaponType = elements.primaryType.value;
+
+                let range = 50, mobility = 50, control = 50;
+
+                if (barrel === 'long') { range += 20; mobility -= 10; }
+                if (barrel === 'short') { mobility += 15; range -= 10; }
+                if (muzzle === 'suppressor') { range += 10; control += 5; }
+                if (muzzle === 'compensator') { control += 15; }
+                if (elements.primaryUnderbarrel.value === 'foregrip') { control += 20; mobility -= 5; }
+                if (mag === 'drum') { mobility -= 15; }
+                if (mag === 'extended') { mobility -= 5; }
+
+                if (weaponType === 'smg') { mobility += 20; range -= 20; }
+                if (weaponType === 'sniper') { range += 30; mobility -= 30; control -= 10; }
+                if (weaponType === 'assault') { range += 10; control += 10; }
+
+                range = Math.max(0, Math.min(100, range));
+                mobility = Math.max(0, Math.min(100, mobility));
+                control = Math.max(0, Math.min(100, control));
+
+                elements.rangeStat.textContent = range;
+                elements.mobilityStat.textContent = mobility;
+                elements.controlStat.textContent = control;
+            }
+
+            function updateLoadout() {
+                const weapon = elements.primaryWeapon.value;
+                const attachments = [];
+
+                if (elements.primaryMuzzle.value !== 'none') attachments.push(elements.primaryMuzzle.options[elements.primaryMuzzle.selectedIndex].text);
+                if (elements.primaryBarrel.value !== 'none') attachments.push(elements.primaryBarrel.options[elements.primaryBarrel.selectedIndex].text);
+                if (elements.primaryOptic.value !== 'none') attachments.push(elements.primaryOptic.options[elements.primaryOptic.selectedIndex].text);
+                if (elements.primaryUnderbarrel.value !== 'none') attachments.push(elements.primaryUnderbarrel.options[elements.primaryUnderbarrel.selectedIndex].text);
+                if (elements.primaryMagazine.value !== 'none') attachments.push(elements.primaryMagazine.options[elements.primaryMagazine.selectedIndex].text);
+
+                elements.primaryDisplay.textContent = `Primary: ${weapon}`;
+                elements.primaryAttachments.textContent = attachments.length > 0 ? attachments.join(' • ') : 'No attachments selected';
+                elements.secondaryDisplay.textContent = `Secondary: ${elements.secondaryWeapon.value}`;
+
+                if (metaWeapons.includes(weapon)) {
+                    elements.primaryMetaBadge.style.display = 'inline-block';
+                } else {
+                    elements.primaryMetaBadge.style.display = 'none';
+                }
+
+                const gameModeName = elements.gameMode.options[elements.gameMode.selectedIndex].text;
+                elements.loadoutTitle.textContent = `My ${gameModeName} Loadout`;
+
+                const code = `BUILD-${elements.primaryType.value.toUpperCase()}-${weapon.replace(/\s/g, '')}-${elements.primaryMuzzle.value}-${elements.primaryBarrel.value}-${elements.primaryOptic.value}-${elements.primaryUnderbarrel.value}-${elements.primaryMagazine.value}`.toUpperCase();
+                elements.shareCode.value = code;
+
+                calculateStats();
+                saveToStorage();
+            }
+
+            function saveToStorage() {
+                const loadout = {
+                    gameMode: elements.gameMode.value,
+                    primaryType: elements.primaryType.value,
+                    primaryWeapon: elements.primaryWeapon.value,
+                    primaryMuzzle: elements.primaryMuzzle.value,
+                    primaryBarrel: elements.primaryBarrel.value,
+                    primaryOptic: elements.primaryOptic.value,
+                    primaryUnderbarrel: elements.primaryUnderbarrel.value,
+                    primaryMagazine: elements.primaryMagazine.value,
+                    secondaryType: elements.secondaryType.value,
+                    secondaryWeapon: elements.secondaryWeapon.value
+                };
+                localStorage.setItem('codLoadout', JSON.stringify(loadout));
+            }
+
+            function loadFromStorage() {
+                const saved = localStorage.getItem('codLoadout');
+                if (saved) {
+                    try {
+                        const loadout = JSON.parse(saved);
+                        Object.keys(loadout).forEach(key => {
+                            if (elements[key]) elements[key].value = loadout[key];
+                        });
+                        updateWeaponList();
+                        updateSecondaryList();
+                    } catch (e) { }
+                }
+            }
+
+            elements.primaryType.addEventListener('change', updateWeaponList);
+            elements.primaryWeapon.addEventListener('change', updateLoadout);
+            elements.primaryMuzzle.addEventListener('change', updateLoadout);
+            elements.primaryBarrel.addEventListener('change', updateLoadout);
+            elements.primaryOptic.addEventListener('change', updateLoadout);
+            elements.primaryUnderbarrel.addEventListener('change', updateLoadout);
+            elements.primaryMagazine.addEventListener('change', updateLoadout);
+            elements.secondaryType.addEventListener('change', updateSecondaryList);
+            elements.secondaryWeapon.addEventListener('change', updateLoadout);
+            elements.gameMode.addEventListener('change', updateLoadout);
+
+            elements.copyBtn.addEventListener('click', function () {
+                elements.shareCode.select();
+                document.execCommand('copy');
+                this.textContent = '✅ Copied!';
+                setTimeout(() => { this.textContent = '📋 Copy Code'; }, 2000);
+            });
+
+            elements.saveBtn.addEventListener('click', function () {
+                saveToStorage();
+                this.textContent = '✅ Saved!';
+                setTimeout(() => { this.textContent = '💾 Save Loadout'; }, 2000);
+            });
+
+            loadFromStorage();
+            updateWeaponList();
+            updateSecondaryList();
+        })();
+    </script>
+</body>
+
+</html>

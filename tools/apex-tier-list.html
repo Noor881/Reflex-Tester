@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Legends Tier List — Season 20 Meta Rankings [2025]</title>
+    <meta name="description"
+        content="Apex Legends legend tier list for Season 20. Meta rankings for competitive play, ranked, and pubs. Updated tier list with pro player insights.">
+    <meta name="keywords"
+        content="apex legends tier list, apex meta, season 20 tier list, best legends apex, apex ranked tier list, apex competitive">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .tier-container {
+            margin: var(--space-2xl) 0;
+        }
+
+        .tier-row {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin-bottom: var(--space-md);
+            border: 2px solid var(--border-subtle);
+        }
+
+        .tier-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .tier-label {
+            font-size: 3rem;
+            font-weight: 900;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .tier-s {
+            background: linear-gradient(135deg, #ff4444, #cc0000);
+        }
+
+        .tier-a {
+            background: linear-gradient(135deg, #ff8c00, #ff6347);
+        }
+
+        .tier-b {
+            background: linear-gradient(135deg, #ffd700, #ffb300);
+        }
+
+        .tier-c {
+            background: linear-gradient(135deg, #32cd32, #228b22);
+        }
+
+        .tier-d {
+            background: linear-gradient(135deg, #1e90ff, #0066cc);
+        }
+
+        .tier-info {
+            flex: 1;
+        }
+
+        .tier-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .tier-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .legend-card {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: var(--space-md);
+            text-align: center;
+            border: 2px solid var(--border-medium);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .legend-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .legend-icon {
+            font-size: 3rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .legend-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .legend-role {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .legend-details {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: var(--space-xl);
+            margin: var(--space-xl) 0;
+            display: none;
+            border: 2px solid var(--primary);
+        }
+
+        .legend-details.active {
+            display: block;
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .detail-icon {
+            font-size: 5rem;
+        }
+
+        .detail-info h3 {
+            font-size: 2rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .detail-info p {
+            color: var(--text-secondary);
+        }
+
+        .strengths-weaknesses {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        @media (max-width: 768px) {
+            .strengths-weaknesses {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sw-box {
+            background: var(--bg-tertiary);
+            padding: var(--space-md);
+            border-radius: 8px;
+        }
+
+        .sw-box h4 {
+            margin-bottom: var(--space-sm);
+        }
+
+        .sw-box ul {
+            padding-left: var(--space-lg);
+        }
+
+        .sw-box li {
+            margin-bottom: var(--space-xs);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a> <span class="separator">›</span>
+                <a href="../tools.html">Tools</a> <span class="separator">›</span>
+                <span>Apex Tier List</span>
+            </nav>
+        </div>
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🏆 Apex Legends Tier List — Season 20</h1>
+                <p class="test-desc">Meta rankings for competitive Apex Legends. Click any legend for detailed
+                    strengths, weaknesses, and playstyle tips.</p>
+
+                <div class="tier-container">
+                    <div class="tier-row">
+                        <div class="tier-header">
+                            <div class="tier-label tier-s">S</div>
+                            <div class="tier-info">
+                                <div class="tier-name">S-Tier (Meta Defining)</div>
+                                <div class="tier-desc">Dominant picks in competitive and ranked play</div>
+                            </div>
+                        </div>
+                        <div class="legend-grid">
+                            <div class="legend-card" data-legend="pathfinder">
+                                <div class="legend-icon">🤖</div>
+                                <div class="legend-name">Pathfinder</div>
+                                <div class="legend-role">Scout</div>
+                            </div>
+                            <div class="legend-card" data-legend="catalyst">
+                                <div class="legend-icon">🧪</div>
+                                <div class="legend-name">Catalyst</div>
+                                <div class="legend-role">Controller</div>
+                            </div>
+                            <div class="legend-card" data-legend="horizon">
+                                <div class="legend-icon">🌙</div>
+                                <div class="legend-name">Horizon</div>
+                                <div class="legend-role">Skirmisher</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tier-row">
+                        <div class="tier-header">
+                            <div class="tier-label tier-a">A</div>
+                            <div class="tier-info">
+                                <div class="tier-name">A-Tier (Strong Picks)</div>
+                                <div class="tier-desc">Reliable and versatile in most situations</div>
+                            </div>
+                        </div>
+                        <div class="legend-grid">
+                            <div class="legend-card" data-legend="wraith">
+                                <div class="legend-icon">👻</div>
+                                <div class="legend-name">Wraith</div>
+                                <div class="legend-role">Skirmisher</div>
+                            </div>
+                            <div class="legend-card" data-legend="bangalore">
+                                <div class="legend-icon">💨</div>
+                                <div class="legend-name">Bangalore</div>
+                                <div class="legend-role">Assault</div>
+                            </div>
+                            <div class="legend-card" data-legend="gibby">
+                                <div class="legend-icon">🛡️</div>
+                                <div class="legend-name">Gibraltar</div>
+                                <div class="legend-role">Support</div>
+                            </div>
+                            <div class="legend-card" data-legend="bloodhound">
+                                <div class="legend-icon">🦅</div>
+                                <div class="legend-name">Bloodhound</div>
+                                <div class="legend-role">Recon</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tier-row">
+                        <div class="tier-header">
+                            <div class="tier-label tier-b">B</div>
+                            <div class="tier-info">
+                                <div class="tier-name">B-Tier (Balanced)</div>
+                                <div class="tier-desc">Situationally strong, decent overall</div>
+                            </div>
+                        </div>
+                        <div class="legend-grid">
+                            <div class="legend-card" data-legend="octane">
+                                <div class="legend-icon">⚡</div>
+                                <div class="legend-name">Octane</div>
+                                <div class="legend-role">Skirmisher</div>
+                            </div>
+                            <div class="legend-card" data-legend="lifeline">
+                                <div class="legend-icon">⚕️</div>
+                                <div class="legend-name">Lifeline</div>
+                                <div class="legend-role">Support</div>
+                            </div>
+                            <div class="legend-card" data-legend="valkyrie">
+                                <div class="legend-icon">✈️</div>
+                                <div class="legend-name">Valkyrie</div>
+                                <div class="legend-role">Skirmisher</div>
+                            </div>
+                            <div class="legend-card" data-legend="revenant">
+                                <div class="legend-icon">💀</div>
+                                <div class="legend-name">Revenant</div>
+                                <div class="legend-role">Skirmisher</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tier-row">
+                        <div class="tier-header">
+                            <div class="tier-label tier-c">C</div>
+                            <div class="tier-info">
+                                <div class="tier-name">C-Tier (Niche Picks)</div>
+                                <div class="tier-desc">Work in specific comps or playstyles</div>
+                            </div>
+                        </div>
+                        <div class="legend-grid">
+                            <div class="legend-card" data-legend="crypto">
+                                <div class="legend-icon">📡</div>
+                                <div class="legend-name">Crypto</div>
+                                <div class="legend-role">Recon</div>
+                            </div>
+                            <div class="legend-card" data-legend="mirage">
+                                <div class="legend-icon">🎭</div>
+                                <div class="legend-name">Mirage</div>
+                                <div class="legend-role">Support</div>
+                            </div>
+                            <div class="legend-card" data-legend="fuse">
+                                <div class="legend-icon">💣</div>
+                                <div class="legend-name">Fuse</div>
+                                <div class="legend-role">Assault</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legend-details" id="legendDetails">
+                    <div class="detail-header">
+                        <div class="detail-icon" id="detailIcon"></div>
+                        <div class="detail-info">
+                            <h3 id="detailName"></h3>
+                            <p id="detailRole"></p>
+                        </div>
+                    </div>
+                    <div class="strengths-weaknesses">
+                        <div class="sw-box">
+                            <h4 style="color: #10b981;">✓ Strengths</h4>
+                            <ul id="detailStrengths"></ul>
+                        </div>
+                        <div class="sw-box">
+                            <h4 style="color: #ef4444;">✗ Weaknesses</h4>
+                            <ul id="detailWeaknesses"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>Tier List Methodology</h2>
+                <p>This tier list is based on Season 20 competitive meta, pro player usage, and ranked performance data.
+                </p>
+                <h3>Ranking Criteria</h3>
+                <ul>
+                    <li><strong>Tournament Pick Rate:</strong> Usage in ALGS and competitive events</li>
+                    <li><strong>Solo Queue Viability:</strong> How well the legend performs without team coordination
+                    </li>
+                    <li><strong>Team Synergy:</strong> Compatibility with common team compositions</li>
+                    <li><strong>Skill Floor vs Ceiling:</strong> Accessibility and mastery potential</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        const legendData = {
+            pathfinder: { icon: '🤖', name: 'Pathfinder', role: 'Scout — Forward positioning & rotation', strengths: ['Best rotation tool in game', 'High skill ceiling', 'Scan beacons for ring info', 'Versatile in all team comps'], weaknesses: ['Large hitbox', 'Low profile removed', 'Requires map knowledge', 'Grapple has long cooldown'] },
+            catalyst: { icon: '🧪', name: 'Catalyst', role: 'Controller — Area denial & defense', strengths: ['Zone control with ferrofluid', 'Strong defensive ult', 'Great for holding buildings', 'Counters aggressive pushes'], weaknesses: ['Limited offensive capability', 'Ult easy to avoid outdoors', 'Requires good positioning', 'Team dependent'] },
+            horizon: { icon: '🌙', name: 'Horizon', role: 'Skirmisher — Mobility & high ground', strengths: ['Gravity lift versatility', 'Strafe speed on lift', 'Strong ult for area denial', 'Easy to master'], weaknesses: ['Predictable on lift', 'Ult countered by mobility', 'Medium hitbox', 'Tactical cooldown'] },
+            wraith: { icon: '👻', name: 'Wraith', role: 'Skirmisher — Escape & repositioning', strengths: ['Best escape in game', 'Portal for team rotations', 'Small hitbox', 'High skill ceiling'], weaknesses: ['Abilities are reactive', 'Portal can be followed', 'Longer tactical delay', 'Team coordination needed'] },
+            bangalore: { icon: '💨', name: 'Bangalore', role: 'Assault — Smoke & maneuverability', strengths: ['Smoke for cover/push', 'Passive speed boost', 'Versatile ult', 'Solo queue friendly'], weaknesses: ['Smoke helps enemies too', 'Ult easy to avoid', 'No direct team support', 'Digital threats counter'] },
+            gibby: { icon: '🛡️', name: 'Gibraltar', role: 'Support — Defense & protection', strengths: ['Gun shield for 1v1s', 'Bubble for safety', 'Fast res in bubble', 'Ult deals huge damage'], weaknesses: ['Massive hitbox', 'Low mobility', 'Bubble helps enemies', 'Ult takes time'] },
+            bloodhound: { icon: '🦅', name: 'Bloodhound', role: 'Recon — Tracking & information', strengths: ['Wallhacks for team', 'Scan reveals enemies', 'Ult boosts speed', 'Easy to use'], weaknesses: ['Scan reveals position', 'Ult makes you glow red', 'No escape ability', 'Scan can be baited'] },
+            octane: { icon: '⚡', name: 'Octane', role: 'Skirmisher — Speed & aggression', strengths: ['Fast rotations', 'Jump pad for team', 'Passive healing', 'Fun to play'], weaknesses: ['Selfish abilities', 'HP drain from stim', 'Jump pad predictable', 'No real team utility'] },
+            lifeline: { icon: '⚕️', name: 'Lifeline', role: 'Support — Healing & revival', strengths: ['Auto-res with drone', 'Free healing', 'Care package for loot', 'Great for beginners'], weaknesses: ['No combat abilities', 'Res drone vulnerable', 'Care package reveals position', 'Passive playstyle'] },
+            valkyrie: { icon: '✈️', name: 'Valkyrie', role: 'Skirmisher — Flight & repositioning', strengths: ['Ult for team rotation', 'Scan beacons', 'Passive flight', 'Missiles for poke'], weaknesses: ['Slow when flying', 'Missiles easy to dodge', 'Ult takes time to launch', 'Fuel management'] },
+            revenant: { icon: '💀', name: 'Revenant', role: 'Skirmisher — Aggression & disruption', strengths: ['Silence counters abilities', 'Crouch walk is quiet', 'Climb higher', 'Shadow mode aggressive'], weaknesses: ['Large hitbox', 'No escape', 'Ult risky', 'Shadow form HP low'] },
+            crypto: { icon: '📡', name: 'Crypto', role: 'Recon — Intel & EMP', strengths: ['Permanent scan via drone', 'EMP breaks shields', 'Scan beacons remotely', 'Great for coordinated teams'], weaknesses: ['Stationary when droning', 'Drone easy to destroy', 'High skill floor', 'Not solo queue friendly'] },
+            mirage: { icon: '🎭', name: 'Mirage', role: 'Support — Deception & confusion', strengths: ['Invisible res', 'Decoys bait shots', 'Fun bamboozles', 'Good for casuals'], weaknesses: ['Abilities easily spotted', 'No competitive viability', 'Decoys dont fool pros', 'Low skill ceiling'] },
+            fuse: { icon: '💣', name: 'Fuse', role: 'Assault — Grenades & area damage', strengths: ['Spam grenades', 'Ult traps enemies', 'Knuckle cluster damage', 'Oppressive poke'], weaknesses: ['No mobility', 'Ult easy to escape', 'Grenade dependent', 'Large hitbox'] }
+        };
+
+        document.querySelectorAll('.legend-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const legend = card.dataset.legend;
+                const data = legendData[legend];
+                if (!data) return;
+
+                document.getElementById('detailIcon').textContent = data.icon;
+                document.getElementById('detailName').textContent = data.name;
+                document.getElementById('detailRole').textContent = data.role;
+
+                const strengthsList = document.getElementById('detailStrengths');
+                strengthsList.innerHTML = '';
+                data.strengths.forEach(s => {
+                    const li = document.createElement('li');
+                    li.textContent = s;
+                    strengthsList.appendChild(li);
+                });
+
+                const weaknessesList = document.getElementById('detailWeaknesses');
+                weaknessesList.innerHTML = '';
+                data.weaknesses.forEach(w => {
+                    const li = document.createElement('li');
+                    li.textContent = w;
+                    weaknessesList.appendChild(li);
+                });
+
+                document.getElementById('legendDetails').classList.add('active');
+                document.getElementById('legendDetails').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+
+</html>

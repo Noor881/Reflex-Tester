@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Lineup Trainer — Practice Utility Lineups [Free 2025]</title>
+    <meta name="description"
+        content="Free Valorant lineup practice tool. Train Sova darts, Viper mollies, smoke lineups. Master utility placement with this interactive trainer.">
+    <meta name="keywords"
+        content="valorant lineup trainer, valorant utility practice, sova lineups, viper lineups, valorant smoke spots, valorant practice tool">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .lineup-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+
+        @media (max-width: 968px) {
+            .lineup-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .lineup-trainer {
+            background: linear-gradient(135deg, #ff4655 0%, #c41e3a 100%);
+            border-radius: 16px;
+            padding: var(--space-2xl);
+            min-height: 500px;
+            position: relative;
+            border: 2px solid #ff6b7a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .target-zone {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 3px dashed #fff;
+            border-radius: 50%;
+            position: absolute;
+            cursor: crosshair;
+            transition: all 0.3s;
+        }
+
+        .target-zone.hit {
+            background: #10b981;
+            border-color: #059669;
+            animation: hitPulse 0.5s;
+        }
+
+        @keyframes hitPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .crosshair {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .crosshair::before,
+        .crosshair::after {
+            content: '';
+            position: absolute;
+            background: #00ff00;
+        }
+
+        .crosshair::before {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .crosshair::after {
+            height: 2px;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .lineup-controls {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .stat-box {
+            background: var(--bg-tertiary);
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-bottom: var(--space-md);
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ff4655;
+        }
+
+        .control-group {
+            background: var(--bg-tertiary);
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-bottom: var(--space-md);
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .control-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-medium);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .score-display {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #10b981;
+            z-index: 5;
+        }
+
+        .timer-display {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fbbf24;
+            z-index: 5;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a> <span class="separator">›</span>
+                <a href="../tools.html">Tools</a> <span class="separator">›</span>
+                <span>Valorant Lineup Trainer</span>
+            </nav>
+        </div>
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🎯 Valorant Lineup Trainer</h1>
+                <p class="test-desc">Practice Valorant utility lineups! Click targets as they appear to improve your
+                    lineup accuracy and speed.</p>
+                <div class="lineup-container">
+                    <div class="lineup-trainer" id="lineupTrainer">
+                        <div class="score-display" id="score">Score: 0</div>
+                        <div class="timer-display" id="timer">60s</div>
+                        <div class="crosshair" id="crosshair"></div>
+                        <div class="target-zone" id="target"></div>
+                    </div>
+                    <div class="lineup-controls">
+                        <div class="stat-box">
+                            <div class="stat-label">Accuracy</div>
+                            <div class="stat-value" id="accuracy">0%</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Best Streak</div>
+                            <div class="stat-value" id="streak">0</div>
+                        </div>
+                        <div class="control-group">
+                            <label>Agent</label>
+                            <select id="agentSelect">
+                                <option value="sova">Sova (Dart)</option>
+                                <option value="viper">Viper (Molly)</option>
+                                <option value="brimstone">Brimstone (Smoke)</option>
+                                <option value="omen">Omen (Smoke)</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>Difficulty</label>
+                            <select id="difficultySelect">
+                                <option value="easy">Easy (Large targets)</option>
+                                <option value="medium" selected>Medium (Standard)</option>
+                                <option value="hard">Hard (Small targets)</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="startBtn"
+                            style="width: 100%; margin-top: var(--space-md);">▶ Start Practice</button>
+                        <button class="btn btn-secondary" id="resetBtn"
+                            style="width: 100%; margin-top: var(--space-sm);">🔄 Reset Stats</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About Valorant Lineups</h2>
+                <p>Lineup mastery is essential for controller and initiator players. Consistent utility placement can
+                    win rounds through post-plant lineups, area denial, and information gathering.</p>
+                <h3>Key Agents for Lineups</h3>
+                <ul>
+                    <li><strong>Sova:</strong> Recon dart lineups for info, shock dart post-plants</li>
+                    <li><strong>Viper:</strong> Molly lineups for post-plant, smoke one-ways</li>
+                    <li><strong>Brimstone:</strong> Smoke placements, molly lineups</li>
+                    <li><strong>Omen:</strong> Smoke one-ways, paranoia lineups</li>
+                </ul>
+                <h3>Practice Tips</h3>
+                <ul>
+                    <li><strong>Consistency:</strong> Practice the same lineup 10+ times until it's muscle memory</li>
+                    <li><strong>Crosshair Placement:</strong> Use environment markers for precise alignment</li>
+                    <li><strong>Map Knowledge:</strong> Learn 2-3 essential lineups per map before expanding</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            let score = 0, hits = 0, misses = 0, streak = 0, bestStreak = 0, gameActive = false, timeLeft = 60;
+            const els = { trainer: document.getElementById('lineupTrainer'), target: document.getElementById('target'), crosshair: document.getElementById('crosshair'), score: document.getElementById('score'), timer: document.getElementById('timer'), accuracy: document.getElementById('accuracy'), streak: document.getElementById('streak'), startBtn: document.getElementById('startBtn'), resetBtn: document.getElementById('resetBtn'), difficulty: document.getElementById('difficultySelect') };
+
+            function spawnTarget() {
+                const sizes = { easy: 80, medium: 60, hard: 40 };
+                const size = sizes[els.difficulty.value];
+                const maxX = els.trainer.offsetWidth - size - 40;
+                const maxY = els.trainer.offsetHeight - size - 80;
+                els.target.style.width = size + 'px';
+                els.target.style.height = size + 'px';
+                els.target.style.left = Math.random() * maxX + 20 + 'px';
+                els.target.style.top = Math.random() * maxY + 60 + 'px';
+                els.target.classList.remove('hit');
+            }
+
+            function updateStats() {
+                const total = hits + misses;
+                const acc = total > 0 ? Math.round((hits / total) * 100) : 0;
+                els.accuracy.textContent = acc + '%';
+                els.score.textContent = 'Score: ' + score;
+                els.streak.textContent = bestStreak;
+            }
+
+            function startGame() {
+                score = 0; hits = 0; misses = 0; streak = 0; timeLeft = 60; gameActive = true;
+                els.startBtn.disabled = true;
+                spawnTarget();
+                const interval = setInterval(() => {
+                    timeLeft--;
+                    els.timer.textContent = timeLeft + 's';
+                    if (timeLeft <= 0) { clearInterval(interval); endGame(); }
+                }, 1000);
+            }
+
+            function endGame() {
+                gameActive = false;
+                els.startBtn.disabled = false;
+                els.startBtn.textContent = '▶ Play Again';
+                alert(`Game Over! Score: ${score} | Accuracy: ${Math.round((hits / (hits + misses || 1)) * 100)}%`);
+            }
+
+            els.trainer.addEventListener('mousemove', e => {
+                const rect = els.trainer.getBoundingClientRect();
+                els.crosshair.style.left = (e.clientX - rect.left - 15) + 'px';
+                els.crosshair.style.top = (e.clientY - rect.top - 15) + 'px';
+            });
+
+            els.target.addEventListener('click', () => {
+                if (!gameActive) return;
+                hits++; streak++; score += 10;
+                if (streak > bestStreak) bestStreak = streak;
+                els.target.classList.add('hit');
+                setTimeout(spawnTarget, 200);
+                updateStats();
+            });
+
+            els.trainer.addEventListener('click', e => {
+                if (!gameActive || e.target === els.target) return;
+                misses++; streak = 0; score = Math.max(0, score - 5);
+                updateStats();
+            });
+
+            els.startBtn.addEventListener('click', startGame);
+            els.resetBtn.addEventListener('click', () => { score = 0; hits = 0; misses = 0; streak = 0; bestStreak = 0; updateStats(); });
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COD Recoil Trainer — Master Gun Control & Spray Patterns [Free 2025]</title>
+    <meta name="description"
+        content="Free Call of Duty recoil control trainer. Practice recoil patterns for MW3, Warzone weapons. Improve spray control and accuracy.">
+    <meta name="keywords"
+        content="cod recoil trainer, warzone recoil control, mw3 spray patterns, call of duty aim trainer, recoil control practice">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .recoil-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+
+        @media (max-width: 968px) {
+            .recoil-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .recoil-trainer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border-radius: 16px;
+            padding: var(--space-2xl);
+            min-height: 550px;
+            position: relative;
+            border: 2px solid #333;
+            overflow: hidden;
+        }
+
+        .recoil-target {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .bullseye {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .ring:nth-child(1) {
+            width: 40px;
+            height: 40px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ff4444;
+        }
+
+        .ring:nth-child(2) {
+            width: 80px;
+            height: 80px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .ring:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .ring:nth-child(4) {
+            width: 160px;
+            height: 160px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .ring:nth-child(5) {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .bullet-hole {
+            width: 8px;
+            height: 8px;
+            background: #ffeb3b;
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            box-shadow: 0 0 10px #ffeb3b;
+        }
+
+        .crosshair {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .crosshair::before,
+        .crosshair::after {
+            content: '';
+            position: absolute;
+            background: #00ff00;
+        }
+
+        .crosshair::before {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .crosshair::after {
+            height: 2px;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .recoil-controls {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .stat-box {
+            background: var(--bg-tertiary);
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-bottom: var(--space-md);
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ff4444;
+        }
+
+        .control-group {
+            background: var(--bg-tertiary);
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-bottom: var(--space-md);
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .control-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-medium);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .ammo-display {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffeb3b;
+            z-index: 5;
+        }
+
+        .score-display {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #10b981;
+            z-index: 5;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a> <span class="separator">›</span>
+                <a href="../tools.html">Tools</a> <span class="separator">›</span>
+                <span>COD Recoil Trainer</span>
+            </nav>
+        </div>
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🎯 COD Recoil Control Trainer</h1>
+                <p class="test-desc">Master Call of Duty weapon recoil! Click and hold to spray at the target and
+                    improve your recoil control.</p>
+                <div class="recoil-container">
+                    <div class="recoil-trainer" id="recoilTrainer">
+                        <div class="score-display" id="score">Accuracy: 0%</div>
+                        <div class="ammo-display" id="ammo">30</div>
+                        <div class="crosshair" id="crosshair"></div>
+                        <div class="recoil-target">
+                            <div class="bullseye">
+                                <div class="ring"></div>
+                                <div class="ring"></div>
+                                <div class="ring"></div>
+                                <div class="ring"></div>
+                                <div class="ring"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recoil-controls">
+                        <div class="stat-box">
+                            <div class="stat-label">Best Accuracy</div>
+                            <div class="stat-value" id="bestAcc">0%</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Headshot %</div>
+                            <div class="stat-value" id="headshot">0%</div>
+                        </div>
+                        <div class="control-group">
+                            <label>Weapon</label>
+                            <select id="weaponSelect">
+                                <option value="ar">Assault Rifle (Medium Recoil)</option>
+                                <option value="smg">SMG (Low Recoil)</option>
+                                <option value="lmg">LMG (High Recoil)</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>Fire Mode</label>
+                            <select id="fireModeSelect">
+                                <option value="auto">Full Auto</option>
+                                <option value="burst">Burst</option>
+                                <option value="semi">Semi-Auto</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="startBtn"
+                            style="width: 100%; margin-top: var(--space-md);">▶ Start Training</button>
+                        <button class="btn btn-secondary" id="resetBtn"
+                            style="width: 100%; margin-top: var(--space-sm);">🔄 Reset Stats</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About COD Recoil Control</h2>
+                <p>Recoil control separates average players from pros. Mastering spray patterns allows you to beam
+                    enemies at range and maintain accuracy during sustained fire.</p>
+                <h3>Weapon Types</h3>
+                <ul>
+                    <li><strong>Assault Rifles:</strong> Moderate vertical recoil, slight horizontal kick</li>
+                    <li><strong>SMGs:</strong> Lower recoil, faster fire rate, close-range focus</li>
+                    <li><strong>LMGs:</strong> Heavy vertical recoil, requires strong compensation</li>
+                </ul>
+                <h3>Recoil Control Tips</h3>
+                <ul>
+                    <li><strong>Pull Down:</strong> Gradually pull your mouse/stick down while firing</li>
+                    <li><strong>Micro-Adjustments:</strong> Make small left/right corrections for horizontal recoil</li>
+                    <li><strong>Burst Fire:</strong> Tap-fire at long range to reset recoil</li>
+                    <li><strong>Attachments:</strong> Use foregrips and compensators to reduce recoil</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            let shooting = false, ammo = 30, maxAmmo = 30, shots = 0, hits = 0, headshots = 0, gameActive = false, bestAcc = 0, recoilX = 0, recoilY = 0;
+            const els = { trainer: document.getElementById('recoilTrainer'), target: document.querySelector('.bullseye'), crosshair: document.getElementById('crosshair'), ammo: document.getElementById('ammo'), score: document.getElementById('score'), bestAcc: document.getElementById('bestAcc'), headshot: document.getElementById('headshot'), weapon: document.getElementById('weaponSelect'), fireMode: document.getElementById('fireModeSelect'), startBtn: document.getElementById('startBtn'), resetBtn: document.getElementById('resetBtn') };
+
+            const recoilPatterns = { ar: { vertical: 3, horizontal: 1, decay: 0.9 }, smg: { vertical: 2, horizontal: 0.5, decay: 0.95 }, lmg: { vertical: 5, horizontal: 2, decay: 0.85 } };
+
+            function loadStats() {
+                const saved = localStorage.getItem('codRecoilStats');
+                if (saved) {
+                    try {
+                        const stats = JSON.parse(saved);
+                        bestAcc = stats.bestAcc || 0;
+                        els.bestAcc.textContent = bestAcc + '%';
+                    } catch (e) { }
+                }
+            }
+
+            function shoot() {
+                if (!gameActive || ammo <= 0) return;
+                const pattern = recoilPatterns[els.weapon.value];
+                recoilY += pattern.vertical;
+                recoilX += (Math.random() - 0.5) * pattern.horizontal;
+
+                const bullet = document.createElement('div');
+                bullet.className = 'bullet-hole';
+                const targetRect = els.target.getBoundingClientRect();
+                const trainerRect = els.trainer.getBoundingClientRect();
+                const centerX = targetRect.left + targetRect.width / 2 - trainerRect.left;
+                const centerY = targetRect.top + targetRect.height / 2 - trainerRect.top;
+
+                bullet.style.left = (centerX + recoilX - 4) + 'px';
+                bullet.style.top = (centerY + recoilY - 4) + 'px';
+                els.trainer.appendChild(bullet);
+                setTimeout(() => bullet.remove(), 1000);
+
+                const distance = Math.sqrt(Math.pow(recoilX, 2) + Math.pow(recoilY, 2));
+                if (distance < 20) headshots++;
+                if (distance < 100) hits++;
+
+                shots++;
+                ammo--;
+                els.ammo.textContent = ammo;
+
+                const acc = shots > 0 ? Math.round((hits / shots) * 100) : 0;
+                const hsRate = shots > 0 ? Math.round((headshots / shots) * 100) : 0;
+                els.score.textContent = 'Accuracy: ' + acc + '%';
+                els.headshot.textContent = hsRate + '%';
+
+                if (ammo === 0) {
+                    gameActive = false;
+                    if (acc > bestAcc) {
+                        bestAcc = acc;
+                        els.bestAcc.textContent = bestAcc + '%';
+                        localStorage.setItem('codRecoilStats', JSON.stringify({ bestAcc }));
+                    }
+                    setTimeout(() => {
+                        els.startBtn.disabled = false;
+                        els.startBtn.textContent = '▶ Start Training';
+                        alert(`Magazine Empty! Accuracy: ${acc}% | Headshots: ${hsRate}%`);
+                    }, 500);
+                }
+            }
+
+            function startGame() {
+                gameActive = true;
+                ammo = maxAmmo;
+                shots = 0;
+                hits = 0;
+                headshots = 0;
+                recoilX = 0;
+                recoilY = 0;
+                els.ammo.textContent = ammo;
+                els.score.textContent = 'Accuracy: 0%';
+                els.headshot.textContent = '0%';
+                els.startBtn.disabled = true;
+                document.querySelectorAll('.bullet-hole').forEach(b => b.remove());
+            }
+
+            els.trainer.addEventListener('mousedown', () => {
+                if (!gameActive) return;
+                shooting = true;
+                const fireRate = els.fireMode.value === 'auto' ? 100 : els.fireMode.value === 'burst' ? 80 : 200;
+                const shootInterval = setInterval(() => {
+                    if (!shooting || !gameActive) {
+                        clearInterval(shootInterval);
+                        return;
+                    }
+                    shoot();
+                    if (els.fireMode.value === 'burst' && shots % 3 === 0) {
+                        clearInterval(shootInterval);
+                        shooting = false;
+                    }
+                }, fireRate);
+            });
+
+            els.trainer.addEventListener('mouseup', () => { shooting = false; recoilY *= 0.5; recoilX *= 0.5; });
+            els.trainer.addEventListener('mousemove', e => {
+                const rect = els.trainer.getBoundingClientRect();
+                els.crosshair.style.left = (e.clientX - rect.left - 15) + 'px';
+                els.crosshair.style.top = (e.clientY - rect.top - 15) + 'px';
+            });
+
+            els.startBtn.addEventListener('click', startGame);
+            els.resetBtn.addEventListener('click', () => {
+                if (confirm('Reset all stats?')) {
+                    localStorage.removeItem('codRecoilStats');
+                    bestAcc = 0;
+                    els.bestAcc.textContent = '0%';
+                }
+            });
+
+            loadStats();
+        })();
+    </script>
+</body>
+
+</html>

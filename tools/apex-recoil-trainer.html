@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Legends Recoil Trainer — Master Weapon Spray Patterns [Free 2025]</title>
+    <meta name="description"
+        content="Free Apex Legends recoil control trainer. Practice spray patterns for R-301, R-99, Flatline. Improve recoil control and beam enemies.">
+    <meta name="keywords"
+        content="apex legends recoil trainer, apex spray control, r301 recoil pattern, r99 spray pattern, apex aim trainer">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .recoil-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+
+        @media (max-width: 968px) {
+            .recoil-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .recoil-trainer {
+            background: linear-gradient(135deg, #da4932 0%, #b83428 100%);
+            border-radius: 16px;
+            padding: var(--space-2xl);
+            min-height: 550px;
+            position: relative;
+            border: 2px solid #ff6b5a;
+            overflow: hidden;
+        }
+
+        .dummy-target {
+            width: 180px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            background: rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            border-radius: 90px 90px 0 0;
+        }
+
+        .head-zone {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 68, 68, 0.4);
+            border: 2px dashed #ff4444;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .body-zone {
+            width: 120px;
+            height: 150px;
+            background: rgba(255, 165, 0, 0.3);
+            border: 2px dashed #ffa500;
+            position: absolute;
+            top: 95px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 60px;
+        }
+
+        .bullet-hole {
+            width: 6px;
+            height: 6px;
+            background: #ffeb3b;
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            box-shadow: 0 0 8px #ffeb3b;
+        }
+
+        .crosshair {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .crosshair::before,
+        .crosshair::after {
+            content: '';
+            position: absolute;
+            background: #00ff00;
+        }
+
+        .crosshair::before {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .crosshair::after {
+            height: 2px;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .recoil-controls {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .stat-box {
+            background: var(--bg-tertiary);
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-bottom: var(--space-md);
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #da4932;
+        }
+
+        .control-group {
+            background: var(--bg-tertiary);
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-bottom: var(--space-md);
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .control-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-medium);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .ammo-display {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffeb3b;
+            z-index: 5;
+        }
+
+        .damage-display {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ff4444;
+            z-index: 5;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a> <span class="separator">›</span>
+                <a href="../tools.html">Tools</a> <span class="separator">›</span>
+                <span>Apex Recoil Trainer</span>
+            </nav>
+        </div>
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🎯 Apex Legends Recoil Trainer</h1>
+                <p class="test-desc">Master Apex weapon recoil! Click and hold to spray at the dummy and perfect your
+                    spray control.</p>
+                <div class="recoil-container">
+                    <div class="recoil-trainer" id="recoilTrainer">
+                        <div class="damage-display" id="damage">Damage: 0</div>
+                        <div class="ammo-display" id="ammo">27</div>
+                        <div class="crosshair" id="crosshair"></div>
+                        <div class="dummy-target" id="dummy">
+                            <div class="head-zone"></div>
+                            <div class="body-zone"></div>
+                        </div>
+                    </div>
+                    <div class="recoil-controls">
+                        <div class="stat-box">
+                            <div class="stat-label">Headshot %</div>
+                            <div class="stat-value" id="headshot">0%</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Best Damage</div>
+                            <div class="stat-value" id="bestDmg">0</div>
+                        </div>
+                        <div class="control-group">
+                            <label>Weapon</label>
+                            <select id="weaponSelect">
+                                <option value="r301">R-301 (Easy)</option>
+                                <option value="r99">R-99 (Medium)</option>
+                                <option value="flatline">Flatline (Hard)</option>
+                                <option value="volt">Volt (Easy)</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>Barrel Stabilizer</label>
+                            <select id="barrelSelect">
+                                <option value="0">None</option>
+                                <option value="1">Level 1</option>
+                                <option value="2">Level 2</option>
+                                <option value="3">Level 3 (Purple)</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="startBtn"
+                            style="width: 100%; margin-top: var(--space-md);">▶ Start Training</button>
+                        <button class="btn btn-secondary" id="resetBtn"
+                            style="width: 100%; margin-top: var(--space-sm);">🔄 Reset Stats</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About Apex Recoil Patterns</h2>
+                <p>Unlike other BRs, Apex has predictable recoil patterns. Master them and you'll beam enemies at any
+                    range.</p>
+                <h3>Meta Weapons</h3>
+                <ul>
+                    <li><strong>R-301:</strong> Smooth vertical pattern, easy to control, versatile</li>
+                    <li><strong>R-99:</strong> Slight S-curve, extremely high DPS, harder control</li>
+                    <li><strong>Flatline:</strong> Heavy horizontal kick, high damage, requires practice</li>
+                    <li><strong>Volt:</strong> Minimal recoil, energy weapon, consistent pattern</li>
+                </ul>
+                <h3>Pro Tips</h3>
+                <ul>
+                    <li><strong>Learn Patterns:</strong> Apex recoil is 100% consistent - practice offline</li>
+                    <li><strong>Barrel Mods:</strong> Purple stabilizer reduces recoil by ~40%</li>
+                    <li><strong>Jitter Aim:</strong> Small rapid movements help track through recoil</li>
+                    <li><strong>Close Range:</strong> Hip-fire SMGs, ADS for rifles at mid-range</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            let shooting = false, ammo = 27, shots = 0, headshots = 0, bodyshots = 0, damage = 0, gameActive = false, bestDmg = 0, recoilX = 0, recoilY = 0;
+            const els = { trainer: document.getElementById('recoilTrainer'), dummy: document.getElementById('dummy'), head: document.querySelector('.head-zone'), body: document.querySelector('.body-zone'), crosshair: document.getElementById('crosshair'), ammo: document.getElementById('ammo'), damage: document.getElementById('damage'), headshot: document.getElementById('headshot'), bestDmg: document.getElementById('bestDmg'), weapon: document.getElementById('weaponSelect'), barrel: document.getElementById('barrelSelect'), startBtn: document.getElementById('startBtn'), resetBtn: document.getElementById('resetBtn') };
+
+            const weapons = { r301: { mag: 27, recoil: 2.5, dmg: 14, pattern: 'vertical' }, r99: { mag: 27, recoil: 3.5, dmg: 11, pattern: 's-curve' }, flatline: { mag: 25, recoil: 4.5, dmg: 19, pattern: 'horizontal' }, volt: { mag: 28, recoil: 2, dmg: 15, pattern: 'vertical' } };
+
+            function loadStats() {
+                const saved = localStorage.getItem('apexRecoilStats');
+                if (saved) {
+                    try {
+                        const stats = JSON.parse(saved);
+                        bestDmg = stats.bestDmg || 0;
+                        els.bestDmg.textContent = bestDmg;
+                    } catch (e) { }
+                }
+            }
+
+            function shoot() {
+                if (!gameActive || ammo <= 0) return;
+                const wpn = weapons[els.weapon.value];
+                const barrelReduction = parseInt(els.barrel.value) * 0.2;
+                const effectiveRecoil = wpn.recoil * (1 - barrelReduction);
+
+                if (wpn.pattern === 'vertical') {
+                    recoilY += effectiveRecoil;
+                } else if (wpn.pattern === 's-curve') {
+                    recoilY += effectiveRecoil * 0.8;
+                    recoilX += Math.sin(shots * 0.3) * effectiveRecoil * 0.5;
+                } else {
+                    recoilY += effectiveRecoil * 0.6;
+                    recoilX += (Math.random() - 0.5) * effectiveRecoil * 1.5;
+                }
+
+                const bullet = document.createElement('div');
+                bullet.className = 'bullet-hole';
+                const dummyRect = els.dummy.getBoundingClientRect();
+                const trainerRect = els.trainer.getBoundingClientRect();
+                const centerX = dummyRect.left + dummyRect.width / 2 - trainerRect.left;
+                const centerY = dummyRect.top + dummyRect.height / 3 - trainerRect.top;
+
+                bullet.style.left = (centerX + recoilX - 3) + 'px';
+                bullet.style.top = (centerY + recoilY - 3) + 'px';
+                els.trainer.appendChild(bullet);
+                setTimeout(() => bullet.remove(), 1500);
+
+                const headRect = els.head.getBoundingClientRect();
+                const bodyRect = els.body.getBoundingClientRect();
+                const bulletX = centerX + recoilX;
+                const bulletY = centerY + recoilY;
+
+                const inHead = bulletX > headRect.left - trainerRect.left && bulletX < headRect.right - trainerRect.left && bulletY > headRect.top - trainerRect.top && bulletY < headRect.bottom - trainerRect.top;
+                const inBody = bulletX > bodyRect.left - trainerRect.left && bulletX < bodyRect.right - trainerRect.left && bulletY > bodyRect.top - trainerRect.top && bulletY < bodyRect.bottom - trainerRect.top;
+
+                if (inHead) {
+                    headshots++;
+                    damage += wpn.dmg * 2;
+                } else if (inBody) {
+                    bodyshots++;
+                    damage += wpn.dmg;
+                }
+
+                shots++;
+                ammo--;
+                els.ammo.textContent = ammo;
+                els.damage.textContent = 'Damage: ' + damage;
+
+                const hsRate = shots > 0 ? Math.round((headshots / shots) * 100) : 0;
+                els.headshot.textContent = hsRate + '%';
+
+                if (ammo === 0) {
+                    gameActive = false;
+                    if (damage > bestDmg) {
+                        bestDmg = damage;
+                        els.bestDmg.textContent = bestDmg;
+                        localStorage.setItem('apexRecoilStats', JSON.stringify({ bestDmg }));
+                    }
+                    setTimeout(() => {
+                        els.startBtn.disabled = false;
+                        els.startBtn.textContent = '▶ Start Training';
+                        alert(`Magazine Empty! Damage: ${damage} | Headshots: ${hsRate}%`);
+                    }, 500);
+                }
+            }
+
+            function startGame() {
+                const wpn = weapons[els.weapon.value];
+                gameActive = true;
+                ammo = wpn.mag;
+                shots = 0;
+                headshots = 0;
+                bodyshots = 0;
+                damage = 0;
+                recoilX = 0;
+                recoilY = 0;
+                els.ammo.textContent = ammo;
+                els.damage.textContent = 'Damage: 0';
+                els.headshot.textContent = '0%';
+                els.startBtn.disabled = true;
+                document.querySelectorAll('.bullet-hole').forEach(b => b.remove());
+            }
+
+            els.trainer.addEventListener('mousedown', () => {
+                if (!gameActive) return;
+                shooting = true;
+                const shootInterval = setInterval(() => {
+                    if (!shooting || !gameActive) {
+                        clearInterval(shootInterval);
+                        return;
+                    }
+                    shoot();
+                }, 80);
+            });
+
+            els.trainer.addEventListener('mouseup', () => { shooting = false; recoilY *= 0.6; recoilX *= 0.6; });
+            els.trainer.addEventListener('mousemove', e => {
+                const rect = els.trainer.getBoundingClientRect();
+                els.crosshair.style.left = (e.clientX - rect.left - 15) + 'px';
+                els.crosshair.style.top = (e.clientY - rect.top - 15) + 'px';
+            });
+
+            els.startBtn.addEventListener('click', startGame);
+            els.resetBtn.addEventListener('click', () => {
+                if (confirm('Reset all stats?')) {
+                    localStorage.removeItem('apexRecoilStats');
+                    bestDmg = 0;
+                    els.bestDmg.textContent = '0';
+                }
+            });
+
+            loadStats();
+        })();
+    </script>
+</body>
+
+</html>
