@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Charset/viewport FIRST -->
@@ -299,6 +299,7 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
     
     <style>
         :root {
@@ -767,39 +768,57 @@
     </style>
 </head>
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
         
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
     <div class="container">
         <a href="../blog.html" class="back-link">
-            <span>←</span> Back to Blog
+            <span>?</span> Back to Blog
         </a>
         
         <article class="blog-article">
             <h1>How Stress and Anxiety Destroy Your Reaction Time (And How to Fix It)</h1>
             
             <div class="post-meta">
-                <span>📅 January 20, 2025</span>
-                <span>⏱️ 15 min read</span>
-                <span>👤 Dr. Rebecca Martinez, Performance Psychologist</span>
-                <span>🧠 Neuroscience-Based</span>
+                <span>?? January 20, 2025</span>
+                <span>?? 15 min read</span>
+                <span>?? Dr. Rebecca Martinez, Performance Psychologist</span>
+                <span>?? Neuroscience-Based</span>
             </div>
 
             <div class="quick-answer">
-                <h3>⚡ Quick Answer</h3>
+                <h3>? Quick Answer</h3>
                 <p><strong>How much does stress slow reaction time?</strong> Competitive anxiety and performance pressure slow reaction time by <span class="stat-badge">38-45ms on average</span> (18-22% degradation). Chronic stress can impair reactions by <span class="stat-badge">60-80ms</span>. The good news: elite performers use proven mental techniques to reduce this impact to just 8-12ms, maintaining peak performance under extreme pressure.</p>
             </div>
 
@@ -818,7 +837,7 @@
             <h3>The Stress Response Cascade</h3>
 
             <div class="info-box">
-                <h4>🧠 What Happens in Your Brain Under Stress:</h4>
+                <h4>?? What Happens in Your Brain Under Stress:</h4>
                 <ol>
                     <li><strong>Amygdala activation</strong> (fear center) increases by 300-400%</li>
                     <li><strong>Cortisol and adrenaline</strong> flood your bloodstream within 2-3 seconds</li>
@@ -843,7 +862,7 @@
             <p>Intrusive thoughts ("don't miss," "everyone is watching") consume working memory resources. Your brain literally has less computational power available for processing stimuli and executing responses.</p>
 
             <div class="research-note">
-                <h4>📊 Laboratory Evidence</h4>
+                <h4>?? Laboratory Evidence</h4>
                 <p>In controlled experiments, researchers induced stress through social evaluation (telling participants their performance would be publicly judged). Average reaction time increased from 238ms baseline to 283ms under stress—a <strong>45ms degradation (18.9% slower)</strong>. The most anxious participants showed up to 80ms impairment <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2018.02554/full" class="reference-link" target="_blank" rel="noopener">[2]</a>.</p>
             </div>
 
@@ -910,7 +929,7 @@
             </ul>
 
             <div class="danger-box">
-                <h4>⚠️ Chronic Stress Warning Signs</h4>
+                <h4>?? Chronic Stress Warning Signs</h4>
                 <p>If you experience these consistently, you may have performance-damaging chronic stress:</p>
                 <ul>
                     <li>Difficulty falling asleep before competitions</li>
@@ -956,7 +975,7 @@
             <p>Stanford researchers discovered a simple intervention that dramatically improves performance under pressure:</p>
 
             <div class="technique-card">
-                <h4>🎯 Cognitive Reframing Technique</h4>
+                <h4>?? Cognitive Reframing Technique</h4>
                 <p><strong>When you feel pre-competition anxiety:</strong></p>
                 <ol>
                     <li><strong>Acknowledge the sensation:</strong> "I feel my heart racing, my hands are shaky"</li>
@@ -974,7 +993,7 @@
             <h3>Technique #1: Box Breathing (Tactical Breathing)</h3>
 
             <div class="technique-card">
-                <h4>📦 Box Breathing Protocol</h4>
+                <h4>?? Box Breathing Protocol</h4>
                 <p><strong>Used by:</strong> Navy SEALs, Olympic athletes, professional esports players</p>
                 <p><strong>How it works:</strong> Activates parasympathetic nervous system, reducing cortisol by 23% and heart rate variability improving by 31% <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2017.02054/full" class="reference-link" target="_blank" rel="noopener">[4]</a>.</p>
                 <p><strong>Protocol:</strong></p>
@@ -992,7 +1011,7 @@
             <h3>Technique #2: Physiological Sigh (Rapid Stress Reset)</h3>
 
             <div class="technique-card">
-                <h4>😮‍💨 Physiological Sigh (Huberman Protocol)</h4>
+                <h4>????? Physiological Sigh (Huberman Protocol)</h4>
                 <p><strong>Used by:</strong> Stanford athletes, modern esports teams</p>
                 <p><strong>How it works:</strong> Double inhale expands alveoli, long exhale activates vagus nerve. Fastest method to reduce acute stress (works in 60-90 seconds).</p>
                 <p><strong>Protocol:</strong></p>
@@ -1009,14 +1028,14 @@
             <h3>Technique #3: Progressive Muscle Relaxation (PMR)</h3>
 
             <div class="technique-card">
-                <h4>💪 Progressive Muscle Relaxation</h4>
+                <h4>?? Progressive Muscle Relaxation</h4>
                 <p><strong>Used by:</strong> Olympic shooters, surgeons, precision athletes</p>
                 <p><strong>How it works:</strong> Reduces the 40-60% muscle tension increase that stress causes, eliminating the physical reaction delay.</p>
                 <p><strong>Protocol (15 minutes pre-competition):</strong></p>
                 <ol>
                     <li>Tense feet muscles for 5 seconds, then release completely (10 seconds rest)</li>
                     <li>Tense calf muscles (5 sec), release (10 sec rest)</li>
-                    <li>Continue: thighs → glutes → abdomen → chest → hands → forearms → biceps → shoulders → neck → face</li>
+                    <li>Continue: thighs ? glutes ? abdomen ? chest ? hands ? forearms ? biceps ? shoulders ? neck ? face</li>
                     <li>Focus on the contrast between tension and relaxation</li>
                 </ol>
                 <p><strong>Reaction time impact:</strong> Eliminates 12-18ms muscle tension delay</p>
@@ -1025,7 +1044,7 @@
             <h3>Technique #4: Pre-Performance Routine (Predictability Protocol)</h3>
 
             <div class="technique-card">
-                <h4>🔄 Consistency Routine</h4>
+                <h4>?? Consistency Routine</h4>
                 <p><strong>Used by:</strong> 94% of Olympic medalists, 89% of pro esports players</p>
                 <p><strong>How it works:</strong> Predictability reduces amygdala activation by 35%. Your brain feels "safe" when following familiar patterns.</p>
                 <p><strong>Build your routine (5-10 minutes before every competition):</strong></p>
@@ -1042,7 +1061,7 @@
             <h3>Technique #5: Pressure Exposure Training</h3>
 
             <div class="technique-card">
-                <h4>🔥 Stress Inoculation Protocol</h4>
+                <h4>?? Stress Inoculation Protocol</h4>
                 <p><strong>Used by:</strong> Military special forces, professional teams</p>
                 <p><strong>How it works:</strong> Repeated exposure to pressure desensitizes stress response. After 8-12 weeks, cortisol spikes reduce by 65%.</p>
                 <p><strong>Implementation:</strong></p>
@@ -1058,7 +1077,7 @@
             <h3>Technique #6: Mindfulness Meditation (Long-Term Resilience)</h3>
 
             <div class="technique-card">
-                <h4>🧘 Daily Mindfulness Practice</h4>
+                <h4>?? Daily Mindfulness Practice</h4>
                 <p><strong>Used by:</strong> 76% of top esports teams, increasing in traditional sports</p>
                 <p><strong>How it works:</strong> Strengthens prefrontal cortex, shrinks amygdala (fear center), improves emotional regulation.</p>
                 <p><strong>Protocol (10-20 minutes daily):</strong></p>
@@ -1075,7 +1094,7 @@
             <h3>Technique #7: Sleep Optimization (Foundation)</h3>
 
             <div class="technique-card">
-                <h4>😴 Sleep Stress Management</h4>
+                <h4>?? Sleep Stress Management</h4>
                 <p><strong>Critical insight:</strong> Sleep debt amplifies stress response by 40-60%. Sleeping 6 hours before a tournament is sabotage.</p>
                 <p><strong>Pre-competition sleep protocol:</strong></p>
                 <ol>
@@ -1101,7 +1120,7 @@
             <h3>Beta Blockers (Propranolol, Atenolol)</h3>
 
             <div class="warning-box">
-                <h4>⚠️ Beta Blocker Reality Check</h4>
+                <h4>?? Beta Blocker Reality Check</h4>
                 <p><strong>What they do:</strong> Block adrenaline receptors, eliminating physical anxiety symptoms (tremors, rapid heart rate, sweating) without impairing cognitive function. Used legally by musicians and surgeons.</p>
                 <p><strong>Effectiveness:</strong> Can reduce performance anxiety impact from 38ms to ~5ms (extremely effective)</p>
                 <p><strong>Legal status in esports:</strong> <span class="stat-badge" style="background: rgba(255,107,107,0.3); color: #ff6b6b;">BANNED</span> by ESL, BLAST, Riot Games, Valve, and most major leagues. Considered performance-enhancing drugs.</p>
@@ -1153,7 +1172,7 @@
             <h2>The Complete Pre-Competition Protocol (Used by Elite Performers)</h2>
 
             <div class="protocol-steps">
-                <h3>⚡ 24-Hour Championship Performance Protocol</h3>
+                <h3>? 24-Hour Championship Performance Protocol</h3>
                 
                 <h4>Day Before Competition:</h4>
                 <ol>
@@ -1230,22 +1249,22 @@
                     <tr>
                         <td><strong>Week 1-2</strong></td>
                         <td>Breathing techniques become automatic, immediate stress reduction</td>
-                        <td>38ms → 28ms (26% better)</td>
+                        <td>38ms ? 28ms (26% better)</td>
                     </tr>
                     <tr>
                         <td><strong>Week 3-4</strong></td>
                         <td>Pre-performance routine feels natural, anxiety anticipation reduces</td>
-                        <td>38ms → 22ms (42% better)</td>
+                        <td>38ms ? 22ms (42% better)</td>
                     </tr>
                     <tr>
                         <td><strong>Week 5-8</strong></td>
                         <td>Cognitive reframing becomes instinctive, pressure feels exciting</td>
-                        <td>38ms → 15ms (61% better)</td>
+                        <td>38ms ? 15ms (61% better)</td>
                     </tr>
                     <tr>
                         <td><strong>Week 9-12</strong></td>
                         <td>Stress desensitization complete, performance under pressure peaks</td>
-                        <td>38ms → 8-12ms (75% better)</td>
+                        <td>38ms ? 8-12ms (75% better)</td>
                     </tr>
                     <tr>
                         <td><strong>Month 4+</strong></td>
@@ -1264,7 +1283,7 @@
             <p>Some performance anxiety requires professional intervention:</p>
 
             <div class="danger-box">
-                <h4>🚨 Signs You Need a Sports Psychologist</h4>
+                <h4>?? Signs You Need a Sports Psychologist</h4>
                 <ul>
                     <li>Panic attacks before or during competition</li>
                     <li>Performance anxiety interfering with sleep for multiple nights</li>
@@ -1290,11 +1309,11 @@
 
             <p>The techniques work:</p>
             <ul>
-                <li>✅ Box breathing reduces cortisol by 23% in 5 minutes</li>
-                <li>✅ Cognitive reframing improves performance by 12-18%</li>
-                <li>✅ Pre-performance routines reduce amygdala activation by 35%</li>
-                <li>✅ Pressure exposure training cuts stress hormone response by 65%</li>
-                <li>✅ Daily meditation strengthens prefrontal cortex, shrinks fear center</li>
+                <li>? Box breathing reduces cortisol by 23% in 5 minutes</li>
+                <li>? Cognitive reframing improves performance by 12-18%</li>
+                <li>? Pre-performance routines reduce amygdala activation by 35%</li>
+                <li>? Pressure exposure training cuts stress hormone response by 65%</li>
+                <li>? Daily meditation strengthens prefrontal cortex, shrinks fear center</li>
             </ul>
 
             <p>But they require the same dedication you give to mechanical practice. Start now—your future championship-winning self will thank you.</p>
@@ -1313,10 +1332,34 @@
                 <a href="https://www.hubermanlab.com/" target="_blank" rel="noopener" class="reference-link">[6]</a> Huberman Lab - "Stress Management and Performance Protocols"
             </p>
         </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
 
         <div class="article-nav">
-            <a href="../blog.html" class="article-nav-btn">← Back to Blog</a>
-            <a href="vision-training-faster-reactions.html" class="article-nav-btn">Next: Vision Training →</a>
+            <a href="../blog.html" class="article-nav-btn">? Back to Blog</a>
+            <a href="vision-training-faster-reactions.html" class="article-nav-btn">Next: Vision Training ?</a>
         </div>
     </div>
 
@@ -1382,3 +1425,4 @@
     </script>
 </body>
 </html>
+

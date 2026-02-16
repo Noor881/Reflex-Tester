@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Charset/viewport FIRST -->
@@ -227,6 +227,7 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
     
     <style>
         :root {
@@ -603,37 +604,55 @@
     </style>
 </head>
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
         
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
     <div class="container">
-        <a href="../blog.html" class="back-link"><span>←</span> Back to Blog</a>
+        <a href="../blog.html" class="back-link"><span>?</span> Back to Blog</a>
         
         <article class="blog-article">
             <h1>Dehydration Slows Reaction Time by 12ms: The Hidden Performance Killer</h1>
             
             <div class="post-meta">
-                <span>📅 January 25, 2025</span>
-                <span>⏱️ 15 min read</span>
-                <span>👤 Dr. Amanda Foster, Sports Science Researcher</span>
-                <span>💧 Evidence-Based</span>
+                <span>?? January 25, 2025</span>
+                <span>?? 15 min read</span>
+                <span>?? Dr. Amanda Foster, Sports Science Researcher</span>
+                <span>?? Evidence-Based</span>
             </div>
 
             <div class="quick-answer">
-                <h3>⚡ Quick Answer</h3>
+                <h3>? Quick Answer</h3>
                 <p><strong>How much does dehydration slow reaction time?</strong> Just <span class="stat-badge">2% body mass water loss</span> (about 1.5L for a 75kg person) slows reaction time by <span class="stat-badge">10-15ms</span> and impairs decision-making accuracy by <span class="stat-badge">12%</span>. At 3% dehydration, reactions slow by 20-30ms. The shocking reality: <strong>67% of competitive gamers start matches mildly dehydrated</strong>, costing them 8-12ms before they even click start.</p>
             </div>
 
@@ -664,7 +683,7 @@
             </ol>
 
             <div class="research-note">
-                <h4>🧠 Brain Imaging Evidence</h4>
+                <h4>?? Brain Imaging Evidence</h4>
                 <p>fMRI studies show that 2% dehydration causes the brain to literally work harder to accomplish the same tasks. Prefrontal cortex activation increases by 15% while performance decreases—your brain is burning more energy but getting worse results. This is why dehydrated gaming sessions feel mentally exhausting <a href="https://pubmed.ncbi.nlm.nih.gov/22987654" class="reference-link" target="_blank" rel="noopener">[2]</a>.</p>
             </div>
 
@@ -757,7 +776,7 @@
                     </tr>
                     <tr>
                         <td><strong>Pale Yellow (Lemonade)</strong></td>
-                        <td>Well Hydrated ✅</td>
+                        <td>Well Hydrated ?</td>
                         <td>Optimal (0ms penalty)</td>
                         <td>Maintain current intake</td>
                     </tr>
@@ -796,7 +815,7 @@
             </ul>
 
             <div class="warning-box">
-                <h4>⚠️ The Thirst Paradox</h4>
+                <h4>?? The Thirst Paradox</h4>
                 <p><strong>You don't feel thirsty until 2% dehydrated</strong> - at which point you've already lost 13ms of reaction speed. Thirst is a late-stage warning sign, not an early indicator. Elite performers drink on schedule, not on feel.</p>
             </div>
 
@@ -849,7 +868,7 @@
             </ul>
 
             <div class="protocol-card">
-                <h4>☕ Optimal Caffeine + Hydration Protocol</h4>
+                <h4>? Optimal Caffeine + Hydration Protocol</h4>
                 <p><strong>The strategy used by elite performers:</strong></p>
                 <ol>
                     <li><strong>Limit caffeine to 200-300mg total</strong> before/during competition</li>
@@ -867,7 +886,7 @@
             <h3>Daily Baseline Hydration</h3>
 
             <div class="protocol-card">
-                <h4>💧 Daily Foundation Protocol</h4>
+                <h4>?? Daily Foundation Protocol</h4>
                 <p><strong>Target:</strong> 0.5oz water per pound of body weight (35ml per kg)</p>
                 <p><strong>For 150lb (68kg) person:</strong> 75oz (2.2L) daily</p>
                 <p><strong>For 200lb (91kg) person:</strong> 100oz (3L) daily</p>
@@ -885,7 +904,7 @@
             <h3>Pre-Competition Protocol (Tournament Day)</h3>
 
             <div class="protocol-card">
-                <h4>🎮 Competition Day Hydration Timeline</h4>
+                <h4>?? Competition Day Hydration Timeline</h4>
                 
                 <p><strong>Morning (upon waking):</strong></p>
                 <ul>
@@ -921,7 +940,7 @@
             <h3>During Competition Protocol</h3>
 
             <div class="protocol-card">
-                <h4>⚡ In-Match Hydration Strategy</h4>
+                <h4>? In-Match Hydration Strategy</h4>
                 
                 <p><strong>For matches under 60 minutes:</strong></p>
                 <ul>
@@ -948,7 +967,7 @@
             <h3>Post-Competition Rehydration</h3>
 
             <div class="protocol-card">
-                <h4>🔄 Recovery Hydration</h4>
+                <h4>?? Recovery Hydration</h4>
                 
                 <p><strong>Immediate post-competition (first 30 minutes):</strong></p>
                 <ul>
@@ -1037,7 +1056,7 @@
             <h3>DIY Electrolyte Drink Recipe</h3>
 
             <div class="protocol-card">
-                <h4>🥤 Homemade Performance Hydration</h4>
+                <h4>?? Homemade Performance Hydration</h4>
                 <p><strong>Superior to commercial sports drinks, fraction of the cost:</strong></p>
                 
                 <p><strong>Ingredients (per 1L water):</strong></p>
@@ -1062,7 +1081,7 @@
             <p>Drinking excessive water without electrolytes dilutes blood sodium to dangerous levels.</p>
 
             <div class="danger-box">
-                <h4>🚨 Hyponatremia Warning Signs</h4>
+                <h4>?? Hyponatremia Warning Signs</h4>
                 <p><strong>Symptoms:</strong></p>
                 <ul>
                     <li>Clear/colorless urine despite adequate hydration</li>
@@ -1146,11 +1165,11 @@
 
             <p>The science is unambiguous:</p>
             <ul>
-                <li>✅ 2% dehydration = 13ms slower reactions + 5.7% worse decisions</li>
-                <li>✅ 67% of competitive gamers start matches already dehydrated</li>
-                <li>✅ Proper hydration protocol delivers 13ms improvement immediately</li>
-                <li>✅ Electrolytes matter for sessions over 60 minutes</li>
-                <li>✅ The protocol is free, easy, and works 100% of the time</li>
+                <li>? 2% dehydration = 13ms slower reactions + 5.7% worse decisions</li>
+                <li>? 67% of competitive gamers start matches already dehydrated</li>
+                <li>? Proper hydration protocol delivers 13ms improvement immediately</li>
+                <li>? Electrolytes matter for sessions over 60 minutes</li>
+                <li>? The protocol is free, easy, and works 100% of the time</li>
             </ul>
 
             <p>There is no excuse. Hydrate properly or accept that you're voluntarily competing with a 10-15ms handicap.</p>
@@ -1167,10 +1186,34 @@
                 <a href="https://pubmed.ncbi.nlm.nih.gov/30123456" target="_blank" rel="noopener" class="reference-link">[4]</a> Sports Medicine - "Electrolyte Replacement and Athletic Performance" (2022)
             </p>
         </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
 
         <div class="article-nav">
-            <a href="../blog.html" class="article-nav-btn">← Back to Blog</a>
-            <a href="nutrition-reaction-time-performance.html" class="article-nav-btn">Next: Nutrition Guide →</a>
+            <a href="../blog.html" class="article-nav-btn">? Back to Blog</a>
+            <a href="nutrition-reaction-time-performance.html" class="article-nav-btn">Next: Nutrition Guide ?</a>
         </div>
     </div>
 
@@ -1207,3 +1250,4 @@
     </script>
 </body>
 </html>
+

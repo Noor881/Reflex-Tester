@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Charset/viewport FIRST -->
@@ -193,7 +193,7 @@
                 "@type": "HowToStep",
                 "position": 2,
                 "name": "Calculate First Caffeine Window (90-120 Minutes Post-Wake)",
-                "text": "Add 90-120 minutes to your wake time. Example: Wake at 6am → First coffee at 7:30-8am. This allows natural cortisol peak to decline before caffeine intake, maximizing effectiveness and reducing tolerance buildup."
+                "text": "Add 90-120 minutes to your wake time. Example: Wake at 6am ? First coffee at 7:30-8am. This allows natural cortisol peak to decline before caffeine intake, maximizing effectiveness and reducing tolerance buildup."
             },
             {
                 "@type": "HowToStep",
@@ -211,7 +211,7 @@
                 "@type": "HowToStep",
                 "position": 5,
                 "name": "Implement Hard Cutoff Time (8-10 Hours Before Bed)",
-                "text": "Calculate bedtime minus 8-10 hours = caffeine cutoff. Example: Sleep at 10pm → Last caffeine at 2pm (8-hour rule) or noon (10-hour rule). Set phone alarm to prevent late-day caffeine that fragments sleep."
+                "text": "Calculate bedtime minus 8-10 hours = caffeine cutoff. Example: Sleep at 10pm ? Last caffeine at 2pm (8-hour rule) or noon (10-hour rule). Set phone alarm to prevent late-day caffeine that fragments sleep."
             },
             {
                 "@type": "HowToStep",
@@ -270,6 +270,7 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
     
     <style>
         :root {
@@ -685,37 +686,55 @@
     </style>
 </head>
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
         
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
     <div class="container">
-        <a href="../blog.html" class="back-link"><span>←</span> Back to Health</a>
+        <a href="../blog.html" class="back-link"><span>?</span> Back to Health</a>
         
         <article class="blog-article">
             <h1>Caffeine Timing for Peak Performance: The 90-Minute Rule</h1>
             
             <div class="post-meta">
-                <span>📅 January 24, 2025</span>
-                <span>⏱️ 19 min read</span>
-                <span>👤 Dr. Michael Chen, Chronobiology Researcher</span>
-                <span>📊 800 Participants | 12-Week Study</span>
+                <span>?? January 24, 2025</span>
+                <span>?? 19 min read</span>
+                <span>?? Dr. Michael Chen, Chronobiology Researcher</span>
+                <span>?? 800 Participants | 12-Week Study</span>
             </div>
 
             <div class="quick-answer">
-                <h3>⚡ Quick Answer</h3>
+                <h3>? Quick Answer</h3>
                 <p><strong>When should you drink coffee for maximum effect?</strong> Wait <span class="stat-badge success">90-120 minutes after waking</span>, not immediately. Our 12-week study of 800 adults shows delayed caffeine intake yields <span class="stat-badge success">47% better sustained focus</span>, <span class="stat-badge success">32% higher peak alertness</span>, and <span class="stat-badge success">28% less afternoon crash</span> compared to immediate morning coffee. The reason: cortisol peaks 30-45 minutes after waking—drinking coffee during this spike reduces effectiveness and accelerates tolerance. Stop all caffeine <span class="stat-badge warning">8-10 hours before bedtime</span> (2pm cutoff for 10pm sleep) to preserve sleep quality.</p>
             </div>
 
@@ -756,7 +775,7 @@
             </ol>
 
             <div class="medical-note">
-                <h4>🧬 The Adenosine-Cortisol Window</h4>
+                <h4>?? The Adenosine-Cortisol Window</h4>
                 <p>Adenosine accumulation doesn't begin immediately upon waking—it takes 90-120 minutes for adenosine levels to rise sufficiently to cause noticeable fatigue. This is <em>precisely</em> when cortisol from your morning peak is declining. The 90-120 minute post-wake window is the perfect storm: rising adenosine + declining cortisol = maximum caffeine effectiveness.</p>
             </div>
 
@@ -922,7 +941,7 @@
             <p><strong>Key Finding:</strong> Immediate coffee drinkers (Group A) experienced <span class="stat-badge danger">23% blunted morning cortisol peak</span> compared to delayed coffee drinkers (Group B). This means they started the day with less natural energy and became more dependent on caffeine for baseline function.</p>
 
             <div class="highlight-box">
-                <p><strong>The Vicious Cycle:</strong> Immediate morning coffee → Blunted cortisol response → Lower natural energy → Need more caffeine → Build tolerance faster → Require even more caffeine → Further cortisol suppression. Participants who delayed caffeine maintained strong natural cortisol rhythms throughout the 12-week study, while immediate coffee drinkers' morning cortisol peaks declined 31% by week 12.</p>
+                <p><strong>The Vicious Cycle:</strong> Immediate morning coffee ? Blunted cortisol response ? Lower natural energy ? Need more caffeine ? Build tolerance faster ? Require even more caffeine ? Further cortisol suppression. Participants who delayed caffeine maintained strong natural cortisol rhythms throughout the 12-week study, while immediate coffee drinkers' morning cortisol peaks declined 31% by week 12.</p>
             </div>
 
             <h2>The Tolerance Problem: 6-Month Follow-Up Data</h2>
@@ -975,8 +994,8 @@
             <p>The mechanism involves adenosine receptor regulation:</p>
 
             <ul>
-                <li><strong>Immediate caffeine:</strong> Blocks adenosine receptors during cortisol peak when adenosine is naturally low → Brain compensates by creating more receptors → More receptors = more caffeine needed</li>
-                <li><strong>Delayed caffeine:</strong> Blocks adenosine receptors when adenosine is actually accumulating → Brain experiences normal adenosine signaling in morning → Minimal compensatory receptor upregulation</li>
+                <li><strong>Immediate caffeine:</strong> Blocks adenosine receptors during cortisol peak when adenosine is naturally low ? Brain compensates by creating more receptors ? More receptors = more caffeine needed</li>
+                <li><strong>Delayed caffeine:</strong> Blocks adenosine receptors when adenosine is actually accumulating ? Brain experiences normal adenosine signaling in morning ? Minimal compensatory receptor upregulation</li>
             </ul>
 
             <p>Think of it like this: If you block a signal when it's not even being sent, your body assumes the blocking is the new normal and amplifies the signal. If you block it only when needed, your body maintains normal signaling.</p>
@@ -1032,7 +1051,7 @@
             <p><strong>Critical Finding:</strong> Caffeine consumed at 4pm (6 hours before 10pm bedtime) reduced deep sleep by 29% and nearly doubled nighttime awakenings—<em>even though participants reported "falling asleep fine."</em> Subjective sleep quality did not match objective measurements.</p>
 
             <div class="warning-box">
-                <h4>⚠️ The Sleep Quality Illusion</h4>
+                <h4>?? The Sleep Quality Illusion</h4>
                 <p>78% of participants who had caffeine at 4pm reported "no trouble falling asleep" and rated sleep quality as 7/10 or higher. But polysomnography (sleep study) revealed severe sleep architecture disruption: deep sleep reduced by 30%, more fragmentation, less restorative sleep. <strong>You don't feel the damage, but your brain and body do.</strong> This explains why people say "caffeine doesn't affect my sleep"—they fall asleep, but sleep quality is destroyed.</p>
             </div>
 
@@ -1124,7 +1143,7 @@
                         <td>Minimal</td>
                     </tr>
                     <tr>
-                        <td><strong>200mg ⭐</strong></td>
+                        <td><strong>200mg ?</strong></td>
                         <td>+34% focus</td>
                         <td>3.8 hours</td>
                         <td>8%</td>
@@ -1197,7 +1216,7 @@
                         <td>+3.2%</td>
                     </tr>
                     <tr>
-                        <td><strong>45-60 minutes ⭐</strong></td>
+                        <td><strong>45-60 minutes ?</strong></td>
                         <td>+7.2%</td>
                         <td>+14.3%</td>
                         <td>+6.8%</td>
@@ -1220,7 +1239,7 @@
             <p><strong>Optimal pre-workout timing: 45-60 minutes before exercise.</strong> This hits peak blood concentration (60 minutes) right when you need maximum performance. Dose: 3-6mg/kg for performance enhancement (higher than cognitive dosing).</p>
 
             <div class="protocol-box">
-                <h4>☕ Morning Workout Exception</h4>
+                <h4>? Morning Workout Exception</h4>
                 <p>If you work out within 2 hours of waking, you can use immediate pre-workout caffeine (45-60 min before) without the cortisol conflict. Exercise itself triggers cortisol release, overriding the natural morning peak. For a 6am workout: caffeine at 5-5:15am is fine. Just maintain the 8-10 hour sleep cutoff (finish workout + caffeine clearance before bed).</p>
             </div>
 
@@ -1284,10 +1303,10 @@
 
             <p><strong>Mitigation strategies:</strong></p>
             <ul>
-                <li>✅ Taper dose 50% on day before off-day (reduces headache by 68%)</li>
-                <li>✅ Plan off-days for low-demand activities (weekends, light workdays)</li>
-                <li>✅ Increase hydration (dehydration worsens caffeine headaches)</li>
-                <li>✅ Consider 50mg "maintenance dose" instead of zero (reduces symptoms 80%, maintains some reset benefit)</li>
+                <li>? Taper dose 50% on day before off-day (reduces headache by 68%)</li>
+                <li>? Plan off-days for low-demand activities (weekends, light workdays)</li>
+                <li>? Increase hydration (dehydration worsens caffeine headaches)</li>
+                <li>? Consider 50mg "maintenance dose" instead of zero (reduces symptoms 80%, maintains some reset benefit)</li>
             </ul>
 
             <h2>Genetic Factors: Fast vs Slow Caffeine Metabolizers</h2>
@@ -1359,7 +1378,7 @@
             <div class="protocol-box">
                 <h3>The 90-Minute Rule Protocol</h3>
                 
-                <h4>☀️ Morning (Cognitive Focus Protocol)</h4>
+                <h4>?? Morning (Cognitive Focus Protocol)</h4>
                 <ol>
                     <li><strong>Wake up:</strong> No caffeine yet. Hydrate with 16oz water instead.</li>
                     <li><strong>0-90 minutes:</strong> Get morning sunlight (10+ min), light breakfast, shower, commute—let natural cortisol peak.</li>
@@ -1367,20 +1386,20 @@
                     <li><strong>Peak effect:</strong> 60 minutes after consumption (2.5-3 hours after waking) = your highest cognitive performance window.</li>
                 </ol>
                 
-                <h4>🌤️ Afternoon (Optional Second Dose)</h4>
+                <h4>??? Afternoon (Optional Second Dose)</h4>
                 <ol>
                     <li><strong>If needed:</strong> 100-150mg between 12pm-2pm (no later than 2pm for 10pm bedtime).</li>
                     <li><strong>Skip if:</strong> You're a slow metabolizer, sensitive to caffeine, or had 300mg+ in morning dose.</li>
                 </ol>
                 
-                <h4>🌙 Evening (Protect Your Sleep)</h4>
+                <h4>?? Evening (Protect Your Sleep)</h4>
                 <ol>
                     <li><strong>Hard cutoff:</strong> No caffeine within 8-10 hours of bedtime (2pm cutoff for 10pm sleep).</li>
                     <li><strong>Fast metabolizers:</strong> Can extend to 6-8 hours (4pm cutoff).</li>
                     <li><strong>Slow metabolizers:</strong> Extend to 10-12 hours (10am-12pm cutoff).</li>
                 </ol>
                 
-                <h4>📅 Weekly Cycling (Optional but Recommended)</h4>
+                <h4>?? Weekly Cycling (Optional but Recommended)</h4>
                 <ol>
                     <li><strong>Monday-Friday:</strong> Full protocol as above.</li>
                     <li><strong>Saturday-Sunday:</strong> Zero caffeine OR 50% dose (100mg max) to partially reset tolerance.</li>
@@ -1423,7 +1442,7 @@
             </ul>
 
             <div class="warning-box">
-                <h4>⚠️ When Caffeine Becomes Dangerous</h4>
+                <h4>?? When Caffeine Becomes Dangerous</h4>
                 <p>Seek medical attention if you experience:</p>
                 <ul>
                     <li>Heart palpitations or irregular heartbeat</li>
@@ -1460,13 +1479,13 @@
             <p>After 12 weeks of studying 800 adults and measuring cognitive performance, cortisol rhythms, and sleep architecture, the science is crystal clear:</p>
 
             <ul>
-                <li>✅ <strong>Wait 90-120 minutes after waking</strong> for first caffeine dose (47% better focus, 32% higher peak alertness)</li>
-                <li>✅ <strong>200mg is the sweet spot</strong> for most adults (optimal benefit-to-side-effect ratio)</li>
-                <li>✅ <strong>Stop caffeine 8-10 hours before bed</strong> minimum (2pm cutoff for 10pm sleep)</li>
-                <li>✅ <strong>Cycle 5 days on, 2 days off</strong> to maintain 85-90% long-term effectiveness</li>
-                <li>✅ <strong>Immediate morning coffee is counterproductive</strong> (suppresses cortisol, builds tolerance 4x faster)</li>
-                <li>✅ <strong>Genetics matter</strong> (fast vs slow metabolizers need different protocols)</li>
-                <li>✅ <strong>Subjective sleep quality lies</strong> (you feel fine but polysomnography shows damage)</li>
+                <li>? <strong>Wait 90-120 minutes after waking</strong> for first caffeine dose (47% better focus, 32% higher peak alertness)</li>
+                <li>? <strong>200mg is the sweet spot</strong> for most adults (optimal benefit-to-side-effect ratio)</li>
+                <li>? <strong>Stop caffeine 8-10 hours before bed</strong> minimum (2pm cutoff for 10pm sleep)</li>
+                <li>? <strong>Cycle 5 days on, 2 days off</strong> to maintain 85-90% long-term effectiveness</li>
+                <li>? <strong>Immediate morning coffee is counterproductive</strong> (suppresses cortisol, builds tolerance 4x faster)</li>
+                <li>? <strong>Genetics matter</strong> (fast vs slow metabolizers need different protocols)</li>
+                <li>? <strong>Subjective sleep quality lies</strong> (you feel fine but polysomnography shows damage)</li>
             </ul>
 
             <p>Caffeine is the world's most used psychoactive substance—200+ million Americans consume it daily. But <strong>90% are using it at the wrong time, in the wrong dose, building tolerance, and destroying their sleep.</strong></p>
@@ -1487,10 +1506,34 @@
                 <a href="https://pubmed.ncbi.nlm.nih.gov/28139263" target="_blank" rel="noopener" class="reference-link">[6]</a> British Journal of Sports Medicine - "Systematic Review of Caffeine and Athletic Performance" (2018)
             </p>
         </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
 
         <div class="article-nav">
-            <a href="../health/sleep-deprivation-immune-function.html" class="article-nav-btn">← Previous: Sleep & Immunity</a>
-            <a href="../blog.html" class="article-nav-btn">Back to Health →</a>
+            <a href="../health/sleep-deprivation-immune-function.html" class="article-nav-btn">? Previous: Sleep & Immunity</a>
+            <a href="../blog.html" class="article-nav-btn">Back to Health ?</a>
         </div>
     </div>
 
@@ -1527,3 +1570,4 @@
     </script>
 </body>
 </html>
+

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Charset/viewport FIRST -->
@@ -273,6 +273,7 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
     
     <style>
         :root {
@@ -689,37 +690,55 @@
     </style>
 </head>
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
         
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
     <div class="container">
-        <a href="../blog.html" class="back-link"><span>←</span> Back to Health</a>
+        <a href="../blog.html" class="back-link"><span>?</span> Back to Health</a>
         
         <article class="blog-article">
             <h1>REM Sleep & Memory: What 90 Days of Testing Reveals</h1>
             
             <div class="post-meta">
-                <span>📅 January 24, 2025</span>
-                <span>⏱️ 20 min read</span>
-                <span>👤 Dr. Rachel Martinez, Sleep Neuroscience Researcher</span>
-                <span>📊 600 Participants | 90-Day Study</span>
+                <span>?? January 24, 2025</span>
+                <span>?? 20 min read</span>
+                <span>?? Dr. Rachel Martinez, Sleep Neuroscience Researcher</span>
+                <span>?? 600 Participants | 90-Day Study</span>
             </div>
 
             <div class="quick-answer">
-                <h3>⚡ Quick Answer</h3>
+                <h3>? Quick Answer</h3>
                 <p><strong>Does REM sleep actually improve memory and learning?</strong> Absolutely. Our 90-day study of 600 adults shows participants with adequate REM sleep (90-120 min/night via 7-8 hour sleep) achieved <span class="stat-badge success">34% better memory retention</span>, <span class="stat-badge success">42% faster learning speed</span>, and <span class="stat-badge success">28% better skill acquisition</span> compared to 6-hour sleepers. REM sleep consolidates memories by replaying learned information at 10-20x normal speed in the hippocampus, strengthening neural pathways. Cutting sleep from 8 to 6 hours eliminates the final REM-rich cycles where most consolidation occurs, reducing memory performance by one-third.</p>
             </div>
 
@@ -754,7 +773,7 @@
             <p>New memories are integrated into existing knowledge networks, making them accessible, flexible, and usable in different contexts. This is why you often "understand" material better after sleeping on it.</p>
 
             <div class="brain-box">
-                <h4>🧠 Hippocampal Replay: Your Brain's Night Shift</h4>
+                <h4>?? Hippocampal Replay: Your Brain's Night Shift</h4>
                 <p>Using EEG recordings, we observed "hippocampal sharp-wave ripples"—bursts of activity where the hippocampus replays learned patterns at 10-20x speed. A 10-minute study session gets "replayed" in 30-60 seconds, dozens of times per night. Participants with higher ripple density (measured via polysomnography) showed 41% better memory retention. <strong>Your brain literally studies for you while you sleep—but only if you give it enough time.</strong></p>
             </div>
 
@@ -901,7 +920,7 @@
             <p><strong>Compounding Effect:</strong> Adequate sleep doesn't just help you remember what you learned yesterday—it makes you progressively better at learning NEW information. By week 12, the 8-hour group learned <span class="stat-badge success">42% faster than baseline</span>, while the 6-hour group improved only 12%. This is because well-consolidated memories create better "hooks" for new information.</p>
 
             <div class="highlight-box">
-                <p><strong>The Learning Debt Cycle:</strong> Poor sleep creates vicious cycle. Less sleep → worse memory consolidation → fragmented knowledge network → harder to learn new information → need more study time → less time for sleep → even worse consolidation. Our 6-hour sleepers reported studying 3.2 hours/day to maintain performance, while 8-hour sleepers needed only 2.1 hours/day for BETTER results. Sleep doesn't take time from learning—it makes learning more efficient.</p>
+                <p><strong>The Learning Debt Cycle:</strong> Poor sleep creates vicious cycle. Less sleep ? worse memory consolidation ? fragmented knowledge network ? harder to learn new information ? need more study time ? less time for sleep ? even worse consolidation. Our 6-hour sleepers reported studying 3.2 hours/day to maintain performance, while 8-hour sleepers needed only 2.1 hours/day for BETTER results. Sleep doesn't take time from learning—it makes learning more efficient.</p>
             </div>
 
             <h2>REM vs Deep Sleep: Which Matters More for Memory?</h2>
@@ -932,7 +951,7 @@
                         <td><strong>Stage 3-4 (Deep/SWS)</strong></td>
                         <td>1.5-2 hours (20%)</td>
                         <td>Declarative (facts, names, vocab)</td>
-                        <td>Slow waves, hippocampus→cortex transfer</td>
+                        <td>Slow waves, hippocampus?cortex transfer</td>
                         <td>-42% fact retention, poor vocabulary learning</td>
                     </tr>
                     <tr>
@@ -957,7 +976,7 @@
             <p><strong>Critical implication:</strong> When you cut sleep from 8 to 6 hours, you <em>disproportionately lose REM sleep</em> from the final cycles. Our 6-hour sleepers lost 30-45 minutes of REM (25-38% reduction) while losing only 15-25 minutes of deep sleep (15-20% reduction).</p>
 
             <div class="medical-note">
-                <h4>🔬 Why REM Is Concentrated in Later Cycles</h4>
+                <h4>?? Why REM Is Concentrated in Later Cycles</h4>
                 <p>Sleep cycles repeat every 90-110 minutes, but the ratio of deep:REM changes across the night. Cycle 1 might be 30 min deep + 10 min REM. Cycle 5 might be 5 min deep + 35 min REM. This evolutionary pattern prioritizes physical restoration early (deep sleep) and cognitive processing late (REM). When you sleep only 6 hours, you complete ~4 cycles and miss the REM-rich cycles 5-6. This explains why 6-hour sleep especially impairs skill learning and problem-solving (REM-dependent) more than basic fact recall (deep sleep-dependent).</p>
             </div>
 
@@ -1138,7 +1157,7 @@
             <p><strong>Mind-blowing implication:</strong> Sleep doesn't just preserve skills—it <em>actively improves them</em>. The 8-hour group performed 33% better the next morning WITHOUT any additional practice. This overnight learning was directly correlated with REM sleep duration (r = 0.79, p < 0.001).</p>
 
             <div class="research-note">
-                <h4>📊 The Consolidation Window</h4>
+                <h4>?? The Consolidation Window</h4>
                 <p>Optimal consolidation requires sleep within 12 hours of learning. We tested delayed sleep (learn at 9am, stay awake until 9pm, then sleep) vs immediate sleep (learn at 9pm, sleep by 11pm). Immediate sleep group showed 38% better consolidation. The hippocampus begins forgetting within hours—sleep needs to occur while the memory trace is still fresh. This is why cramming the night before (learning followed by immediate sleep) is actually more effective than spreading study across days without adequate sleep.</p>
             </div>
 
@@ -1179,7 +1198,7 @@
                         <td>71%</td>
                     </tr>
                     <tr>
-                        <td><strong>7-8pm (Evening) ⭐</strong></td>
+                        <td><strong>7-8pm (Evening) ?</strong></td>
                         <td>2-3 hours later</td>
                         <td>89%</td>
                         <td>79%</td>
@@ -1202,7 +1221,7 @@
             <p>Fragile hippocampal memories decay rapidly. Sleep needs to "catch" them before they're lost.</p>
 
             <div class="highlight-box">
-                <h4>🎓 Student/Professional Protocol</h4>
+                <h4>?? Student/Professional Protocol</h4>
                 <p><strong>For maximum retention:</strong></p>
                 <ol>
                     <li>Schedule intensive study/learning sessions for late afternoon/evening (4-8pm)</li>
@@ -1278,7 +1297,7 @@
             <p><strong>Cumulative effects:</strong> Participants with multiple suppressors (e.g., 2 drinks + late caffeine + warm room) experienced 45-60% REM reduction and performed equivalently to 4-5 hour sleepers despite being in bed for 8 hours.</p>
 
             <div class="warning-box">
-                <h4>⚠️ The Alcohol-Learning Trap</h4>
+                <h4>?? The Alcohol-Learning Trap</h4>
                 <p>Many students and professionals drink alcohol to "unwind" after intensive study/work days. This is catastrophically counterproductive. Our participants who studied in the evening then had 2+ drinks showed <strong>worse retention than those who didn't study at all</strong>. The alcohol suppressed the REM consolidation that would have occurred, essentially wasting the study time. If you're going to learn something important, protect that night's sleep—no alcohol, no drugs, optimal conditions.</p>
             </div>
 
@@ -1367,14 +1386,14 @@
                 </div>
 
                 <div class="cycle-item">
-                    <h4>Cycle 5 (360-450 min): REM Dominant ⭐</h4>
+                    <h4>Cycle 5 (360-450 min): REM Dominant ?</h4>
                     <p><strong>Composition:</strong> 5 min deep sleep, 35 min REM, 50 min light</p>
                     <p><strong>Function:</strong> Maximum integration, creative problem-solving, dream-rich</p>
                 </div>
 
                 <div class="cycle-item">
-                    <h4>Cycle 6 (450-480 min): REM Dominant ⭐</h4>
-                    <p><strong>Composition:</strong> 0 min deep sleep, 25 min REM, 5 min light → wake</p>
+                    <h4>Cycle 6 (450-480 min): REM Dominant ?</h4>
+                    <p><strong>Composition:</strong> 0 min deep sleep, 25 min REM, 5 min light ? wake</p>
                     <p><strong>Function:</strong> Final consolidation pass, emotion regulation</p>
                 </div>
             </div>
@@ -1468,14 +1487,14 @@
             <p>After 90 days of studying 600 adults, measuring thousands of memory tests, and correlating performance with sleep architecture, the science is unambiguous:</p>
 
             <ul>
-                <li>✅ <strong>REM sleep directly consolidates memories</strong> - not passive storage, active neural rewiring</li>
-                <li>✅ <strong>8 hours of sleep yields 34% better retention</strong> than 6 hours across all memory types</li>
-                <li>✅ <strong>Learning speed compounds with adequate sleep</strong> - 42% faster learning by week 12</li>
-                <li>✅ <strong>Skills improve overnight without practice</strong> - 33% better performance after 8-hour sleep</li>
-                <li>✅ <strong>Timing matters: evening learning → sleep</strong> - 23% better retention than morning learning</li>
-                <li>✅ <strong>REM suppressors (alcohol, THC, caffeine) destroy consolidation</strong> - protect sleep quality when learning</li>
-                <li>✅ <strong>The final 2 hours contain 50% of REM sleep</strong> - cutting from 8 to 6 hours disproportionately damages memory</li>
-                <li>✅ <strong>Effects compound over time</strong> - chronic sleep restriction creates learning disability</li>
+                <li>? <strong>REM sleep directly consolidates memories</strong> - not passive storage, active neural rewiring</li>
+                <li>? <strong>8 hours of sleep yields 34% better retention</strong> than 6 hours across all memory types</li>
+                <li>? <strong>Learning speed compounds with adequate sleep</strong> - 42% faster learning by week 12</li>
+                <li>? <strong>Skills improve overnight without practice</strong> - 33% better performance after 8-hour sleep</li>
+                <li>? <strong>Timing matters: evening learning ? sleep</strong> - 23% better retention than morning learning</li>
+                <li>? <strong>REM suppressors (alcohol, THC, caffeine) destroy consolidation</strong> - protect sleep quality when learning</li>
+                <li>? <strong>The final 2 hours contain 50% of REM sleep</strong> - cutting from 8 to 6 hours disproportionately damages memory</li>
+                <li>? <strong>Effects compound over time</strong> - chronic sleep restriction creates learning disability</li>
             </ul>
 
             <p>The common approach—study as much as possible, sacrifice sleep when necessary—is neurologically backwards. <strong>Learning happens in two phases: encoding while awake, and consolidation during sleep.</strong> Skipping the second phase renders the first phase 65% less effective.</p>
@@ -1496,10 +1515,34 @@
                 <a href="https://pubmed.ncbi.nlm.nih.gov/31076384" target="_blank" rel="noopener" class="reference-link">[6]</a> Sleep Medicine Reviews - "The Role of Sleep in Cognition and Emotion" (2019)
             </p>
         </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
 
         <div class="article-nav">
-            <a href="../health/caffeine-cognitive-performance-timing.html" class="article-nav-btn">← Previous: Caffeine Timing</a>
-            <a href="../blog.html" class="article-nav-btn">Back to Health →</a>
+            <a href="../health/caffeine-cognitive-performance-timing.html" class="article-nav-btn">? Previous: Caffeine Timing</a>
+            <a href="../blog.html" class="article-nav-btn">Back to Health ?</a>
         </div>
     </div>
 
@@ -1536,3 +1579,4 @@
     </script>
 </body>
 </html>
+

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Charset/viewport FIRST -->
@@ -86,6 +86,7 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
     
     <style>
         :root {
@@ -333,32 +334,50 @@
     </style>
 </head>
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
         
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
     <div class="container">
-        <a href="../blog.html" class="back-link">← Back to Blog</a>
+        <a href="../blog.html" class="back-link">? Back to Blog</a>
         
         <article class="blog-article">
             <h1>How Athletes Use Reaction Time Training to Win Championships</h1>
             
             <div class="post-meta">
-                <span>📅 July 25, 2025</span>
-                <span>⏱️ 6 min read</span>
-                <span>👤 Olympic Training Center</span>
+                <span>?? July 25, 2025</span>
+                <span>?? 6 min read</span>
+                <span>?? Olympic Training Center</span>
             </div>
 
             <div class="highlight-box">
@@ -536,6 +555,30 @@
 
             <p>Championship-level athletes don't just have natural talent - they systematically train their reaction speed using evidence-based protocols. By incorporating sport-specific reaction drills 4-6 times per week, any athlete can develop significantly faster reflexes and gain competitive advantages in their sport.</p>
         </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
     </div>
 
     <script>
@@ -571,3 +614,4 @@
     </script>
 </body>
 </html>
+

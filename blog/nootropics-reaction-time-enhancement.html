@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Charset/viewport FIRST -->
@@ -259,6 +259,7 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
     
     <style>
         :root {
@@ -665,37 +666,55 @@
     </style>
 </head>
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
         
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
     <div class="container">
-        <a href="../blog.html" class="back-link"><span>←</span> Back to Blog</a>
+        <a href="../blog.html" class="back-link"><span>?</span> Back to Blog</a>
         
         <article class="blog-article">
             <h1>Nootropics for Reaction Time: A Science-Based Guide to What Actually Works</h1>
             
             <div class="post-meta">
-                <span>📅 January 29, 2025</span>
-                <span>⏱️ 18 min read</span>
-                <span>👤 Dr. Alan Carter, Neuropharmacologist</span>
-                <span>🔬 Evidence-Based</span>
+                <span>?? January 29, 2025</span>
+                <span>?? 18 min read</span>
+                <span>?? Dr. Alan Carter, Neuropharmacologist</span>
+                <span>?? Evidence-Based</span>
             </div>
 
             <div class="quick-answer">
-                <h3>⚡ Quick Answer</h3>
+                <h3>? Quick Answer</h3>
                 <p><strong>What are the best nootropics for reaction time?</strong> The only nootropics with strong scientific evidence are: <span class="stat-badge">Caffeine + L-Theanine</span> (12ms average improvement), <span class="stat-badge">Creatine Monohydrate</span> (8ms average improvement), and <span class="stat-badge">L-Tyrosine</span> (prevents 25-30ms stress-induced slowdown). Most "proprietary blend" gaming supplements are underdosed and overpriced. Stick to these three for safe, measurable performance gains.</p>
             </div>
 
@@ -708,7 +727,7 @@
             <h2>What Are Nootropics? A Scientific Definition</h2>
 
             <div class="info-box">
-                <h4>🧠 Nootropic Definition</h4>
+                <h4>?? Nootropic Definition</h4>
                 <p>A true nootropic, as defined by its creator Dr. Corneliu Giurgea, must:</p>
                 <ol>
                     <li>Enhance learning and memory.</li>
@@ -769,7 +788,7 @@
 
             <div class="nootropic-card">
                 <span class="tier-badge tier-s">S-TIER</span>
-                <h4>☕ Caffeine + L-Theanine</h4>
+                <h4>? Caffeine + L-Theanine</h4>
                 <p><strong>Dosage:</strong> 100-200mg Caffeine + 200mg L-Theanine (1:2 ratio)</p>
                 <p><strong>Timing:</strong> 45-60 minutes before competition</p>
                 <p><strong>Mechanism:</strong> Caffeine blocks adenosine receptors (preventing sleepiness), while L-Theanine increases alpha brain waves (calm focus) and GABA (reducing anxiety). The combination provides alertness without jitters.</p>
@@ -787,7 +806,7 @@
 
             <div class="nootropic-card">
                 <span class="tier-badge tier-s">S-TIER</span>
-                <h4>💪 Creatine Monohydrate</h4>
+                <h4>?? Creatine Monohydrate</h4>
                 <p><strong>Dosage:</strong> 5g daily (no loading phase needed)</p>
                 <p><strong>Timing:</strong> Anytime (it's a long-term supplement)</p>
                 <p><strong>Mechanism:</strong> Increases brain adenosine triphosphate (ATP) levels—the primary cellular energy source. A more energized brain processes information faster, especially under stress or sleep deprivation.</p>
@@ -809,7 +828,7 @@
 
             <div class="nootropic-card">
                 <span class="tier-badge tier-a">A-TIER</span>
-                <h4>🧠 L-Tyrosine</h4>
+                <h4>?? L-Tyrosine</h4>
                 <p><strong>Dosage:</strong> 500-2000mg</p>
                 <p><strong>Timing:</strong> 60 minutes before high-stress competition</p>
                 <p><strong>Mechanism:</strong> Precursor to dopamine and norepinephrine. Under stress, your brain burns through these neurotransmitters. L-Tyrosine provides raw material to replenish them, preventing stress-induced cognitive decline.</p>
@@ -826,7 +845,7 @@
 
             <div class="nootropic-card">
                 <span class="tier-badge tier-a">A-TIER</span>
-                <h4>🌿 Rhodiola Rosea</h4>
+                <h4>?? Rhodiola Rosea</h4>
                 <p><strong>Dosage:</strong> 200-400mg (standardized to 3% rosavins, 1% salidroside)</p>
                 <p><strong>Timing:</strong> 60 minutes before long sessions</p>
                 <p><strong>Mechanism:</strong> Adaptogen that reduces cortisol and balances neurotransmitter levels, specifically combating mental fatigue.</p>
@@ -846,7 +865,7 @@
 
             <div class="nootropic-card">
                 <span class="tier-badge tier-b">B-TIER</span>
-                <h4>🍄 Lion's Mane</h4>
+                <h4>?? Lion's Mane</h4>
                 <p><strong>Dosage:</strong> 500-3000mg daily</p>
                 <p><strong>Mechanism:</strong> Increases Nerve Growth Factor (NGF), which supports neuron growth and repair. Enhances neuroplasticity (the brain's ability to learn and adapt).</p>
                 <p><strong>Effectiveness:</strong> No direct, acute reaction time benefit. Improves cognitive function scores by 10-15% after 12-16 weeks. May accelerate learning and skill acquisition from practice.</p>
@@ -857,7 +876,7 @@
 
             <div class="nootropic-card">
                 <span class="tier-badge tier-b">B-TIER</span>
-                <h4>🍃 Bacopa Monnieri</h4>
+                <h4>?? Bacopa Monnieri</h4>
                 <p><strong>Dosage:</strong> 300mg daily (standardized to 55% bacosides)</p>
                 <p><strong>Mechanism:</strong> Enhances neural communication and reduces anxiety. Strong evidence for improving memory formation and recall.</p>
                 <p><strong>Effectiveness:</strong> Improves learning rate and memory recall by 15-20% after 8-12 weeks. Small (~5ms) indirect effect on reaction time through faster pattern recognition.</p>
@@ -872,7 +891,7 @@
 
             <div class="nootropic-card">
                 <span class="tier-badge tier-f">F-TIER</span>
-                <h4>💊 Modafinil / Adderall</h4>
+                <h4>?? Modafinil / Adderall</h4>
                 <p><strong>Effectiveness:</strong> Very high. Improves reaction time 15-25ms, focus 40-50%, and reduces sleep need.</p>
                 <p><strong>Legal Status:</strong> Prescription-only, banned in all major esports leagues and professional sports.</p>
                 <p><strong>Risks:</strong></p>
@@ -884,7 +903,7 @@
                     <li>Violating ToS/rules = permanent ban</li>
                 </ul>
                 <div class="danger-box">
-                    <h5>⚠️ DO NOT USE</h5>
+                    <h5>?? DO NOT USE</h5>
                     <p>Using prescription stimulants for performance is cheating and dangerous. The risks far outweigh the benefits, and you will be caught and banned.</p>
                 </div>
             </div>
@@ -893,7 +912,7 @@
 
             <div class="nootropic-card">
                 <span class="tier-badge tier-f">F-TIER</span>
-                <h4>🔬 Racetams</h4>
+                <h4>?? Racetams</h4>
                 <p><strong>Effectiveness:</strong> Weak to non-existent evidence in healthy young adults. Most positive studies are from 1970s on elderly with cognitive decline.</p>
                 <p><strong>Risks:</strong> Unregulated, unknown long-term side effects. Can cause headaches, irritability, and insomnia.</p>
                 <p><strong>Verdict:</strong> Not recommended. Better, safer, proven options exist.</p>
@@ -903,7 +922,7 @@
 
             <div class="nootropic-card">
                 <span class="tier-badge tier-f">F-TIER</span>
-                <h4>🧪 Proprietary Blends</h4>
+                <h4>?? Proprietary Blends</h4>
                 <p><strong>The Problem:</strong> Most "gaming supplements" use proprietary blends to hide their formulas. They list ingredients but not dosages.</p>
                 <p><strong>The Reality:</strong></p>
                 <ol>
@@ -912,7 +931,7 @@
                     <li>They are massively overpriced for what they contain.</li>
                 </ol>
                 <div class="warning-box">
-                    <h5>⚠️ How to Spot a Bad Supplement</h5>
+                    <h5>?? How to Spot a Bad Supplement</h5>
                     <p>If the label says "Proprietary Blend," "Gaming Matrix," or lists ingredients without specific mg amounts, avoid it. It's a marketing trick. Buy single-ingredient, proven nootropics and build your own stack.</p>
                 </div>
             </div>
@@ -922,7 +941,7 @@
             <p>Based on all available evidence, here is the optimal, safe, and effective stack for competitive performance.</p>
 
             <div class="highlight-box">
-                <h4>🏆 The "Peak Performance" Stack</h4>
+                <h4>?? The "Peak Performance" Stack</h4>
                 
                 <p><strong>Daily Foundation (Every Day):</strong></p>
                 <ul>
@@ -953,7 +972,7 @@
             <h3>Caffeine Cycling is Non-Negotiable</h3>
 
             <div class="warning-box">
-                <h4>🔄 Caffeine Tolerance Protocol</h4>
+                <h4>?? Caffeine Tolerance Protocol</h4>
                 <p>Daily caffeine use builds tolerance within 7-14 days. To maintain effectiveness:</p>
                 <ul>
                     <li><strong>Weekly Cycle:</strong> Use caffeine only on performance days. Take 1-2 days completely off per week.</li>
@@ -1028,10 +1047,10 @@
 
             <p>Here's what works for reaction time:</p>
             <ul>
-                <li>✅ <strong>S-Tier:</strong> Caffeine + L-Theanine (acute), Creatine (foundational)</li>
-                <li>✅ <strong>A-Tier:</strong> L-Tyrosine (for stress), Rhodiola (for fatigue)</li>
-                <li>✅ <strong>B-Tier:</strong> Lion's Mane, Bacopa (for long-term learning)</li>
-                <li>❌ <strong>F-Tier:</strong> Banned drugs, racetams, proprietary blends (avoid)</li>
+                <li>? <strong>S-Tier:</strong> Caffeine + L-Theanine (acute), Creatine (foundational)</li>
+                <li>? <strong>A-Tier:</strong> L-Tyrosine (for stress), Rhodiola (for fatigue)</li>
+                <li>? <strong>B-Tier:</strong> Lion's Mane, Bacopa (for long-term learning)</li>
+                <li>? <strong>F-Tier:</strong> Banned drugs, racetams, proprietary blends (avoid)</li>
             </ul>
 
             <p>But remember the hierarchy of performance:</p>
@@ -1057,10 +1076,34 @@
                 <a href="https://pubmed.ncbi.nlm.nih.gov/24013953/" target="_blank" rel="noopener" class="reference-link">[4]</a> Military Medicine - "Tyrosine improves working memory in a multitasking environment" (2013)
             </p>
         </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
 
         <div class="article-nav">
-            <a href="../blog.html" class="article-nav-btn">← Back to Blog</a>
-            <a href="hardware-guide-reaction-time.html" class="article-nav-btn">Next: Crosshair Placement Guide →</a>
+            <a href="../blog.html" class="article-nav-btn">? Back to Blog</a>
+            <a href="hardware-guide-reaction-time.html" class="article-nav-btn">Next: Crosshair Placement Guide ?</a>
         </div>
     </div>
 
@@ -1113,3 +1156,4 @@
     </script>
 </body>
 </html>
+

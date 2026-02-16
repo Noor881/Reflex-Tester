@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Charset/viewport FIRST -->
@@ -276,6 +276,7 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
     
     <style>
         :root {
@@ -692,37 +693,55 @@
     </style>
 </head>
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
         
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
     <div class="container">
-        <a href="../blog.html" class="back-link"><span>←</span> Back to Health</a>
+        <a href="../blog.html" class="back-link"><span>?</span> Back to Health</a>
         
         <article class="blog-article">
             <h1>Exercise vs Medication for Anxiety: 6-Month Clinical Study</h1>
             
             <div class="post-meta">
-                <span>📅 January 24, 2025</span>
-                <span>⏱️ 22 min read</span>
-                <span>👤 Dr. Emily Rodriguez, Clinical Psychologist</span>
-                <span>📊 900 Participants | 6-Month RCT</span>
+                <span>?? January 24, 2025</span>
+                <span>?? 22 min read</span>
+                <span>?? Dr. Emily Rodriguez, Clinical Psychologist</span>
+                <span>?? 900 Participants | 6-Month RCT</span>
             </div>
 
             <div class="quick-answer">
-                <h3>⚡ Quick Answer</h3>
+                <h3>? Quick Answer</h3>
                 <p><strong>Is exercise as effective as medication for anxiety?</strong> Yes, for mild-to-moderate cases. Our 6-month randomized controlled trial of 900 anxiety patients shows <span class="stat-badge success">aerobic exercise (150 min/week) reduces symptoms 48%</span>—statistically equivalent to SSRI medication (50% reduction). Exercise offers <span class="stat-badge success">zero pharmaceutical side effects</span>, better long-term adherence (73% vs 54% for medication), and stronger relapse prevention (89% maintained gains at 12 months vs 54% for medication). However, <span class="stat-badge warning">medication works faster</span> (2 weeks vs 4-6 weeks) and requires less daily effort. <span class="stat-badge success">Combination therapy is most effective: 64% reduction</span>. For severe anxiety, medication is essential for stabilization, then exercise enhances outcomes and enables eventual tapering.</p>
             </div>
 
@@ -869,7 +888,7 @@
                         <td>27%</td>
                     </tr>
                     <tr>
-                        <td><strong>Aerobic Exercise ⭐</strong></td>
+                        <td><strong>Aerobic Exercise ?</strong></td>
                         <td>15.1</td>
                         <td>9.2</td>
                         <td>7.9</td>
@@ -890,7 +909,7 @@
                         <td>42%</td>
                     </tr>
                     <tr>
-                        <td><strong>Combination (SSRI + Exercise) ⭐⭐</strong></td>
+                        <td><strong>Combination (SSRI + Exercise) ??</strong></td>
                         <td>15.4</td>
                         <td>6.7</td>
                         <td>5.5</td>
@@ -1027,7 +1046,7 @@
             <p><strong>The emotional blunting problem:</strong> 37% of SSRI users reported feeling "emotionally flat"—they weren't anxious, but they also weren't happy, sad, or excited. Life felt muted. This is a well-documented SSRI side effect that significantly impacts quality of life.</p>
 
             <div class="warning-box">
-                <h4>⚠️ SSRI Withdrawal Syndrome</h4>
+                <h4>?? SSRI Withdrawal Syndrome</h4>
                 <p>Stopping SSRIs requires careful tapering. Our study included a subset (n=80) who attempted to discontinue SSRIs at month 6 under medical supervision. Even with gradual 8-week taper, <strong>64% experienced withdrawal symptoms</strong>: brain zaps (electric shock sensations), dizziness, nausea, irritability, insomnia, and anxiety rebound. Symptoms lasted average 3.2 weeks. <strong>Exercise has zero withdrawal syndrome</strong>—stopping exercise doesn't cause physical dependence, only gradual return of anxiety symptoms over weeks.</p>
             </div>
 
@@ -1111,7 +1130,7 @@
                         <td>87%</td>
                     </tr>
                     <tr>
-                        <td><strong>150 minutes/week ⭐</strong></td>
+                        <td><strong>150 minutes/week ?</strong></td>
                         <td>30 min × 5 days OR 50 min × 3 days</td>
                         <td>48%</td>
                         <td>73%</td>
@@ -1125,14 +1144,14 @@
                 </tbody>
             </table>
 
-            <p><strong>The 150-minute threshold:</strong> This is the "therapeutic dose" where benefits plateau. Going from 75 to 150 minutes provides massive benefit increase (18% → 48%), but going from 150 to 225 minutes provides almost no additional benefit (48% → 49%) while significantly reducing adherence (73% → 54%).</p>
+            <p><strong>The 150-minute threshold:</strong> This is the "therapeutic dose" where benefits plateau. Going from 75 to 150 minutes provides massive benefit increase (18% ? 48%), but going from 150 to 225 minutes provides almost no additional benefit (48% ? 49%) while significantly reducing adherence (73% ? 54%).</p>
 
             <p><strong>Practical translation:</strong> 30 minutes of moderate-intensity aerobic exercise, 5 days per week. Moderate intensity = 60-75% max heart rate, or "can talk but not sing" exertion level.</p>
 
             <p><strong>Minimum effective dose:</strong> Some benefit appears at 75 min/week, but it's insufficient for clinical anxiety (18% reduction vs 48% at 150 min/week). Don't shortchange yourself—aim for the therapeutic dose.</p>
 
             <div class="research-note">
-                <h4>📊 Intensity Matters Too</h4>
+                <h4>?? Intensity Matters Too</h4>
                 <p>We also tested intensity variations. Moderate intensity (60-75% max HR) was optimal. Low intensity (<60% max HR) reduced anxiety only 23% at 150 min/week. High intensity (>80% max HR) reduced anxiety 51% but had terrible adherence (only 41% maintained protocol) due to fatigue, injury, and burnout. <strong>Moderate intensity is the sweet spot: effective and sustainable.</strong></p>
             </div>
 
@@ -1158,26 +1177,26 @@
                         <td>54% reduction</td>
                         <td>52% reduction</td>
                         <td>67% reduction</td>
-                        <td>✅ Exercise first-line; medication optional</td>
+                        <td>? Exercise first-line; medication optional</td>
                     </tr>
                     <tr>
                         <td><strong>Moderate (GAD-7: 15-17)</strong></td>
                         <td>48% reduction</td>
                         <td>51% reduction</td>
                         <td>65% reduction</td>
-                        <td>✅ Exercise or medication; combination ideal</td>
+                        <td>? Exercise or medication; combination ideal</td>
                     </tr>
                     <tr>
                         <td><strong>Severe (GAD-7: 18-21)</strong></td>
                         <td>28% reduction</td>
                         <td>47% reduction</td>
                         <td>64% reduction</td>
-                        <td>⚠️ Medication required; add exercise as adjunct</td>
+                        <td>?? Medication required; add exercise as adjunct</td>
                     </tr>
                 </tbody>
             </table>
 
-            <p><strong>Severe anxiety requires medication:</strong> For GAD-7 scores ≥18, exercise alone is insufficient (only 28% reduction vs 47% for medication). These individuals need pharmaceutical intervention for stabilization. However, adding exercise to medication provides significant additional benefit (47% → 64%).</p>
+            <p><strong>Severe anxiety requires medication:</strong> For GAD-7 scores =18, exercise alone is insufficient (only 28% reduction vs 47% for medication). These individuals need pharmaceutical intervention for stabilization. However, adding exercise to medication provides significant additional benefit (47% ? 64%).</p>
 
             <p><strong>Mild-moderate anxiety: exercise is first-line:</strong> For GAD-7 scores 10-17, exercise is as effective as medication with superior side effect profile. Current clinical guidelines recommend SSRIs as first-line, but our data suggests <strong>exercise should be first-line, with medication reserved for non-responders or patient preference.</strong></p>
 
@@ -1299,7 +1318,7 @@
             <ul>
                 <li>IL-6 (pro-inflammatory cytokine) reduced 28%</li>
                 <li>CRP (C-reactive protein) reduced 31%</li>
-                <li>TNF-α (tumor necrosis factor alpha) reduced 24%</li>
+                <li>TNF-a (tumor necrosis factor alpha) reduced 24%</li>
             </ul>
 
             <h3>5. Psychological Mechanisms</h3>
@@ -1314,7 +1333,7 @@
             </ul>
 
             <div class="medical-note">
-                <h4>🔬 The Endocannabinoid Hypothesis</h4>
+                <h4>?? The Endocannabinoid Hypothesis</h4>
                 <p>Recent research suggests exercise's anxiety-reducing effects may partially work through the endocannabinoid system (the same system activated by marijuana, but naturally). Our study measured anandamide (an endocannabinoid) levels before and after exercise sessions. Post-exercise anandamide increased 127%, remaining elevated for 2-3 hours. This may explain the immediate post-exercise mood boost and anxiety reduction. It's essentially a natural, healthy version of the "cannabis calm" without cognitive impairment or dependency risk.</p>
             </div>
 
@@ -1367,7 +1386,7 @@
             <h3>Evidence-Based Exercise Protocol for Anxiety</h3>
 
             <div class="mental-health-box">
-                <h4>🏃 12-Week Exercise Protocol for Anxiety Reduction</h4>
+                <h4>?? 12-Week Exercise Protocol for Anxiety Reduction</h4>
                 
                 <p><strong>Weeks 1-2: Foundation (75 min/week)</strong></p>
                 <ul>
@@ -1415,33 +1434,33 @@
 
             <h3>Exercise as First-Line Treatment (Consider Exercise First):</h3>
             <ul>
-                <li>✅ Mild-to-moderate anxiety (GAD-7 score 10-17)</li>
-                <li>✅ No acute crisis or suicidal ideation</li>
-                <li>✅ Willing to commit to 150 min/week for 6-12 weeks</li>
-                <li>✅ Concerned about medication side effects (especially sexual dysfunction, weight gain)</li>
-                <li>✅ History of poor SSRI response or intolerable side effects</li>
-                <li>✅ Comorbid physical health issues (obesity, cardiovascular disease, diabetes)</li>
-                <li>✅ Pregnancy or breastfeeding (exercise is safe, many meds are not)</li>
+                <li>? Mild-to-moderate anxiety (GAD-7 score 10-17)</li>
+                <li>? No acute crisis or suicidal ideation</li>
+                <li>? Willing to commit to 150 min/week for 6-12 weeks</li>
+                <li>? Concerned about medication side effects (especially sexual dysfunction, weight gain)</li>
+                <li>? History of poor SSRI response or intolerable side effects</li>
+                <li>? Comorbid physical health issues (obesity, cardiovascular disease, diabetes)</li>
+                <li>? Pregnancy or breastfeeding (exercise is safe, many meds are not)</li>
             </ul>
 
             <h3>Medication as First-Line Treatment (Consider Medication First):</h3>
             <ul>
-                <li>⚠️ Severe anxiety (GAD-7 score 18+)</li>
-                <li>⚠️ Acute crisis requiring rapid stabilization</li>
-                <li>⚠️ Suicidal ideation or severe functional impairment</li>
-                <li>⚠️ Unable or unwilling to commit to regular exercise</li>
-                <li>⚠️ Comorbid severe depression requiring pharmaceutical intervention</li>
-                <li>⚠️ Physical limitations preventing exercise</li>
-                <li>⚠️ Patient strong preference for medication</li>
+                <li>?? Severe anxiety (GAD-7 score 18+)</li>
+                <li>?? Acute crisis requiring rapid stabilization</li>
+                <li>?? Suicidal ideation or severe functional impairment</li>
+                <li>?? Unable or unwilling to commit to regular exercise</li>
+                <li>?? Comorbid severe depression requiring pharmaceutical intervention</li>
+                <li>?? Physical limitations preventing exercise</li>
+                <li>?? Patient strong preference for medication</li>
             </ul>
 
             <h3>Combination Therapy (Best Overall Outcomes):</h3>
             <ul>
-                <li>✅ Moderate-to-severe anxiety (GAD-7 score 15+)</li>
-                <li>✅ Previous medication-only treatment with suboptimal response</li>
-                <li>✅ Goal of eventual medication discontinuation</li>
-                <li>✅ Comorbid conditions benefiting from exercise (depression, obesity, chronic pain)</li>
-                <li>✅ Willing to commit to both interventions</li>
+                <li>? Moderate-to-severe anxiety (GAD-7 score 15+)</li>
+                <li>? Previous medication-only treatment with suboptimal response</li>
+                <li>? Goal of eventual medication discontinuation</li>
+                <li>? Comorbid conditions benefiting from exercise (depression, obesity, chronic pain)</li>
+                <li>? Willing to commit to both interventions</li>
             </ul>
 
             <h2>Special Populations: Age, Pregnancy, Comorbidities</h2>
@@ -1482,14 +1501,14 @@
             <p>After 6 months of studying 900 anxiety patients and 12 months of follow-up, the evidence is overwhelming:</p>
 
             <ul>
-                <li>✅ <strong>Exercise equals SSRIs for anxiety reduction</strong> - 48% vs 50%, statistically equivalent</li>
-                <li>✅ <strong>Zero pharmaceutical side effects</strong> - no sexual dysfunction, weight gain, or emotional blunting</li>
-                <li>✅ <strong>Better long-term outcomes</strong> - 73% adherence vs 54%, 89% maintained gains vs 54%</li>
-                <li>✅ <strong>Improves overall health</strong> - cardiovascular, metabolic, sleep, physical fitness benefits</li>
-                <li>✅ <strong>No withdrawal syndrome</strong> - can stop anytime without brain zaps or rebound anxiety</li>
-                <li>✅ <strong>Combination therapy is best</strong> - 64% reduction, enables medication tapering</li>
-                <li>✅ <strong>Therapeutic dose: 150 min/week</strong> - 30 minutes, 5 days/week at moderate intensity</li>
-                <li>✅ <strong>Works best for mild-moderate anxiety</strong> - severe cases need medication first, then add exercise</li>
+                <li>? <strong>Exercise equals SSRIs for anxiety reduction</strong> - 48% vs 50%, statistically equivalent</li>
+                <li>? <strong>Zero pharmaceutical side effects</strong> - no sexual dysfunction, weight gain, or emotional blunting</li>
+                <li>? <strong>Better long-term outcomes</strong> - 73% adherence vs 54%, 89% maintained gains vs 54%</li>
+                <li>? <strong>Improves overall health</strong> - cardiovascular, metabolic, sleep, physical fitness benefits</li>
+                <li>? <strong>No withdrawal syndrome</strong> - can stop anytime without brain zaps or rebound anxiety</li>
+                <li>? <strong>Combination therapy is best</strong> - 64% reduction, enables medication tapering</li>
+                <li>? <strong>Therapeutic dose: 150 min/week</strong> - 30 minutes, 5 days/week at moderate intensity</li>
+                <li>? <strong>Works best for mild-moderate anxiety</strong> - severe cases need medication first, then add exercise</li>
             </ul>
 
             <p>Current clinical guidelines recommend SSRIs as first-line treatment for generalized anxiety disorder. <strong>Our data suggests this should change.</strong></p>
@@ -1512,10 +1531,34 @@
                 <a href="https://pubmed.ncbi.nlm.nih.gov/32647935" target="_blank" rel="noopener" class="reference-link">[6]</a> Journal of Affective Disorders - "Long-term Efficacy of Exercise versus SSRIs for Anxiety: 12-Month Follow-up" (2020)
             </p>
         </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
 
         <div class="article-nav">
-            <a href="../health/power-naps-vs-full-sleep.html" class="article-nav-btn">← Previous: Power Naps</a>
-            <a href="../blog.html" class="article-nav-btn">Back to Health →</a>
+            <a href="../health/power-naps-vs-full-sleep.html" class="article-nav-btn">? Previous: Power Naps</a>
+            <a href="../blog.html" class="article-nav-btn">Back to Health ?</a>
         </div>
     </div>
 
@@ -1552,3 +1595,4 @@
     </script>
 </body>
 </html>
+

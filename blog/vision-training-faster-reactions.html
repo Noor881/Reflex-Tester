@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -220,6 +220,7 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
 
     <style>
         :root {
@@ -630,37 +631,55 @@
 </head>
 
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
 
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
         <div class="container">
-            <a href="../blog.html" class="back-link"><span>←</span> Back to Blog</a>
+            <a href="../blog.html" class="back-link"><span>?</span> Back to Blog</a>
 
             <article class="blog-article">
                 <h1>Vision Training for Faster Reactions: Fighter Pilot Eye Exercises That Work</h1>
 
                 <div class="post-meta">
-                    <span>📅 January 22, 2025</span>
-                    <span>⏱️ 14 min read</span>
-                    <span>👤 Dr. Michael Chen, Sports Vision Specialist</span>
-                    <span>👁️ Evidence-Based</span>
+                    <span>?? January 22, 2025</span>
+                    <span>?? 14 min read</span>
+                    <span>?? Dr. Michael Chen, Sports Vision Specialist</span>
+                    <span>??? Evidence-Based</span>
                 </div>
 
                 <div class="quick-answer">
-                    <h3>⚡ Quick Answer</h3>
+                    <h3>? Quick Answer</h3>
                     <p><strong>Can eye exercises improve reaction time?</strong> Absolutely. Vision training improves
                         reaction time by <strong>18-25% on average</strong> through enhanced saccadic eye movement speed
                         (rapid target acquisition), expanded peripheral awareness, and faster visual processing. Fighter
@@ -704,7 +723,7 @@
                     training creates massive improvements.</p>
 
                 <div class="research-note">
-                    <h4>🔬 Laboratory Evidence</h4>
+                    <h4>?? Laboratory Evidence</h4>
                     <p>Eye-tracking studies of professional gamers vs amateurs reveal elite players move their eyes
                         35-40% faster to new targets and acquire focus 28% quicker. When matched for equal mouse skill
                         and game knowledge, the visual processing advantage alone accounts for 40-50ms faster reactions
@@ -784,7 +803,7 @@
                 <h3>Exercise #1: Saccadic Training (Target Jumping)</h3>
 
                 <div class="exercise-card">
-                    <h4>👁️ Saccadic Speed Training</h4>
+                    <h4>??? Saccadic Speed Training</h4>
                     <p><strong>Target:</strong> Faster eye movement between fixation points</p>
                     <p><strong>Equipment needed:</strong> Saccadic training app (SaccadeWorks, Vision Training Pro) OR
                         two playing cards/sticky notes</p>
@@ -814,7 +833,7 @@
                 <h3>Exercise #2: Peripheral Vision Expansion</h3>
 
                 <div class="exercise-card">
-                    <h4>🎯 Peripheral Awareness Training</h4>
+                    <h4>?? Peripheral Awareness Training</h4>
                     <p><strong>Target:</strong> Faster detection of stimuli outside central vision</p>
                     <p><strong>Equipment:</strong> None (can use peripheral vision training apps for advanced work)</p>
 
@@ -842,7 +861,7 @@
                 <h3>Exercise #3: Dynamic Visual Tracking</h3>
 
                 <div class="exercise-card">
-                    <h4>🔄 Smooth Pursuit Training</h4>
+                    <h4>?? Smooth Pursuit Training</h4>
                     <p><strong>Target:</strong> Tracking moving objects accurately without saccadic jumps</p>
                     <p><strong>Equipment:</strong> Ball, moving screen target, or tracking app</p>
 
@@ -871,7 +890,7 @@
                 <h3>Exercise #4: Near-Far Focus Shifts (Accommodation Training)</h3>
 
                 <div class="exercise-card">
-                    <h4>🔍 Focus Speed Training</h4>
+                    <h4>?? Focus Speed Training</h4>
                     <p><strong>Target:</strong> Faster lens accommodation for depth changes</p>
                     <p><strong>Equipment:</strong> Your finger and a distant object</p>
 
@@ -899,7 +918,7 @@
                 <h3>Exercise #5: Contrast Sensitivity Training</h3>
 
                 <div class="exercise-card">
-                    <h4>🌓 Low-Contrast Detection</h4>
+                    <h4>?? Low-Contrast Detection</h4>
                     <p><strong>Target:</strong> Detecting subtle visual differences faster</p>
                     <p><strong>Equipment:</strong> Contrast sensitivity charts or apps</p>
 
@@ -921,7 +940,7 @@
                 <h3>Exercise #6: Visual Memory Training</h3>
 
                 <div class="exercise-card">
-                    <h4>🧠 Pattern Recognition Speed</h4>
+                    <h4>?? Pattern Recognition Speed</h4>
                     <p><strong>Target:</strong> Faster visual pattern recognition and recall</p>
                     <p><strong>Equipment:</strong> Memory matching apps or physical cards</p>
 
@@ -943,7 +962,7 @@
                 <h3>Exercise #7: Multiple Object Tracking (MOT)</h3>
 
                 <div class="exercise-card">
-                    <h4>🎮 Divided Attention Training</h4>
+                    <h4>?? Divided Attention Training</h4>
                     <p><strong>Target:</strong> Simultaneously tracking multiple moving objects</p>
                     <p><strong>Equipment:</strong> NeuroTracker, MOT apps, or 3D-MOT systems</p>
 
@@ -967,7 +986,7 @@
                 <h2>The Complete Daily Vision Training Protocol</h2>
 
                 <div class="protocol-steps">
-                    <h3>⚡ 15-Minute Daily Routine (Maximum Efficiency)</h3>
+                    <h3>? 15-Minute Daily Routine (Maximum Efficiency)</h3>
 
                     <h4>Monday / Wednesday / Friday (Full Protocol):</h4>
                     <ol>
@@ -1032,7 +1051,7 @@
                 </table>
 
                 <div class="warning-box">
-                    <h4>⚠️ Maintenance is Critical</h4>
+                    <h4>?? Maintenance is Critical</h4>
                     <p>Vision training gains require maintenance. Stopping training causes 50% regression within 4-6
                         weeks. Maintain gains with 3-4 sessions weekly (10 minutes each) after reaching peak
                         performance.</p>
@@ -1133,7 +1152,7 @@
                 <p>Maximum results come from integrated approaches:</p>
 
                 <div class="highlight-box">
-                    <h4>🚀 Complete Reaction Time Optimization Stack</h4>
+                    <h4>?? Complete Reaction Time Optimization Stack</h4>
                     <ul>
                         <li><strong>Vision training:</strong> 18-25ms improvement (daily 15min)</li>
                         <li><strong>Sleep optimization:</strong> 15-20ms improvement (8-9hr nightly)</li>
@@ -1169,11 +1188,11 @@
 
                 <p>The science is clear:</p>
                 <ul>
-                    <li>✅ 40-58% of reaction time is visual processing</li>
-                    <li>✅ Vision training improves reactions by 18-25% on average</li>
-                    <li>✅ Results appear in 3-4 weeks, peak at 8-12 weeks</li>
-                    <li>✅ Elite performers from military pilots to esports pros use these protocols</li>
-                    <li>✅ Training is free and requires only 15 minutes daily</li>
+                    <li>? 40-58% of reaction time is visual processing</li>
+                    <li>? Vision training improves reactions by 18-25% on average</li>
+                    <li>? Results appear in 3-4 weeks, peak at 8-12 weeks</li>
+                    <li>? Elite performers from military pilots to esports pros use these protocols</li>
+                    <li>? Training is free and requires only 15 minutes daily</li>
                 </ul>
 
                 <p>Your eyes are trainable. Your visual processing speed is improvable. The question is: will you invest
@@ -1201,11 +1220,35 @@
                     Athletes" (2024)
                 </p>
             </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
 
             <div class="article-nav">
-                <a href="../blog.html" class="article-nav-btn">← Back to Blog</a>
+                <a href="../blog.html" class="article-nav-btn">? Back to Blog</a>
                 <a href="female-vs-male-reaction-time-study.html" class="article-nav-btn">Next: Gender
-                    Differences →</a>
+                    Differences ?</a>
             </div>
         </div>
 

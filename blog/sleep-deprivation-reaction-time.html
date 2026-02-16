@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Charset/viewport FIRST -->
@@ -91,6 +91,7 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
     
     <style>
         :root {
@@ -384,32 +385,50 @@
     </style>
 </head>
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
         
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
     <div class="container">
-        <a href="../blog.html" class="back-link">← Back to Blog</a>
+        <a href="../blog.html" class="back-link">? Back to Blog</a>
         
         <article class="blog-article">
             <h1>Sleep Deprivation and Reaction Time: The Hidden Performance Killer</h1>
             
             <div class="post-meta">
-                <span>📅 August 18, 2025</span>
-                <span>⏱️ 8 min read</span>
-                <span>👤 Dr. Amanda Foster, Sleep Neuroscientist</span>
+                <span>?? August 18, 2025</span>
+                <span>?? 8 min read</span>
+                <span>?? Dr. Amanda Foster, Sleep Neuroscientist</span>
             </div>
 
             <div class="highlight-box">
@@ -435,7 +454,7 @@
             <p>Deep sleep (stages 3-4) is when your brain clears metabolic waste through the glymphatic system. This includes beta-amyloid proteins that accumulate during waking hours and impair neural transmission speed. Without adequate deep sleep, these toxins build up, literally slowing down your brain's processing speed <a href="https://pubmed.ncbi.nlm.nih.gov/24136970" class="reference-link" target="_blank" rel="noopener">[2]</a>.</p>
 
             <div class="research-note">
-                <h4>🧠 Brain Waste Removal</h4>
+                <h4>?? Brain Waste Removal</h4>
                 <p>The glymphatic system is 60% more active during sleep than waking hours. One night of poor sleep can reduce waste clearance by 40%, leading to measurable cognitive impairment the next day.</p>
             </div>
 
@@ -476,7 +495,7 @@
             <p>When speed and accuracy both matter, sleep deprivation forces a trade-off. Our participants showed either maintained speed with 15% more errors, or maintained accuracy with 25% slower responses.</p>
 
             <div class="research-note">
-                <h4>⚠️ The Danger Zone</h4>
+                <h4>?? The Danger Zone</h4>
                 <p>After 17 hours of wakefulness, cognitive performance equals that of someone with a 0.05% blood alcohol level. After 24 hours, it's equivalent to 0.10% - legally drunk in most jurisdictions.</p>
             </div>
 
@@ -565,7 +584,7 @@
             </ul>
 
             <div class="research-note">
-                <h4>☕ Strategic Caffeine Use</h4>
+                <h4>? Strategic Caffeine Use</h4>
                 <p>For optimal results: consume caffeine 45-60 minutes before peak performance needs, limit to 200-300mg daily, and establish a hard cutoff 8 hours before bedtime. Cycle off completely for 5-7 days every month to reset tolerance.</p>
             </div>
 
@@ -619,10 +638,34 @@
                 <a href="https://pubmed.ncbi.nlm.nih.gov/28154658" target="_blank" rel="noopener" class="reference-link">[4]</a> Journal of Clinical Sleep Medicine - "Cognitive Performance and Sleep Deprivation"
             </p>
         </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
 
         <div class="article-nav">
-            <a href="../blog.html" class="article-nav-btn">← Back to Blog</a>
-            <a href="vr-reaction-time-training.html" class="article-nav-btn">Next Article →</a>
+            <a href="../blog.html" class="article-nav-btn">? Back to Blog</a>
+            <a href="vr-reaction-time-training.html" class="article-nav-btn">Next Article ?</a>
         </div>
     </div>
 
@@ -659,3 +702,4 @@
     </script>
 </body>
 </html>
+

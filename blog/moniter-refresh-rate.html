@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Charset/viewport FIRST -->
@@ -216,6 +216,7 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
     
     <style>
         :root {
@@ -665,40 +666,58 @@
     </style>
 </head>
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
         
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
     <div class="container">
         <a href="../blog.html" class="back-link">
-            <span>←</span> Back to Blog
+            <span>?</span> Back to Blog
         </a>
         
         <article class="blog-article">
             <h1>60Hz vs 144Hz vs 240Hz vs 360Hz: The Truth About Refresh Rates and Reaction Time</h1>
             
             <div class="post-meta">
-                <span>📅 January 18, 2025</span>
-                <span>⏱️ 14 min read</span>
-                <span>👤 Alex Thompson, Gaming Hardware Researcher</span>
-                <span>🔬 1,000+ Gamers Tested</span>
+                <span>?? January 18, 2025</span>
+                <span>?? 14 min read</span>
+                <span>?? Alex Thompson, Gaming Hardware Researcher</span>
+                <span>?? 1,000+ Gamers Tested</span>
             </div>
 
             <div class="quick-answer">
-                <h3>⚡ Quick Answer</h3>
-                <p><strong>Does refresh rate affect reaction time?</strong> Absolutely. Our testing of 1,000 gamers across all refresh rates shows: <strong>144Hz reduces system latency by 12-15ms vs 60Hz</strong> (massive improvement), <strong>240Hz adds another 6-8ms</strong> (noticeable for competitive players), and <strong>360Hz adds 3-4ms more</strong> (only meaningful for pros). The 60Hz→144Hz upgrade is the biggest performance jump you can make.</p>
+                <h3>? Quick Answer</h3>
+                <p><strong>Does refresh rate affect reaction time?</strong> Absolutely. Our testing of 1,000 gamers across all refresh rates shows: <strong>144Hz reduces system latency by 12-15ms vs 60Hz</strong> (massive improvement), <strong>240Hz adds another 6-8ms</strong> (noticeable for competitive players), and <strong>360Hz adds 3-4ms more</strong> (only meaningful for pros). The 60Hz?144Hz upgrade is the biggest performance jump you can make.</p>
             </div>
 
             <p>"Does my monitor refresh rate actually matter for reaction time, or is it just marketing hype?"</p>
@@ -736,7 +755,7 @@
             </ul>
 
             <div class="research-note">
-                <h4>🔬 Why This Study Matters</h4>
+                <h4>?? Why This Study Matters</h4>
                 <p>This is the largest controlled study of refresh rates and human performance ever conducted outside of monitor manufacturer labs. Previous "studies" typically tested 10-20 people. We tested 50x that sample size with rigorous controls.</p>
             </div>
 
@@ -797,9 +816,9 @@
 
             <h2>60Hz vs 144Hz: The Biggest Upgrade You'll Ever Make</h2>
 
-            <p>This wasn't even close in our testing. The 60Hz → 144Hz jump is the single most impactful hardware upgrade for gamers.</p>
+            <p>This wasn't even close in our testing. The 60Hz ? 144Hz jump is the single most impactful hardware upgrade for gamers.</p>
 
-            <h3>Measured Performance Improvements (60Hz → 144Hz)</h3>
+            <h3>Measured Performance Improvements (60Hz ? 144Hz)</h3>
 
             <ul>
                 <li><strong>Average reaction time:</strong> 12.3ms faster (5.2% improvement)</li>
@@ -816,7 +835,7 @@
             <h3>Why 144Hz is the Sweet Spot</h3>
 
             <div class="monitor-card">
-                <h4>💰 Cost-Benefit Analysis: 60Hz → 144Hz</h4>
+                <h4>?? Cost-Benefit Analysis: 60Hz ? 144Hz</h4>
                 <p><strong>Investment:</strong> $180-250 for quality 144Hz monitor</p>
                 <p><strong>Performance gain:</strong> 12-15ms latency reduction</p>
                 <p><strong>Cost per millisecond:</strong> $15-20/ms</p>
@@ -828,14 +847,14 @@
 
             <p>The 240Hz upgrade is where things get interesting—and divisive.</p>
 
-            <h3>Measured Performance Improvements (144Hz → 240Hz)</h3>
+            <h3>Measured Performance Improvements (144Hz ? 240Hz)</h3>
 
             <ul>
                 <li><strong>Average reaction time:</strong> 6.8ms faster (2.9% improvement)</li>
-                <li><strong>Tracking accuracy:</strong> 11% better (significantly less than 60Hz→144Hz jump)</li>
+                <li><strong>Tracking accuracy:</strong> 11% better (significantly less than 60Hz?144Hz jump)</li>
                 <li><strong>Perception threshold:</strong> Only 52% could reliably tell the difference blind</li>
                 <li><strong>Subjective preference:</strong> 68% preferred 240Hz after extended use</li>
-                <li><strong>KDA improvement:</strong> Average 6% increase (vs 18% for 60→144Hz jump)</li>
+                <li><strong>KDA improvement:</strong> Average 6% increase (vs 18% for 60?144Hz jump)</li>
             </ul>
 
             <h3>Skill Level Matters Significantly</h3>
@@ -877,7 +896,7 @@
             <p><strong>Key Insight:</strong> Elite players extract 3.5x more value from 240Hz than casual players. Why? They have the baseline reaction speed and precision to utilize the reduced latency. Casual players often don't react fast enough for the 6ms difference to matter practically.</p>
 
             <div class="monitor-card">
-                <h4>💰 Cost-Benefit Analysis: 144Hz → 240Hz</h4>
+                <h4>?? Cost-Benefit Analysis: 144Hz ? 240Hz</h4>
                 <p><strong>Investment:</strong> $350-500 for quality 240Hz monitor</p>
                 <p><strong>Performance gain:</strong> 6-8ms latency reduction</p>
                 <p><strong>Cost per millisecond:</strong> $50-70/ms (3x worse than 144Hz upgrade)</p>
@@ -889,7 +908,7 @@
 
             <p>Let's be blunt: 360Hz is overkill for 95% of gamers.</p>
 
-            <h3>Measured Performance Improvements (240Hz → 360Hz)</h3>
+            <h3>Measured Performance Improvements (240Hz ? 360Hz)</h3>
 
             <ul>
                 <li><strong>Average reaction time:</strong> 3.4ms faster (1.4% improvement)</li>
@@ -904,10 +923,10 @@
             <p>Our data identified specific criteria for meaningful 360Hz benefits:</p>
 
             <ul>
-                <li>✅ Professional or semi-professional esports players (consistent tournament placement)</li>
-                <li>✅ Playing games where 360+ FPS is achievable (CS2, Valorant, competitive settings)</li>
-                <li>✅ Already in top 2% skill bracket where micro-optimizations matter</li>
-                <li>✅ Can afford $600-800 without impacting other gear quality</li>
+                <li>? Professional or semi-professional esports players (consistent tournament placement)</li>
+                <li>? Playing games where 360+ FPS is achievable (CS2, Valorant, competitive settings)</li>
+                <li>? Already in top 2% skill bracket where micro-optimizations matter</li>
+                <li>? Can afford $600-800 without impacting other gear quality</li>
             </ul>
 
             <p>If you checked all four boxes, 360Hz might be worth it. If you missed even one, stick with 240Hz.</p>
@@ -917,7 +936,7 @@
             </blockquote>
 
             <div class="monitor-card">
-                <h4>💰 Cost-Benefit Analysis: 240Hz → 360Hz</h4>
+                <h4>?? Cost-Benefit Analysis: 240Hz ? 360Hz</h4>
                 <p><strong>Investment:</strong> $600-800 for 360Hz monitor</p>
                 <p><strong>Performance gain:</strong> 3-4ms latency reduction</p>
                 <p><strong>Cost per millisecond:</strong> $175-200/ms (10x worse than 144Hz upgrade)</p>
@@ -932,7 +951,7 @@
             <h3>Minimum FPS Requirements for Each Tier</h3>
 
             <div class="warning-box">
-                <h4>⚠️ Critical Performance Thresholds</h4>
+                <h4>?? Critical Performance Thresholds</h4>
                 <ul>
                     <li><strong>144Hz:</strong> Need consistent 144+ FPS (preferably 200+ for headroom)</li>
                     <li><strong>240Hz:</strong> Need consistent 240+ FPS (preferably 300+ for headroom)</li>
@@ -1081,14 +1100,14 @@
             </ul>
 
             <div class="research-note">
-                <h4>🔬 Marketing vs Reality</h4>
+                <h4>?? Marketing vs Reality</h4>
                 <p><strong>Warning:</strong> Many monitors advertise "1ms response time" but that's only achievable with overdrive settings that cause ghosting. Always check professional reviews (RTings, TFT Central) for real-world response time measurements. A "1ms" budget monitor often performs worse than an honest "4ms" quality monitor.</p>
             </div>
 
             <h2>Our Final Recommendations: Who Should Buy What?</h2>
 
             <div class="verdict-box">
-                <h3>✅ 144Hz - Buy If...</h3>
+                <h3>? 144Hz - Buy If...</h3>
                 <ul>
                     <li>You're currently on 60Hz or 75Hz</li>
                     <li>Your GPU can maintain 144+ FPS in your games</li>
@@ -1099,7 +1118,7 @@
             </div>
 
             <div class="verdict-box">
-                <h3>✅ 240Hz - Buy If...</h3>
+                <h3>? 240Hz - Buy If...</h3>
                 <ul>
                     <li>You're ranked Diamond+ or top 20% in your main game</li>
                     <li>Your GPU can maintain 240+ FPS consistently</li>
@@ -1111,7 +1130,7 @@
             </div>
 
             <div class="verdict-box">
-                <h3>✅ 360Hz - Buy If...</h3>
+                <h3>? 360Hz - Buy If...</h3>
                 <ul>
                     <li>You're a professional or semi-professional player earning money from gaming</li>
                     <li>You're ranked top 500 or Radiant/Global Elite equivalent</li>
@@ -1164,9 +1183,9 @@
             <p>After testing 1,000 gamers across all refresh rate tiers, the data is clear:</p>
 
             <ul>
-                <li>✅ <strong>144Hz is essential</strong> for anyone serious about competitive gaming—the single best upgrade you can make</li>
-                <li>✅ <strong>240Hz is excellent</strong> for competitive players (top 20%) who can utilize the advantage</li>
-                <li>⚠️ <strong>360Hz is overkill</strong> for 95% of gamers—only worth it for professionals</li>
+                <li>? <strong>144Hz is essential</strong> for anyone serious about competitive gaming—the single best upgrade you can make</li>
+                <li>? <strong>240Hz is excellent</strong> for competitive players (top 20%) who can utilize the advantage</li>
+                <li>?? <strong>360Hz is overkill</strong> for 95% of gamers—only worth it for professionals</li>
             </ul>
 
             <p>Your money is better spent on:</p>
@@ -1193,10 +1212,34 @@
                 <a href="https://www.nvidia.com/en-us/geforce/news/reflex-low-latency-platform/" target="_blank" rel="noopener" class="reference-link">[4]</a> NVIDIA Reflex - System Latency Research
             </p>
         </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
 
         <div class="article-nav">
-            <a href="../blog.html" class="article-nav-btn">← Back to Blog</a>
-            <a href="stress-anxiety-reaction-time-impact.html" class="article-nav-btn">Next: Stress & Reaction Time →</a>
+            <a href="../blog.html" class="article-nav-btn">? Back to Blog</a>
+            <a href="stress-anxiety-reaction-time-impact.html" class="article-nav-btn">Next: Stress & Reaction Time ?</a>
         </div>
     </div>
 
@@ -1252,3 +1295,4 @@
     </script>
 </body>
 </html>
+

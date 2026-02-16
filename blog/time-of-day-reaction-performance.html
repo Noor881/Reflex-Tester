@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -262,6 +262,7 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
 
     <style>
         :root {
@@ -710,37 +711,55 @@
 </head>
 
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
 
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
         <div class="container">
-            <a href="../blog.html" class="back-link"><span>←</span> Back to Blog</a>
+            <a href="../blog.html" class="back-link"><span>?</span> Back to Blog</a>
 
             <article class="blog-article">
                 <h1>Your Reaction Time is 18% Faster at 2PM Than 6AM: The Circadian Performance Curve</h1>
 
                 <div class="post-meta">
-                    <span>📅 January 26, 2025</span>
-                    <span>⏱️ 16 min read</span>
-                    <span>👤 Dr. Matthew Stevens, Chronobiology Researcher</span>
-                    <span>🔬 1,000 Participants Tracked</span>
+                    <span>?? January 26, 2025</span>
+                    <span>?? 16 min read</span>
+                    <span>?? Dr. Matthew Stevens, Chronobiology Researcher</span>
+                    <span>?? 1,000 Participants Tracked</span>
                 </div>
 
                 <div class="quick-answer">
-                    <h3>⚡ Quick Answer</h3>
+                    <h3>? Quick Answer</h3>
                     <p><strong>When is reaction time fastest?</strong> For most people (65%), peak reaction speed occurs
                         <span class="stat-badge">10AM-2PM</span>, with absolute peak around <span
                             class="stat-badge">1-2PM</span>. During this window, reactions are <span
@@ -780,7 +799,7 @@
                 </ul>
 
                 <div class="info-box">
-                    <h4>🧬 Circadian Rhythm is Biological, Not Habitual</h4>
+                    <h4>?? Circadian Rhythm is Biological, Not Habitual</h4>
                     <p>Your circadian rhythm is controlled by clock genes (CLOCK, BMAL1, PER, CRY) that create a ~24.2
                         hour cycle even in total darkness with no time cues. It's not just about sleep habits—it's
                         hardwired into every cell in your body. This is why jet lag is so debilitating and why night
@@ -832,7 +851,7 @@
                             <td><strong>2:00 PM</strong></td>
                             <td>196ms</td>
                             <td>BASELINE (Peak)</td>
-                            <td>Optimal ⭐</td>
+                            <td>Optimal ?</td>
                         </tr>
                         <tr>
                             <td><strong>4:00 PM</strong></td>
@@ -900,8 +919,8 @@
 
                 <p><strong>Temperature-performance relationship:</strong></p>
                 <ul>
-                    <li>Morning low: 96.5-97.5°F → Slow neural transmission</li>
-                    <li>Afternoon peak: 98.5-99.5°F → Optimal neural speed</li>
+                    <li>Morning low: 96.5-97.5°F ? Slow neural transmission</li>
+                    <li>Afternoon peak: 98.5-99.5°F ? Optimal neural speed</li>
                     <li>Every 1°F increase in core temp = 3-5% faster cognitive processing</li>
                 </ul>
 
@@ -915,7 +934,7 @@
                     cognitive performance.</p>
 
                 <div class="research-note">
-                    <h4>📊 The 2-Hour Rule</h4>
+                    <h4>?? The 2-Hour Rule</h4>
                     <p>Peak cognitive performance requires approximately 2 hours after waking for most people. Elite
                         athletes avoid important training or competition within 2 hours of waking when possible. If
                         forced to perform early, they use strategies: bright light exposure immediately upon waking,
@@ -931,7 +950,7 @@
                 <h3>Morning Lark (Early Chronotype) - 20% of Population</h3>
 
                 <div class="chronotype-card">
-                    <h4>🌅 Morning Lark Characteristics</h4>
+                    <h4>?? Morning Lark Characteristics</h4>
                     <p><strong>Genetic basis:</strong> Shorter PER3 gene variant, advanced circadian phase</p>
                     <p><strong>Natural sleep schedule:</strong> 9-10PM bed, 5-6AM wake</p>
                     <p><strong>Peak performance window:</strong> 9AM-1PM (absolute peak 11AM)</p>
@@ -951,7 +970,7 @@
                 <h3>Intermediate Chronotype - 65% of Population</h3>
 
                 <div class="chronotype-card">
-                    <h4>☀️ Intermediate Chronotype Characteristics</h4>
+                    <h4>?? Intermediate Chronotype Characteristics</h4>
                     <p><strong>Genetic basis:</strong> Standard circadian gene expression</p>
                     <p><strong>Natural sleep schedule:</strong> 10:30PM-11:30PM bed, 6:30-7:30AM wake</p>
                     <p><strong>Peak performance window:</strong> 11AM-3PM (absolute peak 1-2PM)</p>
@@ -972,7 +991,7 @@
                 <h3>Night Owl (Late Chronotype) - 15% of Population</h3>
 
                 <div class="chronotype-card">
-                    <h4>🌙 Night Owl Characteristics</h4>
+                    <h4>?? Night Owl Characteristics</h4>
                     <p><strong>Genetic basis:</strong> Longer PER3 gene variant, delayed circadian phase</p>
                     <p><strong>Natural sleep schedule:</strong> 1-2AM bed, 9-10AM wake (or later)</p>
                     <p><strong>Peak performance window:</strong> 2PM-6PM (absolute peak 4-5PM)</p>
@@ -992,7 +1011,7 @@
                 </div>
 
                 <div class="warning-box">
-                    <h4>⚠️ The Night Owl Disadvantage</h4>
+                    <h4>?? The Night Owl Disadvantage</h4>
                     <p>Night owls face a "social jet lag"—society operates on morning lark schedules (school at 8AM,
                         work at 9AM, tournaments at 10AM). Forcing a night owl to perform at 9AM is equivalent to asking
                         a morning lark to perform at 2AM. Studies show night owls have 15-25% lower
@@ -1008,7 +1027,7 @@
                 <h3>7-Day Testing Protocol</h3>
 
                 <div class="chronotype-card">
-                    <h4>📊 Chronotype Identification Protocol</h4>
+                    <h4>?? Chronotype Identification Protocol</h4>
 
                     <p><strong>Equipment needed:</strong> Reaction time tester, spreadsheet, 7 days</p>
 
@@ -1041,11 +1060,11 @@
 
                     <p><strong>Interpretation:</strong></p>
                     <ul>
-                        <li>Peak at 8-11AM → Morning Lark</li>
-                        <li>Peak at 11AM-3PM → Intermediate</li>
-                        <li>Peak at 2PM-8PM → Night Owl</li>
-                        <li>Amplitude >20% → Strong circadian influence (important to schedule around it)</li>
-                        <li>Amplitude <12% → Weak circadian influence (more flexible)</li>
+                        <li>Peak at 8-11AM ? Morning Lark</li>
+                        <li>Peak at 11AM-3PM ? Intermediate</li>
+                        <li>Peak at 2PM-8PM ? Night Owl</li>
+                        <li>Amplitude >20% ? Strong circadian influence (important to schedule around it)</li>
+                        <li>Amplitude <12% ? Weak circadian influence (more flexible)</li>
                     </ul>
                 </div>
 
@@ -1126,7 +1145,7 @@
                     scheduled adjustments.</p>
 
                 <div class="chronotype-card">
-                    <h4>💡 Phase Advance Protocol (Shift Earlier for Morning Competition)</h4>
+                    <h4>?? Phase Advance Protocol (Shift Earlier for Morning Competition)</h4>
                     <p><strong>Goal:</strong> Night owl competing at 9AM needs to shift peak 3-4 hours earlier</p>
 
                     <p><strong>3 Weeks Before Competition:</strong></p>
@@ -1147,7 +1166,7 @@
                 </div>
 
                 <div class="chronotype-card">
-                    <h4>🌙 Phase Delay Protocol (Shift Later for Evening Competition)</h4>
+                    <h4>?? Phase Delay Protocol (Shift Later for Evening Competition)</h4>
                     <p><strong>Goal:</strong> Morning lark competing at 7PM needs to shift peak 3-4 hours later</p>
 
                     <p><strong>3 Weeks Before Competition:</strong></p>
@@ -1181,7 +1200,7 @@
                 <h3>How to Combat the Afternoon Dip</h3>
 
                 <div class="chronotype-card">
-                    <h4>⚡ Afternoon Performance Maintenance Protocol</h4>
+                    <h4>? Afternoon Performance Maintenance Protocol</h4>
 
                     <p><strong>Strategic napping (10-20 minutes):</strong></p>
                     <ul>
@@ -1249,32 +1268,32 @@
                 <h3>For Morning Larks</h3>
 
                 <ul>
-                    <li>✅ Schedule critical training/practice 9AM-1PM</li>
-                    <li>✅ Prioritize tournaments with morning/midday brackets</li>
-                    <li>✅ Avoid late-night gaming sessions (disproportionately harmful for larks)</li>
-                    <li>✅ Maintain strict sleep schedule (9:30-10PM bed, 5:30-6AM wake)</li>
-                    <li>✅ Use evening phase delay tactics if forced to compete late</li>
+                    <li>? Schedule critical training/practice 9AM-1PM</li>
+                    <li>? Prioritize tournaments with morning/midday brackets</li>
+                    <li>? Avoid late-night gaming sessions (disproportionately harmful for larks)</li>
+                    <li>? Maintain strict sleep schedule (9:30-10PM bed, 5:30-6AM wake)</li>
+                    <li>? Use evening phase delay tactics if forced to compete late</li>
                 </ul>
 
                 <h3>For Intermediates</h3>
 
                 <ul>
-                    <li>✅ Schedule high-quality training 11AM-3PM</li>
-                    <li>✅ You have most flexibility - use it strategically</li>
-                    <li>✅ Can adapt to early or late competition with 1-2 week adjustment</li>
-                    <li>✅ Maintain consistent sleep (10:30-11PM bed, 6:30-7AM wake)</li>
-                    <li>✅ Use afternoon dip countermeasures (naps, caffeine timing)</li>
+                    <li>? Schedule high-quality training 11AM-3PM</li>
+                    <li>? You have most flexibility - use it strategically</li>
+                    <li>? Can adapt to early or late competition with 1-2 week adjustment</li>
+                    <li>? Maintain consistent sleep (10:30-11PM bed, 6:30-7AM wake)</li>
+                    <li>? Use afternoon dip countermeasures (naps, caffeine timing)</li>
                 </ul>
 
                 <h3>For Night Owls</h3>
 
                 <ul>
-                    <li>✅ Schedule critical training 2-8PM (your golden hours)</li>
-                    <li>✅ Aggressively seek evening tournaments/opportunities</li>
-                    <li>✅ When forced early, use 3-week phase advance protocol</li>
-                    <li>✅ Educate others that you're not lazy - you're biologically different</li>
-                    <li>✅ Consider careers/paths compatible with your chronotype</li>
-                    <li>✅ Use bright light therapy to minimize morning impairment</li>
+                    <li>? Schedule critical training 2-8PM (your golden hours)</li>
+                    <li>? Aggressively seek evening tournaments/opportunities</li>
+                    <li>? When forced early, use 3-week phase advance protocol</li>
+                    <li>? Educate others that you're not lazy - you're biologically different</li>
+                    <li>? Consider careers/paths compatible with your chronotype</li>
+                    <li>? Use bright light therapy to minimize morning impairment</li>
                 </ul>
 
                 <h2>Conclusion: Work With Your Biology, Not Against It</h2>
@@ -1285,11 +1304,11 @@
 
                 <p>The science is clear:</p>
                 <ul>
-                    <li>✅ Peak performance occurs during specific 2-4 hour windows daily</li>
-                    <li>✅ Chronotype (genetic timing preference) shifts this window 2-4 hours</li>
-                    <li>✅ Scheduling training during your peak multiplies effectiveness</li>
-                    <li>✅ Competing during your trough can cost 15-20% performance</li>
-                    <li>✅ You can temporarily shift your rhythm, but permanent changes are difficult</li>
+                    <li>? Peak performance occurs during specific 2-4 hour windows daily</li>
+                    <li>? Chronotype (genetic timing preference) shifts this window 2-4 hours</li>
+                    <li>? Scheduling training during your peak multiplies effectiveness</li>
+                    <li>? Competing during your trough can cost 15-20% performance</li>
+                    <li>? You can temporarily shift your rhythm, but permanent changes are difficult</li>
                 </ul>
 
                 <p>Test your chronotype, identify your peak, and schedule accordingly. This single change might provide
@@ -1318,11 +1337,35 @@
                     Neurobehavioral Performance" (2020)
                 </p>
             </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
 
             <div class="article-nav">
-                <a href="../blog.html" class="article-nav-btn">← Back to Blog</a>
+                <a href="../blog.html" class="article-nav-btn">? Back to Blog</a>
                 <a href="breathing-techniques-faster-reflexes.html" class="article-nav-btn">Next: Breathing
-                    Techniques →</a>
+                    Techniques ?</a>
             </div>
         </div>
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Charset/viewport FIRST -->
@@ -266,6 +266,7 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
     
     <style>
         :root {
@@ -682,37 +683,55 @@
     </style>
 </head>
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
         
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
     <div class="container">
-        <a href="../blog.html" class="back-link"><span>←</span> Back to Health</a>
+        <a href="../blog.html" class="back-link"><span>?</span> Back to Health</a>
         
         <article class="blog-article">
             <h1>Power Naps vs Full Sleep: 16-Week Performance Study</h1>
             
             <div class="post-meta">
-                <span>📅 January 24, 2025</span>
-                <span>⏱️ 21 min read</span>
-                <span>👤 Dr. James Patterson, Sleep Research Scientist</span>
-                <span>📊 500 Participants | 16-Week Study</span>
+                <span>?? January 24, 2025</span>
+                <span>?? 21 min read</span>
+                <span>?? Dr. James Patterson, Sleep Research Scientist</span>
+                <span>?? 500 Participants | 16-Week Study</span>
             </div>
 
             <div class="quick-answer">
-                <h3>⚡ Quick Answer</h3>
+                <h3>? Quick Answer</h3>
                 <p><strong>Can power naps replace full nighttime sleep?</strong> No, but they provide powerful tactical benefits. Our 16-week study of 500 adults shows <span class="stat-badge success">20-minute naps boost alertness 34%</span>, improve focus 18%, and enhance reaction time 12% for 2-4 hours—with zero grogginess. <span class="stat-badge success">90-minute naps improve memory 26%</span> and skill learning 19% but risk sleep inertia if interrupted. However, naps cannot replace nighttime sleep: participants doing 90-min daily nap + 6-hour night sleep performed 23% worse than 8-hour night-only sleepers. Naps are supplements, not substitutes. Optimal protocol: 20-minute nap at 1-3pm for acute alertness boost while maintaining 7-8 hours nighttime sleep.</p>
             </div>
 
@@ -810,7 +829,7 @@
                         <td>7-8 hours</td>
                     </tr>
                     <tr>
-                        <td><strong>20-Minute Nap ⭐</strong></td>
+                        <td><strong>20-Minute Nap ?</strong></td>
                         <td>20-min nap daily</td>
                         <td>1-3pm</td>
                         <td>7-8 hours</td>
@@ -885,7 +904,7 @@
                         <td>None (0%)</td>
                     </tr>
                     <tr>
-                        <td><strong>20 Minutes ⭐</strong></td>
+                        <td><strong>20 Minutes ?</strong></td>
                         <td>+34%</td>
                         <td>+18%</td>
                         <td>+12% faster</td>
@@ -920,7 +939,7 @@
             <p><strong>Disaster: 60-minute naps.</strong> Guaranteed deep sleep interruption. 78% of participants experienced severe grogginess, and performance was <em>worse than no nap</em> for 20-30 minutes post-wake. Only after 45 minutes did performance return to baseline.</p>
 
             <div class="warning-box">
-                <h4>⚠️ The 60-Minute Nap Trap</h4>
+                <h4>?? The 60-Minute Nap Trap</h4>
                 <p>Many people nap for "about an hour" thinking it's reasonable. This is the worst possible duration. At 60 minutes, you're in the deepest part of your sleep cycle—waking here is like being ripped from the bottom of the ocean. Our 60-minute nappers reported: 78% severe grogginess, 64% confusion upon waking, 41% headache, 89% saying they felt "worse than before nap" immediately after. If you can only nap 60 minutes, cut it to 20—or extend to 90.</p>
             </div>
 
@@ -1015,15 +1034,15 @@
             <p>We tested memory consolidation when naps occurred immediately after learning:</p>
 
             <ul>
-                <li><strong>Learn vocabulary → 20-min nap → test:</strong> 73% retention (vs 68% no-nap control)</li>
-                <li><strong>Learn vocabulary → 90-min nap → test:</strong> 84% retention (vs 68% no-nap control)</li>
-                <li><strong>Practice piano → 90-min nap → test:</strong> 31% speed improvement (vs 18% no-nap control)</li>
+                <li><strong>Learn vocabulary ? 20-min nap ? test:</strong> 73% retention (vs 68% no-nap control)</li>
+                <li><strong>Learn vocabulary ? 90-min nap ? test:</strong> 84% retention (vs 68% no-nap control)</li>
+                <li><strong>Practice piano ? 90-min nap ? test:</strong> 31% speed improvement (vs 18% no-nap control)</li>
             </ul>
 
             <p><strong>Application:</strong> For intensive learning sessions (exam prep, skill practice), a strategic 90-minute post-learning nap significantly enhances consolidation. For general afternoon slump, stick with 20 minutes.</p>
 
             <div class="nap-box">
-                <h4>💤 Strategic Napping for Students</h4>
+                <h4>?? Strategic Napping for Students</h4>
                 <p><strong>Exam Prep Protocol:</strong></p>
                 <ol>
                     <li>Intensive study session: 10am-12pm</li>
@@ -1103,7 +1122,7 @@
             <p><strong>Bottom line: Naps cannot replace nighttime sleep.</strong> The "Nap Replacement" group performed 23% worse cognitively despite equal total sleep duration.</p>
 
             <div class="medical-note">
-                <h4>🔬 Polyphasic Sleep Failure</h4>
+                <h4>?? Polyphasic Sleep Failure</h4>
                 <p>We also tested "Uberman" polyphasic sleep (six 20-minute naps spread across 24 hours, total 2 hours sleep). Results were catastrophic: 100% of participants experienced severe cognitive impairment by day 3, 94% quit within 1 week, and the 6% who persisted 2+ weeks showed performance equivalent to 36+ hours of total sleep deprivation. Human biology requires consolidated nocturnal sleep—daytime naps cannot substitute, only supplement.</p>
             </div>
 
@@ -1129,49 +1148,49 @@
                         <td>+12%</td>
                         <td>None</td>
                         <td>Difficult (low sleep pressure)</td>
-                        <td>❌ Not recommended</td>
+                        <td>? Not recommended</td>
                     </tr>
                     <tr>
                         <td><strong>10-12pm</strong></td>
                         <td>+21%</td>
                         <td>None</td>
                         <td>Moderate</td>
-                        <td>⚠️ Okay if needed</td>
+                        <td>?? Okay if needed</td>
                     </tr>
                     <tr>
                         <td><strong>12-1pm</strong></td>
                         <td>+29%</td>
                         <td>None</td>
                         <td>Easy</td>
-                        <td>✅ Good</td>
+                        <td>? Good</td>
                     </tr>
                     <tr>
-                        <td><strong>1-3pm ⭐</strong></td>
+                        <td><strong>1-3pm ?</strong></td>
                         <td>+34%</td>
                         <td>None</td>
                         <td>Very easy</td>
-                        <td>✅ Optimal</td>
+                        <td>? Optimal</td>
                     </tr>
                     <tr>
                         <td><strong>3-4pm</strong></td>
                         <td>+28%</td>
                         <td>Slight delay (-12 min)</td>
                         <td>Easy</td>
-                        <td>⚠️ Okay if earlier not possible</td>
+                        <td>?? Okay if earlier not possible</td>
                     </tr>
                     <tr>
                         <td><strong>4-6pm</strong></td>
                         <td>+19%</td>
                         <td>Moderate delay (-34 min)</td>
                         <td>Difficult</td>
-                        <td>❌ Avoid</td>
+                        <td>? Avoid</td>
                     </tr>
                     <tr>
                         <td><strong>After 6pm</strong></td>
                         <td>+14%</td>
                         <td>Severe delay (-67 min)</td>
                         <td>Very difficult</td>
-                        <td>❌ Strongly avoid</td>
+                        <td>? Strongly avoid</td>
                     </tr>
                 </tbody>
             </table>
@@ -1225,7 +1244,7 @@
                         <td>+12% faster</td>
                     </tr>
                     <tr>
-                        <td><strong>Caffeine Nap (Combined) ⭐</strong></td>
+                        <td><strong>Caffeine Nap (Combined) ?</strong></td>
                         <td>+58%</td>
                         <td>4-6 hours</td>
                         <td>+31% faster</td>
@@ -1261,7 +1280,7 @@
                 </div>
 
                 <div class="duration-item">
-                    <h4>20-Minute "Power Nap" - Optimal Alertness ⭐</h4>
+                    <h4>20-Minute "Power Nap" - Optimal Alertness ?</h4>
                     <p><strong>Best for:</strong> Afternoon slump, pre-performance boost, daily energy maintenance</p>
                     <p><strong>Benefits:</strong> 34% alertness, 18% focus, 12% faster reactions, 2-4 hour effect, no grogginess</p>
                     <p><strong>Drawbacks:</strong> Minimal memory consolidation, must wake on time</p>
@@ -1269,7 +1288,7 @@
                 </div>
 
                 <div class="duration-item">
-                    <h4>30-Minute Nap - The Danger Zone ⚠️</h4>
+                    <h4>30-Minute Nap - The Danger Zone ??</h4>
                     <p><strong>Best for:</strong> Nothing—avoid this duration</p>
                     <p><strong>Benefits:</strong> Some alertness boost but delayed by sleep inertia</p>
                     <p><strong>Drawbacks:</strong> 31% experience moderate sleep inertia, reduced effectiveness</p>
@@ -1277,7 +1296,7 @@
                 </div>
 
                 <div class="duration-item">
-                    <h4>60-Minute Nap - Maximum Danger Zone 🚫</h4>
+                    <h4>60-Minute Nap - Maximum Danger Zone ??</h4>
                     <p><strong>Best for:</strong> Absolutely nothing—worst possible duration</p>
                     <p><strong>Benefits:</strong> None immediate (78% severe sleep inertia)</p>
                     <p><strong>Drawbacks:</strong> Performance WORSE than no nap for 20-30 min, grogginess, confusion, headache</p>
@@ -1377,7 +1396,7 @@
                         <td>7.3/10</td>
                     </tr>
                     <tr>
-                        <td><strong>8-Hour Nights + 90-Min Daily Nap ⭐</strong></td>
+                        <td><strong>8-Hour Nights + 90-Min Daily Nap ?</strong></td>
                         <td>28.5 hours</td>
                         <td>94% back to baseline</td>
                         <td>8.1/10</td>
@@ -1466,14 +1485,14 @@
             <p>After 16 weeks of studying 500 adults across five nap durations and multiple protocols, the conclusions are clear:</p>
 
             <ul>
-                <li>✅ <strong>20 minutes is optimal for most people</strong> - maximum alertness (34% boost) with zero grogginess</li>
-                <li>✅ <strong>1-3pm is the ideal timing window</strong> - aligns with circadian dip, doesn't disrupt night sleep</li>
-                <li>✅ <strong>Avoid 30-60 minute naps</strong> - guaranteed sleep inertia and impaired performance</li>
-                <li>✅ <strong>90-minute naps boost memory 26%</strong> - strategic use for post-learning consolidation</li>
-                <li>✅ <strong>Caffeine naps provide 58% alertness boost</strong> - synergistic effect better than either alone</li>
-                <li>✅ <strong>Naps CANNOT replace nighttime sleep</strong> - 6hr night + 90min nap = 23% worse than 8hr night</li>
-                <li>✅ <strong>Naps accelerate sleep debt recovery</strong> - 90-min naps after deprivation aid faster restoration</li>
-                <li>✅ <strong>Benefits last 2-4 hours for 20-min naps</strong> - tactical tool for specific performance windows</li>
+                <li>? <strong>20 minutes is optimal for most people</strong> - maximum alertness (34% boost) with zero grogginess</li>
+                <li>? <strong>1-3pm is the ideal timing window</strong> - aligns with circadian dip, doesn't disrupt night sleep</li>
+                <li>? <strong>Avoid 30-60 minute naps</strong> - guaranteed sleep inertia and impaired performance</li>
+                <li>? <strong>90-minute naps boost memory 26%</strong> - strategic use for post-learning consolidation</li>
+                <li>? <strong>Caffeine naps provide 58% alertness boost</strong> - synergistic effect better than either alone</li>
+                <li>? <strong>Naps CANNOT replace nighttime sleep</strong> - 6hr night + 90min nap = 23% worse than 8hr night</li>
+                <li>? <strong>Naps accelerate sleep debt recovery</strong> - 90-min naps after deprivation aid faster restoration</li>
+                <li>? <strong>Benefits last 2-4 hours for 20-min naps</strong> - tactical tool for specific performance windows</li>
             </ul>
 
             <p>Napping is a powerful performance optimization tool—but only when used strategically. The key is understanding that <strong>naps are tactical (acute performance boost) while nighttime sleep is strategic (long-term health and function).</strong></p>
@@ -1494,10 +1513,34 @@
                 <a href="https://pubmed.ncbi.nlm.nih.gov/32050030" target="_blank" rel="noopener" class="reference-link">[6]</a> Current Opinion in Pulmonary Medicine - "The Role of Napping in Sleep Medicine" (2020)
             </p>
         </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
 
         <div class="article-nav">
-            <a href="../health/rem-sleep-memory-consolidation.html" class="article-nav-btn">← Previous: REM & Memory</a>
-            <a href="../blog.html" class="article-nav-btn">Back to Health →</a>
+            <a href="../health/rem-sleep-memory-consolidation.html" class="article-nav-btn">? Previous: REM & Memory</a>
+            <a href="../blog.html" class="article-nav-btn">Back to Health ?</a>
         </div>
     </div>
 
@@ -1534,3 +1577,4 @@
     </script>
 </body>
 </html>
+

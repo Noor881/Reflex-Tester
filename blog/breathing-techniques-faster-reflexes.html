@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -277,6 +277,7 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
 
     <style>
         :root {
@@ -732,37 +733,55 @@
 </head>
 
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
 
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
         <div class="container">
-            <a href="../blog.html" class="back-link"><span>←</span> Back to Blog</a>
+            <a href="../blog.html" class="back-link"><span>?</span> Back to Blog</a>
 
             <article class="blog-article">
                 <h1>Breathing Techniques for Faster Reflexes: Navy SEAL Methods That Work</h1>
 
                 <div class="post-meta">
-                    <span>📅 January 27, 2025</span>
-                    <span>⏱️ 17 min read</span>
-                    <span>👤 Dr. Sarah Chen, Performance Physiology</span>
-                    <span>🫁 Evidence-Based</span>
+                    <span>?? January 27, 2025</span>
+                    <span>?? 17 min read</span>
+                    <span>?? Dr. Sarah Chen, Performance Physiology</span>
+                    <span>?? Evidence-Based</span>
                 </div>
 
                 <div class="quick-answer">
-                    <h3>⚡ Quick Answer</h3>
+                    <h3>? Quick Answer</h3>
                     <p><strong>Can breathing improve reaction time?</strong> Yes, significantly. Controlled breathing
                         techniques reduce stress-induced reaction time slowdown by <span class="stat-badge">60%</span>.
                         Box breathing (4-4-4-4 pattern) improves reaction speed by <span class="stat-badge">11ms on
@@ -806,7 +825,7 @@
                     parasympathetic tone (calmness) = fast reactions + high accuracy.</p>
 
                 <div class="info-box">
-                    <h4>🫀 The Vagus Nerve: Your Performance Control Switch</h4>
+                    <h4>?? The Vagus Nerve: Your Performance Control Switch</h4>
                     <p>The vagus nerve is the main parasympathetic nerve running from brainstem to abdomen. High vagal
                         tone (strong parasympathetic activity) correlates with better stress resilience, faster
                         recovery, and superior cognitive performance. Controlled breathing is the fastest way to
@@ -835,7 +854,7 @@
                 <h3>Technique #1: Box Breathing (Tactical Breathing)</h3>
 
                 <div class="technique-card">
-                    <h4>📦 Box Breathing Protocol</h4>
+                    <h4>?? Box Breathing Protocol</h4>
                     <p><strong>Also known as:</strong> Tactical breathing, combat breathing, square breathing</p>
                     <p><strong>Used by:</strong> Navy SEALs, special forces, elite athletes, surgeons</p>
                     <p><strong>Pattern:</strong> 4-4-4-4 (inhale-hold-exhale-hold)</p>
@@ -903,7 +922,7 @@
                 <h3>Technique #2: Physiological Sigh (Rapid Reset)</h3>
 
                 <div class="technique-card">
-                    <h4>😮‍💨 Physiological Sigh Protocol</h4>
+                    <h4>????? Physiological Sigh Protocol</h4>
                     <p><strong>Discovered by:</strong> Stanford neuroscientist Andrew Huberman</p>
                     <p><strong>Used by:</strong> Elite athletes for in-competition stress reset</p>
                     <p><strong>Pattern:</strong> Double inhale + long exhale</p>
@@ -946,7 +965,7 @@
                 <h3>Technique #3: 4-7-8 Breathing (Relaxation)</h3>
 
                 <div class="technique-card">
-                    <h4>😴 4-7-8 Breathing Protocol</h4>
+                    <h4>?? 4-7-8 Breathing Protocol</h4>
                     <p><strong>Developed by:</strong> Dr. Andrew Weil</p>
                     <p><strong>Best for:</strong> Pre-sleep, severe anxiety, over-arousal</p>
                     <p><strong>Pattern:</strong> 4 count inhale, 7 count hold, 8 count exhale</p>
@@ -978,7 +997,7 @@
                 <h3>Technique #4: Resonant Frequency Breathing (HRV Optimization)</h3>
 
                 <div class="technique-card">
-                    <h4>📊 Resonant Frequency Breathing Protocol</h4>
+                    <h4>?? Resonant Frequency Breathing Protocol</h4>
                     <p><strong>Also known as:</strong> Coherent breathing</p>
                     <p><strong>Frequency:</strong> 5-6 breaths per minute (optimal for most people)</p>
                     <p><strong>Pattern:</strong> 5-second inhale, 5-second exhale (or 6-6)</p>
@@ -1020,9 +1039,9 @@
                 <h3>Technique #5: Wim Hof Method (Hyperventilation + Holds)</h3>
 
                 <div class="technique-card">
-                    <h4>🧊 Wim Hof Breathing Protocol</h4>
+                    <h4>?? Wim Hof Breathing Protocol</h4>
                     <p><strong>Developed by:</strong> Wim Hof ("The Iceman")</p>
-                    <p><strong>Pattern:</strong> 30-40 rapid deep breaths → exhale → hold as long as possible → recovery
+                    <p><strong>Pattern:</strong> 30-40 rapid deep breaths ? exhale ? hold as long as possible ? recovery
                         breath + hold</p>
 
                     <p><strong>How to Perform:</strong></p>
@@ -1044,7 +1063,7 @@
                     </ul>
 
                     <div class="warning-box">
-                        <h5>⚠️ Wim Hof Method Warnings</h5>
+                        <h5>?? Wim Hof Method Warnings</h5>
                         <ul>
                             <li><strong>DO NOT perform</strong> immediately before competition (causes light-headedness,
                                 5-8ms slower reactions)</li>
@@ -1141,7 +1160,7 @@
                 <p>Based on our testing with 600 competitive performers, here's the optimal breathing timeline:</p>
 
                 <div class="technique-card">
-                    <h4>🎯 Championship Performance Breathing Timeline</h4>
+                    <h4>?? Championship Performance Breathing Timeline</h4>
 
                     <p><strong>Night Before (9-10 PM):</strong></p>
                     <ul>
@@ -1354,11 +1373,11 @@
                     immediately. The science is unambiguous:</p>
 
                 <ul>
-                    <li>✅ Box breathing reduces stress-induced slowdown by 60% (prevents 25ms degradation)</li>
-                    <li>✅ Physiological sighs work in 60-90 seconds for immediate stress reset</li>
-                    <li>✅ Daily practice builds long-term stress resilience</li>
-                    <li>✅ Proper pre-competition protocol improves win rates by 7-11%</li>
-                    <li>✅ Zero cost, works 100% of the time when done correctly</li>
+                    <li>? Box breathing reduces stress-induced slowdown by 60% (prevents 25ms degradation)</li>
+                    <li>? Physiological sighs work in 60-90 seconds for immediate stress reset</li>
+                    <li>? Daily practice builds long-term stress resilience</li>
+                    <li>? Proper pre-competition protocol improves win rates by 7-11%</li>
+                    <li>? Zero cost, works 100% of the time when done correctly</li>
                 </ul>
 
                 <p>Every elite performer—from Navy SEALs to Olympic champions—uses controlled breathing. Not because
@@ -1390,11 +1409,35 @@
                     Breathing and Vagal Tone" (2020)
                 </p>
             </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
 
             <div class="article-nav">
-                <a href="../blog.html" class="article-nav-btn">← Back to Blog</a>
+                <a href="../blog.html" class="article-nav-btn">? Back to Blog</a>
                 <a href="meditation-mindfulness-reaction-speed.html" class="article-nav-btn">Next: Meditation &
-                    Mindfulness →</a>
+                    Mindfulness ?</a>
             </div>
         </div>
 

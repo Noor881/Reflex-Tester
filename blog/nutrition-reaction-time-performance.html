@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Charset/viewport FIRST -->
@@ -219,6 +219,7 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
     
     <style>
         :root {
@@ -648,39 +649,57 @@
     </style>
 </head>
 <body>
+<!-- Site Header -->
+<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
+        <div class="nav-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../index.html#tools" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Include main site styles for header -->
+<link rel="stylesheet" href="../styles.css">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <a href="../index.html" class="logo">⚡ ReflexTester</a>
+        <a href="../index.html" class="logo">? ReflexTester</a>
         
         <ul class="sidebar-menu">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="../dashboard.html">📊 Dashboard</a></li>
-            <li><a href="../blog.html" class="active">📝 Blog</a></li>
-            <li><a href="../about.html">ℹ️ About</a></li>
-            <li><a href="../contact.html">📧 Contact</a></li>
+            <li><a href="../index.html">?? Home</a></li>
+            <li><a href="../dashboard.html">?? Dashboard</a></li>
+            <li><a href="../blog.html" class="active">?? Blog</a></li>
+            <li><a href="../about.html">?? About</a></li>
+            <li><a href="../contact.html">?? Contact</a></li>
         </ul>
     </nav>
 
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle">?</button>
 
     <div class="main-content">
     <div class="container">
         <a href="../blog.html" class="back-link">
-            <span>←</span> Back to Blog
+            <span>?</span> Back to Blog
         </a>
         
         <article class="blog-article">
             <h1>Nutrition and Reaction Time: 7 Foods That Make You 15% Faster</h1>
             
             <div class="post-meta">
-                <span>📅 January 15, 2025</span>
-                <span>⏱️ 12 min read</span>
-                <span>👤 Dr. Sarah Mitchell, Sports Nutritionist</span>
-                <span>🔬 Evidence-Based</span>
+                <span>?? January 15, 2025</span>
+                <span>?? 12 min read</span>
+                <span>?? Dr. Sarah Mitchell, Sports Nutritionist</span>
+                <span>?? Evidence-Based</span>
             </div>
 
             <div class="quick-answer">
-                <h3>⚡ Quick Answer</h3>
+                <h3>? Quick Answer</h3>
                 <p><strong>Best foods for reaction time:</strong> Fatty fish (omega-3s), eggs (choline), blueberries (antioxidants), dark chocolate (flavonoids), spinach (nitrates), walnuts (vitamin E), and green tea (L-theanine). Combined with strategic supplementation (creatine, caffeine, tyrosine), these can improve reaction speed by 15-22% within 8-12 weeks.</p>
             </div>
 
@@ -701,7 +720,7 @@
             </ul>
 
             <div class="research-note">
-                <h4>🧠 The Brain's Energy Demands</h4>
+                <h4>?? The Brain's Energy Demands</h4>
                 <p>Your brain is only 2% of body weight but consumes 20% of your total energy. During intense gaming or competition, brain glucose consumption can increase by 12%. Proper nutrition ensures your brain never runs out of fuel during critical moments.</p>
             </div>
 
@@ -783,7 +802,7 @@
             <h3>Optimal Omega-3 Protocol</h3>
 
             <div class="supplement-card">
-                <h4>🐟 Omega-3 Supplementation Guide</h4>
+                <h4>?? Omega-3 Supplementation Guide</h4>
                 <p><strong>Target Dosage:</strong> 2-3g combined EPA+DHA daily</p>
                 <p><strong>Food Sources:</strong></p>
                 <ul>
@@ -797,7 +816,7 @@
             </div>
 
             <div class="research-note">
-                <h4>📊 Research Evidence</h4>
+                <h4>?? Research Evidence</h4>
                 <p>A 2023 meta-analysis of 17 studies (<em>n=2,347 participants</em>) found omega-3 supplementation improved processing speed by 11.4% on average, with greatest effects in those with low baseline omega-3 levels <a href="https://pubmed.ncbi.nlm.nih.gov/36789456" class="reference-link" target="_blank" rel="noopener">[1]</a>.</p>
             </div>
 
@@ -852,7 +871,7 @@
             <p>Dark chocolate (70%+ cacao) contains flavonoids that acutely improve cerebral blood flow by 8-12% within 90 minutes of consumption.</p>
 
             <div class="supplement-card">
-                <h4>🍫 Pre-Competition Chocolate Protocol</h4>
+                <h4>?? Pre-Competition Chocolate Protocol</h4>
                 <p><strong>Dosage:</strong> 20-30g dark chocolate (70%+ cacao)</p>
                 <p><strong>Timing:</strong> 60-90 minutes before competition</p>
                 <p><strong>Benefit:</strong> 5-8% acute reaction time improvement lasting 2-4 hours</p>
@@ -879,7 +898,7 @@
             <h3>Optimal Hydration Protocol</h3>
 
             <div class="key-takeaways">
-                <h3>💧 Hydration Strategy</h3>
+                <h3>?? Hydration Strategy</h3>
                 <ul>
                     <li><strong>Daily baseline:</strong> 0.5 oz per pound of body weight (35ml per kg)</li>
                     <li><strong>Pre-competition:</strong> 500ml water 2 hours before, 200ml 15 minutes before</li>
@@ -897,7 +916,7 @@
             <h3>Tier 1: Strong Evidence (Use These)</h3>
 
             <div class="supplement-card">
-                <h4>☕ Caffeine + L-Theanine</h4>
+                <h4>? Caffeine + L-Theanine</h4>
                 <p><strong>Dosage:</strong> 100-200mg caffeine + 200mg L-theanine</p>
                 <p><strong>Timing:</strong> 30-45 minutes pre-competition</p>
                 <p><strong>Benefit:</strong> 8-15% reaction time improvement, improved focus without jitters</p>
@@ -906,7 +925,7 @@
             </div>
 
             <div class="supplement-card">
-                <h4>💪 Creatine Monohydrate</h4>
+                <h4>?? Creatine Monohydrate</h4>
                 <p><strong>Dosage:</strong> 5g daily (no loading phase needed)</p>
                 <p><strong>Timing:</strong> Anytime, with or without food</p>
                 <p><strong>Benefit:</strong> 5-15% improvement in cognitive tasks requiring rapid processing</p>
@@ -915,7 +934,7 @@
             </div>
 
             <div class="supplement-card">
-                <h4>🧬 L-Tyrosine</h4>
+                <h4>?? L-Tyrosine</h4>
                 <p><strong>Dosage:</strong> 500-2000mg pre-competition</p>
                 <p><strong>Timing:</strong> 30-60 minutes before high-stress situations</p>
                 <p><strong>Benefit:</strong> Prevents reaction time degradation under stress/fatigue</p>
@@ -933,7 +952,7 @@
             </ul>
 
             <div class="warning-box">
-                <h4>⚠️ Supplements to Avoid</h4>
+                <h4>?? Supplements to Avoid</h4>
                 <p><strong>Banned/Risky:</strong> Modafinil, Adderall, racetams (banned in professional esports, prescription required, or safety concerns)</p>
                 <p><strong>Ineffective:</strong> Ginkgo biloba (minimal effects in healthy adults), "brain blend" proprietary formulas (underdosed ingredients)</p>
                 <p><strong>Timing Issues:</strong> Avoid high-dose B-vitamins immediately pre-competition (can cause flushing/distraction)</p>
@@ -976,7 +995,7 @@
             <h3>During Extended Sessions (3+ Hours)</h3>
 
             <div class="supplement-card">
-                <h4>⚡ Intra-Competition Nutrition</h4>
+                <h4>? Intra-Competition Nutrition</h4>
                 <p><strong>Every 45-60 minutes:</strong></p>
                 <ul>
                     <li>15-30g fast-acting carbs (energy gel, fruit, sports drink)</li>
@@ -1065,7 +1084,7 @@
             <p>The good news: dietary improvements show benefits within weeks, and neural damage is largely reversible with consistent nutrition optimization.</p>
 
             <div class="research-note">
-                <h4>🔬 Recovery Timeline Study</h4>
+                <h4>?? Recovery Timeline Study</h4>
                 <p>Researchers tracked 85 individuals transitioning from Western diet to Mediterranean-style diet rich in omega-3s, vegetables, and whole grains. Reaction time improvements:</p>
                 <ul>
                     <li><strong>Week 2:</strong> 4.2% improvement (likely from reduced inflammation)</li>
@@ -1080,7 +1099,7 @@
             <p>Based on comprehensive research review, here's the optimal protocol:</p>
 
             <div class="key-takeaways">
-                <h3>🎯 Complete Nutrition Protocol for Peak Reaction Time</h3>
+                <h3>?? Complete Nutrition Protocol for Peak Reaction Time</h3>
                 
                 <h4>Daily Foundation:</h4>
                 <ul>
@@ -1136,10 +1155,34 @@
                 <a href="https://pubmed.ncbi.nlm.nih.gov/32891456" target="_blank" rel="noopener" class="reference-link">[5]</a> British Journal of Nutrition - "Dietary Patterns and Cognitive Performance" (2020)
             </p>
         </article>
+<!-- People Also Read Section -->
+<section class="related-articles">
+    <h2>ðŸ“š People Also Read</h2>
+    <div class="related-grid">
+        <article class="related-card">
+            <a href="what-is-reaction-time.html">
+                <h3>ðŸ§  What is Reaction Time?</h3>
+                <p>Complete guide to reaction time science and measurement</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="improve-reaction-time.html">
+                <h3>ðŸ’ª How to Improve Your Reaction Time</h3>
+                <p>Proven techniques to improve your reflexes in 30 days</p>
+            </a>
+        </article>
+        <article class="related-card">
+            <a href="pro-gamer-reaction-times.html">
+                <h3>ðŸŽ® Pro Gamer Reaction Times</h3>
+                <p>Analysis of professional esports player reaction speeds</p>
+            </a>
+        </article>
+    </div>
+</section>
 
         <div class="article-nav">
-            <a href="../blog.html" class="article-nav-btn">← Back to Blog</a>
-            <a href="stress-anxiety-reaction-time-impact.html" class="article-nav-btn">Next: Stress & Reaction Time →</a>
+            <a href="../blog.html" class="article-nav-btn">? Back to Blog</a>
+            <a href="stress-anxiety-reaction-time-impact.html" class="article-nav-btn">Next: Stress & Reaction Time ?</a>
         </div>
     </div>
 
@@ -1222,3 +1265,4 @@
     </script>
 </body>
 </html>
+
