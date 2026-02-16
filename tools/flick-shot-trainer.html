@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flick Shot Trainer — Master Fast Aim Flicks [Free 3D Tool]</title>
+    <meta name="description"
+        content="Free flick shot trainer for FPS games. Practice 360° flicks, improve snap aiming speed, and build muscle memory. Perfect for Valorant, CS:GO, and Apex Legends.">
+    <meta name="keywords"
+        content="flick shot trainer, flick aim trainer, fast aim trainer, csgo flick practice, valorant flick trainer, apex flick shots, snap aim trainer, 180 flick trainer, 360 flick practice, free flick trainer">
+    <link rel="canonical" href="https://reflextester.fun/tools/flick-shot-trainer.html">
+
+    <meta property="og:title" content="Flick Shot Trainer — Free 360° Flick Practice">
+    <meta property="og:description"
+        content="Master flick shots with random 360° target spawning. Improve snap aiming speed and accuracy.">
+    <meta property="og:url" content="https://reflextester.fun/tools/flick-shot-trainer.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ReflexTester.fun">
+    <meta property="og:image" content="https://reflextester.fun/images/flick-trainer-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Flick Shot Trainer — 360° Fast Aim Practice">
+    <meta name="twitter:description"
+        content="Practice flick shots with random target spawning. Build muscle memory for instant flicks.">
+    <meta name="twitter:image" content="https://reflextester.fun/images/flick-trainer-og.jpg">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Flick Shot Trainer",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web Browser",
+        "description": "3D flick shot trainer for FPS games. Practice instant target acquisition with 360-degree random spawns.",
+        "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .aim-canvas-wrap {
+            position: relative;
+            width: 100%;
+            height: 520px;
+            background: linear-gradient(135deg, #0a1520 0%, #020815 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: crosshair;
+            user-select: none;
+            border: 2px solid #00d4ff;
+        }
+
+        #aimCanvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .crosshair-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            width: 30px;
+            height: 30px;
+        }
+
+        .crosshair-overlay svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .aim-hud {
+            position: absolute;
+            top: 16px;
+            left: 20px;
+            display: flex;
+            gap: 28px;
+            font-size: 0.95rem;
+            color: #e0e0e0;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+        }
+
+        .aim-hud-item span {
+            color: #00d4ff;
+            font-weight: 700;
+        }
+
+        .aim-timer-display {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #00d4ff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+        }
+
+        .hitmarker {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            font-size: 2rem;
+            color: #00d4ff;
+            text-shadow: 0 0 6px #00d4ff;
+        }
+
+        .hitmarker.show {
+            opacity: 1;
+        }
+
+        .aim-mode-btns {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .aim-mode-btn {
+            padding: 10px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .aim-mode-btn:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .aim-mode-btn.active {
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #000;
+            border-color: #00d4ff;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../tools.html">Tools</a>
+                <span class="separator">›</span>
+                <span>Flick Shot Trainer</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>⚡ Flick Shot Trainer</h1>
+                <p class="test-desc">Master instant target acquisition with 360° random flicks. Build muscle memory for
+                    lightning-fast snap aiming!</p>
+
+                <div class="aim-mode-btns">
+                    <button class="aim-mode-btn active" data-mode="random">Random 360°</button>
+                    <button class="aim-mode-btn" data-mode="wide">Wide Flicks</button>
+                    <button class="aim-mode-btn" data-mode="micro">Micro Adjustments</button>
+                </div>
+
+                <div class="aim-canvas-wrap" id="canvasContainer">
+                    <canvas id="aimCanvas"></canvas>
+                    <div class="crosshair-overlay">
+                        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="15" cy="15" r="8" stroke="#00d4ff" stroke-width="1.5" opacity="0.8" />
+                            <line x1="15" y1="0" x2="15" y2="10" stroke="#00d4ff" stroke-width="1.5" />
+                            <line x1="15" y1="20" x2="15" y2="30" stroke="#00d4ff" stroke-width="1.5" />
+                            <line x1="0" y1="15" x2="10" y2="15" stroke="#00d4ff" stroke-width="1.5" />
+                            <line x1="20" y1="15" x2="30" y2="15" stroke="#00d4ff" stroke-width="1.5" />
+                            <circle cx="15" cy="15" r="1.5" fill="#00d4ff" />
+                        </svg>
+                    </div>
+                    <div class="aim-hud">
+                        <div class="aim-hud-item">Hits: <span id="hitCount">0</span></div>
+                        <div class="aim-hud-item">Avg Speed: <span id="avgSpeed">—</span></div>
+                        <div class="aim-hud-item">Accuracy: <span id="accuracyDisplay">0%</span></div>
+                    </div>
+                    <div class="aim-timer-display" id="timerDisplay">60s</div>
+                    <div class="hitmarker" id="hitmarker">✕</div>
+                </div>
+
+                <div class="reaction-display" id="scoreDisplay" style="display: none;"></div>
+
+                <div class="test-actions">
+                    <button class="btn btn-primary" id="startBtn">Start Training</button>
+                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
+                </div>
+
+                <div class="stats-panel" id="statsPanel" style="display: none;">
+                    <h4>⚡ Your Flick Stats</h4>
+                    <div class="stat-row">
+                        <span class="stat-label">Last Score</span>
+                        <span class="stat-value" id="lastScore">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Best Score</span>
+                        <span class="stat-value" id="bestScore">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Fastest Flick</span>
+                        <span class="stat-value" id="fastestFlick">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Sessions</span>
+                        <span class="stat-value" id="sessionCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About Flick Shot Training</h2>
+                <p>Flick shots are the foundation of competitive FPS aim. This trainer uses 360-degree random target
+                    spawning to build the neural pathways and muscle memory needed for instant target acquisition in any
+                    direction.</p>
+
+                <h3>Training Modes</h3>
+                <ul>
+                    <li><strong>Random 360°:</strong> Targets spawn anywhere on screen — trains complete situational
+                        awareness and snap aim</li>
+                    <li><strong>Wide Flicks:</strong> Large angle changes (90°+) — practice extreme flicks for targets
+                        behind you</li>
+                    <li><strong>Micro Adjustments:</strong> Small precise corrections — perfect final crosshair
+                        placement</li>
+                </ul>
+
+                <h3>Flick Speed Benchmarks</h3>
+                <ul>
+                    <li><strong>Beginner:</strong> 300-400ms average flick time</li>
+                    <li><strong>Intermediate:</strong> 200-300ms with 60%+ accuracy</li>
+                    <li><strong>Advanced:</strong> 150-200ms with 70%+ accuracy</li>
+                    <li><strong>Pro Level:</strong> Sub-150ms flicks with 80%+ accuracy</li>
+                </ul>
+
+                <h3>What Makes Great Flicks</h3>
+                <ul>
+                    <li><strong>Speed + Accuracy:</strong> Pros hit both — fast but inaccurate flicks are worthless</li>
+                    <li><strong>Muscle Memory:</strong> Your hand should "know" common angles without thinking</li>
+                    <li><strong>Crosshair Placement:</strong> Good pre-aim reduces necessary flick distance</li>
+                    <li><strong>Consistency:</strong> Hitting 80% of flicks beats hitting 90% once and 50% the next
+                        round</li>
+                </ul>
+
+                <h3>When to Use This Trainer</h3>
+                <ul>
+                    <li>Warming up before ranked matches (5-10 minutes)</li>
+                    <li>Building speed for AWP/OP/Kraber shots</li>
+                    <li>Training 180° reactions for when enemies flank</li>
+                    <li>Complementing tracking practice (flicks + tracking = complete aim)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Complete Your Aim Training</h2>
+                <div class="rec-grid">
+                    <a href="valorant-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">⚔️</div>
+                        <h3>Valorant Aim Trainer</h3>
+                        <p>Apply flicks in tactical scenarios</p>
+                    </a>
+                    <a href="apex-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🔫</div>
+                        <h3>Apex Aim Trainer</h3>
+                        <p>Combine flicks with movement tracking</p>
+                    </a>
+                    <a href="sensitivity-calculator.html" class="rec-card">
+                        <div class="rec-icon">🎯</div>
+                        <h3>Sensitivity Calculator</h3>
+                        <p>Optimize your sensitivity for flicks</p>
+                    </a>
+                    <a href="visual-reflex-test.html" class="rec-card">
+                        <div class="rec-icon">⚡</div>
+                        <h3>Reflex Test</h3>
+                        <p>Test your raw reaction speed</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            const container = document.getElementById('canvasContainer');
+            const canvas = document.getElementById('aimCanvas');
+            const hitCountEl = document.getElementById('hitCount');
+            const avgSpeedEl = document.getElementById('avgSpeed');
+            const accuracyDisplay = document.getElementById('accuracyDisplay');
+            const timerDisplay = document.getElementById('timerDisplay');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const startBtn = document.getElementById('startBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const statsPanel = document.getElementById('statsPanel');
+            const hitmarkerEl = document.getElementById('hitmarker');
+            const modeBtns = document.querySelectorAll('.aim-mode-btn');
+
+            let scene, camera, renderer;
+            let currentTarget = null;
+            let isPlaying = false;
+            let hits = 0, misses = 0;
+            let flickTimes = [];
+            let targetSpawnTime = 0;
+            let timeLeft = 60;
+            let intervalId = null;
+            let mode = 'random';
+            let results = ReflexStore.get('flick_results', []);
+
+            function createTarget(x, y, z) {
+                const geo = new THREE.SphereGeometry(0.3, 16, 16);
+                const mat = new THREE.MeshStandardMaterial({
+                    color: 0x00d4ff,
+                    emissive: 0x00d4ff,
+                    emissiveIntensity: 0.5
+                });
+                const sphere = new THREE.Mesh(geo, mat);
+                sphere.position.set(x, y, z);
+                return sphere;
+            }
+
+            function buildScene() {
+                const floorGeo = new THREE.PlaneGeometry(100, 100);
+                const floorMat = new THREE.MeshStandardMaterial({ color: 0x0a0a15, roughness: 1 });
+                const floor = new THREE.Mesh(floorGeo, floorMat);
+                floor.rotation.x = -Math.PI / 2;
+                floor.position.y = -2;
+                scene.add(floor);
+
+                const gridHelper = new THREE.GridHelper(50, 25, 0x00d4ff, 0x003344);
+                gridHelper.position.y = -1.99;
+                scene.add(gridHelper);
+            }
+
+            function initThree() {
+                scene = new THREE.Scene();
+                scene.background = new THREE.Color(0x020815);
+                scene.fog = new THREE.Fog(0x020815, 15, 40);
+
+                camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 100);
+                camera.position.set(0, 0, 0);
+
+                renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+                renderer.setSize(container.clientWidth, container.clientHeight);
+
+                const ambient = new THREE.AmbientLight(0xffffff, 0.3);
+                scene.add(ambient);
+
+                const pointLight = new THREE.PointLight(0x00d4ff, 1, 50);
+                pointLight.position.set(0, 5, 0);
+                scene.add(pointLight);
+
+                buildScene();
+                animate();
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                renderer.render(scene, camera);
+            }
+
+            function spawnTarget() {
+                if (currentTarget) scene.remove(currentTarget);
+
+                let angle, distance, height;
+
+                if (mode === 'random') {
+                    angle = Math.random() * Math.PI * 2;
+                    distance = 5 + Math.random() * 10;
+                    height = -1 + Math.random() * 4;
+                } else if (mode === 'wide') {
+                    angle = Math.random() * Math.PI * 2;
+                    distance = 10 + Math.random() * 8;
+                    height = -0.5 + Math.random() * 3;
+                } else {
+                    angle = Math.random() * Math.PI * 2;
+                    distance = 3 + Math.random() * 4;
+                    height = 0 + Math.random() * 2;
+                }
+
+                const x = Math.cos(angle) * distance;
+                const z = Math.sin(angle) * distance;
+                currentTarget = createTarget(x, height, z);
+                scene.add(currentTarget);
+                targetSpawnTime = Date.now();
+            }
+
+            function showHitmarker(clientX, clientY) {
+                const rect = container.getBoundingClientRect();
+                hitmarkerEl.style.left = (clientX - rect.left - 12) + 'px';
+                hitmarkerEl.style.top = (clientY - rect.top - 12) + 'px';
+                hitmarkerEl.classList.add('show');
+                setTimeout(() => hitmarkerEl.classList.remove('show'), 200);
+            }
+
+            function updateHud() {
+                hitCountEl.textContent = hits;
+                const total = hits + misses;
+                accuracyDisplay.textContent = total > 0 ? ((hits / total) * 100).toFixed(1) + '%' : '0%';
+                if (flickTimes.length > 0) {
+                    const avg = flickTimes.reduce((a, b) => a + b, 0) / flickTimes.length;
+                    avgSpeedEl.textContent = avg.toFixed(0) + 'ms';
+                }
+            }
+
+            function updateStats() {
+                if (results.length === 0) { statsPanel.style.display = 'none'; return; }
+                statsPanel.style.display = 'block';
+                const last = results[results.length - 1];
+                document.getElementById('lastScore').textContent = last.score + ' pts';
+                document.getElementById('bestScore').textContent = Math.max(...results.map(r => r.score)) + ' pts';
+                const allFlicks = results.flatMap(r => r.flickTimes);
+                document.getElementById('fastestFlick').textContent = allFlicks.length > 0 ? Math.min(...allFlicks) + 'ms' : '—';
+                document.getElementById('sessionCount').textContent = results.length;
+            }
+
+            function startGame() {
+                isPlaying = true;
+                hits = 0; misses = 0; flickTimes = []; timeLeft = 60;
+                hitCountEl.textContent = '0';
+                avgSpeedEl.textContent = '—';
+                accuracyDisplay.textContent = '0%';
+                timerDisplay.textContent = '60s';
+                scoreDisplay.style.display = 'none';
+                startBtn.disabled = true;
+                spawnTarget();
+
+                intervalId = setInterval(() => {
+                    timeLeft--;
+                    timerDisplay.textContent = timeLeft + 's';
+                    if (timeLeft <= 0) endGame();
+                }, 1000);
+            }
+
+            function endGame() {
+                isPlaying = false;
+                clearInterval(intervalId);
+                if (currentTarget) scene.remove(currentTarget);
+                startBtn.disabled = false;
+                startBtn.textContent = 'Play Again';
+
+                const total = hits + misses;
+                const accuracy = total > 0 ? (hits / total) * 100 : 0;
+                const avgFlick = flickTimes.length > 0 ? flickTimes.reduce((a, b) => a + b, 0) / flickTimes.length : 0;
+                const score = hits * 100 + Math.max(0, Math.round((100 - avgFlick) * 2));
+
+                results.push({ score, accuracy, hits, avgFlick, flickTimes });
+                ReflexStore.set('flick_results', results);
+
+                scoreDisplay.textContent = `Score: ${score} pts — Hits: ${hits} — Avg Flick: ${avgFlick.toFixed(0)}ms — Accuracy: ${accuracy.toFixed(1)}%`;
+                scoreDisplay.style.display = 'block';
+                updateStats();
+            }
+
+            function handleClick(e) {
+                if (!isPlaying || !currentTarget) return;
+
+                const rect = canvas.getBoundingClientRect();
+                const mouse = new THREE.Vector2();
+                mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+                mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+                const raycaster = new THREE.Raycaster();
+                raycaster.setFromCamera(mouse, camera);
+
+                const intersects = raycaster.intersectObject(currentTarget);
+                if (intersects.length > 0) {
+                    const flickTime = Date.now() - targetSpawnTime;
+                    hits++;
+                    flickTimes.push(flickTime);
+                    showHitmarker(e.clientX, e.clientY);
+
+                    currentTarget.material.color.setHex(0x00ff00);
+                    currentTarget.material.emissive.setHex(0x00ff00);
+
+                    setTimeout(() => spawnTarget(), 100);
+                } else {
+                    misses++;
+                }
+
+                updateHud();
+            }
+
+            modeBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (isPlaying) return;
+                    modeBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    mode = this.dataset.mode;
+                });
+            });
+
+            canvas.addEventListener('click', handleClick);
+            startBtn.addEventListener('click', startGame);
+
+            resetBtn.addEventListener('click', function () {
+                results = [];
+                ReflexStore.set('flick_results', []);
+                scoreDisplay.style.display = 'none';
+                hits = 0; misses = 0; flickTimes = [];
+                hitCountEl.textContent = '0';
+                avgSpeedEl.textContent = '—';
+                accuracyDisplay.textContent = '0%';
+                startBtn.textContent = 'Start Training';
+                updateStats();
+            });
+
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+
+            initThree();
+            updateStats();
+        })();
+    </script>
+</body>
+
+</html>

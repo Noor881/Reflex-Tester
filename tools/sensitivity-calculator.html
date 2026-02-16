@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Sensitivity Calculator — Convert Mouse Sens Between Games [2025]</title>
+    <meta name="description"
+        content="Free gaming sensitivity calculator. Convert mouse sensitivity between 15+ games including Valorant, CS:GO, Apex, COD, Fortnite. Match your cm/360° across all FPS games.">
+    <meta name="keywords"
+        content="sensitivity calculator, mouse sensitivity converter, valorant to cs:go sens, apex to cod sensitivity, gaming sens calculator, dpi converter, cm/360 calculator, edpi calculator, valorant sens converter, csgo sensitivity calculator, apex sens calculator">
+    <link rel="canonical" href="https://reflextester.fun/tools/sensitivity-calculator.html">
+
+    <meta property="og:title" content="Gaming Sensitivity Calculator — Convert Between 15+ Games">
+    <meta property="og:description"
+        content="Convert mouse sensitivity between any FPS game. Match your aim across Valorant, CS:GO, Apex, COD, and more.">
+    <meta property="og:url" content="https://reflextester.fun/tools/sensitivity-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ReflexTester.fun">
+    <meta property="og:image" content="https://reflextester.fun/images/sensitivity-calc-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gaming Sensitivity Calculator — Convert Between Games">
+    <meta name="twitter:description"
+        content="Convert mouse sensitivity between 15+ FPS games. Free tool to match your aim settings.">
+    <meta name="twitter:image" content="https://reflextester.fun/images/sensitivity-calc-og.jpg">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Gaming Sensitivity Calculator",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "description": "Convert mouse sensitivity between popular FPS games. Free sensitivity calculator supporting Valorant, CS:GO, Apex Legends, Call of Duty, Fortnite, and 10+ more games.",
+        "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .calc-container {
+            max-width: 700px;
+            margin: 30px auto;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 30px;
+            border: 2px solid var(--border-subtle);
+        }
+
+        .calc-section {
+            margin-bottom: 25px;
+        }
+
+        .calc-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .input-group select,
+        .input-group input {
+            padding: 12px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #a855f7;
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+        }
+
+        .result-box {
+            background: linear-gradient(135deg, #6e3fff 0%, #a855f7 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .result-box h4 {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 10px;
+        }
+
+        .result-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .result-secondary {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 8px;
+        }
+
+        .conversion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .conversion-card {
+            background: var(--bg-tertiary);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .conversion-card .game-name {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .conversion-card .sens-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #a855f7;
+        }
+
+        .info-banner {
+            background: #1e293b;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #a855f7;
+        }
+
+        .info-banner p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .btn-calculate {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #6e3fff, #a855f7);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-calculate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
+        }
+
+        .quick-presets {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .preset-btn {
+            padding: 8px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .preset-btn:hover {
+            background: #a855f7;
+            color: #fff;
+            border-color: #a855f7;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../tools.html">Tools</a>
+                <span class="separator">›</span>
+                <span>Sensitivity Calculator</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🎯 Gaming Sensitivity Calculator</h1>
+                <p class="test-desc">Convert your mouse sensitivity between 15+ FPS games. Match your cm/360° and eDPI
+                    across all your favorite shooters!</p>
+
+                <div class="info-banner">
+                    <p><strong>How it works:</strong> This calculator uses each game's unique sensitivity scaling to
+                        convert your settings while preserving your physical mouse movement (cm/360°). Perfect for
+                        maintaining consistent aim across multiple games.</p>
+                </div>
+
+                <div class="calc-container">
+                    <div class="calc-section">
+                        <h3>From Game</h3>
+                        <div class="input-group">
+                            <label for="fromGame">Select Source Game</label>
+                            <select id="fromGame">
+                                <option value="valorant">Valorant</option>
+                                <option value="csgo" selected>CS:GO / CS2</option>
+                                <option value="apex">Apex Legends</option>
+                                <option value="cod">Call of Duty (Modern Warfare / Warzone)</option>
+                                <option value="fortnite">Fortnite</option>
+                                <option value="overwatch">Overwatch 2</option>
+                                <option value="r6s">Rainbow Six Siege</option>
+                                <option value="pubg">PUBG</option>
+                                <option value="tarkov">Escape from Tarkov</option>
+                                <option value="rust">Rust</option>
+                                <option value="halo">Halo Infinite</option>
+                                <option value="bf">Battlefield 2042</option>
+                                <option value="destiny">Destiny 2</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="fromSens">Your Sensitivity in Source Game</label>
+                            <input type="number" id="fromSens" step="0.01" value="1.5" placeholder="e.g., 1.5">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="dpi">Your Mouse DPI</label>
+                            <input type="number" id="dpi" step="50" value="800" placeholder="e.g., 800">
+                        </div>
+
+                        <div class="quick-presets">
+                            <button class="preset-btn" onclick="setPreset(400)">400 DPI</button>
+                            <button class="preset-btn" onclick="setPreset(800)">800 DPI</button>
+                            <button class="preset-btn" onclick="setPreset(1600)">1600 DPI</button>
+                            <button class="preset-btn" onclick="setPreset(3200)">3200 DPI</button>
+                        </div>
+                    </div>
+
+                    <div class="calc-section">
+                        <h3>To Game</h3>
+                        <div class="input-group">
+                            <label for="toGame">Select Target Game</label>
+                            <select id="toGame">
+                                <option value="valorant" selected>Valorant</option>
+                                <option value="csgo">CS:GO / CS2</option>
+                                <option value="apex">Apex Legends</option>
+                                <option value="cod">Call of Duty (Modern Warfare / Warzone)</option>
+                                <option value="fortnite">Fortnite</option>
+                                <option value="overwatch">Overwatch 2</option>
+                                <option value="r6s">Rainbow Six Siege</option>
+                                <option value="pubg">PUBG</option>
+                                <option value="tarkov">Escape from Tarkov</option>
+                                <option value="rust">Rust</option>
+                                <option value="halo">Halo Infinite</option>
+                                <option value="bf">Battlefield 2042</option>
+                                <option value="destiny">Destiny 2</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn-calculate" onclick="calculate()">Calculate Sensitivity</button>
+
+                    <div class="result-box" id="resultBox" style="display: none;">
+                        <h4>Converted Sensitivity</h4>
+                        <div class="result-value" id="resultValue">—</div>
+                        <div class="result-secondary" id="resultCm360">—</div>
+                        <div class="result-secondary" id="resultEdpi">—</div>
+                    </div>
+
+                    <div id="conversionGrid" style="display: none;">
+                        <h3 style="margin-top: 30px; margin-bottom: 15px;">Quick Convert to Other Games</h3>
+                        <div class="conversion-grid" id="allConversions"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>How to Use the Sensitivity Calculator</h2>
+                <p>This calculator helps you maintain consistent aim across different FPS games by converting your mouse
+                    sensitivity settings.</p>
+
+                <h3>Conversion Method</h3>
+                <p>The calculator uses each game's <strong>cm/360°</strong> (centimeters per 360-degree turn) to ensure
+                    your physical mouse movement remains consistent. This means your muscle memory stays intact when
+                    switching between games.</p>
+
+                <h3>Understanding the Numbers</h3>
+                <ul>
+                    <li><strong>Sensitivity:</strong> The in-game sensitivity value you should use in the target game
+                    </li>
+                    <li><strong>cm/360°:</strong> How many centimeters you need to move your mouse to turn 360 degrees
+                    </li>
+                    <li><strong>eDPI:</strong> Effective DPI (your mouse DPI × in-game sensitivity) — higher = faster
+                        aim</li>
+                </ul>
+
+                <h3>Pro Gamer eDPI Reference</h3>
+                <ul>
+                    <li><strong>Valorant:</strong> 200-400 eDPI (most pros use 280-320)</li>
+                    <li><strong>CS:GO:</strong> 600-1000 eDPI (most pros use 800-880)</li>
+                    <li><strong>Apex Legends:</strong> 800-1200 eDPI (movement-heavy, higher sens)</li>
+                    <li><strong>COD Warzone:</strong> 3200-5600 eDPI (fast-paced gameplay)</li>
+                </ul>
+
+                <h3>Tips for Finding Your Perfect Sens</h3>
+                <ul>
+                    <li>Lower sensitivity = More precision, better for tactical shooters (Valorant, CS:GO)</li>
+                    <li>Higher sensitivity = Faster turns, better for battle royales (Apex, Fortnite)</li>
+                    <li>Most pros use 25-35 cm/360° for tactical games, 15-25 cm/360° for fast-paced games</li>
+                    <li>Test your converted sensitivity in aim trainers before jumping into ranked!</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Test Your New Sensitivity</h2>
+                <div class="rec-grid">
+                    <a href="valorant-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">⚔️</div>
+                        <h3>Valorant Aim Trainer</h3>
+                        <p>Test your Valorant sensitivity conversion</p>
+                    </a>
+                    <a href="apex-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🔫</div>
+                        <h3>Apex Aim Trainer</h3>
+                        <p>Practice with your new Apex settings</p>
+                    </a>
+                    <a href="csgo-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🎮</div>
+                        <h3>CS:GO Aim Trainer</h3>
+                        <p>Verify your CS:GO sensitivity</p>
+                    </a>
+                    <a href="flick-shot-trainer.html" class="rec-card">
+                        <div class="rec-icon">⚡</div>
+                        <h3>Flick Shot Trainer</h3>
+                        <p>Build muscle memory with flicks</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        const sensitivityMultipliers = {
+            valorant: 1.0,
+            csgo: 3.18,
+            apex: 3.0,
+            cod: 10.6,
+            fortnite: 2.22,
+            overwatch: 3.33,
+            r6s: 0.02,
+            pubg: 1.0,
+            tarkov: 1.5,
+            rust: 1.0,
+            halo: 1.2,
+            bf: 4.0,
+            destiny: 8.0
+        };
+
+        const gameNames = {
+            valorant: 'Valorant',
+            csgo: 'CS:GO/CS2',
+            apex: 'Apex Legends',
+            cod: 'Call of Duty',
+            fortnite: 'Fortnite',
+            overwatch: 'Overwatch 2',
+            r6s: 'Rainbow Six Siege',
+            pubg: 'PUBG',
+            tarkov: 'Tarkov',
+            rust: 'Rust',
+            halo: 'Halo Infinite',
+            bf: 'Battlefield',
+            destiny: 'Destiny 2'
+        };
+
+        function setPreset(dpi) {
+            document.getElementById('dpi').value = dpi;
+            if (document.getElementById('resultBox').style.display !== 'none') {
+                calculate();
+            }
+        }
+
+        function calculateCm360(sensitivity, dpi, gameMultiplier) {
+            const yaw = 0.022;
+            return (360 / (sensitivity * dpi * yaw * gameMultiplier)) * 2.54;
+        }
+
+        function sensFromCm360(cm360, dpi, gameMultiplier) {
+            const yaw = 0.022;
+            return (360 * 2.54) / (cm360 * dpi * yaw * gameMultiplier);
+        }
+
+        function calculate() {
+            const fromGame = document.getElementById('fromGame').value;
+            const toGame = document.getElementById('toGame').value;
+            const fromSens = parseFloat(document.getElementById('fromSens').value);
+            const dpi = parseInt(document.getElementById('dpi').value);
+
+            if (!fromSens || !dpi || fromSens <= 0 || dpi <= 0) {
+                alert('Please enter valid sensitivity and DPI values');
+                return;
+            }
+
+            const cm360 = calculateCm360(fromSens, dpi, sensitivityMultipliers[fromGame]);
+            const convertedSens = sensFromCm360(cm360, dpi, sensitivityMultipliers[toGame]);
+            const edpi = (convertedSens * dpi * sensitivityMultipliers[toGame]).toFixed(0);
+
+            document.getElementById('resultValue').textContent = convertedSens.toFixed(3);
+            document.getElementById('resultCm360').textContent = `${cm360.toFixed(2)} cm/360°`;
+            document.getElementById('resultEdpi').textContent = `eDPI: ${edpi}`;
+            document.getElementById('resultBox').style.display = 'block';
+
+            const conversionsHTML = Object.keys(sensitivityMultipliers)
+                .filter(game => game !== toGame)
+                .map(game => {
+                    const gameSens = sensFromCm360(cm360, dpi, sensitivityMultipliers[game]);
+                    return `
+                        <div class="conversion-card">
+                            <div class="game-name">${gameNames[game]}</div>
+                            <div class="sens-value">${gameSens.toFixed(3)}</div>
+                        </div>
+                    `;
+                }).join('');
+
+            document.getElementById('allConversions').innerHTML = conversionsHTML;
+            document.getElementById('conversionGrid').style.display = 'block';
+        }
+
+        document.getElementById('fromGame').addEventListener('change', () => {
+            if (document.getElementById('resultBox').style.display !== 'none') calculate();
+        });
+        document.getElementById('toGame').addEventListener('change', () => {
+            if (document.getElementById('resultBox').style.display !== 'none') calculate();
+        });
+        document.getElementById('fromSens').addEventListener('input', () => {
+            if (document.getElementById('resultBox').style.display !== 'none') calculate();
+        });
+        document.getElementById('dpi').addEventListener('input', () => {
+            if (document.getElementById('resultBox').style.display !== 'none') calculate();
+        });
+    </script>
+</body>
+
+</html>

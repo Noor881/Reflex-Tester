@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Aim Trainer — Free 3D Agent Training [2025]</title>
+    <meta name="description"
+        content="Train your Valorant aim in a free 3D tactical range. Practice headshots, crosshair placement, and agent-specific aim with game-accurate sensitivity. Runs in your browser — no download needed.">
+    <meta name="keywords"
+        content="valorant aim trainer, valorant aim practice, valorant headshot trainer, free valorant aim trainer, valorant sensitivity trainer, tactical shooter aim, valorant crosshair trainer, valorant aim lab, aim trainer valorant online, no download valorant trainer">
+    <link rel="canonical" href="https://reflextester.fun/tools/valorant-aim-trainer.html">
+
+    <meta property="og:title" content="Valorant Aim Trainer — Free 3D Tactical Range">
+    <meta property="og:description"
+        content="Train your Valorant aim in a realistic 3D tactical range. Practice headshots and precision aiming.">
+    <meta property="og:url" content="https://reflextester.fun/tools/valorant-aim-trainer.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ReflexTester.fun">
+    <meta property="og:image" content="https://reflextester.fun/images/valorant-aim-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Valorant Aim Trainer — Free 3D Tactical Range">
+    <meta name="twitter:description"
+        content="Train Valorant aim in a 3D tactical range. Practice headshots and crosshair placement.">
+    <meta name="twitter:image" content="https://reflextester.fun/images/valorant-aim-og.jpg">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Valorant Aim Trainer",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web Browser",
+        "description": "3D Valorant aim trainer. Professional headshot and tactical shooting practice for Valorant players with detailed analytics.",
+        "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .aim-canvas-wrap {
+            position: relative;
+            width: 100%;
+            height: 520px;
+            background: linear-gradient(135deg, #1a0505 0%, #0d0d15 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: crosshair;
+            user-select: none;
+            border: 2px solid #ff4655;
+        }
+
+        #aimCanvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .crosshair-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            width: 30px;
+            height: 30px;
+        }
+
+        .crosshair-overlay svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .aim-hud {
+            position: absolute;
+            top: 16px;
+            left: 20px;
+            display: flex;
+            gap: 28px;
+            font-size: 0.95rem;
+            color: #e0e0e0;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+        }
+
+        .aim-hud-item span {
+            color: #ff4655;
+            font-weight: 700;
+        }
+
+        .aim-timer-display {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ff4655;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+        }
+
+        .hitmarker {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            font-size: 2rem;
+            color: #ff4655;
+            text-shadow: 0 0 6px #ff0000;
+        }
+
+        .hitmarker.show {
+            opacity: 1;
+        }
+
+        .aim-mode-btns {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .aim-mode-btn {
+            padding: 10px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .aim-mode-btn:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .aim-mode-btn.active {
+            background: #ff4655;
+            color: #fff;
+            border-color: #ff4655;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">›</span>
+                <a href="../tools.html">Tools</a>
+                <span class="separator">›</span>
+                <span>Valorant Aim Trainer</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>⚔️ Valorant Aim Trainer</h1>
+                <p class="test-desc">Precision tactical aim training for Valorant agents. Practice headshots, crosshair
+                    placement, and tactical shooting!</p>
+
+                <div class="aim-mode-btns">
+                    <button class="aim-mode-btn active" data-mode="flick">Headshot Flicks</button>
+                    <button class="aim-mode-btn" data-mode="tracking">Tracking</button>
+                    <button class="aim-mode-btn" data-mode="precision">Precision</button>
+                </div>
+
+                <div class="aim-canvas-wrap" id="canvasContainer">
+                    <canvas id="aimCanvas"></canvas>
+                    <div class="crosshair-overlay">
+                        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="15" cy="15" r="8" stroke="#ff4655" stroke-width="1.5" opacity="0.8" />
+                            <line x1="15" y1="0" x2="15" y2="10" stroke="#ff4655" stroke-width="1.5" />
+                            <line x1="15" y1="20" x2="15" y2="30" stroke="#ff4655" stroke-width="1.5" />
+                            <line x1="0" y1="15" x2="10" y2="15" stroke="#ff4655" stroke-width="1.5" />
+                            <line x1="20" y1="15" x2="30" y2="15" stroke="#ff4655" stroke-width="1.5" />
+                            <circle cx="15" cy="15" r="1.5" fill="#ff4655" />
+                        </svg>
+                    </div>
+                    <div class="aim-hud">
+                        <div class="aim-hud-item">Kills: <span id="hitCount">0</span></div>
+                        <div class="aim-hud-item">Missed: <span id="missCount">0</span></div>
+                        <div class="aim-hud-item">Accuracy: <span id="accuracyDisplay">0%</span></div>
+                    </div>
+                    <div class="aim-timer-display" id="timerDisplay">30s</div>
+                    <div class="hitmarker" id="hitmarker">✕</div>
+                </div>
+
+                <div class="reaction-display" id="scoreDisplay" style="display: none;"></div>
+
+                <div class="test-actions">
+                    <button class="btn btn-primary" id="startBtn">Start Training</button>
+                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
+                </div>
+
+                <div class="stats-panel" id="statsPanel" style="display: none;">
+                    <h4>⚔️ Your Valorant Stats</h4>
+                    <div class="stat-row">
+                        <span class="stat-label">Last Score</span>
+                        <span class="stat-value" id="lastScore">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Best Score</span>
+                        <span class="stat-value" id="bestScore">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Best Accuracy</span>
+                        <span class="stat-value" id="bestAccuracy">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Sessions</span>
+                        <span class="stat-value" id="sessionCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About Valorant Aim Training</h2>
+                <p>Valorant rewards precision and tactical positioning above all else. This 3D tactical range helps you
+                    develop the crisp headshots and crosshair discipline needed to climb the ranks. Practice with
+                    game-accurate mechanics to build muscle memory that translates directly to competitive matches.</p>
+
+                <h3>Training Modes</h3>
+                <ul>
+                    <li><strong>Headshot Flicks:</strong> Instant headshot practice at varying distances — critical for
+                        agent abilities like Jett dashes and Chamber ults</li>
+                    <li><strong>Tracking:</strong> Follow moving targets with precision — essential for spray control
+                        with Phantom and Vandal</li>
+                    <li><strong>Precision:</strong> Smaller head-only targets — master the pixel-perfect aim that
+                        separates ranks</li>
+                </ul>
+
+                <h3>Pro Valorant Aim Benchmarks</h3>
+                <ul>
+                    <li><strong>Iron-Silver:</strong> 35-45% accuracy, 500+ ms headshot time</li>
+                    <li><strong>Gold-Platinum:</strong> 50-60% accuracy, 350-450ms headshot time</li>
+                    <li><strong>Diamond+:</strong> 65%+ accuracy, sub-300ms flick speed</li>
+                    <li><strong>Radiant:</strong> 75%+ accuracy, sub-200ms precision headshots</li>
+                </ul>
+
+                <h3>Valorant-Specific Tips</h3>
+                <ul>
+                    <li><strong>Crosshair Placement:</strong> Always aim head-level at common angles</li>
+                    <li><strong>Counter-Strafing:</strong> Stop movement before shooting for perfect accuracy</li>
+                    <li><strong>One-Taps:</strong> Valorant rewards controlled single shots over spraying</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="apex-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🔫</div>
+                        <h3>Apex Aim Trainer</h3>
+                        <p>Battle royale movement + aim training</p>
+                    </a>
+                    <a href="csgo-aim-trainer.html" class="rec-card">
+                        <div class="rec-icon">🎮</div>
+                        <h3>CS:GO Aim Trainer</h3>
+                        <p>Tactical shooter mechanics and flicks</p>
+                    </a>
+                    <a href="sensitivity-calculator.html" class="rec-card">
+                        <div class="rec-icon">🎯</div>
+                        <h3>Sensitivity Calculator</h3>
+                        <p>Convert sensitivity from other games</p>
+                    </a>
+                    <a href="visual-reflex-test.html" class="rec-card">
+                        <div class="rec-icon">⚡</div>
+                        <h3>Visual Reflex Test</h3>
+                        <p>Test raw reaction time speed</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="../app.js"></script>
+    <script src="../animations.js"></script>
+    <script>
+        (function () {
+            const container = document.getElementById('canvasContainer');
+            const canvas = document.getElementById('aimCanvas');
+            const hitCountEl = document.getElementById('hitCount');
+            const missCountEl = document.getElementById('missCount');
+            const accuracyDisplay = document.getElementById('accuracyDisplay');
+            const timerDisplay = document.getElementById('timerDisplay');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const startBtn = document.getElementById('startBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const statsPanel = document.getElementById('statsPanel');
+            const hitmarkerEl = document.getElementById('hitmarker');
+            const modeBtns = document.querySelectorAll('.aim-mode-btn');
+
+            let scene, camera, renderer;
+            let dummies = [];
+            let isPlaying = false;
+            let hits = 0, misses = 0;
+            let timeLeft = 30;
+            let intervalId = null;
+            let mode = 'flick';
+            let results = ReflexStore.get('valorant_results', []);
+
+            function createDummy(x, y, z, scale) {
+                const group = new THREE.Group();
+                const bodyColor = 0xcc3333;
+                const darkColor = 0x880000;
+
+                const torsoGeo = new THREE.BoxGeometry(0.5 * scale, 0.9 * scale, 0.25 * scale);
+                const torsoMat = new THREE.MeshStandardMaterial({ color: bodyColor });
+                const torso = new THREE.Mesh(torsoGeo, torsoMat);
+                torso.position.y = 0;
+                group.add(torso);
+
+                const headGeo = new THREE.SphereGeometry(0.18 * scale, 12, 12);
+                const headMat = new THREE.MeshStandardMaterial({ color: 0xff4655, emissive: 0xff2244, emissiveIntensity: 0.2 });
+                const head = new THREE.Mesh(headGeo, headMat);
+                head.position.y = 0.65 * scale;
+                group.add(head);
+
+                const neckGeo = new THREE.CylinderGeometry(0.06 * scale, 0.08 * scale, 0.15 * scale, 8);
+                const neckMat = new THREE.MeshStandardMaterial({ color: darkColor });
+                const neck = new THREE.Mesh(neckGeo, neckMat);
+                neck.position.y = 0.5 * scale;
+                group.add(neck);
+
+                const armGeo = new THREE.BoxGeometry(0.14 * scale, 0.7 * scale, 0.14 * scale);
+                const armMat = new THREE.MeshStandardMaterial({ color: darkColor });
+                const leftArm = new THREE.Mesh(armGeo, armMat);
+                leftArm.position.set(-0.35 * scale, -0.05 * scale, 0);
+                group.add(leftArm);
+                const rightArm = new THREE.Mesh(armGeo, armMat);
+                rightArm.position.set(0.35 * scale, -0.05 * scale, 0);
+                group.add(rightArm);
+
+                const legGeo = new THREE.BoxGeometry(0.16 * scale, 0.85 * scale, 0.16 * scale);
+                const legMat = new THREE.MeshStandardMaterial({ color: darkColor });
+                const leftLeg = new THREE.Mesh(legGeo, legMat);
+                leftLeg.position.set(-0.14 * scale, -0.85 * scale, 0);
+                group.add(leftLeg);
+                const rightLeg = new THREE.Mesh(legGeo, legMat);
+                rightLeg.position.set(0.14 * scale, -0.85 * scale, 0);
+                group.add(rightLeg);
+
+                const postGeo = new THREE.CylinderGeometry(0.04, 0.04, 0.3, 8);
+                const postMat = new THREE.MeshStandardMaterial({ color: 0x444444 });
+                const post = new THREE.Mesh(postGeo, postMat);
+                post.position.y = -1.4 * scale;
+                group.add(post);
+
+                const baseGeo = new THREE.CylinderGeometry(0.25, 0.25, 0.05, 16);
+                const baseMat = new THREE.MeshStandardMaterial({ color: 0x333333 });
+                const base = new THREE.Mesh(baseGeo, baseMat);
+                base.position.y = -1.55 * scale;
+                group.add(base);
+
+                group.position.set(x, y, z);
+                group.userData = {
+                    vx: (Math.random() - 0.5) * 0.03,
+                    vy: 0,
+                    alive: true,
+                    scale: scale
+                };
+                return group;
+            }
+
+            function buildRange() {
+                const floorGeo = new THREE.PlaneGeometry(40, 30);
+                const floorMat = new THREE.MeshStandardMaterial({ color: 0x1a1a1a, roughness: 0.9 });
+                const floor = new THREE.Mesh(floorGeo, floorMat);
+                floor.rotation.x = -Math.PI / 2;
+                floor.position.y = -2;
+                scene.add(floor);
+
+                const wallGeo = new THREE.PlaneGeometry(40, 12);
+                const wallMat = new THREE.MeshStandardMaterial({ color: 0x0f0505, roughness: 0.8 });
+                const backWall = new THREE.Mesh(wallGeo, wallMat);
+                backWall.position.set(0, 4, -12);
+                scene.add(backWall);
+
+                const sideWallGeo = new THREE.PlaneGeometry(30, 12);
+                const sideWallMat = new THREE.MeshStandardMaterial({ color: 0x110808, roughness: 0.8 });
+                const leftWall = new THREE.Mesh(sideWallGeo, sideWallMat);
+                leftWall.rotation.y = Math.PI / 2;
+                leftWall.position.set(-20, 4, -3);
+                scene.add(leftWall);
+
+                const rightWall = new THREE.Mesh(sideWallGeo, sideWallMat);
+                rightWall.rotation.y = -Math.PI / 2;
+                rightWall.position.set(20, 4, -3);
+                scene.add(rightWall);
+
+                for (let i = 0; i < 5; i++) {
+                    const laneGeo = new THREE.BoxGeometry(0.02, 0.01, 20);
+                    const laneMat = new THREE.MeshStandardMaterial({ color: 0xff4655, emissive: 0xff4655, emissiveIntensity: 0.3 });
+                    const lane = new THREE.Mesh(laneGeo, laneMat);
+                    lane.position.set(-8 + i * 4, -1.99, -3);
+                    scene.add(lane);
+                }
+
+                const targetLineGeo = new THREE.BoxGeometry(30, 0.02, 0.04);
+                const targetLineMat = new THREE.MeshStandardMaterial({ color: 0x882222, emissive: 0x882222, emissiveIntensity: 0.4 });
+                for (let d = 0; d < 3; d++) {
+                    const line = new THREE.Mesh(targetLineGeo, targetLineMat);
+                    line.position.set(0, -1.98, -5 - d * 3);
+                    scene.add(line);
+                }
+            }
+
+            function initThree() {
+                scene = new THREE.Scene();
+                scene.background = new THREE.Color(0x050505);
+                scene.fog = new THREE.Fog(0x050505, 12, 25);
+
+                camera = new THREE.PerspectiveCamera(65, container.clientWidth / container.clientHeight, 0.1, 100);
+                camera.position.set(0, 1.2, 4);
+                camera.lookAt(0, 0.5, -6);
+
+                renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+                renderer.setSize(container.clientWidth, container.clientHeight);
+                renderer.shadowMap.enabled = true;
+                renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+                const ambient = new THREE.AmbientLight(0xffffff, 0.2);
+                scene.add(ambient);
+
+                const overhead = new THREE.DirectionalLight(0xffdddd, 0.6);
+                overhead.position.set(3, 8, 2);
+                overhead.castShadow = true;
+                scene.add(overhead);
+
+                const spotLeft = new THREE.SpotLight(0xff4655, 0.5, 20, Math.PI / 6, 0.5);
+                spotLeft.position.set(-6, 5, -2);
+                spotLeft.target.position.set(0, 0, -8);
+                scene.add(spotLeft);
+                scene.add(spotLeft.target);
+
+                const spotRight = new THREE.SpotLight(0xff4655, 0.5, 20, Math.PI / 6, 0.5);
+                spotRight.position.set(6, 5, -2);
+                spotRight.target.position.set(0, 0, -8);
+                scene.add(spotRight);
+                scene.add(spotRight.target);
+
+                buildRange();
+                animate();
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                if (isPlaying && mode === 'tracking') {
+                    dummies.forEach(d => {
+                        if (!d.userData.alive) return;
+                        d.position.x += d.userData.vx;
+                        if (d.position.x > 6 || d.position.x < -6) d.userData.vx *= -1;
+                    });
+                }
+                renderer.render(scene, camera);
+            }
+
+            function spawnDummy() {
+                const scale = mode === 'precision' ? 0.6 : 1.0;
+                const x = (Math.random() - 0.5) * 12;
+                const z = -5 - Math.random() * 5;
+                const y = -0.4;
+                const dummy = createDummy(x, y, z, scale);
+                scene.add(dummy);
+                dummies.push(dummy);
+            }
+
+            function clearDummies() {
+                dummies.forEach(d => scene.remove(d));
+                dummies = [];
+            }
+
+            function showHitmarker(clientX, clientY) {
+                const rect = container.getBoundingClientRect();
+                hitmarkerEl.style.left = (clientX - rect.left - 12) + 'px';
+                hitmarkerEl.style.top = (clientY - rect.top - 12) + 'px';
+                hitmarkerEl.classList.add('show');
+                setTimeout(() => hitmarkerEl.classList.remove('show'), 200);
+            }
+
+            function updateHud() {
+                hitCountEl.textContent = hits;
+                missCountEl.textContent = misses;
+                const total = hits + misses;
+                accuracyDisplay.textContent = total > 0 ? ((hits / total) * 100).toFixed(1) + '%' : '0%';
+            }
+
+            function updateStats() {
+                if (results.length === 0) { statsPanel.style.display = 'none'; return; }
+                statsPanel.style.display = 'block';
+                const last = results[results.length - 1];
+                document.getElementById('lastScore').textContent = last.score + ' pts';
+                document.getElementById('bestScore').textContent = Math.max(...results.map(r => r.score)) + ' pts';
+                document.getElementById('bestAccuracy').textContent = Math.max(...results.map(r => r.accuracy)).toFixed(1) + '%';
+                document.getElementById('sessionCount').textContent = results.length;
+            }
+
+            function startGame() {
+                isPlaying = true;
+                hits = 0; misses = 0; timeLeft = 30;
+                hitCountEl.textContent = '0';
+                missCountEl.textContent = '0';
+                accuracyDisplay.textContent = '0%';
+                timerDisplay.textContent = '30s';
+                scoreDisplay.style.display = 'none';
+                startBtn.disabled = true;
+                clearDummies();
+                for (let i = 0; i < 3; i++) spawnDummy();
+
+                intervalId = setInterval(() => {
+                    timeLeft--;
+                    timerDisplay.textContent = timeLeft + 's';
+                    if (timeLeft <= 0) endGame();
+                }, 1000);
+            }
+
+            function endGame() {
+                isPlaying = false;
+                clearInterval(intervalId);
+                clearDummies();
+                startBtn.disabled = false;
+                startBtn.textContent = 'Play Again';
+
+                const total = hits + misses;
+                const accuracy = total > 0 ? (hits / total) * 100 : 0;
+                const score = hits * 100 + Math.round(accuracy * 2);
+
+                results.push({ score, accuracy, hits, misses });
+                ReflexStore.set('valorant_results', results);
+
+                scoreDisplay.textContent = 'Score: ' + score + ' pts — Kills: ' + hits + ' — Accuracy: ' + accuracy.toFixed(1) + '%';
+                scoreDisplay.style.display = 'block';
+                updateStats();
+            }
+
+            function handleClick(e) {
+                if (!isPlaying) return;
+                const rect = canvas.getBoundingClientRect();
+                const mouse = new THREE.Vector2();
+                mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+                mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+                const raycaster = new THREE.Raycaster();
+                raycaster.setFromCamera(mouse, camera);
+
+                let hitSomething = false;
+                for (let i = 0; i < dummies.length; i++) {
+                    const dummy = dummies[i];
+                    if (!dummy.userData.alive) continue;
+                    const parts = [];
+                    dummy.traverse(child => { if (child.isMesh) parts.push(child); });
+                    const intersects = raycaster.intersectObjects(parts);
+                    if (intersects.length > 0) {
+                        hits++;
+                        hitSomething = true;
+                        showHitmarker(e.clientX, e.clientY);
+
+                        dummy.userData.alive = false;
+                        dummy.traverse(child => {
+                            if (child.isMesh && child.material) {
+                                child.material = new THREE.MeshStandardMaterial({ color: 0x880000, emissive: 0xff0000, emissiveIntensity: 0.5 });
+                            }
+                        });
+
+                        setTimeout(() => {
+                            scene.remove(dummy);
+                            dummies = dummies.filter(d => d !== dummy);
+                            spawnDummy();
+                        }, 300);
+                        break;
+                    }
+                }
+
+                if (!hitSomething) misses++;
+                updateHud();
+            }
+
+            modeBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (isPlaying) return;
+                    modeBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    mode = this.dataset.mode;
+                });
+            });
+
+            canvas.addEventListener('click', handleClick);
+            startBtn.addEventListener('click', startGame);
+
+            resetBtn.addEventListener('click', function () {
+                results = [];
+                ReflexStore.set('valorant_results', []);
+                scoreDisplay.style.display = 'none';
+                hits = 0; misses = 0;
+                hitCountEl.textContent = '0';
+                missCountEl.textContent = '0';
+                accuracyDisplay.textContent = '0%';
+                startBtn.textContent = 'Start Training';
+                updateStats();
+            });
+
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+
+            initThree();
+            updateStats();
+        })();
+    </script>
+</body>
+
+</html>
