@@ -1,6 +1,6 @@
 ---
 name: html
-description: "Html for Reflex-Tester. 1 gotchas, 12 conventions, 14 fixes."
+description: "Html for Reflex-Tester. 1 gotchas, 27 conventions, 38 fixes."
 domain: html
 triggers:
   - glob: "**/*.html"
@@ -10,7 +10,7 @@ enabled: true
 
 # Html
 
-Auto-compiled from **114 real patterns** in **Reflex-Tester**. This skill is auto-routed to agents when working on html files.
+Auto-compiled from **183 real patterns** in **Reflex-Tester**. This skill is auto-routed to agents when working on html files.
 
 ## ⚠️ Anti-Patterns & Gotchas
 
@@ -32,326 +32,350 @@ Content summary (202 lines):
 
 ## 🔧 Problem Playbooks
 
-### Fixed null crash in FFFFFF
--     <script src="../app.js"></script>
-+     <script src="../main.js"></script><script>
--     <script src="../animations.js"></script>
-+         (function () {
--     <script>
-+             const svg = document.getElementById('crosshairSVG');
--         (function () {
-+             const colorPicker = document.getElementById('colorPicker');
--             const svg = document.getElementById(
-
-**Actionable Steps:**
-1. Modified 1 files
-2. identifier: FFFFFF
-3. identifier: Draw
-4. identifier: Off
-5. identifier: Math
-
-### Fixed null crash in Valorant
--     <script src="../app.js"></script>
-+     <script src="../main.js"></script><script>
--     <script src="../animations.js"></script>
-+         const sensitivityMultipliers = {
--     <script>
-+             valorant: 1.0,
--         const sensitivityMultipliers = {
-+             csgo: 3.18,
--             valorant: 1.0,
-+             apex: 3.0,
--             csgo: 3.18,
-+             cod
-
-**Actionable Steps:**
-1. Modified 1 files
-2. identifier: Valorant
-3. identifier: Apex
-4. identifier: Legends
-5. identifier: Call
-
-### Fixed null crash in JSON — wraps unsafe operation in error boundary
--     <script src="../app.js"></script>
-+     <script src="../main.js"></script><script>
--     <script src="../animations.js"></script>
-+         (function () {
--     <script>
-+             const editPatterns = {
--         (function () {
-+                 wall: [1, 4], // center + middle left
--             const editPatterns = {
-+                 door: [3, 6], // bottom two
--            
-
-**Actionable Steps:**
-1. Modified 1 files
-2. identifier: JSON
-3. identifier: Math
-4. identifier: Score
-5. identifier: Date
-
-### Fixed null crash in JSON — wraps unsafe operation in error boundary
--     <script src="../app.js"></script>
-+     <script src="../main.js"></script><script>
--     <script src="../animations.js"></script>
-+         (function () {
--     <script>
-+             let score = 0, hits = 0, throws = 0, gameActive = false, timeLeft = 60, best = 0;
--         (function () {
-+             const els = { trainer: document.getElementById('grenadeTrainer'), target: document
-
-**Actionable Steps:**
-1. Modified 1 files
-2. identifier: JSON
-3. identifier: Math
-4. identifier: Score
-5. identifier: Play
-
-### Fixed null crash in FFFFFF
--     <script src="../app.js"></script>
-+     <script src="../main.js"></script><script>
--     <script src="../animations.js"></script>
-+         (function () {
--     <script>
-+             const svg = document.getElementById('crosshairSVG');
--         (function () {
-+             const colorPicker = document.getElementById('colorPicker');
--             const svg = document.getElementById(
-
-**Actionable Steps:**
-1. Modified 1 files
-2. identifier: FFFFFF
-3. identifier: Math
-4. identifier: Draw
-5. identifier: Copied
-
-### Fixed null crash in JSON — fixes memory leak from uncleared timers
--     <script src="../app.js"></script>
-+     <script src="../main.js"></script><script>
--     <script src="../animations.js"></script>
-+         (function () {
--     <script>
-+             let shooting = false, ammo = 30, maxAmmo = 30, shots = 0, hits = 0, headshots = 0, gameActive = false, bestAcc = 0, recoilX = 0, recoilY = 0;
--         (function () {
-+             const els = { trainer:
-
-**Actionable Steps:**
-1. Modified 1 files
-2. identifier: JSON
-3. identifier: Math
-4. identifier: Accuracy
-5. identifier: Start
-
-### Fixed null crash in Holger
--     <script src="../app.js"></script>
-+     <script src="../main.js"></script><script>
--     <script src="../animations.js"></script>
-+         (function () {
--     <script>
-+             const weapons = {
--         (function () {
-+                 assault: ['M4A1', 'RAM-7', 'SVA 545', 'Holger 556', 'MCW', 'STG44'],
--             const weapons = {
-+                 smg: ['HRM-9', 'Super
-
-**Actionable Steps:**
-1. Modified 1 files
-2. identifier: RAM
-3. identifier: SVA
-4. identifier: Holger
-5. identifier: MCW
-
-### Fixed null crash in JSON — fixes memory leak from uncleared timers
--     <script src="../app.js"></script>
-+     <script src="../main.js"></script><script>
--     <script src="../animations.js"></script>
-+         (function () {
--     <script>
-+             let shooting = false, ammo = 27, shots = 0, headshots = 0, bodyshots = 0, damage = 0, gameActive = false, bestDmg = 0, recoilX = 0, recoilY = 0;
--         (function () {
-+             const els = { train
-
-**Actionable Steps:**
-1. Modified 1 files
-2. identifier: JSON
-3. identifier: Math
-4. identifier: Damage
-5. identifier: Start
-
 ### Fixed null crash in DOCTYPE
 - <!DOCTYPE html>
 + ﻿<!DOCTYPE html>
-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
-+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.d
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <meta name="twitter:card" con
 
 **Actionable Steps:**
 1. Modified 1 files
 2. identifier: DOCTYPE
-3. identifier: XXXXXXXXXX
-4. identifier: Date
-5. identifier: ReflexStore
+3. identifier: ReflexTester
+4. identifier: Valorant
+5. identifier: Crosshair
 
-### Fixed null crash in DOCTYPE
+### Fixed null crash in DOCTYPE — offloads heavy computation off the main thread
 - <!DOCTYPE html>
 + ﻿<!DOCTYPE html>
-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
-+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.d
-
-**Actionable Steps:**
-1. Modified 1 files
-2. identifier: DOCTYPE
-3. identifier: XXXXXXXXXX
-4. identifier: Date
-5. identifier: Category
-
-### Fixed null crash in DOCTYPE
-- <!DOCTYPE html>
-+ ﻿<!DOCTYPE html>
--     <title>Your Dashboard — Track Progress | ReflexTester.fun</title>
-+     <title>Your Dashboard â€” Track Progress | ReflexTester.fun</title>
--     <meta property="og:title" content="Your Dashboard — Track Progress | ReflexTester.fun">
-+     <meta property="og:title" content="Your Dashboard â€” Track Progress | ReflexTester.fun">
--     <meta name="twi
-
-**Actionable Steps:**
-1. Modified 1 files
-2. identifier: DOCTYPE
-3. identifier: Your
-4. identifier: Dashboard
-5. identifier: Track
-
-### Fixed null crash in DOCTYPE
-- <!DOCTYPE html>
-+ ﻿<!DOCTYPE html>
--     <title>Blog — Reflex Training Tips | ReflexTester.fun</title>
-+     <title>Blog â€” Reflex Training Tips | ReflexTester.fun</title>
--     <meta property="og:title" content="Blog — Reflex Training Tips & Guides | ReflexTester.fun">
-+     <meta property="og:title" content="Blog â€” Reflex Training Tips & Guides | ReflexTester.fun">
-- </head>
-+ <scrip
-
-**Actionable Steps:**
-1. Modified 1 files
-2. identifier: DOCTYPE
-3. identifier: Blog
-4. identifier: Reflex
-5. identifier: Training
-
-### problem-fix in header-template.html
-File updated (external): blog/header-template.html
-
-Content summary (19 lines):
-﻿<!-- Site Header -->
-<nav class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
-    <div class="nav-inner">
-        <a href="../index.html" class="nav-logo"><span class="logo-icon">RT</span> ReflexTester</a>
-        <div class="nav-menu" id="navMenu">
-            <a href="../index.html" 
-
-**Actionable Steps:**
-1. Modified 1 files
-
-### problem-fix in memory-sequence-test.html
-File updated (external): tools/memory-sequence-test.html
-
-Content summary (306 lines):
-﻿<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Sequence Test — How Good Is Your Memory? [Free Game]</title>
-    <meta name="description"
-        content="How many patterns can you remember? 
-
-**Actionable Steps:**
-1. Modified 1 files
-
-## 📐 Conventions & Best Practices
-
-### Project Conventions
-- 📐 **Replaced auth ReflexStore — fixes memory leak from uncleared timers — confirmed 4x** — -     <script src="../app.js"></script>
-+     <script src="../main.js"></script><script>
--     <sc
-- 📐 **Fixed null crash in ReflexStore — confirmed 13x** — -     <script src="../app.js"></script>
-+     <script src="../main.js"></script><script>
--     <sc
-- 📐 **Updated schema ReflexStore — fixes memory leak from uncleared timers — confirmed 9x** — -     <script src="../app.js"></script>
-+     <script src="../main.js"></script><script>
--     <sc
-- 📐 **Strengthened types DOCTYPE** — - <!DOCTYPE html>
-+ ﻿<!DOCTYPE html>
-- <script async src="https://www.googletagmanager.com/gtag/js
-- 📐 **Strengthened types DOCTYPE** — - <!DOCTYPE html>
-+ ﻿<!DOCTYPE html>
-- <script async src="https://www.googletagmanager.com/gtag/js
-- 📐 **Strengthened types DOCTYPE** — - <!DOCTYPE html>
-+ ﻿<!DOCTYPE html>
--     <title>27 Free Gaming Tools — Reflex Tests, Aim Trainer
-- 📐 **Strengthened types DOCTYPE** — - <!DOCTYPE html>
-+ ﻿<!DOCTYPE html>
--     <title>Contact Us — ReflexTester.fun</title>
-+     <ti
-- 📐 **Strengthened types DOCTYPE** — - <!DOCTYPE html>
-+ ﻿<!DOCTYPE html>
--     <title>About ReflexTester.fun — Our Mission</title>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <!-- Twitter Card -->
 + 
-- 📐 **what-changed in index.html — confirmed 3x** — - <!DOCTYPE html>
+- 
+
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Twitter
+5. identifier: Card
+
+### Fixed null crash in DOCTYPE
+- <!DOCTYPE html>
 + ﻿<!DOCTYPE html>
-- </html>
-+ </html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <!-- Twitter Card -->
++ 
+- 
 
-📌 IDE AST Context: Modified symbols like
-- 📐 **convention in improve-reflexes-30-days.html** — File updated (external): blog/improve-reflexes-30-days.html
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Twitter
+5. identifier: Card
 
-Content summary (580 lines):
-﻿<!DOCTYPE
-- 📐 **convention in cod-recoil-trainer.html** — File updated (external): tools/cod-recoil-trainer.html
+### Fixed null crash in DOCTYPE — fixes memory leak from uncleared timers
+- <!DOCTYPE html>
++ ﻿<!DOCTYPE html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <!-- Twitter Card -->
++ 
+- 
 
-Content summary (447 lines):
-﻿<!DOCTYPE html
-- 📐 **convention in apex-recoil-trainer.html** — File updated (external): tools/apex-recoil-trainer.html
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Twitter
+5. identifier: Card
 
-Content summary (436 lines):
-﻿<!DOCTYPE htm
+### Fixed null crash in DOCTYPE — fixes memory leak from uncleared timers
+- <!DOCTYPE html>
++ ﻿<!DOCTYPE html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <!-- Twitter Card -->
++ 
+- 
 
-## 🔵 Architecture
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Twitter
+5. identifier: Card
 
-### how-it-works in what-is-reaction-time.html
-File updated (external): blog/what-is-reaction-time.html
+### Fixed null crash in DOCTYPE — ensures atomic multi-step database operations
+- <!DOCTYPE html>
++ ﻿<!DOCTYPE html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <!-- Twitter Card -->
++ 
+- 
 
-Content summary (640 lines):
-﻿<!DOCTYPE html>
-<html lang="en">
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Twitter
+5. identifier: Card
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="widt
+### Fixed null crash in DOCTYPE — fixes memory leak from uncleared timers
+- <!DOCTYPE html>
++ ﻿<!DOCTYPE html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <!-- Twitter Card -->
++ 
+- 
 
-## 🤔 Decisions & Trade-offs
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Twitter
+5. identifier: Card
 
-- **decision in reaction-time-gaming-advantage.html** — File updated (external): blog/reaction-time-gaming-advantage.html
+### Fixed null crash in DOCTYPE — wraps unsafe operation in error boundary
+- <!DOCTYPE html>
++ ﻿<!DOCTYPE html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <meta name="twitter:card" con
 
-Content summary (526 lines):
-﻿<!D
-- **decision in reaction-time-age-study.html** — File updated (external): blog/reaction-time-age-study.html
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Fortnite
+5. identifier: Edit
 
-Content summary (543 lines):
-﻿<!DOCTYPE 
-- **decision in pro-gamer-reaction-times.html** — File updated (external): blog/pro-gamer-reaction-times.html
+### Fixed null crash in DOCTYPE — fixes memory leak from uncleared timers
+- <!DOCTYPE html>
++ ﻿<!DOCTYPE html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <!-- Twitter Card -->
++ 
+- 
 
-Content summary (584 lines):
-﻿<!DOCTYPE
-- **decision in mouse-sensitivity-reaction-time.html** — File updated (external): blog/mouse-sensitivity-reaction-time.html
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Twitter
+5. identifier: Card
 
-Content summary (548 lines):
-﻿<!
-- **decision in genetics-vs-training-reaction-time.html** — File updated (external): blog/genetics-vs-training-reaction-time.html
+### Fixed null crash in DOCTYPE
+- <!DOCTYPE html>
++ ﻿<!DOCTYPE html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <meta name="twitter:card" con
 
-Content summary (753 lines):
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Crosshair
+5. identifier: Generator
 
+### Fixed null crash in DOCTYPE
+- <!DOCTYPE html>
++ ﻿<!DOCTYPE html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <!-- Twitter Card -->
++ 
+- 
 
----
-*Auto-generated by BrainSync 🧠 | 114 patterns | 2026-03-28*
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Twitter
+5. identifier: Card
+
+### Fixed null crash in DOCTYPE — fixes memory leak from uncleared timers
+- <!DOCTYPE html>
++ ﻿<!DOCTYPE html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <!-- Twitter Card -->
++ 
+- 
+
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Twitter
+5. identifier: Card
+
+### Fixed null crash in DOCTYPE
+- <!DOCTYPE html>
++ ﻿<!DOCTYPE html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <meta name="twitter:card" con
+
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: COD
+5. identifier: Loadout
+
+### Fixed null crash in DOCTYPE — hardens HTTP security headers
+- <!DOCTYPE html>
++ ﻿<!DOCTYPE html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <!-- Twitter Card -->
++ 
+- 
+
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Twitter
+5. identifier: Card
+
+### Fixed null crash in DOCTYPE — fixes memory leak from uncleared timers
+- <!DOCTYPE html>
++ ﻿<!DOCTYPE html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <!-- Twitter Card -->
++ 
+- 
+
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Twitter
+5. identifier: Card
+
+### Fixed null crash in DOCTYPE — fixes memory leak from uncleared timers
+- <!DOCTYPE html>
++ ﻿<!DOCTYPE html>
+-     <meta property="og:type" content="website">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:site_name" content="ReflexTester.fun">
++     <meta property="og:type" content="website">
+- 
++     <meta property="og:site_name" content="ReflexTester.fun">
+-     <!-- Twitter Card -->
++ 
+- 
+
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: DOCTYPE
+3. identifier: ReflexTester
+4. identifier: Twitter
+5. identifier: Card
+
+### Fixed null crash in Much — prevents null/undefined runtime crashes
+-     <meta property="og:type" content="article">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:url" content="https://reflextester.fun/blog/reaction-time-gaming-advantage.html">
++     <meta property="og:type" content="article">
+-     <meta property="og:title" content="How Much Does Reaction Time Matter in Competitive Gaming?">
+
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: How
+3. identifier: Much
+4. identifier: Does
+5. identifier: Reaction
+
+### Fixed null crash in Reaction — prevents null/undefined runtime crashes
+-     <meta property="og:type" content="article">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:url" content="https://reflextester.fun/blog/reaction-time-age-study.html">
++     <meta property="og:type" content="article">
+-     <meta property="og:title" content="Reaction Time vs Age: 2025 Global Study of 500,000+ Tests | Reflex
+
+**Actionable Steps:**
+1. Modified 1 files
+2. identifier: Reaction
+3. identifier: Time
+4. identifier: Age
+5. identifier: Global
+
+### Fixed null crash in Science — prevents null/undefined runtime crashes
+-     <meta property="og:type" content="article">
++     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+-     <meta property="og:url" content="https://reflextester.fun/blog/pro-gamer-reaction-times.html">
++     
+
+... [Truncated — see individual observations for full content]

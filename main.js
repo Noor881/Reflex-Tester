@@ -236,6 +236,115 @@
     }, { passive: true });
   }
 
+  /* ── Share Results + Next Tool ─────────────────────────── */
+  var TOOLS = [
+    { name: '⚡ Visual Reflex Test',       url: 'visual-reflex-test.html' },
+    { name: '🔊 Audio Reflex Test',        url: 'audio-reflex-test.html' },
+    { name: '🧠 Memory Sequence',          url: 'memory-sequence-test.html' },
+    { name: '🎯 CS:GO Aim Trainer',        url: 'csgo-aim-trainer.html' },
+    { name: '🎯 Valorant Aim Trainer',     url: 'valorant-aim-trainer.html' },
+    { name: '🎮 Fortnite Aim Trainer',     url: 'fortnite-aim-trainer.html' },
+    { name: '🖱️ Click Speed Test',         url: 'click-speed-test.html' },
+    { name: '⌨️ Typing Speed Test',        url: 'typing-speed-test.html' },
+    { name: '🎨 Color Match Test',         url: 'color-match-test.html' },
+    { name: '🏃 Stroop Effect Test',       url: 'stroop-effect-test.html' },
+    { name: '👁️ Peripheral Vision Test',   url: 'peripheral-vision-test.html' },
+    { name: '🎯 Flick Shot Trainer',       url: 'flick-shot-trainer.html' },
+    { name: '🎮 Apex Aim Trainer',         url: 'apex-aim-trainer.html' }
+  ];
+
+  function getNextTools(currentUrl, count) {
+    var current = currentUrl.split('/').pop();
+    var others = TOOLS.filter(function (t) { return t.url !== current; });
+    // Shuffle deterministically based on hour so it changes but is stable per session
+    var seed = new Date().getHours();
+    others.sort(function (a, b) {
+      return (a.url.charCodeAt(0) + seed) % 13 - (b.url.charCodeAt(0) + seed) % 13;
+    });
+    return others.slice(0, count);
+  }
+
+  /* Call this from any tool page after a result: window.showShareResult('247ms') */
+  window.showShareResult = function (score, label) {
+    label = label || '';
+    var bar = document.getElementById('shareResultsBar');
+    if (!bar) return;
+
+    var scoreEl = bar.querySelector('.share-score');
+    if (scoreEl) scoreEl.textContent = score;
+
+    var title = document.title.replace(' | ReflexTester.fun', '').trim();
+    var tweetText = encodeURIComponent('I scored ' + score + ' ' + label + ' on ' + title + ' 🎯 Can you beat me?\n\nhttps://reflextester.fun' + window.location.pathname);
+    var twitterBtn = bar.querySelector('.share-btn-twitter');
+    if (twitterBtn) twitterBtn.href = 'https://twitter.com/intent/tweet?text=' + tweetText;
+
+    var copyBtn = bar.querySelector('.share-btn-copy');
+    if (copyBtn) {
+      copyBtn.onclick = function () {
+        var text = 'I scored ' + score + ' ' + label + ' on ' + title + '! Try it at https://reflextester.fun' + window.location.pathname;
+        navigator.clipboard.writeText(text).then(function () {
+          copyBtn.textContent = '✅ Copied!';
+          copyBtn.classList.add('copied');
+          setTimeout(function () {
+            copyBtn.textContent = '📋 Copy Result';
+            copyBtn.classList.remove('copied');
+          }, 2500);
+        });
+      };
+    }
+
+    bar.classList.add('visible');
+  };
+
+  function initShareBar() {
+    // Only inject on /tools/ pages
+    if (!window.location.pathname.includes('/tools/')) return;
+
+    var base = '../';
+    var next = getNextTools(window.location.pathname, 3);
+    var nextLinks = next.map(function (t) {
+      return '<a href="' + base + 'tools/' + t.url + '" class="next-tool-link">' + t.name + '</a>';
+    }).join('');
+
+    var bar = document.createElement('div');
+    bar.className = 'share-results-bar';
+    bar.id = 'shareResultsBar';
+    bar.innerHTML =
+      '<h3>Your Result</h3>' +
+      '<div class="share-score">—</div>' +
+      '<div class="share-buttons">' +
+        '<a href="#" class="share-btn share-btn-twitter" target="_blank" rel="noopener">𝕏 Share on X</a>' +
+        '<button class="share-btn share-btn-copy">📋 Copy Result</button>' +
+      '</div>' +
+      '<div class="next-tool-strip">' +
+        '<span>Try next →</span>' +
+        nextLinks +
+      '</div>';
+
+    // Insert after .test-actions or .stats-panel, whichever exists
+    var anchor = document.querySelector('.test-actions') || document.querySelector('.stats-panel') || document.querySelector('.test-area');
+    if (anchor) {
+      anchor.insertAdjacentElement('afterend', bar);
+    }
+  }
+
+  /* ── Error Boundary ────────────────────────────────────── */
+  function initErrorBoundary() {
+    window.addEventListener('error', function (e) {
+      // Only catch errors from tool scripts, not external
+      if (!e.filename || !e.filename.includes(window.location.hostname)) return;
+      var area = document.querySelector('.test-area, .game-area, #main');
+      if (!area || document.querySelector('.tool-error')) return;
+      var errDiv = document.createElement('div');
+      errDiv.className = 'tool-error';
+      errDiv.innerHTML =
+        '<h3>⚠️ Something went wrong</h3>' +
+        '<p>The tool encountered an error. Try refreshing the page.</p>' +
+        '<button class="btn btn-secondary" onclick="location.reload()">🔄 Reload Page</button>';
+      area.prepend(errDiv);
+    });
+  }
+
   /* ── Init All ──────────────────────────────────────────── */
   function init() {
     initMobileNav();
@@ -250,6 +359,8 @@
     initFAQ();
     initMagneticButtons();
     initHeroParallax();
+    initShareBar();
+    initErrorBoundary();
   }
 
   if (document.readyState === 'loading') {

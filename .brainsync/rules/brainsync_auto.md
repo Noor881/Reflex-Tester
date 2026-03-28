@@ -1,7 +1,7 @@
 
 
 # Project Memory — Reflex-Tester
-> 182 notes | Score threshold: >40
+> 257 notes | Score threshold: >40
 
 ## Safety — Never Run Destructive Commands
 
@@ -27,9 +27,9 @@ Content summary (202 lines):
 
 ## Project Standards
 
-- Replaced auth ReflexStore — fixes memory leak from uncleared timers — confirmed 4x
-- Fixed null crash in ReflexStore — confirmed 13x
-- Updated schema ReflexStore — fixes memory leak from uncleared timers — confirmed 9x
+- Fixed null crash in DOCTYPE — fixes memory leak from uncleared timers — confirmed 25x
+- Strengthened types DOCTYPE
+- Strengthened types DOCTYPE
 - Strengthened types DOCTYPE
 - Strengthened types DOCTYPE
 - Strengthened types DOCTYPE
@@ -38,14 +38,16 @@ Content summary (202 lines):
 
 ## Recent Decisions
 
+- decision in styles.css
+- decision in vercel.json
 - decision in reaction-time-gaming-advantage.html
 - decision in reaction-time-age-study.html
-- decision in pro-gamer-reaction-times.html
-- decision in mouse-sensitivity-reaction-time.html
 
 ## Learned Patterns
 
 - Always: Strengthened types DOCTYPE (seen 2x)
+- Always: Strengthened types DOCTYPE (seen 12x)
+- Always: Strengthened types DOCTYPE (seen 3x)
 - Agent generates new migration for every change (squash related changes)
 - Agent installs packages without checking if already installed
 

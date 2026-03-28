@@ -39,11 +39,11 @@
 
 ## Recent fixes
 
-- Fixed null crash in DOCTYPE — fixes memory leak from uncleared timers
-- Fixed null crash in DOCTYPE — fixes memory leak from uncleared timers
-- Fixed null crash in DOCTYPE
-- Fixed null crash in DOCTYPE — offloads heavy computation off the main thread
-- Fixed null crash in DOCTYPE
+- Fixed null crash in DOCTYPE — reduces excessive function call frequency
+- Fixed null crash in DOCTYPE — prevents null/undefined runtime crashes
+- Fixed null crash in DOCTYPE — prevents null/undefined runtime crashes
+- Fixed null crash in DOCTYPE — prevents null/undefined runtime crashes
+- Fixed null crash in Share
 
 ## How things work
 
@@ -52,7 +52,9 @@
 ## 📚 Comprehensive Expert Skills (READ THESE)
 > **CRITICAL:** BrainSync has pre-compiled full expert rulebooks for this project. If you are working on any of the following domains, you MUST read the corresponding `SKILL.md` file BEFORE writing code to instantly learn all proper default skills:
 
+- **config**: Read `.agent/skills/auto/config/SKILL.md`
 - **convention**: Read `.agent/skills/auto/convention/SKILL.md`
 - **css**: Read `.agent/skills/auto/css/SKILL.md`
 - **html**: Read `.agent/skills/auto/html/SKILL.md`
+- **javascript**: Read `.agent/skills/auto/javascript/SKILL.md`
 - **project**: Read `.agent/skills/auto/project/SKILL.md`
