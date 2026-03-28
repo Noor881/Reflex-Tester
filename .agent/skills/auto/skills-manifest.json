@@ -1,8 +1,8 @@
 {
   "project": {
     "enabled": true,
-    "lastGenerated": "2026-03-28T11:11:25.519Z",
-    "observationCount": 60,
+    "lastGenerated": "2026-03-28T11:51:26.036Z",
+    "observationCount": 62,
     "skillCount": 0,
     "domain": "project",
     "triggerGlobs": [
@@ -12,18 +12,18 @@
   },
   "html": {
     "enabled": true,
-    "lastGenerated": "2026-03-28T11:11:25.520Z",
-    "observationCount": 9,
+    "lastGenerated": "2026-03-28T11:51:26.034Z",
+    "observationCount": 114,
     "skillCount": 0,
     "domain": "html",
     "triggerGlobs": [
       "**/*.html"
     ],
-    "description": "Html for Reflex-Tester. 1 gotchas."
+    "description": "Html for Reflex-Tester. 1 gotchas, 12 conventions, 14 fixes."
   },
   "css": {
     "enabled": true,
-    "lastGenerated": "2026-03-28T11:11:25.518Z",
+    "lastGenerated": "2026-03-28T11:51:26.037Z",
     "observationCount": 5,
     "skillCount": 0,
     "domain": "css",
@@ -32,5 +32,16 @@
       "**/*.scss"
     ],
     "description": "Css for Reflex-Tester. 1 conventions."
+  },
+  "convention": {
+    "enabled": true,
+    "lastGenerated": "2026-03-28T11:51:26.039Z",
+    "observationCount": 0,
+    "skillCount": 1,
+    "domain": "convention",
+    "triggerGlobs": [
+      "**/*"
+    ],
+    "description": "Convention for Reflex-Tester. ."
   }
 }

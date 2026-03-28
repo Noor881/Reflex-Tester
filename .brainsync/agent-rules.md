@@ -39,10 +39,11 @@
 
 ## Recent fixes
 
-- Fixed null crash in DOCTYPE
-- Fixed null crash in DOCTYPE
-- problem-fix in memory-sequence-test.html
-- problem-fix in header-template.html
+- Fixed null crash in ReflexStore
+- Fixed null crash in Valorant
+- Fixed null crash in FFFFFF
+- Fixed null crash in Holger
+- Fixed null crash in JSON — fixes memory leak from uncleared timers
 
 ## How things work
 

@@ -1,7 +1,7 @@
 
 
 # Project Memory — Reflex-Tester
-> 74 notes | Score threshold: >40
+> 181 notes | Score threshold: >40
 
 ## Safety — Never Run Destructive Commands
 
@@ -27,14 +27,21 @@ Content summary (202 lines):
 
 ## Project Standards
 
-- convention in .gitignore
-- Enable strict mode in tsconfig.json
-- Prefer Array methods (map, filter, reduce) over manual loops
-- Use template literals for string interpolation, not concatenation
-- Use optional chaining (?.) and nullish coalescing (??) for safe access
-- Use const by default, let when reassignment needed, never var
-- Version your API from day 1 (/api/v1/)
-- Use consistent response format across all endpoints
+- Strengthened types DOCTYPE
+- Strengthened types DOCTYPE
+- Strengthened types DOCTYPE
+- Strengthened types DOCTYPE
+- Strengthened types DOCTYPE
+- what-changed in index.html — confirmed 3x
+- convention in improve-reflexes-30-days.html
+- convention in cod-recoil-trainer.html
+
+## Recent Decisions
+
+- decision in reaction-time-gaming-advantage.html
+- decision in reaction-time-age-study.html
+- decision in pro-gamer-reaction-times.html
+- decision in mouse-sensitivity-reaction-time.html
 
 ## Verified Best Practices
 
