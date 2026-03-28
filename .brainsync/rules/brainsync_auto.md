@@ -1,7 +1,7 @@
 
 
 # Project Memory — Reflex-Tester
-> 57 notes | Score threshold: >40
+> 61 notes | Score threshold: >40
 
 ## Safety — Never Run Destructive Commands
 
@@ -20,6 +20,7 @@
 
 ## 📝 NOTE: 1 uncommitted file(s) in working tree.\n\n## Project Standards
 
+- convention in .gitignore
 - Enable strict mode in tsconfig.json
 - Prefer Array methods (map, filter, reduce) over manual loops
 - Use template literals for string interpolation, not concatenation
@@ -27,7 +28,6 @@
 - Use const by default, let when reassignment needed, never var
 - Version your API from day 1 (/api/v1/)
 - Use consistent response format across all endpoints
-- Implement soft delete for important data — don't hard delete without confirmation
 
 ## Verified Best Practices
 

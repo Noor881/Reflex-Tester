@@ -1,5 +1,5 @@
 # Project Notes — Reflex-Tester
-> 57 notes | Updated: 3/28/2026
+> 62 notes | Updated: 3/28/2026
 
 ## Safety Rules
 
@@ -8,7 +8,7 @@
 
 ## Quick Reference
 - 23 warnings → see `.agent-mem/gotchas.md`
-- 32 conventions → see `.agent-mem/patterns.md`
+- 33 conventions → see `.agent-mem/patterns.md`
 - Codebase map → see `.agent-mem/project-brief.md`
 - Active work → see `.agent-mem/active-context.md`
 

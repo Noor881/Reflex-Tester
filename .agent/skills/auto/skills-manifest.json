@@ -1,0 +1,24 @@
+{
+  "project": {
+    "enabled": true,
+    "lastGenerated": "2026-03-28T09:41:25.438Z",
+    "observationCount": 57,
+    "skillCount": 0,
+    "domain": "project",
+    "triggerGlobs": [
+      "**/*"
+    ],
+    "description": "Project for Reflex-Tester. 23 gotchas, 33 conventions."
+  },
+  "html": {
+    "enabled": true,
+    "lastGenerated": "2026-03-28T09:41:25.437Z",
+    "observationCount": 3,
+    "skillCount": 0,
+    "domain": "html",
+    "triggerGlobs": [
+      "**/*.html"
+    ],
+    "description": "Html for Reflex-Tester. ."
+  }
+}
