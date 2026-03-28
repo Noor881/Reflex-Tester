@@ -1,12 +1,12 @@
-/* Modern Classic Article Template Styles */
+/* Article Template Styles — Dark Theme */
 
 :root {
-    --cream: #FAF7F2;
-    --charcoal: #2D2A24;
-    --gold: #C9A961;
-    --white: #FFFFFF;
-    --border: rgba(45, 42, 36, 0.2);
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --cream: #0a0a0f;
+    --charcoal: #f0f0f5;
+    --gold: #4ecdc4;
+    --white: #111118;
+    --border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -80,7 +80,7 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: rgba(45, 42, 36, 0.6);
+    color: rgba(240, 240, 245, 0.5);
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.02em;
@@ -107,7 +107,7 @@ nav a.active {
 .article-category {
     display: inline-block;
     padding: 6px 16px;
-    background: rgba(201, 169, 97, 0.1);
+    background: rgba(78, 205, 196, 0.1);
     color: var(--gold);
     border-radius: 4px;
     font-size: 11px;
@@ -130,7 +130,7 @@ nav a.active {
     display: flex;
     gap: 16px;
     font-size: 13px;
-    color: rgba(45, 42, 36, 0.5);
+    color: rgba(240, 240, 245, 0.4);
     text-transform: uppercase;
     letter-spacing: 0.15em;
     font-weight: 600;
@@ -140,7 +140,7 @@ nav a.active {
 .article-featured-image {
     width: 100%;
     height: 400px;
-    background: linear-gradient(135deg, rgba(201, 169, 97, 0.1), rgba(45, 42, 36, 0.05));
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.08), rgba(0, 0, 0, 0.2));
     border-radius: 8px;
     margin-bottom: 48px;
     display: flex;
@@ -195,7 +195,7 @@ nav a.active {
 .article-content a {
     color: var(--gold);
     text-decoration: none;
-    border-bottom: 1px solid rgba(201, 169, 97, 0.3);
+    border-bottom: 1px solid rgba(78, 205, 196, 0.3);
     transition: border-color 0.2s;
 }
 
@@ -224,7 +224,7 @@ nav a.active {
 }
 
 .article-content code {
-    background: rgba(45, 42, 36, 0.05);
+    background: rgba(255, 255, 255, 0.05);
     padding: 2px 6px;
     border-radius: 3px;
     font-size: 16px;
@@ -232,7 +232,7 @@ nav a.active {
 }
 
 .article-content pre {
-    background: rgba(45, 42, 36, 0.05);
+    background: rgba(255, 255, 255, 0.04);
     padding: 20px;
     border-radius: 6px;
     overflow-x: auto;
@@ -334,7 +334,7 @@ footer {
 }
 
 .footer-links a {
-    color: rgba(45, 42, 36, 0.6);
+    color: rgba(240, 240, 245, 0.4);
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -344,7 +344,7 @@ footer {
 }
 
 .copyright {
-    color: rgba(45, 42, 36, 0.4);
+    color: rgba(240, 240, 245, 0.3);
     font-size: 12px;
 }
 

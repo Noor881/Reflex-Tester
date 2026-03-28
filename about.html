@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About ReflexTester — Our Mission | ReflexTester</title>
+    <title>About ReflexTester.fun — Our Mission</title>
     <meta name="description"
         content="Learn about ReflexTester.fun, the free platform for testing and improving your reflexes. Our mission is to help gamers and athletes reach peak performance.">
     <link rel="canonical" href="https://reflextester.fun/about.html">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="About ReflexTester — Our Mission">
+    <meta property="og:title" content="About ReflexTester.fun — Our Mission">
     <meta property="og:description"
         content="Learn about ReflexTester.fun, the free platform for testing and improving your reflexes. Our mission is to help gamers and athletes reach peak performance.">
     <meta property="og:url" content="https://reflextester.fun/about.html">
@@ -19,447 +19,208 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About ReflexTester — Our Mission">
+    <meta name="twitter:title" content="About ReflexTester.fun — Our Mission">
     <meta name="twitter:description"
         content="Free platform for testing and improving your reflexes. Helping gamers and athletes reach peak performance.">
-
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="styles.css">
     <style>
-        :root {
-            --cream: #FAF7F2;
-            --charcoal: #2D2A24;
-            --gold: #C9A961;
-            --white: #FFFFFF;
-            --border: rgba(45, 42, 36, 0.2);
-            --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--cream);
-            color: var(--charcoal);
-            line-height: 1.7;
-            font-size: 17px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        /* Header */
-        header {
-            background: var(--white);
-            border-bottom: 1px solid var(--border);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            color: var(--charcoal);
-        }
-
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--gold);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .logo-text {
-            font-family: 'Newsreader', serif;
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        .logo-text span {
-            color: var(--gold);
-            margin-left: 1px;
-        }
-
-        nav {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: rgba(45, 42, 36, 0.6);
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            transition: color 0.2s;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: var(--charcoal);
-        }
-
-        /* Page Hero */
-        .page-hero {
-            padding: 100px 0 80px;
+        .about-hero {
+            padding: 120px 0 60px;
             text-align: center;
         }
 
-        .page-title {
-            font-family: 'Newsreader', serif;
-            font-size: 56px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--charcoal);
+        .about-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
         }
 
-        .page-subtitle {
-            font-size: 20px;
-            color: rgba(45, 42, 36, 0.6);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* Content Section */
-        .content-section {
+        .about-content {
             max-width: 800px;
-            margin: 0 auto 80px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
         }
 
-        .section-title {
-            font-family: 'Newsreader', serif;
-            font-size: 36px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            color: var(--charcoal);
-        }
-
-        .section-text {
-            color: var(--charcoal);
-            line-height: 1.8;
-            margin-bottom: 24px;
-        }
-
-        /* Values List */
-        .values-list {
-            list-style: none;
-            margin: 40px 0;
-        }
-
-        .values-list li {
-            display: flex;
-            gap: 20px;
-            padding: 28px;
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
+        .about-content h2 {
+            margin-top: 48px;
             margin-bottom: 16px;
         }
 
-        .value-icon {
-            font-size: 48px;
-            flex-shrink: 0;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .about-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
         }
 
-        .value-content h3 {
-            font-family: 'Newsreader', serif;
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--charcoal);
-        }
-
-        .value-content p {
-            color: rgba(45, 42, 36, 0.7);
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        /* Team Grid */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 24px;
-            margin: 40px 0;
-        }
-
-        @media (max-width: 768px) {
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
+            margin-top: 32px;
         }
 
         .team-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 32px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 24px;
             text-align: center;
         }
 
-        .team-avatar {
+        .team-card .avatar {
             width: 80px;
             height: 80px;
-            margin: 0 auto 20px;
-            font-size: 40px;
+            background: var(--bg-tertiary);
+            border-radius: 50%;
+            margin: 0 auto 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.1), rgba(45, 42, 36, 0.05));
-            border-radius: 50%;
+            font-size: 2rem;
         }
 
         .team-card h3 {
-            font-family: 'Newsreader', serif;
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--charcoal);
+            font-size: 1.125rem;
+            margin-bottom: 4px;
         }
 
         .team-card .role {
-            font-size: 14px;
-            color: rgba(45, 42, 36, 0.6);
+            color: var(--text-muted);
+            font-size: 0.875rem;
         }
 
-        /* CTA Section */
-        .cta-section {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 48px;
-            text-align: center;
-            max-width: 800px;
-            margin: 60px auto 80px;
+        .values-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 24px;
         }
 
-        .cta-section h2 {
-            font-family: 'Newsreader', serif;
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--charcoal);
-        }
-
-        .cta-section p {
-            color: rgba(45, 42, 36, 0.7);
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 14px 32px;
-            background: var(--gold);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.2s;
-        }
-
-        .cta-button:hover {
-            background: #B89851;
-            transform: translateY(-1px);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--white);
-            border-top: 1px solid var(--border);
-            padding: 48px 0;
-        }
-
-        .footer-content {
+        .values-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-subtle);
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
+            gap: 16px;
+            align-items: flex-start;
         }
 
-        .footer-links {
-            display: flex;
-            gap: 40px;
-            font-size: 11px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-        }
-
-        .footer-links a {
-            color: rgba(45, 42, 36, 0.6);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--charcoal);
-        }
-
-        .copyright {
-            color: rgba(45, 42, 36, 0.4);
-            font-size: 12px;
+        .values-list .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="header-inner">
-                <a href="/" class="logo">
-                    <div class="logo-icon">@</div>
-                    <div class="logo-text">ReflexTester<span>.fun</span></div>
-                </a>
-                <nav>
-                    <a href="/">Dashboard</a>
-                    <a href="/tools.html">All Tools</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/about.html" class="active">About</a>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
 
-    <main>
-        <section class="page-hero">
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="index.html#tools" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <section class="about-hero">
             <div class="container">
-                <h1 class="page-title">About ReflexTester</h1>
-                <p class="page-subtitle">
-                    Helping gamers and athletes unlock their peak performance through precision reflex training
+                <h1>About ReflexTester.fun</h1>
+                <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                    Helping gamers and athletes unlock their peak performance through precision reflex training.
                 </p>
             </div>
         </section>
 
-        <div class="container">
-            <section class="content-section">
-                <h2 class="section-title">Our Mission</h2>
-                <p class="section-text">
-                    ReflexTester.fun was created with a simple goal: provide free, professional-grade reflex testing
-                    tools to everyone. Whether you're a competitive esports player looking to shave milliseconds off
-                    your reaction time or someone curious about their cognitive abilities, our platform offers the tools
-                    you need.
-                </p>
-            </section>
+        <section class="about-content">
+            <h2>Our Mission</h2>
+            <p>ReflexTester.fun was created with a simple goal: provide free, professional-grade reflex testing tools to
+                everyone. Whether you're a competitive esports player looking to shave milliseconds off your reaction
+                time or someone curious about their cognitive abilities, our platform offers the tools you need.</p>
 
-            <section class="content-section">
-                <h2 class="section-title">Why Reflexes Matter</h2>
-                <p class="section-text">
-                    In competitive gaming, the difference between victory and defeat often comes down to fractions of a
-                    second. A 50ms improvement in reaction time can mean the difference between landing a headshot or
-                    getting eliminated first. But reflex training isn't just for gamers—athletes, drivers, surgeons, and
-                    countless other professionals rely on quick reactions in their daily work.
-                </p>
-            </section>
+            <h2>Why Reflexes Matter</h2>
+            <p>In competitive gaming, the difference between victory and defeat often comes down to fractions of a
+                second. A 50ms improvement in reaction time can mean the difference between landing a headshot or
+                getting eliminated first. But reflex training isn't just for gamers—athletes, drivers, surgeons, and
+                countless other professionals rely on quick reactions in their daily work.</p>
 
-            <section class="content-section">
-                <h2 class="section-title">Our Values</h2>
-                <ul class="values-list">
-                    <li>
-                        <div class="value-icon">🆓</div>
-                        <div class="value-content">
-                            <h3>Free Forever</h3>
-                            <p>All our tools are completely free with no hidden paywalls or premium tiers.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="value-icon">🔒</div>
-                        <div class="value-content">
-                            <h3>Privacy First</h3>
-                            <p>Your data stays on your device. We don't track, sell, or share your information.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="value-icon">🎯</div>
-                        <div class="value-content">
-                            <h3>Accuracy Focused</h3>
-                            <p>We use high-precision timing APIs to ensure your results are as accurate as possible.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="value-icon">🌍</div>
-                        <div class="value-content">
-                            <h3>Accessible</h3>
-                            <p>Our tools work on any device with a modern browser, no downloads required.</p>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+            <h2>Our Values</h2>
+            <ul class="values-list">
+                <li>
+                    <span class="icon">🆓</span>
+                    <div>
+                        <strong>Free Forever</strong>
+                        <p style="margin-bottom: 0;">All our tools are completely free with no hidden paywalls or
+                            premium tiers.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="icon">🔒</span>
+                    <div>
+                        <strong>Privacy First</strong>
+                        <p style="margin-bottom: 0;">Your data stays on your device. We don't track, sell, or share your
+                            information.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="icon">🎯</span>
+                    <div>
+                        <strong>Accuracy Focused</strong>
+                        <p style="margin-bottom: 0;">We use high-precision timing APIs to ensure your results are as
+                            accurate as possible.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="icon">🌍</span>
+                    <div>
+                        <strong>Accessible</strong>
+                        <p style="margin-bottom: 0;">Our tools work on any device with a modern browser, no downloads
+                            required.</p>
+                    </div>
+                </li>
+            </ul>
 
-            <section class="content-section">
-                <h2 class="section-title">The Team</h2>
-                <div class="team-grid">
-                    <div class="team-card">
-                        <div class="team-avatar">👨‍💻</div>
-                        <h3>Alex Chen</h3>
-                        <p class="role">Lead Developer</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="team-avatar">🎮</div>
-                        <h3>Sarah Kim</h3>
-                        <p class="role">Gaming Consultant</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="team-avatar">🧠</div>
-                        <h3>Dr. Mark Rivera</h3>
-                        <p class="role">Cognitive Science Advisor</p>
-                    </div>
+            <h2>The Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="avatar">👨‍💻</div>
+                    <h3>Alex Chen</h3>
+                    <p class="role">Lead Developer</p>
                 </div>
-            </section>
-        </div>
+                <div class="team-card">
+                    <div class="avatar">🎮</div>
+                    <h3>Sarah Kim</h3>
+                    <p class="role">Gaming Consultant</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">🧠</div>
+                    <h3>Dr. Mark Rivera</h3>
+                    <p class="role">Cognitive Science Advisor</p>
+                </div>
+            </div>
 
-        <section class="cta-section container">
-            <h2>Get in Touch</h2>
-            <p>Have questions, feedback, or feature requests? We'd love to hear from you!</p>
-            <a href="contact.html" class="cta-button">Contact Us</a>
+            <h2>Contact Us</h2>
+            <p>Have questions, feedback, or feature requests? We'd love to hear from you! Visit our <a
+                    href="contact.html">contact page</a> or email us directly at hello@reflextester.fun.</p>
         </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="/privacy-policy.html">Privacy Policy</a>
-                    <a href="/terms-of-service.html">Terms of Service</a>
-                    <a href="/contact.html">Contact</a>
-                </div>
-                <div class="copyright">
-                    © 2025 ReflexTester.fun — All rights reserved
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
             </div>
         </div>
     </footer>
+
+    <script src="app.js"></script>
+    <script src="animations.js"></script>
 </body>
 
 </html>

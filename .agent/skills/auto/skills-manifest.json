@@ -1,8 +1,8 @@
 {
   "project": {
     "enabled": true,
-    "lastGenerated": "2026-03-28T09:41:25.438Z",
-    "observationCount": 57,
+    "lastGenerated": "2026-03-28T10:11:25.430Z",
+    "observationCount": 58,
     "skillCount": 0,
     "domain": "project",
     "triggerGlobs": [
@@ -12,8 +12,8 @@
   },
   "html": {
     "enabled": true,
-    "lastGenerated": "2026-03-28T09:41:25.437Z",
-    "observationCount": 3,
+    "lastGenerated": "2026-03-28T10:11:25.431Z",
+    "observationCount": 4,
     "skillCount": 0,
     "domain": "html",
     "triggerGlobs": [

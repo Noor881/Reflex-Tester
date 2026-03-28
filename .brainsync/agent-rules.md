@@ -2,6 +2,7 @@
 
 ## Known issues
 
+- gotcha in contact.html
 - Never use eval(), exec(), or Function() with user input
 - Sanitize ALL user input before database queries — prevent SQL injection
 - Don't use innerHTML — use textContent or sanitized rendering
@@ -11,7 +12,6 @@
 - Don't swallow errors silently — empty catch blocks hide bugs
 - Don't fetch data inside render loops or hot paths
 - Always validate data on the SERVER — client validation is for UX only
-- Don't expose database errors to clients — map to user-friendly messages
 
 ## Project patterns
 
@@ -29,6 +29,7 @@
 ## Architectural decisions
 
 - Optimized Reflex
+- Optimized Your
 
 ## 📚 Comprehensive Expert Skills (READ THESE)
 > **CRITICAL:** BrainSync has pre-compiled full expert rulebooks for this project. If you are working on any of the following domains, you MUST read the corresponding `SKILL.md` file BEFORE writing code to instantly learn all proper default skills:

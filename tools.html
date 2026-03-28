@@ -7,691 +7,664 @@
     <title>27 Free Gaming Tools — Reflex Tests, Aim Trainers & Game Utilities [2025]</title>
     <meta name="description"
         content="Browse all 27 free gaming tools: Valorant, CS:GO, Apex, COD, Fortnite utilities + aim trainers, reflex tests, crosshair generators, loadout builders & more. No sign-up needed →">
+    <meta name="keywords"
+        content="gaming tools, reflex test, aim trainer, crosshair generator, loadout builder, valorant tools, csgo tools, apex tools, cod tools, fortnite tools, sensitivity calculator, recoil trainer">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://reflextester.fun/tools.html">
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="27 Free Gaming Tools | ReflexTester.fun">
+    <meta property="og:description"
+        content="Complete suite of gaming tools: game-specific utilities for Valorant, CS:GO, Apex, COD, Fortnite + universal aim trainers & reflex tests. 100% free.">
+    <meta property="og:url" content="https://reflextester.fun/tools.html">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="styles.css">
 
     <style>
-        :root {
-            --cream: #FAF7F2;
-            --charcoal: #2D2A24;
-            --gold: #C9A961;
-            --white: #FFFFFF;
-            --border: rgba(45, 42, 36, 0.2);
-            --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--cream);
-            color: var(--charcoal);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        /* Header */
-        header {
-            background: var(--white);
-            border-bottom: 1px solid var(--border);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            color: var(--charcoal);
-        }
-
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--gold);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .logo-text {
-            font-family: 'Newsreader', serif;
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        .logo-text span {
-            color: var(--gold);
-            margin-left: 1px;
-        }
-
-        nav {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: rgba(45, 42, 36, 0.6);
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            transition: color 0.2s;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: var(--charcoal);
-        }
-
-        /* Page Header */
-        .page-header {
-            padding: 80px 0 60px;
+        .tools-hero {
+            padding: var(--space-4xl) 0 var(--space-2xl);
             text-align: center;
+            border-bottom: 1px solid var(--border-subtle);
         }
 
-        .page-title {
-            font-family: 'Newsreader', serif;
-            font-size: 48px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--charcoal);
+        .tools-hero h1 {
+            font-size: clamp(2em, 4vw, 3em);
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: var(--space-md);
         }
 
-        .page-description {
-            color: rgba(45, 42, 36, 0.6);
-            max-width: 640px;
-            margin: 0 auto 48px;
-            font-size: 16px;
-            line-height: 1.6;
+        .tools-hero p {
+            color: var(--text-secondary);
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
         }
 
-        /* Filters */
-        .filter-container {
+        .search-bar {
+            max-width: 500px;
+            margin: 0 auto var(--space-lg);
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 14px 20px 14px 50px;
+            border-radius: 12px;
+            border: 2px solid var(--border-medium);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .filter-bar {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: var(--space-sm);
             flex-wrap: wrap;
-            margin-bottom: 48px;
+            margin-bottom: var(--space-xl);
         }
 
         .filter-btn {
-            padding: 10px 24px;
-            border: 1px solid var(--border);
+            padding: 10px 22px;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border-medium);
             background: transparent;
-            color: rgba(45, 42, 36, 0.6);
-            border-radius: 24px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
+            color: var(--text-secondary);
+            font-family: var(--font-primary);
+            font-size: 0.9em;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s;
         }
 
         .filter-btn:hover {
-            background: var(--white);
-            color: var(--charcoal);
+            background: var(--bg-card-hover);
+            color: var(--text-primary);
         }
 
         .filter-btn.active {
-            background: var(--gold);
-            color: var(--white);
-            border-color: var(--gold);
+            background: var(--accent-cyan);
+            color: #0a0a0f;
+            border-color: var(--accent-cyan);
+            font-weight: 600;
         }
 
-        /* Tool Grid */
-        .tool-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-bottom: 80px;
+        .tools-count {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9em;
+            margin-bottom: var(--space-2xl);
         }
 
-        @media (max-width: 1024px) {
-            .tool-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+        .tools-count span {
+            color: var(--accent-cyan);
+            font-weight: 700;
         }
 
-        @media (max-width: 768px) {
-            .tool-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .category-section {
+            margin-bottom: var(--space-4xl);
         }
 
-        @media (max-width: 480px) {
-            .tool-grid {
-                grid-template-columns: 1fr;
-            }
+        .category-section[data-hidden="true"] {
+            display: none;
         }
 
-        .tool-card {
-            position: relative;
-            background: var(--white);
-            border: 1px solid var(--border);
-            padding: 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s;
-            display: block;
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-md);
+            border-bottom: 2px solid var(--border-medium);
         }
 
-        .tool-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-        }
-
-        .tool-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 8px;
-            background: rgba(201, 169, 97, 0.1);
+        .category-icon {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--cat-color-1), var(--cat-color-2));
         }
 
-        .tool-icon .material-icons-outlined {
-            font-size: 24px;
-            color: var(--gold);
+        .category-info h2 {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 4px;
         }
 
-        .tool-name {
-            font-family: 'Newsreader', serif;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--charcoal);
+        .category-info p {
+            color: var(--text-secondary);
+            font-size: 0.95em;
         }
 
-        .tool-description {
-            font-size: 14px;
-            color: rgba(45, 42, 36, 0.6);
-            line-height: 1.7;
-            margin-bottom: 16px;
+        .cat-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.8em;
+            color: var(--text-muted);
+            margin-left: auto;
         }
 
-        .tool-launch {
-            display: flex;
-            align-items: center;
-            margin-top: 16px;
-            font-size: 10px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--gold);
-            opacity: 0;
-            transition: opacity 0.3s;
+        /* Game-specific colors */
+        .valorant {
+            --cat-color-1: #ff4655;
+            --cat-color-2: #bd3944;
         }
 
-        .arrow-icon {
-            font-size: 12px !important;
-            margin-left: 4px;
+        .csgo {
+            --cat-color-1: #f5a623;
+            --cat-color-2: #d68910;
         }
 
-        .tool-card:hover .tool-launch {
-            opacity: 1;
+        .apex {
+            --cat-color-1: #da2c38;
+            --cat-color-2: #a01f26;
         }
 
-        /* Footer */
-        footer {
-            background: var(--white);
-            border-top: 1px solid var(--border);
-            padding: 48px 0;
-            margin-top: 80px;
+        .cod {
+            --cat-color-1: #6b8e23;
+            --cat-color-2: #556b2f;
         }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
+        .fortnite {
+            --cat-color-1: #00b8ff;
+            --cat-color-2: #0088cc;
         }
 
-        .footer-links {
-            display: flex;
-            gap: 40px;
-            font-size: 11px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
+        .universal {
+            --cat-color-1: #8b5cf6;
+            --cat-color-2: #6d28d9;
         }
 
-        .footer-links a {
-            color: rgba(45, 42, 36, 0.6);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--charcoal);
-        }
-
-        .copyright {
-            color: rgba(45, 42, 36, 0.4);
-            font-size: 12px;
+        .reflex {
+            --cat-color-1: #10b981;
+            --cat-color-2: #059669;
         }
 
         .tool-card[data-hidden="true"] {
             display: none;
         }
-
-        .tools-count {
-            text-align: center;
-            color: rgba(45, 42, 36, 0.6);
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 40px;
-        }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="header-inner">
-                <a href="/" class="logo">
-                    <div class="logo-icon">@</div>
-                    <div class="logo-text">ReflexTester<span>.fun</span></div>
-                </a>
-                <nav>
-                    <a href="/">Dashboard</a>
-                    <a href="/tools.html" class="active">All Tools</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/about.html">About</a>
-                </nav>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="tools.html" class="nav-cta active">All Tools</a>
             </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
         </div>
-    </header>
+    </nav>
 
-    <main class="container">
-        <div class="page-header">
-            <h1 class="page-title">All Tools</h1>
-            <p class="page-description">Professional gaming utilities and performance testing tools. Game-specific
-                utilities for Valorant, CS:GO, Apex, COD & Fortnite, plus universal aim trainers and cognitive
-                challenges.</p>
+    <main class="main-content" id="main">
+        <section class="tools-hero">
+            <div class="container">
+                <div class="hero-badge fade-in"><span class="badge-dot"></span> 27 Professional Tools — Free Forever
+                </div>
+                <h1 class="fade-in">Complete <span class="accent">Gaming Toolkit</span></h1>
+                <p class="fade-in">Game-specific utilities for Valorant, CS:GO, Apex, COD & Fortnite. Plus universal aim
+                    trainers, reflex tests, and cognitive challenges.</p>
 
-            <div class="filter-container">
-                <button class="filter-btn active" data-filter="all">All Tools</button>
-                <button class="filter-btn" data-filter="reflex">Reflex Tests</button>
-                <button class="filter-btn" data-filter="valorant">Valorant</button>
-                <button class="filter-btn" data-filter="csgo">CS:GO</button>
-                <button class="filter-btn" data-filter="apex">Apex</button>
-                <button class="filter-btn" data-filter="cod">Call of Duty</button>
-                <button class="filter-btn" data-filter="fortnite">Fortnite</button>
+                <div class="search-bar fade-in">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Search tools...">
+                </div>
+
+                <div class="filter-bar fade-in">
+                    <button class="filter-btn active" data-filter="all">All Tools</button>
+                    <button class="filter-btn" data-filter="valorant">🎯 Valorant</button>
+                    <button class="filter-btn" data-filter="csgo">🔫 CS:GO</button>
+                    <button class="filter-btn" data-filter="apex">⚡ Apex</button>
+                    <button class="filter-btn" data-filter="cod">💥 COD</button>
+                    <button class="filter-btn" data-filter="fortnite">🏗️ Fortnite</button>
+                    <button class="filter-btn" data-filter="universal">🎮 Universal</button>
+                    <button class="filter-btn" data-filter="reflex">⚡ Reflex</button>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="tools-count"><span id="toolCount">27</span> tools available</div>
+        <section class="section">
+            <div class="container">
+                <div class="tools-count"><span id="toolCount">27</span> tools available</div>
 
-        <div class="tool-grid" id="toolGrid">
-            <!-- Reflex Tests -->
-            <a href="/tools/visual-reflex-test.html" class="tool-card" data-category="reflex">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">timer</span>
+                <!-- VALORANT TOOLS -->
+                <div class="category-section valorant" data-category="valorant">
+                    <div class="category-header">
+                        <div class="category-icon">🎯</div>
+                        <div class="category-info">
+                            <h2>Valorant Tools</h2>
+                            <p>Crosshair customization, lineup practice & tactical utilities</p>
+                        </div>
+                        <span class="cat-badge">3 tools</span>
+                    </div>
+                    <div class="tools-grid">
+                        <a href="tools/valorant-crosshair-generator.html" class="tool-card"
+                            data-search="valorant crosshair generator customize settings"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">✛</span>
+                            <h3 class="tool-card-title">Crosshair Generator</h3>
+                            <p class="tool-card-desc">Customize your Valorant crosshair with real-time preview. Includes
+                                pro player presets and code export.</p>
+                            <span class="tool-card-tag new">NEW</span>
+                        </a>
+                        <a href="tools/valorant-lineup-trainer.html" class="tool-card"
+                            data-search="valorant lineup trainer utility practice"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">📍</span>
+                            <h3 class="tool-card-title">Lineup Trainer</h3>
+                            <p class="tool-card-desc">Practice utility lineups with moving targets. Master crosshair
+                                placement for each agent.</p>
+                            <span class="tool-card-tag new">NEW</span>
+                        </a>
+                        <a href="tools/valorant-aim-trainer.html" class="tool-card"
+                            data-search="valorant aim trainer headshot precision"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">⚔️</span>
+                            <h3 class="tool-card-title">Aim Trainer</h3>
+                            <p class="tool-card-desc">Tactical headshot training for Valorant. Practice precision aiming
+                                and crosshair placement in 3D.</p>
+                            <span class="tool-card-tag">3D</span>
+                        </a>
+                    </div>
                 </div>
-                <h3 class="tool-name">Reaction Time Test</h3>
-                <p class="tool-description">Measure your click response to visual stimulus shifts.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
 
-            <a href="/tools/click-speed-test.html" class="tool-card" data-category="reflex">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">mouse</span>
+                <!-- CS:GO TOOLS -->
+                <div class="category-section csgo" data-category="csgo">
+                    <div class="category-header">
+                        <div class="category-icon">🔫</div>
+                        <div class="category-info">
+                            <h2>CS:GO / CS2 Tools</h2>
+                            <p>Crosshair builder, grenade practice & tactical training</p>
+                        </div>
+                        <span class="cat-badge">3 tools</span>
+                    </div>
+                    <div class="tools-grid">
+                        <a href="tools/csgo-crosshair-generator.html" class="tool-card"
+                            data-search="csgo cs2 crosshair generator console commands"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">✛</span>
+                            <h3 class="tool-card-title">Crosshair Generator</h3>
+                            <p class="tool-card-desc">Create CS:GO/CS2 crosshairs with console command export. Pro
+                                player presets included.</p>
+                            <span class="tool-card-tag new">NEW</span>
+                        </a>
+                        <a href="tools/csgo-grenade-trainer.html" class="tool-card"
+                            data-search="csgo grenade trainer utility throw practice"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">💣</span>
+                            <h3 class="tool-card-title">Grenade Trainer</h3>
+                            <p class="tool-card-desc">Master grenade throws with moving targets. Practice smokes,
+                                flashes, and mollies with accuracy tracking.</p>
+                            <span class="tool-card-tag new">NEW</span>
+                        </a>
+                        <a href="tools/csgo-aim-trainer.html" class="tool-card"
+                            data-search="csgo cs2 aim trainer flick practice"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🎮</span>
+                            <h3 class="tool-card-title">Aim Trainer</h3>
+                            <p class="tool-card-desc">3D aim training with CS:GO-style sensitivity. Practice flicks,
+                                tracking, and crosshair placement.</p>
+                            <span class="tool-card-tag">3D</span>
+                        </a>
+                    </div>
                 </div>
-                <h3 class="tool-name">CPS Tracker</h3>
-                <p class="tool-description">Determine your raw clicks per second performance.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
 
-            <a href="/tools/sound-reaction-test.html" class="tool-card" data-category="reflex">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">headphones</span>
+                <!-- APEX LEGENDS TOOLS -->
+                <div class="category-section apex" data-category="apex">
+                    <div class="category-header">
+                        <div class="category-icon">⚡</div>
+                        <div class="category-info">
+                            <h2>Apex Legends Tools</h2>
+                            <p>Recoil control, tier lists & battle royale training</p>
+                        </div>
+                        <span class="cat-badge">3 tools</span>
+                    </div>
+                    <div class="tools-grid">
+                        <a href="tools/apex-recoil-trainer.html" class="tool-card"
+                            data-search="apex legends recoil trainer pattern practice"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🎯</span>
+                            <h3 class="tool-card-title">Recoil Trainer</h3>
+                            <p class="tool-card-desc">Master weapon recoil patterns for R-301, R-99, Flatline & Volt.
+                                Includes barrel stabilizer support.</p>
+                            <span class="tool-card-tag new">NEW</span>
+                        </a>
+                        <a href="tools/apex-tier-list.html" class="tool-card"
+                            data-search="apex legends tier list meta characters ranking"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">👑</span>
+                            <h3 class="tool-card-title">Legend Tier List</h3>
+                            <p class="tool-card-desc">Season 20 meta rankings with detailed legend analysis. Browse
+                                strengths, weaknesses & role classifications.</p>
+                            <span class="tool-card-tag new">NEW</span>
+                        </a>
+                        <a href="tools/apex-aim-trainer.html" class="tool-card"
+                            data-search="apex legends aim trainer tracking movement"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🔫</span>
+                            <h3 class="tool-card-title">Aim Trainer</h3>
+                            <p class="tool-card-desc">Battle royale movement and tracking trainer. Practice fast-paced
+                                Apex aim with tracking and flick modes.</p>
+                            <span class="tool-card-tag">3D</span>
+                        </a>
+                    </div>
                 </div>
-                <h3 class="tool-name">Sound Perception</h3>
-                <p class="tool-description">Calculate reaction latency to audio-only triggers.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
 
-            <a href="/tools/sequence-memory.html" class="tool-card" data-category="reflex">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">format_list_numbered</span>
+                <!-- CALL OF DUTY TOOLS -->
+                <div class="category-section cod" data-category="cod">
+                    <div class="category-header">
+                        <div class="category-icon">💥</div>
+                        <div class="category-info">
+                            <h2>Call of Duty Tools</h2>
+                            <p>Loadout optimization, recoil control & tactical builds</p>
+                        </div>
+                        <span class="cat-badge">3 tools</span>
+                    </div>
+                    <div class="tools-grid">
+                        <a href="tools/cod-loadout-builder.html" class="tool-card"
+                            data-search="cod warzone loadout builder attachments meta"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🔧</span>
+                            <h3 class="tool-card-title">Loadout Builder</h3>
+                            <p class="tool-card-desc">Build optimal Warzone & MW3 loadouts. Real-time stat calculation
+                                with meta weapon badges.</p>
+                            <span class="tool-card-tag new">NEW</span>
+                        </a>
+                        <a href="tools/cod-recoil-trainer.html" class="tool-card"
+                            data-search="cod recoil trainer pattern control practice"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🎯</span>
+                            <h3 class="tool-card-title">Recoil Trainer</h3>
+                            <p class="tool-card-desc">Master COD recoil patterns with dynamic bullet visualization.
+                                Multi-weapon support with fire modes.</p>
+                            <span class="tool-card-tag new">NEW</span>
+                        </a>
+                        <a href="tools/cod-aim-trainer.html" class="tool-card"
+                            data-search="cod aim trainer warzone practice multiplayer"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">💥</span>
+                            <h3 class="tool-card-title">Aim Trainer</h3>
+                            <p class="tool-card-desc">Call of Duty aim training with game-specific sensitivity.
+                                Fast-paced targets mimicking Warzone scenarios.</p>
+                            <span class="tool-card-tag">3D</span>
+                        </a>
+                    </div>
                 </div>
-                <h3 class="tool-name">Sequence Memory</h3>
-                <p class="tool-description">Follow and replicate increasingly long sequences.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
 
-            <a href="/tools/typing-speed-test.html" class="tool-card" data-category="reflex">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">keyboard</span>
+                <!-- FORTNITE TOOLS -->
+                <div class="category-section fortnite" data-category="fortnite">
+                    <div class="category-header">
+                        <div class="category-icon">🏗️</div>
+                        <div class="category-info">
+                            <h2>Fortnite Tools</h2>
+                            <p>Edit training, sensitivity optimization & aim practice</p>
+                        </div>
+                        <span class="cat-badge">3 tools</span>
+                    </div>
+                    <div class="tools-grid">
+                        <a href="tools/fortnite-edit-trainer.html" class="tool-card"
+                            data-search="fortnite edit trainer building practice speed"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">✂️</span>
+                            <h3 class="tool-card-title">Edit Course Trainer</h3>
+                            <p class="tool-card-desc">Practice building edits with 3x3 grid patterns. Track EPM and
+                                accuracy across difficulty levels.</p>
+                            <span class="tool-card-tag new">NEW</span>
+                        </a>
+                        <a href="tools/fortnite-sensitivity-finder.html" class="tool-card"
+                            data-search="fortnite sensitivity finder calculator aim building"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🎯</span>
+                            <h3 class="tool-card-title">Sensitivity Finder</h3>
+                            <p class="tool-card-desc">Find your perfect Fortnite sens through interactive testing.
+                                Balance aim precision with building speed.</p>
+                            <span class="tool-card-tag new">NEW</span>
+                        </a>
+                        <a href="tools/fortnite-aim-trainer.html" class="tool-card"
+                            data-search="fortnite aim trainer shotgun tracking practice"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🏗️</span>
+                            <h3 class="tool-card-title">Aim Trainer</h3>
+                            <p class="tool-card-desc">Fortnite-style aim training with building target patterns.
+                                Practice shotgun flicks and AR tracking in 3D.</p>
+                            <span class="tool-card-tag">3D</span>
+                        </a>
+                    </div>
                 </div>
-                <h3 class="tool-name">Typing Speed</h3>
-                <p class="tool-description">Advanced WPM and accuracy metrics evaluation.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
 
-            <a href="/tools/flick-shot-trainer.html" class="tool-card" data-category="reflex">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">flash_on</span>
+                <!-- UNIVERSAL GAMING TOOLS -->
+                <div class="category-section universal" data-category="universal">
+                    <div class="category-header">
+                        <div class="category-icon">🎮</div>
+                        <div class="category-info">
+                            <h2>Universal Gaming Tools</h2>
+                            <p>Cross-game utilities for any FPS title</p>
+                        </div>
+                        <span class="cat-badge">2 tools</span>
+                    </div>
+                    <div class="tools-grid">
+                        <a href="tools/sensitivity-calculator.html" class="tool-card"
+                            data-search="sensitivity calculator converter cm360 fps games"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🎯</span>
+                            <h3 class="tool-card-title">Sensitivity Calculator</h3>
+                            <p class="tool-card-desc">Convert mouse sensitivity between 13+ FPS games. Match your
+                                cm/360° across Valorant, CS:GO, Apex, and more.</p>
+                            <span class="tool-card-tag">Popular</span>
+                        </a>
+                        <a href="tools/flick-shot-trainer.html" class="tool-card"
+                            data-search="flick shot trainer aim snap muscle memory"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">⚡</span>
+                            <h3 class="tool-card-title">Flick Shot Trainer</h3>
+                            <p class="tool-card-desc">Master 360° flick shots with random target spawning. Build muscle
+                                memory for instant snap aiming.</p>
+                            <span class="tool-card-tag">Popular</span>
+                        </a>
+                    </div>
                 </div>
-                <h3 class="tool-name">Flick Shot Trainer</h3>
-                <p class="tool-description">Practice rapid target acquisition and flicks.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
 
-            <a href="/tools/hand-eye-coordination.html" class="tool-card" data-category="reflex">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">touch_app</span>
+                <!-- REFLEX & COGNITIVE TESTS -->
+                <div class="category-section reflex" data-category="reflex">
+                    <div class="category-header">
+                        <div class="category-icon">⚡</div>
+                        <div class="category-info">
+                            <h2>Reflex & Cognitive Tests</h2>
+                            <p>Core reaction time, speed & brain performance tests</p>
+                        </div>
+                        <span class="cat-badge">10 tools</span>
+                    </div>
+                    <div class="tools-grid">
+                        <a href="tools/visual-reflex-test.html" class="tool-card"
+                            data-search="visual reflex test reaction time speed"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">⚡</span>
+                            <h3 class="tool-card-title">Visual Reflex Test</h3>
+                            <p class="tool-card-desc">Click the instant the screen turns green. Measure your visual
+                                reaction time with laboratory-grade accuracy.</p>
+                            <span class="tool-card-tag">Popular</span>
+                        </a>
+                        <a href="tools/audio-reflex-test.html" class="tool-card"
+                            data-search="audio reflex test sound reaction hearing"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🔊</span>
+                            <h3 class="tool-card-title">Audio Reflex Test</h3>
+                            <p class="tool-card-desc">React to sound instead of sight. Audio reflexes are typically
+                                20-40ms faster than visual for most people.</p>
+                            <span class="tool-card-tag">Popular</span>
+                        </a>
+                        <a href="tools/hand-eye-coordination-test.html" class="tool-card"
+                            data-search="hand eye coordination test precision accuracy"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🎯</span>
+                            <h3 class="tool-card-title">Hand-Eye Coordination</h3>
+                            <p class="tool-card-desc">Hit moving targets with precision. Measures both reaction time and
+                                accuracy for complete reflex assessment.</p>
+                            <span class="tool-card-tag">Precision</span>
+                        </a>
+                        <a href="tools/peripheral-vision-test.html" class="tool-card"
+                            data-search="peripheral vision test awareness sight edge"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">👁️</span>
+                            <h3 class="tool-card-title">Peripheral Vision Test</h3>
+                            <p class="tool-card-desc">Spot targets appearing at the edges of your vision. Critical for
+                                FPS games and real-world awareness.</p>
+                            <span class="tool-card-tag">Visual</span>
+                        </a>
+                        <a href="tools/memory-sequence-test.html" class="tool-card"
+                            data-search="memory sequence test cognitive brain recall"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🧠</span>
+                            <h3 class="tool-card-title">Memory Sequence</h3>
+                            <p class="tool-card-desc">Watch the sequence, repeat it back. Tests working memory and
+                                cognitive processing speed simultaneously.</p>
+                            <span class="tool-card-tag">Cognitive</span>
+                        </a>
+                        <a href="tools/color-match-test.html" class="tool-card"
+                            data-search="color match test visual perception speed"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🎨</span>
+                            <h3 class="tool-card-title">Color Match Test</h3>
+                            <p class="tool-card-desc">Match the target color as fast as possible. Measures color
+                                processing speed and visual discrimination.</p>
+                            <span class="tool-card-tag">Visual</span>
+                        </a>
+                        <a href="tools/number-speed-test.html" class="tool-card"
+                            data-search="number speed test cognitive brain fast"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🔢</span>
+                            <h3 class="tool-card-title">Number Speed Test</h3>
+                            <p class="tool-card-desc">Click numbers in ascending order as fast as possible. Tests
+                                cognitive speed and hand-eye coordination.</p>
+                            <span class="tool-card-tag">Cognitive</span>
+                        </a>
+                        <a href="tools/stroop-effect-test.html" class="tool-card"
+                            data-search="stroop test cognitive flexibility brain challenge"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🧪</span>
+                            <h3 class="tool-card-title">Stroop Effect Test</h3>
+                            <p class="tool-card-desc">Word says one color, displayed in another. Tests cognitive
+                                flexibility and resistance to interference.</p>
+                            <span class="tool-card-tag">Cognitive</span>
+                        </a>
+                        <a href="tools/click-speed-test.html" class="tool-card"
+                            data-search="click speed test cps clicks per second mouse"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">🖱️</span>
+                            <h3 class="tool-card-title">Click Speed (CPS) Test</h3>
+                            <p class="tool-card-desc">How fast can you click? Measure clicks per second over 5, 10, or
+                                30 second intervals.</p>
+                            <span class="tool-card-tag">Speed</span>
+                        </a>
+                        <a href="tools/typing-speed-test.html" class="tool-card"
+                            data-search="typing speed test wpm words per minute keyboard"
+                            style="text-decoration:none;color:inherit;">
+                            <span class="tool-card-icon">⌨️</span>
+                            <h3 class="tool-card-title">Typing Speed Test</h3>
+                            <p class="tool-card-desc">Measure your words-per-minute speed and accuracy with real
+                                sentences. Track improvement over time.</p>
+                            <span class="tool-card-tag">Speed</span>
+                        </a>
+                    </div>
                 </div>
-                <h3 class="tool-name">Hand-Eye Coordination</h3>
-                <p class="tool-description">Test coordination between visual input and movement.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/stroop-effect-test.html" class="tool-card" data-category="reflex">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">psychology</span>
-                </div>
-                <h3 class="tool-name">Stroop Effect Test</h3>
-                <p class="tool-description">Measure cognitive flexibility and processing speed.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <!-- Valorant Tools -->
-            <a href="/tools/valorant-crosshair-generator.html" class="tool-card" data-category="valorant">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">add</span>
-                </div>
-                <h3 class="tool-name">Valorant Crosshair</h3>
-                <p class="tool-description">Customize crosshair with real-time preview and pro presets.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/valorant-lineup-trainer.html" class="tool-card" data-category="valorant">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">location_on</span>
-                </div>
-                <h3 class="tool-name">Valorant Lineups</h3>
-                <p class="tool-description">Practice utility lineups with moving targets.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/valorant-aim-trainer.html" class="tool-card" data-category="valorant">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">gps_fixed</span>
-                </div>
-                <h3 class="tool-name">Valorant Aim Trainer</h3>
-                <p class="tool-description">3D aim training with Valorant-specific settings.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <!-- CS:GO Tools -->
-            <a href="/tools/csgo-crosshair-generator.html" class="tool-card" data-category="csgo">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">add</span>
-                </div>
-                <h3 class="tool-name">CS:GO Crosshair</h3>
-                <p class="tool-description">Generate custom CS:GO crosshairs with code export.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/csgo-nade-trainer.html" class="tool-card" data-category="csgo">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">sports_baseball</span>
-                </div>
-                <h3 class="tool-name">CS:GO Nade Trainer</h3>
-                <p class="tool-description">Master grenade lineups on all competitive maps.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/csgo-aim-trainer.html" class="tool-card" data-category="csgo">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">gps_fixed</span>
-                </div>
-                <h3 class="tool-name">CS:GO Aim Trainer</h3>
-                <p class="tool-description">Counter-Strike precision target tracking practice.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/csgo-sensitivity-calculator.html" class="tool-card" data-category="csgo">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">tune</span>
-                </div>
-                <h3 class="tool-name">Sensitivity Calculator</h3>
-                <p class="tool-description">Convert mouse sensitivity across different games.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <!-- Apex Tools -->
-            <a href="/tools/apex-legends-crosshair.html" class="tool-card" data-category="apex">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">add</span>
-                </div>
-                <h3 class="tool-name">Apex Crosshair</h3>
-                <p class="tool-description">Custom crosshair overlay for Apex Legends.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/apex-recoil-trainer.html" class="tool-card" data-category="apex">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">trending_down</span>
-                </div>
-                <h3 class="tool-name">Apex Recoil Trainer</h3>
-                <p class="tool-description">Practice recoil patterns for all weapons.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/apex-loadout-builder.html" class="tool-card" data-category="apex">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">build</span>
-                </div>
-                <h3 class="tool-name">Apex Loadout Builder</h3>
-                <p class="tool-description">Plan optimal weapon and attachment loadouts.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <!-- COD Tools -->
-            <a href="/tools/cod-recoil-trainer.html" class="tool-card" data-category="cod">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">trending_down</span>
-                </div>
-                <h3 class="tool-name">CoD Aim Trainer</h3>
-                <p class="tool-description">Call of Duty aim practice with realistic movement.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/cod-loadout-builder.html" class="tool-card" data-category="cod">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">build</span>
-                </div>
-                <h3 class="tool-name">CoD Loadout Builder</h3>
-                <p class="tool-description">Build and optimize Call of Duty loadouts.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/cod-sensitivity-calculator.html" class="tool-card" data-category="cod">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">tune</span>
-                </div>
-                <h3 class="tool-name">CoD Sensitivity</h3>
-                <p class="tool-description">Convert sensitivity settings across CoD titles.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <!-- Fortnite Tools -->
-            <a href="/tools/fortnite-edit-trainer.html" class="tool-card" data-category="fortnite">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">grid_on</span>
-                </div>
-                <h3 class="tool-name">Fortnite Edit Trainer</h3>
-                <p class="tool-description">Practice building edits with custom patterns.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/fortnite-aim-trainer.html" class="tool-card" data-category="fortnite">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">gps_fixed</span>
-                </div>
-                <h3 class="tool-name">Fortnite Aim Trainer</h3>
-                <p class="tool-description">Tracking and flicking practice for Fortnite.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/fortnite-sensitivity-calculator.html" class="tool-card" data-category="fortnite">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">tune</span>
-                </div>
-                <h3 class="tool-name">Fortnite Sensitivity</h3>
-                <p class="tool-description">Calculate optimal sensitivity for Fortnite.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/fortnite-crosshair-generator.html" class="tool-card" data-category="fortnite">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">add</span>
-                </div>
-                <h3 class="tool-name">Fortnite Crosshair</h3>
-                <p class="tool-description">Custom crosshair overlay for better aim.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-
-            <a href="/tools/fortnite-loadout-planner.html" class="tool-card" data-category="fortnite">
-                <div class="tool-icon">
-                    <span class="material-icons-outlined">build</span>
-                </div>
-                <h3 class="tool-name">Fortnite Loadout</h3>
-                <p class="tool-description">Plan inventory and weapon combinations.</p>
-                <div class="tool-launch">
-                    Launch Tool <span class="material-icons-outlined arrow-icon">arrow_forward</span>
-                </div>
-            </a>
-        </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="/privacy-policy.html">Privacy Policy</a>
-                    <a href="/terms-of-service.html">Terms of Service</a>
-                    <a href="/contact.html">Contact</a>
-                </div>
-                <div class="copyright">
-                    © 2025 ReflexTester.fun — All rights reserved
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Gaming & Reflex Testing Platform</p>
             </div>
         </div>
     </footer>
 
+    <script src="app.js"></script>
+    <script src="animations.js"></script>
     <script>
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const toolCards = document.querySelectorAll('.tool-card');
-        const toolCount = document.getElementById('toolCount');
+        (function () {
+            const searchInput = document.getElementById('searchInput');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const allCards = document.querySelectorAll('.tool-card');
+            const allCategories = document.querySelectorAll('.category-section');
+            const countEl = document.getElementById('toolCount');
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update active button
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+            let currentFilter = 'all';
+            let currentSearch = '';
 
-                const filter = btn.getAttribute('data-filter');
+            function updateDisplay() {
                 let visibleCount = 0;
+                const searchLower = currentSearch.toLowerCase();
 
-                // Filter cards
-                toolCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    if (filter === 'all' || category === filter) {
-                        card.removeAttribute('data-hidden');
-                        visibleCount++;
-                    } else {
-                        card.setAttribute('data-hidden', 'true');
-                    }
+                allCategories.forEach(cat => {
+                    const catType = cat.dataset.category;
+                    let catHasVisible = false;
+
+                    cat.querySelectorAll('.tool-card').forEach(card => {
+                        const searchText = card.dataset.search || '';
+                        const matchesSearch = searchLower === '' || searchText.toLowerCase().includes(searchLower);
+                        const matchesFilter = currentFilter === 'all' || catType === currentFilter;
+                        const show = matchesSearch && matchesFilter;
+
+                        card.setAttribute('data-hidden', !show);
+                        if (show) {
+                            visibleCount++;
+                            catHasVisible = true;
+                        }
+                    });
+
+                    cat.setAttribute('data-hidden', !catHasVisible);
                 });
 
-                // Update count
-                toolCount.textContent = visibleCount;
+                countEl.textContent = visibleCount;
+            }
+
+            searchInput.addEventListener('input', e => {
+                currentSearch = e.target.value;
+                updateDisplay();
             });
-        });
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.dataset.filter;
+                    updateDisplay();
+                });
+            });
+        })();
     </script>
 </body>
 
