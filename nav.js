@@ -1,127 +1,125 @@
-// navigation.js - Universal Navigation System
-// Include this file in all your pages: <script src="navigation.js"></script>
+/* ============================================================
+   nav.js — Shared Navigation (single source of truth)
+   Automatically injects nav + footer into every page
+   ============================================================ */
 
-class UniversalNavigation {
-    constructor() {
-        this.mobileToggle = document.getElementById('mobileToggle');
-        this.navMenu = document.getElementById('navMenu');
-        this.toggleIcon = document.getElementById('toggleIcon');
-        this.isOpen = false;
-        
-        this.init();
+(function () {
+  const path = window.location.pathname;
+  const inBlog = path.includes('/blog/');
+  const inTools = path.includes('/tools/');
+  const base = inBlog || inTools ? '../' : '';
+
+  // Active link detection
+  function isActive(href) {
+    const full = base + href;
+    return path.endsWith(full) || path.endsWith(href);
+  }
+
+  const navHTML = `
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="${base}index.html" class="nav-logo">
+          <span class="logo-icon">⚡</span> ReflexTester
+        </a>
+        <div class="nav-menu" id="navMenu">
+          <a href="${base}index.html" class="nav-link${isActive('index.html') ? ' active' : ''}">Home</a>
+          <a href="${base}dashboard.html" class="nav-link${isActive('dashboard.html') ? ' active' : ''}">Dashboard</a>
+          <a href="${base}blog.html" class="nav-link${isActive('blog.html') ? ' active' : ''}">Blog</a>
+          <a href="${base}about.html" class="nav-link${isActive('about.html') ? ' active' : ''}">About</a>
+          <a href="${base}contact.html" class="nav-link${isActive('contact.html') ? ' active' : ''}">Contact</a>
+          <a href="${base}tools.html" class="nav-cta">All Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      </div>
+    </nav>
+  `;
+
+  const footerHTML = `
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <h4>ReflexTester.fun</h4>
+            <p>Professional reflex testing and aim training platform. Free forever, no sign-up required.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Reflex Tests</h4>
+            <ul>
+              <li><a href="${base}tools/visual-reflex-test.html">Visual Reflex Test</a></li>
+              <li><a href="${base}tools/audio-reflex-test.html">Audio Reflex Test</a></li>
+              <li><a href="${base}tools/memory-sequence-test.html">Memory Sequence</a></li>
+              <li><a href="${base}tools/color-match-test.html">Color Match Test</a></li>
+              <li><a href="${base}tools/click-speed-test.html">Click Speed (CPS)</a></li>
+              <li><a href="${base}tools/typing-speed-test.html">Typing Speed Test</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Aim Trainers</h4>
+            <ul>
+              <li><a href="${base}tools/csgo-aim-trainer.html">CS:GO Aim Trainer</a></li>
+              <li><a href="${base}tools/cod-aim-trainer.html">COD Aim Trainer</a></li>
+              <li><a href="${base}tools/fortnite-aim-trainer.html">Fortnite Aim Trainer</a></li>
+              <li><a href="${base}tools/valorant-aim-trainer.html">Valorant Aim Trainer</a></li>
+              <li><a href="${base}tools/apex-aim-trainer.html">Apex Aim Trainer</a></li>
+              <li><a href="${base}tools/flick-shot-trainer.html">Flick Shot Trainer</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="${base}blog.html">Blog</a></li>
+              <li><a href="${base}dashboard.html">Dashboard</a></li>
+              <li><a href="${base}about.html">About Us</a></li>
+              <li><a href="${base}contact.html">Contact</a></li>
+              <li><a href="${base}privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="${base}terms-of-service.html">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform. All rights reserved.</p>
+          <div class="footer-tags">
+            <span class="footer-tag">Reflex Tester</span>
+            <span class="footer-tag">Aim Trainer</span>
+            <span class="footer-tag">Reaction Time</span>
+            <span class="footer-tag">CS:GO</span>
+            <span class="footer-tag">Fortnite</span>
+            <span class="footer-tag">COD</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  `;
+
+  // Inject nav at top of body
+  document.body.insertAdjacentHTML('afterbegin', navHTML);
+
+  // Inject footer before end of body (if no footer already present)
+  if (!document.querySelector('footer.footer')) {
+    document.body.insertAdjacentHTML('beforeend', footerHTML);
+  }
+
+  // Mobile toggle
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', function () {
+        const isOpen = menu.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', isOpen);
+        toggle.textContent = isOpen ? '✕' : '☰';
+      });
     }
 
-    init() {
-        if (!this.mobileToggle || !this.navMenu) return;
-
-        // Mobile toggle click
-        this.mobileToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            this.toggleMenu();
-        });
-
-        // Close menu when clicking on navigation links (mobile)
-        const navLinks = this.navMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    this.closeMenu();
-                }
-            });
-        });
-
-        // Close menu when clicking outside (mobile)
-        document.addEventListener('click', (e) => {
-            if (this.isOpen && 
-                !this.navMenu.contains(e.target) && 
-                !this.mobileToggle.contains(e.target)) {
-                this.closeMenu();
-            }
-        });
-
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.isOpen) {
-                this.closeMenu();
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && this.isOpen) {
-                this.closeMenu();
-            }
-        });
-
-        // Prevent body scroll when mobile menu is open
-        this.navMenu.addEventListener('transitionend', () => {
-            if (window.innerWidth <= 768) {
-                document.body.style.overflow = this.isOpen ? 'hidden' : 'auto';
-            }
-        });
+    // Scroll progress bar
+    const bar = document.querySelector('.scroll-progress');
+    if (bar) {
+      window.addEventListener('scroll', function () {
+        const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+        bar.style.width = Math.min(pct, 100) + '%';
+      });
     }
-
-    toggleMenu() {
-        this.isOpen ? this.closeMenu() : this.openMenu();
-    }
-
-    openMenu() {
-        this.navMenu.classList.add('active');
-        this.updateToggleIcon('✕');
-        this.mobileToggle.setAttribute('aria-expanded', 'true');
-        this.isOpen = true;
-        
-        // Prevent body scroll on mobile
-        if (window.innerWidth <= 768) {
-            document.body.style.overflow = 'hidden';
-        }
-    }
-
-    closeMenu() {
-        this.navMenu.classList.remove('active');
-        this.updateToggleIcon('☰');
-        this.mobileToggle.setAttribute('aria-expanded', 'false');
-        this.isOpen = false;
-        
-        // Restore body scroll
-        document.body.style.overflow = 'auto';
-    }
-
-    updateToggleIcon(icon) {
-        if (this.toggleIcon) {
-            this.toggleIcon.innerHTML = icon;
-        } else {
-            // Fallback if toggleIcon element doesn't exist
-            this.mobileToggle.innerHTML = icon;
-        }
-    }
-}
-
-// Active page highlighter - Automatically highlights current page
-function setActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        const href = link.getAttribute('href');
-        
-        // Check for exact match or if we're on home page
-        if (href === currentPage || 
-            (currentPage === 'index.html' && href === 'index.html') ||
-            (currentPage === '' && href === 'index.html')) {
-            link.classList.add('active');
-        }
-    });
-}
-
-// Initialize everything when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    new UniversalNavigation();
-    setActiveNavLink();
-});
-
-// Export for potential module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { UniversalNavigation, setActiveNavLink };
-}
+  });
+})();

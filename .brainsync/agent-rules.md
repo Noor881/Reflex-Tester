@@ -30,6 +30,23 @@
 
 - Optimized Reflex
 - Optimized Your
+- decision in typing-speed-test.html
+- decision in fastest-reaction-time-ever-recorded.html
+- decision in genetics-vs-training-reaction-time.html
+- decision in mouse-sensitivity-reaction-time.html
+- decision in pro-gamer-reaction-times.html
+- decision in reaction-time-age-study.html
+
+## Recent fixes
+
+- Fixed null crash in DOCTYPE
+- Fixed null crash in DOCTYPE
+- problem-fix in memory-sequence-test.html
+- problem-fix in header-template.html
+
+## How things work
+
+- how-it-works in what-is-reaction-time.html
 
 ## 📚 Comprehensive Expert Skills (READ THESE)
 > **CRITICAL:** BrainSync has pre-compiled full expert rulebooks for this project. If you are working on any of the following domains, you MUST read the corresponding `SKILL.md` file BEFORE writing code to instantly learn all proper default skills:

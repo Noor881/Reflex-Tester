@@ -1,16 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Dashboard — Track Progress | ReflexTester.fun</title>
+    <title>Your Dashboard â€” Track Progress | ReflexTester.fun</title>
     <meta name="description"
         content="View your personal reflex testing stats and track progress over time. See your best scores, averages, and improvement trends.">
     <link rel="canonical" href="https://reflextester.fun/dashboard.html">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Your Dashboard — Track Progress | ReflexTester.fun">
+    <meta property="og:title" content="Your Dashboard â€” Track Progress | ReflexTester.fun">
     <meta property="og:description"
         content="View your personal reflex testing stats and track progress over time. See your best scores, averages, and improvement trends.">
     <meta property="og:url" content="https://reflextester.fun/dashboard.html">
@@ -19,7 +19,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Dashboard — Track Your Progress | ReflexTester.fun">
+    <meta name="twitter:title" content="Dashboard â€” Track Your Progress | ReflexTester.fun">
     <meta name="twitter:description" content="View your reflex testing stats and track progress over time.">
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -115,6 +115,7 @@
             margin-top: 24px;
         }
     </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
 </head>
 
 <body>
@@ -123,7 +124,7 @@
 
     <nav class="nav">
         <div class="nav-inner">
-            <a href="index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <a href="index.html" class="nav-logo"><span class="logo-icon">âš¡</span> ReflexTester</a>
             <div class="nav-menu" id="navMenu">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="dashboard.html" class="nav-link active">Dashboard</a>
@@ -132,14 +133,14 @@
                 <a href="contact.html" class="nav-link">Contact</a>
                 <a href="index.html#tools" class="nav-cta">All Tools</a>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">â˜°</button>
         </div>
     </nav>
 
     <main class="main-content" id="main">
         <section class="dashboard-hero">
             <div class="container">
-                <h1>📊 Your Dashboard</h1>
+                <h1>ðŸ“Š Your Dashboard</h1>
                 <p>Track your reflex testing progress and see how you stack up against benchmarks.</p>
             </div>
         </section>
@@ -147,33 +148,33 @@
         <section class="container">
             <div class="dashboard-grid" id="statsGrid">
                 <div class="stat-card">
-                    <h3>⚡ Visual Reflex</h3>
-                    <div class="value" id="visualBest">—</div>
+                    <h3>âš¡ Visual Reflex</h3>
+                    <div class="value" id="visualBest">â€”</div>
                     <div class="subtitle">Best Time (ms)</div>
                 </div>
                 <div class="stat-card">
-                    <h3>🔊 Audio Reflex</h3>
-                    <div class="value" id="audioBest">—</div>
+                    <h3>ðŸ”Š Audio Reflex</h3>
+                    <div class="value" id="audioBest">â€”</div>
                     <div class="subtitle">Best Time (ms)</div>
                 </div>
                 <div class="stat-card">
-                    <h3>🖱️ Click Speed</h3>
-                    <div class="value" id="cpsBest">—</div>
+                    <h3>ðŸ–±ï¸ Click Speed</h3>
+                    <div class="value" id="cpsBest">â€”</div>
                     <div class="subtitle">Best CPS</div>
                 </div>
                 <div class="stat-card">
-                    <h3>⌨️ Typing Speed</h3>
-                    <div class="value" id="typingBest">—</div>
+                    <h3>âŒ¨ï¸ Typing Speed</h3>
+                    <div class="value" id="typingBest">â€”</div>
                     <div class="subtitle">Best WPM</div>
                 </div>
                 <div class="stat-card">
-                    <h3>🧠 Memory Sequence</h3>
-                    <div class="value" id="memoryBest">—</div>
+                    <h3>ðŸ§  Memory Sequence</h3>
+                    <div class="value" id="memoryBest">â€”</div>
                     <div class="subtitle">Best Level</div>
                 </div>
                 <div class="stat-card">
-                    <h3>🎯 CS:GO Aim</h3>
-                    <div class="value" id="csgoBest">—</div>
+                    <h3>ðŸŽ¯ CS:GO Aim</h3>
+                    <div class="value" id="csgoBest">â€”</div>
                     <div class="subtitle">Best Score</div>
                 </div>
             </div>
@@ -182,7 +183,7 @@
                 <h2>Test History</h2>
                 <div id="historyContainer">
                     <div class="no-data">
-                        <div class="icon">📋</div>
+                        <div class="icon">ðŸ“‹</div>
                         <p>No test data yet. Complete some tests to see your history!</p>
                     </div>
                 </div>
@@ -195,7 +196,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
-                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+                <p>&copy; 2025 ReflexTester.fun â€” Professional Reflex Testing Platform</p>
             </div>
         </div>
     </footer>
@@ -212,12 +213,12 @@
                 const memory = ReflexStore.get('memory_results', []);
                 const csgo = ReflexStore.get('csgo_results', []);
 
-                document.getElementById('visualBest').textContent = visual.length ? Math.min(...visual) + 'ms' : '—';
-                document.getElementById('audioBest').textContent = audio.length ? Math.min(...audio) + 'ms' : '—';
-                document.getElementById('cpsBest').textContent = cps.length ? Math.max(...cps.map(r => r.cps)).toFixed(1) : '—';
-                document.getElementById('typingBest').textContent = typing.length ? Math.max(...typing.map(r => r.wpm)) : '—';
-                document.getElementById('memoryBest').textContent = memory.length ? Math.max(...memory.map(r => r.level)) : '—';
-                document.getElementById('csgoBest').textContent = csgo.length ? Math.max(...csgo.map(r => r.score)) : '—';
+                document.getElementById('visualBest').textContent = visual.length ? Math.min(...visual) + 'ms' : 'â€”';
+                document.getElementById('audioBest').textContent = audio.length ? Math.min(...audio) + 'ms' : 'â€”';
+                document.getElementById('cpsBest').textContent = cps.length ? Math.max(...cps.map(r => r.cps)).toFixed(1) : 'â€”';
+                document.getElementById('typingBest').textContent = typing.length ? Math.max(...typing.map(r => r.wpm)) : 'â€”';
+                document.getElementById('memoryBest').textContent = memory.length ? Math.max(...memory.map(r => r.level)) : 'â€”';
+                document.getElementById('csgoBest').textContent = csgo.length ? Math.max(...csgo.map(r => r.score)) : 'â€”';
 
                 const historyContainer = document.getElementById('historyContainer');
                 const allResults = [];
@@ -247,6 +248,7 @@
             loadStats();
         })();
     </script>
+<script src="nav.js"></script>
 </body>
 
 </html>
