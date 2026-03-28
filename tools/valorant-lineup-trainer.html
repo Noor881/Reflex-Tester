@@ -275,7 +275,7 @@
             </div>
         </div>
     </footer>
-    <script src="../main.js"></script><script>
+    <script src="../main.js" defer></script><script>
         (function () {
             let score = 0, hits = 0, misses = 0, streak = 0, bestStreak = 0, gameActive = false, timeLeft = 60;
             const els = { trainer: document.getElementById('lineupTrainer'), target: document.getElementById('target'), crosshair: document.getElementById('crosshair'), score: document.getElementById('score'), timer: document.getElementById('timer'), accuracy: document.getElementById('accuracy'), streak: document.getElementById('streak'), startBtn: document.getElementById('startBtn'), resetBtn: document.getElementById('resetBtn'), difficulty: document.getElementById('difficultySelect') };
@@ -343,8 +343,9 @@
             els.resetBtn.addEventListener('click', () => { score = 0; hits = 0; misses = 0; streak = 0; bestStreak = 0; updateStats(); });
         })();
     </script>
-<script src="../nav.js"></script>
+<script src="../nav.js" defer></script>
 </body>
 
 </html>
+
 

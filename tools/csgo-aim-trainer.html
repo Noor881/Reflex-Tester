@@ -15,6 +15,7 @@
     <meta property="og:description"
         content="Train your Counter-Strike aim in a realistic 3D shooting range with humanoid targets.">
     <meta property="og:url" content="https://reflextester.fun/tools/csgo-aim-trainer.html">
+    <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
 
@@ -298,7 +299,7 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="../main.js"></script><script>
+    <script src="../main.js" defer></script><script>
         (function () {
             const container = document.getElementById('canvasContainer');
             const canvas = document.getElementById('aimCanvas');
@@ -632,8 +633,9 @@
             updateStats();
         })();
     </script>
-<script src="../nav.js"></script>
+<script src="../nav.js" defer></script>
 </body>
 
 </html>
+
 

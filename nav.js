@@ -1,6 +1,6 @@
 /* ============================================================
    nav.js — Shared Navigation (single source of truth)
-   Automatically injects nav + footer into every page
+   Injects nav + footer only if not already present in HTML
    ============================================================ */
 
 (function () {
@@ -93,8 +93,10 @@
     </footer>
   `;
 
-  // Inject nav at top of body
-  document.body.insertAdjacentHTML('afterbegin', navHTML);
+  // Only inject nav if page doesn't already have one
+  if (!document.querySelector('nav.nav')) {
+    document.body.insertAdjacentHTML('afterbegin', navHTML);
+  }
 
   // Inject footer before end of body (if no footer already present)
   if (!document.querySelector('footer.footer')) {

@@ -1,47 +1,31 @@
 {
-    "name": "Ultimate Human Benchmark Reaction Time Tester",
+    "name": "ReflexTester.fun",
     "short_name": "ReflexTester",
-    "description": "Professional reaction time testing suite used by gamers, athletes & pilots",
+    "description": "Free professional reflex testing and aim training. 13 tools for gamers.",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#667eea",
-    "theme_color": "#667eea",
-    "orientation": "portrait",
+    "background_color": "#0a0a0f",
+    "theme_color": "#4ecdc4",
+    "orientation": "any",
     "scope": "/",
     "lang": "en-US",
-    "categories": ["health", "games", "sports", "productivity", "education"],
-    "screenshots": [
-        {
-            "src": "/images/screenshot1.png",
-            "sizes": "1280x720",
-            "type": "image/png",
-            "form_factor": "wide"
-        },
-        {
-            "src": "/images/screenshot2.png", 
-            "sizes": "750x1334",
-            "type": "image/png",
-            "form_factor": "narrow"
-        }
-    ],
+    "categories": ["games", "sports", "education"],
     "icons": [
         {
             "src": "/favicon-16x16.png",
             "sizes": "16x16",
-            "type": "image/png",
-            "purpose": "any"
+            "type": "image/png"
         },
         {
             "src": "/favicon-32x32.png",
             "sizes": "32x32",
-            "type": "image/png",
-            "purpose": "any"
+            "type": "image/png"
         },
         {
             "src": "/apple-touch-icon.png",
             "sizes": "180x180",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
         },
         {
             "src": "/android-chrome-192x192.png",
@@ -53,25 +37,21 @@
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "maskable"
         }
     ],
-    "prefer_related_applications": false,
-    "related_applications": [],
     "shortcuts": [
         {
-            "name": "Visual Reaction Test",
-            "short_name": "Visual Test",
-            "description": "Test your visual reaction time",
-            "url": "/#visual",
-            "icons": [{"src": "/favicon-96x96.png", "sizes": "96x96"}]
+            "name": "Visual Reflex Test",
+            "short_name": "Reflex Test",
+            "url": "/tools/visual-reflex-test.html",
+            "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
         },
         {
-            "name": "Audio Reaction Test", 
-            "short_name": "Audio Test",
-            "description": "Test your audio reaction time",
-            "url": "/#audio",
-            "icons": [{"src": "/favicon-96x96.png", "sizes": "96x96"}]
+            "name": "CS:GO Aim Trainer",
+            "short_name": "Aim Trainer",
+            "url": "/tools/csgo-aim-trainer.html",
+            "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
         }
     ]
 }

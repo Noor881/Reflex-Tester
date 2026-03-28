@@ -39,11 +39,11 @@
 
 ## Recent fixes
 
-- Fixed null crash in ReflexStore
-- Fixed null crash in Valorant
-- Fixed null crash in FFFFFF
-- Fixed null crash in Holger
-- Fixed null crash in JSON — fixes memory leak from uncleared timers
+- Fixed null crash in DOCTYPE — fixes memory leak from uncleared timers
+- Fixed null crash in DOCTYPE — fixes memory leak from uncleared timers
+- Fixed null crash in DOCTYPE
+- Fixed null crash in DOCTYPE — offloads heavy computation off the main thread
+- Fixed null crash in DOCTYPE
 
 ## How things work
 
@@ -52,6 +52,7 @@
 ## 📚 Comprehensive Expert Skills (READ THESE)
 > **CRITICAL:** BrainSync has pre-compiled full expert rulebooks for this project. If you are working on any of the following domains, you MUST read the corresponding `SKILL.md` file BEFORE writing code to instantly learn all proper default skills:
 
+- **convention**: Read `.agent/skills/auto/convention/SKILL.md`
 - **css**: Read `.agent/skills/auto/css/SKILL.md`
 - **html**: Read `.agent/skills/auto/html/SKILL.md`
 - **project**: Read `.agent/skills/auto/project/SKILL.md`
