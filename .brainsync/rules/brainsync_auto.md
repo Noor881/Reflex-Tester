@@ -1,7 +1,7 @@
 
 
 # Project Memory — Reflex-Tester
-> 63 notes | Score threshold: >40
+> 71 notes | Score threshold: >40
 
 ## Safety — Never Run Destructive Commands
 
@@ -18,7 +18,14 @@
 
 **Stack:** JavaScript
 
-## 📝 NOTE: 1 uncommitted file(s) in working tree.\n\n## Project Standards
+## 📝 NOTE: 1 uncommitted file(s) in working tree.\n\n## Important Warnings
+
+- **gotcha in contact.html** — File updated (external): contact.html
+
+Content summary (202 lines):
+<!
+
+## Project Standards
 
 - convention in .gitignore
 - Enable strict mode in tsconfig.json

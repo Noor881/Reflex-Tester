@@ -1,5 +1,5 @@
 # Project Notes — Reflex-Tester
-> 63 notes | Updated: 3/28/2026
+> 71 notes | Updated: 3/28/2026
 
 ## Safety Rules
 
@@ -7,7 +7,7 @@
 - **NEVER** delete untracked files or folders blindly. Always backup or stash before bulk edits.
 
 ## Quick Reference
-- 23 warnings → see `.agent-mem/gotchas.md`
+- 24 warnings → see `.agent-mem/gotchas.md`
 - 33 conventions → see `.agent-mem/patterns.md`
 - Codebase map → see `.agent-mem/project-brief.md`
 - Active work → see `.agent-mem/active-context.md`
@@ -32,7 +32,7 @@ For observation details: `.agent-mem/observations/`
 *Auto-generated*
 
 # Project Memory — Reflex-Tester
-> 63 notes | Score threshold: >40
+> 71 notes | Score threshold: >40
 
 ## Safety — Never Run Destructive Commands
 
@@ -49,7 +49,14 @@ For observation details: `.agent-mem/observations/`
 
 **Stack:** JavaScript
 
-## 📝 NOTE: 1 uncommitted file(s) in working tree.\n\n## Project Standards
+## 📝 NOTE: 1 uncommitted file(s) in working tree.\n\n## Important Warnings
+
+- **gotcha in contact.html** — File updated (external): contact.html
+
+Content summary (202 lines):
+<!
+
+## Project Standards
 
 - convention in .gitignore
 - Enable strict mode in tsconfig.json

@@ -34,5 +34,6 @@
 ## 📚 Comprehensive Expert Skills (READ THESE)
 > **CRITICAL:** BrainSync has pre-compiled full expert rulebooks for this project. If you are working on any of the following domains, you MUST read the corresponding `SKILL.md` file BEFORE writing code to instantly learn all proper default skills:
 
+- **css**: Read `.agent/skills/auto/css/SKILL.md`
 - **html**: Read `.agent/skills/auto/html/SKILL.md`
 - **project**: Read `.agent/skills/auto/project/SKILL.md`

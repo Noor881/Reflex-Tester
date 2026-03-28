@@ -1,8 +1,8 @@
 {
   "project": {
     "enabled": true,
-    "lastGenerated": "2026-03-28T10:11:25.430Z",
-    "observationCount": 58,
+    "lastGenerated": "2026-03-28T11:01:25.391Z",
+    "observationCount": 59,
     "skillCount": 0,
     "domain": "project",
     "triggerGlobs": [
@@ -12,13 +12,25 @@
   },
   "html": {
     "enabled": true,
-    "lastGenerated": "2026-03-28T10:11:25.431Z",
-    "observationCount": 4,
+    "lastGenerated": "2026-03-28T11:01:25.391Z",
+    "observationCount": 9,
     "skillCount": 0,
     "domain": "html",
     "triggerGlobs": [
       "**/*.html"
     ],
-    "description": "Html for Reflex-Tester. ."
+    "description": "Html for Reflex-Tester. 1 gotchas."
+  },
+  "css": {
+    "enabled": true,
+    "lastGenerated": "2026-03-28T11:01:25.391Z",
+    "observationCount": 3,
+    "skillCount": 0,
+    "domain": "css",
+    "triggerGlobs": [
+      "**/*.css",
+      "**/*.scss"
+    ],
+    "description": "Css for Reflex-Tester. ."
   }
 }
