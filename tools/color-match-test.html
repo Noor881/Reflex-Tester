@@ -33,6 +33,219 @@
     <link rel="stylesheet" href="../styles.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
     <style>
+        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
+        :root {
+            --tool-accent:     #F59E0B;
+            --tool-accent-rgb: 245,158,11;
+            --tool-accent-dim: rgba(245,158,11, 0.12);
+            --tool-accent-glow: 0 0 24px rgba(245,158,11, 0.3);
+            --tool-bg:         #0f0b03;
+            --tool-text-on:    #000;
+            --tool-header:     #FCD34D;
+        }
+
+        /* Test panel — unique top border + subtle bg tint */
+        .test-panel {
+            border-top: 2px solid #F59E0B !important;
+            background: #0f0b03 !important;
+        }
+
+        /* Headings inherit tool color */
+        .test-panel h1,
+        .test-panel h2 {
+            color: #FCD34D;
+        }
+
+        /* Primary button — tool color */
+        .btn-primary {
+            background: #F59E0B !important;
+            color: #000 !important;
+            box-shadow: none;
+        }
+        .btn-primary:hover {
+            background: #F59E0B !important;
+            opacity: 0.88;
+            box-shadow: 0 6px 24px rgba(245,158,11, 0.4) !important;
+            transform: translateY(-1px);
+        }
+
+        /* HUD cells — tool accent top strip */
+        .hud-cell {
+            border-top: 2px solid #F59E0B !important;
+            background: color-mix(in srgb, #0f0b03 90%, #fff 10%) !important;
+        }
+        .hud-cell-val {
+            color: #F59E0B !important;
+        }
+
+        /* Score card */
+        .score-card {
+            border-top: 2px solid #F59E0B !important;
+            background: #0f0b03 !important;
+        }
+        .score-card-value {
+            color: #F59E0B !important;
+        }
+
+        /* Stats panel left bar */
+        .stats-panel {
+            border-left: 2px solid #F59E0B !important;
+            background: #0f0b03 !important;
+        }
+        .stats-panel h4 {
+            color: #F59E0B !important;
+        }
+
+        /* Section label / info h3 */
+        .info-section h3 {
+            color: #F59E0B;
+        }
+
+        /* Aim canvas */
+        .aim-canvas-wrap {
+            background: linear-gradient(160deg, #0f0b03 0%, #0f0b03 100%) !important;
+            border-top: 2px solid #F59E0B !important;
+        }
+        .aim-hud-item span {
+            color: #F59E0B !important;
+        }
+        .aim-timer-display {
+            color: #F59E0B !important;
+        }
+        .hitmarker {
+            color: #F59E0B !important;
+        }
+
+        /* Mode buttons active state */
+        .aim-mode-btn.active {
+            background: #F59E0B !important;
+            color: #000 !important;
+            border-color: #F59E0B !important;
+        }
+
+        /* CPS tab active */
+        .cps-tab.active,
+        .cps-duration-btn.active {
+            background: #F59E0B !important;
+            color: #000 !important;
+            border-color: #F59E0B !important;
+        }
+
+        /* Click zone running state */
+        .cps-click-zone {
+            border-top-color: rgba(245,158,11, 0.3) !important;
+        }
+        .cps-click-zone.running {
+            border-top-color: #F59E0B !important;
+            box-shadow: 0 0 30px rgba(245,158,11, 0.12) !important;
+        }
+        .cps-live-cps {
+            color: #F59E0B !important;
+        }
+        .cps-progress-inner {
+            background: linear-gradient(90deg, #F59E0B, #22c55e) !important;
+        }
+        .cps-ripple {
+            background: rgba(245,158,11, 0.2) !important;
+        }
+
+        /* Reflex circle states — override to tool accent for result */
+        .reflex-circle-wrap.state-result .reflex-ring {
+            border-color: #F59E0B !important;
+            box-shadow: 0 0 20px rgba(245,158,11, 0.25) !important;
+        }
+        .reflex-circle-wrap.state-result .reflex-circle-value {
+            color: #F59E0B !important;
+        }
+        .reflex-circle-wrap.state-idle .reflex-circle {
+            background: #0f0b03 !important;
+        }
+
+        /* Sequence tiles */
+        .sequence-tile.active {
+            background: rgba(245,158,11, 0.25) !important;
+            border-color: #F59E0B !important;
+            box-shadow: 0 0 16px rgba(245,158,11, 0.3) !important;
+        }
+
+        /* Color options / stroop buttons */
+        .stroop-btn.correct {
+            background: #F59E0B !important;
+            box-shadow: 0 0 16px rgba(245,158,11, 0.4) !important;
+        }
+
+        /* Typing current char */
+        .typing-text .current-char {
+            background: rgba(245,158,11, 0.25) !important;
+            border-bottom-color: #F59E0B !important;
+        }
+        .typing-input:focus {
+            border-color: #F59E0B !important;
+        }
+
+        /* Peripheral / coordination target */
+        .peripheral-center {
+            background: #F59E0B !important;
+        }
+        .coordination-target {
+            background: #F59E0B !important;
+            box-shadow: 0 0 16px rgba(245,158,11, 0.4) !important;
+        }
+
+        /* Number tiles */
+        .number-tile {
+            background: rgba(245,158,11, 0.08) !important;
+            border-color: rgba(245,158,11, 0.4) !important;
+        }
+        .number-tile.next {
+            background: rgba(245,158,11, 0.25) !important;
+            border-color: #F59E0B !important;
+        }
+
+        /* Progress fill */
+        .progress-fill {
+            background: #F59E0B !important;
+        }
+
+        /* Form focus */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .sens-field select:focus,
+        .sens-field input:focus {
+            border-color: #F59E0B !important;
+        }
+
+        /* Filter buttons */
+        .filter-btn.active,
+        .cps-duration-btn.active {
+            color: #F59E0B !important;
+            border-color: rgba(245,158,11, 0.5) !important;
+            background: rgba(245,158,11, 0.1) !important;
+        }
+
+        /* Dashboard card value */
+        .dashboard-card .card-value {
+            color: #F59E0B !important;
+        }
+
+        /* Breadcrumb active link */
+        .breadcrumb a:hover {
+            color: #F59E0B !important;
+        }
+
+        /* Score display inline (legacy fallback) */
+        #scoreDisplay .score-card-value,
+        #resultDisplay {
+            color: #F59E0B !important;
+        }
+
+        /* Focus visible outline */
+        :focus-visible {
+            outline-color: #F59E0B !important;
+        }
+        /* ═══════════════════════════════════════════════════════════════════ */
+
         .color-arena {
             display: flex;
             flex-direction: column;
@@ -75,7 +288,7 @@
             padding: 10px 16px;
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
-            border-radius: 12px;
+            border-radius: 6px;
             font-size: 0.9rem;
         }
         .hud-val { font-weight: 700; color: var(--text-primary); }
@@ -99,7 +312,7 @@
         }
         .color-btn {
             height: 60px;
-            border-radius: 12px;
+            border-radius: 6px;
             border: 2px solid transparent;
             cursor: pointer;
             transition: transform 0.12s, border-color 0.15s, filter 0.15s, box-shadow 0.15s;
@@ -179,6 +392,82 @@
             .color-options-grid { grid-template-columns:repeat(3,1fr); }
             .reflex-hud { grid-template-columns:repeat(2,1fr); }
         }
+    
+        /* ── Performance Lab Design System (injected) ── */
+        :root {
+            --orange: #FF4D00;
+            --orange-dim: rgba(255,77,0,0.15);
+            --orange-glow: 0 0 24px rgba(255,77,0,0.3);
+        }
+
+        /* Grade badges — Performance Lab */
+        .grade-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1px solid;
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+        }
+        .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
+        .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
+        .grade-good        { background: rgba(255,77,0,0.1);   color: #FF4D00; border-color: rgba(255,77,0,0.35); }
+        .grade-average     { background: rgba(250,204,21,0.1); color: #facc15; border-color: rgba(250,204,21,0.35); }
+        .grade-poor        { background: rgba(239,68,68,0.1);  color: #f87171; border-color: rgba(239,68,68,0.35); }
+
+        /* HUD cells */
+        .hud-cell {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 6px;
+            padding: 14px 10px;
+            text-align: center;
+        }
+        .hud-cell-val {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary, #f5f5f0);
+            margin-bottom: 3px;
+        }
+        .hud-cell-lbl {
+            font-size: 0.68rem;
+            color: var(--text-muted, #444);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        /* Score display card */
+        .score-card {
+            background: #0d0d0d;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+            margin: 16px 0;
+        }
+        .score-card-value {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .score-card-sub {
+            font-size: 0.875rem;
+            color: var(--text-secondary, #888);
+            margin-bottom: 12px;
+        }
+
     </style>
 </head>
 

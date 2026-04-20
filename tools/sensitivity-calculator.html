@@ -41,6 +41,219 @@
 
     <link rel="stylesheet" href="../styles.css">
     <style>
+        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
+        :root {
+            --tool-accent:     #64748B;
+            --tool-accent-rgb: 100,116,139;
+            --tool-accent-dim: rgba(100,116,139, 0.12);
+            --tool-accent-glow: 0 0 24px rgba(100,116,139, 0.3);
+            --tool-bg:         #060608;
+            --tool-text-on:    #fff;
+            --tool-header:     #94A3B8;
+        }
+
+        /* Test panel — unique top border + subtle bg tint */
+        .test-panel {
+            border-top: 2px solid #64748B !important;
+            background: #060608 !important;
+        }
+
+        /* Headings inherit tool color */
+        .test-panel h1,
+        .test-panel h2 {
+            color: #94A3B8;
+        }
+
+        /* Primary button — tool color */
+        .btn-primary {
+            background: #64748B !important;
+            color: #fff !important;
+            box-shadow: none;
+        }
+        .btn-primary:hover {
+            background: #64748B !important;
+            opacity: 0.88;
+            box-shadow: 0 6px 24px rgba(100,116,139, 0.4) !important;
+            transform: translateY(-1px);
+        }
+
+        /* HUD cells — tool accent top strip */
+        .hud-cell {
+            border-top: 2px solid #64748B !important;
+            background: color-mix(in srgb, #060608 90%, #fff 10%) !important;
+        }
+        .hud-cell-val {
+            color: #64748B !important;
+        }
+
+        /* Score card */
+        .score-card {
+            border-top: 2px solid #64748B !important;
+            background: #060608 !important;
+        }
+        .score-card-value {
+            color: #64748B !important;
+        }
+
+        /* Stats panel left bar */
+        .stats-panel {
+            border-left: 2px solid #64748B !important;
+            background: #060608 !important;
+        }
+        .stats-panel h4 {
+            color: #64748B !important;
+        }
+
+        /* Section label / info h3 */
+        .info-section h3 {
+            color: #64748B;
+        }
+
+        /* Aim canvas */
+        .aim-canvas-wrap {
+            background: linear-gradient(160deg, #060608 0%, #060608 100%) !important;
+            border-top: 2px solid #64748B !important;
+        }
+        .aim-hud-item span {
+            color: #64748B !important;
+        }
+        .aim-timer-display {
+            color: #64748B !important;
+        }
+        .hitmarker {
+            color: #64748B !important;
+        }
+
+        /* Mode buttons active state */
+        .aim-mode-btn.active {
+            background: #64748B !important;
+            color: #fff !important;
+            border-color: #64748B !important;
+        }
+
+        /* CPS tab active */
+        .cps-tab.active,
+        .cps-duration-btn.active {
+            background: #64748B !important;
+            color: #fff !important;
+            border-color: #64748B !important;
+        }
+
+        /* Click zone running state */
+        .cps-click-zone {
+            border-top-color: rgba(100,116,139, 0.3) !important;
+        }
+        .cps-click-zone.running {
+            border-top-color: #64748B !important;
+            box-shadow: 0 0 30px rgba(100,116,139, 0.12) !important;
+        }
+        .cps-live-cps {
+            color: #64748B !important;
+        }
+        .cps-progress-inner {
+            background: linear-gradient(90deg, #64748B, #22c55e) !important;
+        }
+        .cps-ripple {
+            background: rgba(100,116,139, 0.2) !important;
+        }
+
+        /* Reflex circle states — override to tool accent for result */
+        .reflex-circle-wrap.state-result .reflex-ring {
+            border-color: #64748B !important;
+            box-shadow: 0 0 20px rgba(100,116,139, 0.25) !important;
+        }
+        .reflex-circle-wrap.state-result .reflex-circle-value {
+            color: #64748B !important;
+        }
+        .reflex-circle-wrap.state-idle .reflex-circle {
+            background: #060608 !important;
+        }
+
+        /* Sequence tiles */
+        .sequence-tile.active {
+            background: rgba(100,116,139, 0.25) !important;
+            border-color: #64748B !important;
+            box-shadow: 0 0 16px rgba(100,116,139, 0.3) !important;
+        }
+
+        /* Color options / stroop buttons */
+        .stroop-btn.correct {
+            background: #64748B !important;
+            box-shadow: 0 0 16px rgba(100,116,139, 0.4) !important;
+        }
+
+        /* Typing current char */
+        .typing-text .current-char {
+            background: rgba(100,116,139, 0.25) !important;
+            border-bottom-color: #64748B !important;
+        }
+        .typing-input:focus {
+            border-color: #64748B !important;
+        }
+
+        /* Peripheral / coordination target */
+        .peripheral-center {
+            background: #64748B !important;
+        }
+        .coordination-target {
+            background: #64748B !important;
+            box-shadow: 0 0 16px rgba(100,116,139, 0.4) !important;
+        }
+
+        /* Number tiles */
+        .number-tile {
+            background: rgba(100,116,139, 0.08) !important;
+            border-color: rgba(100,116,139, 0.4) !important;
+        }
+        .number-tile.next {
+            background: rgba(100,116,139, 0.25) !important;
+            border-color: #64748B !important;
+        }
+
+        /* Progress fill */
+        .progress-fill {
+            background: #64748B !important;
+        }
+
+        /* Form focus */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .sens-field select:focus,
+        .sens-field input:focus {
+            border-color: #64748B !important;
+        }
+
+        /* Filter buttons */
+        .filter-btn.active,
+        .cps-duration-btn.active {
+            color: #64748B !important;
+            border-color: rgba(100,116,139, 0.5) !important;
+            background: rgba(100,116,139, 0.1) !important;
+        }
+
+        /* Dashboard card value */
+        .dashboard-card .card-value {
+            color: #64748B !important;
+        }
+
+        /* Breadcrumb active link */
+        .breadcrumb a:hover {
+            color: #64748B !important;
+        }
+
+        /* Score display inline (legacy fallback) */
+        #scoreDisplay .score-card-value,
+        #resultDisplay {
+            color: #64748B !important;
+        }
+
+        /* Focus visible outline */
+        :focus-visible {
+            outline-color: #64748B !important;
+        }
+        /* ═══════════════════════════════════════════════════════════════════ */
+
         .calc-container {
             max-width: 700px;
             margin: 30px auto;
@@ -93,7 +306,7 @@
         .result-box {
             background: linear-gradient(135deg, #6e3fff 0%, #a855f7 100%);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 6px;
             text-align: center;
             margin-top: 20px;
         }
@@ -198,6 +411,137 @@
             color: #fff;
             border-color: #a855f7;
         }
+    
+        /* ── Performance Lab Design System (injected) ── */
+        :root {
+            --orange: #FF4D00;
+            --orange-dim: rgba(255,77,0,0.15);
+            --orange-glow: 0 0 24px rgba(255,77,0,0.3);
+        }
+
+        /* Grade badges — Performance Lab */
+        .grade-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1px solid;
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+        }
+        .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
+        .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
+        .grade-good        { background: rgba(255,77,0,0.1);   color: #FF4D00; border-color: rgba(255,77,0,0.35); }
+        .grade-average     { background: rgba(250,204,21,0.1); color: #facc15; border-color: rgba(250,204,21,0.35); }
+        .grade-poor        { background: rgba(239,68,68,0.1);  color: #f87171; border-color: rgba(239,68,68,0.35); }
+
+        /* HUD cells */
+        .hud-cell {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 6px;
+            padding: 14px 10px;
+            text-align: center;
+        }
+        .hud-cell-val {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary, #f5f5f0);
+            margin-bottom: 3px;
+        }
+        .hud-cell-lbl {
+            font-size: 0.68rem;
+            color: var(--text-muted, #444);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        /* Score display card */
+        .score-card {
+            background: #0d0d0d;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+            margin: 16px 0;
+        }
+        .score-card-value {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .score-card-sub {
+            font-size: 0.875rem;
+            color: var(--text-secondary, #888);
+            margin-bottom: 12px;
+        }
+
+    
+        .sens-form {
+            display: grid;
+            gap: 16px;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+        .sens-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .sens-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .sens-field label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+        }
+        .sens-field select,
+        .sens-field input[type=number] {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 5px;
+            color: var(--text-primary);
+            padding: 10px 12px;
+            font-size: 0.95rem;
+            font-family: var(--font-mono, monospace);
+            outline: none;
+            transition: border-color 0.15s;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .sens-field select:focus,
+        .sens-field input[type=number]:focus {
+            border-color: #FF4D00;
+        }
+        #resultBox {
+            background: #0d0d0d;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid #FF4D00;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: var(--font-mono, monospace);
+            min-height: 60px;
+            white-space: pre-wrap;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
     </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
 </head>
@@ -456,9 +800,13 @@
             const dpi = parseInt(document.getElementById('dpi').value);
 
             if (!fromSens || !dpi || fromSens <= 0 || dpi <= 0) {
-                alert('Please enter valid sensitivity and DPI values');
+                document.getElementById('resultBox').style.display = 'block';
+                document.getElementById('resultBox').style.borderColor = '#ef4444';
+                document.getElementById('resultBox').innerHTML = '<p style="color:#ef4444;font-weight:700;">⚠️ Please enter valid sensitivity and DPI values.</p>';
                 return;
             }
+            document.getElementById('resultBox').style.borderColor = '';
+            document.getElementById('resultBox').innerHTML = '';
 
             const cm360 = calculateCm360(fromSens, dpi, sensitivityMultipliers[fromGame]);
             const convertedSens = sensFromCm360(cm360, dpi, sensitivityMultipliers[toGame]);

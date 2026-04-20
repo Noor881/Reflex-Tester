@@ -33,6 +33,219 @@
     <link rel="stylesheet" href="../styles.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
     <style>
+        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
+        :root {
+            --tool-accent:     #3B82F6;
+            --tool-accent-rgb: 59,130,246;
+            --tool-accent-dim: rgba(59,130,246, 0.12);
+            --tool-accent-glow: 0 0 24px rgba(59,130,246, 0.3);
+            --tool-bg:         #05080f;
+            --tool-text-on:    #fff;
+            --tool-header:     #60A5FA;
+        }
+
+        /* Test panel — unique top border + subtle bg tint */
+        .test-panel {
+            border-top: 2px solid #3B82F6 !important;
+            background: #05080f !important;
+        }
+
+        /* Headings inherit tool color */
+        .test-panel h1,
+        .test-panel h2 {
+            color: #60A5FA;
+        }
+
+        /* Primary button — tool color */
+        .btn-primary {
+            background: #3B82F6 !important;
+            color: #fff !important;
+            box-shadow: none;
+        }
+        .btn-primary:hover {
+            background: #3B82F6 !important;
+            opacity: 0.88;
+            box-shadow: 0 6px 24px rgba(59,130,246, 0.4) !important;
+            transform: translateY(-1px);
+        }
+
+        /* HUD cells — tool accent top strip */
+        .hud-cell {
+            border-top: 2px solid #3B82F6 !important;
+            background: color-mix(in srgb, #05080f 90%, #fff 10%) !important;
+        }
+        .hud-cell-val {
+            color: #3B82F6 !important;
+        }
+
+        /* Score card */
+        .score-card {
+            border-top: 2px solid #3B82F6 !important;
+            background: #05080f !important;
+        }
+        .score-card-value {
+            color: #3B82F6 !important;
+        }
+
+        /* Stats panel left bar */
+        .stats-panel {
+            border-left: 2px solid #3B82F6 !important;
+            background: #05080f !important;
+        }
+        .stats-panel h4 {
+            color: #3B82F6 !important;
+        }
+
+        /* Section label / info h3 */
+        .info-section h3 {
+            color: #3B82F6;
+        }
+
+        /* Aim canvas */
+        .aim-canvas-wrap {
+            background: linear-gradient(160deg, #05080f 0%, #05080f 100%) !important;
+            border-top: 2px solid #3B82F6 !important;
+        }
+        .aim-hud-item span {
+            color: #3B82F6 !important;
+        }
+        .aim-timer-display {
+            color: #3B82F6 !important;
+        }
+        .hitmarker {
+            color: #3B82F6 !important;
+        }
+
+        /* Mode buttons active state */
+        .aim-mode-btn.active {
+            background: #3B82F6 !important;
+            color: #fff !important;
+            border-color: #3B82F6 !important;
+        }
+
+        /* CPS tab active */
+        .cps-tab.active,
+        .cps-duration-btn.active {
+            background: #3B82F6 !important;
+            color: #fff !important;
+            border-color: #3B82F6 !important;
+        }
+
+        /* Click zone running state */
+        .cps-click-zone {
+            border-top-color: rgba(59,130,246, 0.3) !important;
+        }
+        .cps-click-zone.running {
+            border-top-color: #3B82F6 !important;
+            box-shadow: 0 0 30px rgba(59,130,246, 0.12) !important;
+        }
+        .cps-live-cps {
+            color: #3B82F6 !important;
+        }
+        .cps-progress-inner {
+            background: linear-gradient(90deg, #3B82F6, #22c55e) !important;
+        }
+        .cps-ripple {
+            background: rgba(59,130,246, 0.2) !important;
+        }
+
+        /* Reflex circle states — override to tool accent for result */
+        .reflex-circle-wrap.state-result .reflex-ring {
+            border-color: #3B82F6 !important;
+            box-shadow: 0 0 20px rgba(59,130,246, 0.25) !important;
+        }
+        .reflex-circle-wrap.state-result .reflex-circle-value {
+            color: #3B82F6 !important;
+        }
+        .reflex-circle-wrap.state-idle .reflex-circle {
+            background: #05080f !important;
+        }
+
+        /* Sequence tiles */
+        .sequence-tile.active {
+            background: rgba(59,130,246, 0.25) !important;
+            border-color: #3B82F6 !important;
+            box-shadow: 0 0 16px rgba(59,130,246, 0.3) !important;
+        }
+
+        /* Color options / stroop buttons */
+        .stroop-btn.correct {
+            background: #3B82F6 !important;
+            box-shadow: 0 0 16px rgba(59,130,246, 0.4) !important;
+        }
+
+        /* Typing current char */
+        .typing-text .current-char {
+            background: rgba(59,130,246, 0.25) !important;
+            border-bottom-color: #3B82F6 !important;
+        }
+        .typing-input:focus {
+            border-color: #3B82F6 !important;
+        }
+
+        /* Peripheral / coordination target */
+        .peripheral-center {
+            background: #3B82F6 !important;
+        }
+        .coordination-target {
+            background: #3B82F6 !important;
+            box-shadow: 0 0 16px rgba(59,130,246, 0.4) !important;
+        }
+
+        /* Number tiles */
+        .number-tile {
+            background: rgba(59,130,246, 0.08) !important;
+            border-color: rgba(59,130,246, 0.4) !important;
+        }
+        .number-tile.next {
+            background: rgba(59,130,246, 0.25) !important;
+            border-color: #3B82F6 !important;
+        }
+
+        /* Progress fill */
+        .progress-fill {
+            background: #3B82F6 !important;
+        }
+
+        /* Form focus */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .sens-field select:focus,
+        .sens-field input:focus {
+            border-color: #3B82F6 !important;
+        }
+
+        /* Filter buttons */
+        .filter-btn.active,
+        .cps-duration-btn.active {
+            color: #3B82F6 !important;
+            border-color: rgba(59,130,246, 0.5) !important;
+            background: rgba(59,130,246, 0.1) !important;
+        }
+
+        /* Dashboard card value */
+        .dashboard-card .card-value {
+            color: #3B82F6 !important;
+        }
+
+        /* Breadcrumb active link */
+        .breadcrumb a:hover {
+            color: #3B82F6 !important;
+        }
+
+        /* Score display inline (legacy fallback) */
+        #scoreDisplay .score-card-value,
+        #resultDisplay {
+            color: #3B82F6 !important;
+        }
+
+        /* Focus visible outline */
+        :focus-visible {
+            outline-color: #3B82F6 !important;
+        }
+        /* ═══════════════════════════════════════════════════════════════════ */
+
         .audio-arena {
             display: flex;
             flex-direction: column;
@@ -68,13 +281,13 @@
         .reflex-arena { display:flex; flex-direction:column; align-items:center; gap:24px; padding:32px 16px; }
         .reflex-circle-wrap { position:relative; width:280px; height:280px; cursor:pointer; user-select:none; -webkit-user-select:none; }
         .reflex-ring { position:absolute; inset:0; border-radius:50%; border:3px solid transparent; transition:border-color 0.2s, box-shadow 0.2s; }
-        .reflex-circle { position:absolute; inset:8px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; transition:background 0.15s, box-shadow 0.2s; background:#1e1e3a; box-shadow:0 0 30px rgba(0,0,0,0.4); }
+        .reflex-circle { position:absolute; inset:8px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; transition:background 0.15s, box-shadow 0.2s; background:#111111; box-shadow:0 0 30px rgba(0,0,0,0.4); }
         .reflex-circle-label { font-size:1rem; font-weight:600; color:var(--text-secondary); letter-spacing:0.05em; transition:color 0.15s; }
         .reflex-circle-value { font-size:2.8rem; font-weight:800; color:var(--text-primary); letter-spacing:-0.02em; transition:color 0.15s; }
         .reflex-circle-sub { font-size:0.8rem; color:var(--text-muted); text-align:center; padding:0 16px; }
         .reflex-circle-wrap:active .reflex-circle { transform:scale(0.96); }
 
-        .reflex-circle-wrap.state-idle .reflex-ring { border-color:#3a3a5a; }
+        .reflex-circle-wrap.state-idle .reflex-ring { border-color:rgba(255,255,255,0.1); }
         .reflex-circle-wrap.state-ready .reflex-ring { border-color:var(--accent-red); box-shadow:0 0 20px rgba(255,80,80,0.3); }
         .reflex-circle-wrap.state-ready .reflex-circle-value { color:var(--accent-red); }
         .reflex-circle-wrap.state-go .reflex-circle { background:#0d1a2f; box-shadow:0 0 60px rgba(0,200,255,0.4); }
@@ -118,6 +331,101 @@
             .reflex-hud { grid-template-columns:repeat(2,1fr); }
             .reflex-circle-wrap { width:220px; height:220px; }
         }
+    
+        /* ── Performance Lab Design System (injected) ── */
+        :root {
+            --orange: #FF4D00;
+            --orange-dim: rgba(255,77,0,0.15);
+            --orange-glow: 0 0 24px rgba(255,77,0,0.3);
+        }
+
+        /* Grade badges — Performance Lab */
+        .grade-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1px solid;
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+        }
+        .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
+        .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
+        .grade-good        { background: rgba(255,77,0,0.1);   color: #FF4D00; border-color: rgba(255,77,0,0.35); }
+        .grade-average     { background: rgba(250,204,21,0.1); color: #facc15; border-color: rgba(250,204,21,0.35); }
+        .grade-poor        { background: rgba(239,68,68,0.1);  color: #f87171; border-color: rgba(239,68,68,0.35); }
+
+        /* HUD cells */
+        .hud-cell {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 6px;
+            padding: 14px 10px;
+            text-align: center;
+        }
+        .hud-cell-val {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary, #f5f5f0);
+            margin-bottom: 3px;
+        }
+        .hud-cell-lbl {
+            font-size: 0.68rem;
+            color: var(--text-muted, #444);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        /* Score display card */
+        .score-card {
+            background: #0d0d0d;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+            margin: 16px 0;
+        }
+        .score-card-value {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .score-card-sub {
+            font-size: 0.875rem;
+            color: var(--text-secondary, #888);
+            margin-bottom: 12px;
+        }
+
+    
+        .reflex-circle-wrap.state-idle .reflex-circle  { background: #111; }
+        .reflex-circle-wrap.state-idle .reflex-ring    { border-color: rgba(255,255,255,0.1); }
+        .reflex-circle-wrap.state-ready .reflex-circle { background: #120808; }
+        .reflex-circle-wrap.state-ready .reflex-ring   { border-color: #FF4D00; box-shadow: 0 0 20px rgba(255,77,0,0.25); }
+        .reflex-circle-wrap.state-ready .reflex-circle-value { color: #FF4D00; }
+        .reflex-circle-wrap.state-go .reflex-circle    { background: #091a0d; box-shadow: 0 0 60px rgba(34,197,94,0.4); }
+        .reflex-circle-wrap.state-go .reflex-ring      { border-color: #22c55e; box-shadow: 0 0 30px rgba(34,197,94,0.5); }
+        .reflex-circle-wrap.state-go .reflex-circle-value { color: #22c55e; }
+        .reflex-circle-wrap.state-go .reflex-circle-label { color: #22c55e; }
+        .reflex-circle-wrap.state-result .reflex-circle { background: #0e0e0e; }
+        .reflex-circle-wrap.state-result .reflex-ring  { border-color: #FF4D00; box-shadow: 0 0 20px rgba(255,77,0,0.25); }
+        .reflex-circle-wrap.state-result .reflex-circle-value { color: #FF4D00; font-size: 2.2rem; }
+        .reflex-circle-wrap.state-early .reflex-circle { background: #1a0808; }
+        .reflex-circle-wrap.state-early .reflex-ring   { border-color: #facc15; }
+        .reflex-circle-wrap.state-early .reflex-circle-value { color: #facc15; }
+        .reflex-circle { background: #111; }
+        .reflex-circle-value { font-family: var(--font-mono, 'JetBrains Mono', monospace); }
+
     </style>
 </head>
 

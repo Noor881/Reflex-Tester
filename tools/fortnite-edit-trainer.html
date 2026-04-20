@@ -38,6 +38,219 @@
 
     <link rel="stylesheet" href="../styles.css">
     <style>
+        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
+        :root {
+            --tool-accent:     #7B3FE4;
+            --tool-accent-rgb: 123,63,228;
+            --tool-accent-dim: rgba(123,63,228, 0.12);
+            --tool-accent-glow: 0 0 24px rgba(123,63,228, 0.3);
+            --tool-bg:         #08050f;
+            --tool-text-on:    #fff;
+            --tool-header:     #A78BFA;
+        }
+
+        /* Test panel — unique top border + subtle bg tint */
+        .test-panel {
+            border-top: 2px solid #7B3FE4 !important;
+            background: #08050f !important;
+        }
+
+        /* Headings inherit tool color */
+        .test-panel h1,
+        .test-panel h2 {
+            color: #A78BFA;
+        }
+
+        /* Primary button — tool color */
+        .btn-primary {
+            background: #7B3FE4 !important;
+            color: #fff !important;
+            box-shadow: none;
+        }
+        .btn-primary:hover {
+            background: #7B3FE4 !important;
+            opacity: 0.88;
+            box-shadow: 0 6px 24px rgba(123,63,228, 0.4) !important;
+            transform: translateY(-1px);
+        }
+
+        /* HUD cells — tool accent top strip */
+        .hud-cell {
+            border-top: 2px solid #7B3FE4 !important;
+            background: color-mix(in srgb, #08050f 90%, #fff 10%) !important;
+        }
+        .hud-cell-val {
+            color: #7B3FE4 !important;
+        }
+
+        /* Score card */
+        .score-card {
+            border-top: 2px solid #7B3FE4 !important;
+            background: #08050f !important;
+        }
+        .score-card-value {
+            color: #7B3FE4 !important;
+        }
+
+        /* Stats panel left bar */
+        .stats-panel {
+            border-left: 2px solid #7B3FE4 !important;
+            background: #08050f !important;
+        }
+        .stats-panel h4 {
+            color: #7B3FE4 !important;
+        }
+
+        /* Section label / info h3 */
+        .info-section h3 {
+            color: #7B3FE4;
+        }
+
+        /* Aim canvas */
+        .aim-canvas-wrap {
+            background: linear-gradient(160deg, #08050f 0%, #08050f 100%) !important;
+            border-top: 2px solid #7B3FE4 !important;
+        }
+        .aim-hud-item span {
+            color: #7B3FE4 !important;
+        }
+        .aim-timer-display {
+            color: #7B3FE4 !important;
+        }
+        .hitmarker {
+            color: #7B3FE4 !important;
+        }
+
+        /* Mode buttons active state */
+        .aim-mode-btn.active {
+            background: #7B3FE4 !important;
+            color: #fff !important;
+            border-color: #7B3FE4 !important;
+        }
+
+        /* CPS tab active */
+        .cps-tab.active,
+        .cps-duration-btn.active {
+            background: #7B3FE4 !important;
+            color: #fff !important;
+            border-color: #7B3FE4 !important;
+        }
+
+        /* Click zone running state */
+        .cps-click-zone {
+            border-top-color: rgba(123,63,228, 0.3) !important;
+        }
+        .cps-click-zone.running {
+            border-top-color: #7B3FE4 !important;
+            box-shadow: 0 0 30px rgba(123,63,228, 0.12) !important;
+        }
+        .cps-live-cps {
+            color: #7B3FE4 !important;
+        }
+        .cps-progress-inner {
+            background: linear-gradient(90deg, #7B3FE4, #22c55e) !important;
+        }
+        .cps-ripple {
+            background: rgba(123,63,228, 0.2) !important;
+        }
+
+        /* Reflex circle states — override to tool accent for result */
+        .reflex-circle-wrap.state-result .reflex-ring {
+            border-color: #7B3FE4 !important;
+            box-shadow: 0 0 20px rgba(123,63,228, 0.25) !important;
+        }
+        .reflex-circle-wrap.state-result .reflex-circle-value {
+            color: #7B3FE4 !important;
+        }
+        .reflex-circle-wrap.state-idle .reflex-circle {
+            background: #08050f !important;
+        }
+
+        /* Sequence tiles */
+        .sequence-tile.active {
+            background: rgba(123,63,228, 0.25) !important;
+            border-color: #7B3FE4 !important;
+            box-shadow: 0 0 16px rgba(123,63,228, 0.3) !important;
+        }
+
+        /* Color options / stroop buttons */
+        .stroop-btn.correct {
+            background: #7B3FE4 !important;
+            box-shadow: 0 0 16px rgba(123,63,228, 0.4) !important;
+        }
+
+        /* Typing current char */
+        .typing-text .current-char {
+            background: rgba(123,63,228, 0.25) !important;
+            border-bottom-color: #7B3FE4 !important;
+        }
+        .typing-input:focus {
+            border-color: #7B3FE4 !important;
+        }
+
+        /* Peripheral / coordination target */
+        .peripheral-center {
+            background: #7B3FE4 !important;
+        }
+        .coordination-target {
+            background: #7B3FE4 !important;
+            box-shadow: 0 0 16px rgba(123,63,228, 0.4) !important;
+        }
+
+        /* Number tiles */
+        .number-tile {
+            background: rgba(123,63,228, 0.08) !important;
+            border-color: rgba(123,63,228, 0.4) !important;
+        }
+        .number-tile.next {
+            background: rgba(123,63,228, 0.25) !important;
+            border-color: #7B3FE4 !important;
+        }
+
+        /* Progress fill */
+        .progress-fill {
+            background: #7B3FE4 !important;
+        }
+
+        /* Form focus */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .sens-field select:focus,
+        .sens-field input:focus {
+            border-color: #7B3FE4 !important;
+        }
+
+        /* Filter buttons */
+        .filter-btn.active,
+        .cps-duration-btn.active {
+            color: #7B3FE4 !important;
+            border-color: rgba(123,63,228, 0.5) !important;
+            background: rgba(123,63,228, 0.1) !important;
+        }
+
+        /* Dashboard card value */
+        .dashboard-card .card-value {
+            color: #7B3FE4 !important;
+        }
+
+        /* Breadcrumb active link */
+        .breadcrumb a:hover {
+            color: #7B3FE4 !important;
+        }
+
+        /* Score display inline (legacy fallback) */
+        #scoreDisplay .score-card-value,
+        #resultDisplay {
+            color: #7B3FE4 !important;
+        }
+
+        /* Focus visible outline */
+        :focus-visible {
+            outline-color: #7B3FE4 !important;
+        }
+        /* ═══════════════════════════════════════════════════════════════════ */
+
         .edit-container {
             display: grid;
             grid-template-columns: 1fr 350px;
@@ -277,6 +490,88 @@
             text-align: center;
             max-width: 400px;
         }
+        .grade-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 18px; border-radius:20px; font-size:0.85rem; font-weight:700; letter-spacing:0.05em; border:1px solid; }
+        .grade-exceptional { background:rgba(0,230,80,0.1); color:#00e650; border-color:rgba(0,230,80,0.3); }
+        .grade-excellent   { background:rgba(0,200,255,0.1); color:#00c8ff; border-color:rgba(0,200,255,0.3); }
+        .grade-good        { background:rgba(100,180,255,0.1); color:#64b4ff; border-color:rgba(100,180,255,0.3); }
+        .grade-average     { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
+        .grade-poor        { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
+    
+        /* ── Performance Lab Design System (injected) ── */
+        :root {
+            --orange: #FF4D00;
+            --orange-dim: rgba(255,77,0,0.15);
+            --orange-glow: 0 0 24px rgba(255,77,0,0.3);
+        }
+
+        /* Grade badges — Performance Lab */
+        .grade-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1px solid;
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+        }
+        .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
+        .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
+        .grade-good        { background: rgba(255,77,0,0.1);   color: #FF4D00; border-color: rgba(255,77,0,0.35); }
+        .grade-average     { background: rgba(250,204,21,0.1); color: #facc15; border-color: rgba(250,204,21,0.35); }
+        .grade-poor        { background: rgba(239,68,68,0.1);  color: #f87171; border-color: rgba(239,68,68,0.35); }
+
+        /* HUD cells */
+        .hud-cell {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 6px;
+            padding: 14px 10px;
+            text-align: center;
+        }
+        .hud-cell-val {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary, #f5f5f0);
+            margin-bottom: 3px;
+        }
+        .hud-cell-lbl {
+            font-size: 0.68rem;
+            color: var(--text-muted, #444);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        /* Score display card */
+        .score-card {
+            background: #0d0d0d;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+            margin: 16px 0;
+        }
+        .score-card-value {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .score-card-sub {
+            font-size: 0.875rem;
+            color: var(--text-secondary, #888);
+            margin-bottom: 12px;
+        }
+
     </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
 </head>
@@ -335,9 +630,9 @@
                         </div>
 
                         <div class="start-overlay" id="startOverlay">
-                            <h2>Edit Course Trainer</h2>
-                            <p>Click the highlighted tiles in the correct pattern. Practice common edit patterns to
-                                improve your speed!</p>
+                            <h2 id="overlayH2">Edit Course Trainer</h2>
+                            <p id="overlayP">Click the highlighted tiles in the correct pattern. Practice common edit patterns to improve your speed!</p>
+                            <div id="overlayGrade" style="margin-bottom:12px;"></div>
                             <button class="btn btn-primary btn-large" id="startBtn">Start Training</button>
                         </div>
                     </div>
@@ -624,12 +919,26 @@
                 }, 1000);
             }
 
+            function getGrade(s, acc) {
+                if (s >= 150 && acc >= 80) return { label: '🏆 EXCEPTIONAL', cls: 'grade-exceptional' };
+                if (s >= 100)              return { label: '⚡ EXCELLENT',   cls: 'grade-excellent'   };
+                if (s >= 60)               return { label: '👍 GOOD',        cls: 'grade-good'        };
+                if (s >= 30)               return { label: '📊 AVERAGE',     cls: 'grade-average'     };
+                return                            { label: '📉 POOR',         cls: 'grade-poor'        };
+            }
+
             function endGame() {
                 gameActive = false;
                 saveStats();
                 elements.startOverlay.style.display = 'flex';
-                elements.startOverlay.querySelector('h2').textContent = `Time's Up!`;
-                elements.startOverlay.querySelector('p').textContent = `You scored ${score} points! ${correctEdits} successful edits with ${Math.round((correctEdits / Math.max(totalEdits, 1)) * 100)}% accuracy.`;
+                const total = Math.max(totalEdits, 1);
+                const acc   = Math.round((correctEdits / total) * 100);
+                const g     = getGrade(score, acc);
+
+                elements.startOverlay.querySelector('#overlayH2').textContent = "Time's Up!";
+                elements.startOverlay.querySelector('#overlayH2').style.color = g.cls.includes('exceptional') ? '#00e650' : g.cls.includes('excellent') ? '#00c8ff' : '#ffc800';
+                elements.startOverlay.querySelector('#overlayP').textContent  = score + ' pts · ' + correctEdits + ' edits · ' + acc + '% accuracy';
+                elements.startOverlay.querySelector('#overlayGrade').innerHTML = '<span class="grade-badge ' + g.cls + '">' + g.label + '</span>';
                 elements.startBtn.textContent = 'Play Again';
 
                 elements.tiles.forEach(tile => {
@@ -642,8 +951,10 @@
             });
 
             elements.startBtn.addEventListener('click', () => {
-                elements.startOverlay.querySelector('h2').textContent = 'Edit Course Trainer';
-                elements.startOverlay.querySelector('p').textContent = 'Click the highlighted tiles in the correct pattern. Practice common edit patterns to improve your speed!';
+                elements.startOverlay.querySelector('#overlayH2').textContent = 'Edit Course Trainer';
+                elements.startOverlay.querySelector('#overlayH2').style.color = '';
+                elements.startOverlay.querySelector('#overlayP').textContent = 'Click the highlighted tiles in the correct pattern. Practice common edit patterns to improve your speed!';
+                elements.startOverlay.querySelector('#overlayGrade').innerHTML = '';
                 elements.startBtn.textContent = 'Start Training';
                 startGame();
             });

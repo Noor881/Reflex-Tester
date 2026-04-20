@@ -6,167 +6,445 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS:GO Grenade Trainer — Practice Smoke & Flash Lineups [Free 2025]</title>
     <meta name="description"
-        content="Free CS:GO grenade practice tool. Train smoke lineups, flashbangs, molotovs. Master utility timing and accuracy with this interactive trainer.">
+        content="Free CS:GO grenade practice tool. Drag to aim, release to throw. Train smoke, flash, molotov and HE accuracy with arc trajectory visualization.">
     <meta name="keywords"
         content="csgo grenade trainer, csgo smoke lineups, csgo utility practice, csgo flash practice, cs2 grenade trainer">
+    <link rel="canonical" href="https://reflextester.fun/tools/csgo-grenade-trainer.html">
+    <meta property="og:title" content="CS:GO Grenade Trainer — Practice Utility Lineups">
+    <meta property="og:description" content="Free CS:GO grenade practice tool with arc trajectory. Train smoke, flash, molotov accuracy.">
+    <meta property="og:url" content="https://reflextester.fun/tools/csgo-grenade-trainer.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ReflexTester.fun">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"CS:GO Grenade Trainer","applicationCategory":"GameApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":0,"priceCurrency":"USD"}}
+    </script>
     <link rel="stylesheet" href="../styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
     <style>
-        .grenade-container {
-            display: grid;
-            grid-template-columns: 1fr 350px;
-            gap: var(--space-xl);
-            margin: var(--space-2xl) 0;
+        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
+        :root {
+            --tool-accent:     #E8C800;
+            --tool-accent-rgb: 232,200,0;
+            --tool-accent-dim: rgba(232,200,0, 0.12);
+            --tool-accent-glow: 0 0 24px rgba(232,200,0, 0.3);
+            --tool-bg:         #050a0f;
+            --tool-text-on:    #000;
+            --tool-header:     #FDE047;
         }
 
-        @media (max-width: 968px) {
-            .grenade-container {
-                grid-template-columns: 1fr;
-            }
+        /* Test panel — unique top border + subtle bg tint */
+        .test-panel {
+            border-top: 2px solid #E8C800 !important;
+            background: #050a0f !important;
         }
 
-        .grenade-trainer {
-            background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
-            border-radius: 16px;
-            padding: var(--space-2xl);
-            min-height: 500px;
+        /* Headings inherit tool color */
+        .test-panel h1,
+        .test-panel h2 {
+            color: #FDE047;
+        }
+
+        /* Primary button — tool color */
+        .btn-primary {
+            background: #E8C800 !important;
+            color: #000 !important;
+            box-shadow: none;
+        }
+        .btn-primary:hover {
+            background: #E8C800 !important;
+            opacity: 0.88;
+            box-shadow: 0 6px 24px rgba(232,200,0, 0.4) !important;
+            transform: translateY(-1px);
+        }
+
+        /* HUD cells — tool accent top strip */
+        .hud-cell {
+            border-top: 2px solid #E8C800 !important;
+            background: color-mix(in srgb, #050a0f 90%, #fff 10%) !important;
+        }
+        .hud-cell-val {
+            color: #E8C800 !important;
+        }
+
+        /* Score card */
+        .score-card {
+            border-top: 2px solid #E8C800 !important;
+            background: #050a0f !important;
+        }
+        .score-card-value {
+            color: #E8C800 !important;
+        }
+
+        /* Stats panel left bar */
+        .stats-panel {
+            border-left: 2px solid #E8C800 !important;
+            background: #050a0f !important;
+        }
+        .stats-panel h4 {
+            color: #E8C800 !important;
+        }
+
+        /* Section label / info h3 */
+        .info-section h3 {
+            color: #E8C800;
+        }
+
+        /* Aim canvas */
+        .aim-canvas-wrap {
+            background: linear-gradient(160deg, #050a0f 0%, #050a0f 100%) !important;
+            border-top: 2px solid #E8C800 !important;
+        }
+        .aim-hud-item span {
+            color: #E8C800 !important;
+        }
+        .aim-timer-display {
+            color: #E8C800 !important;
+        }
+        .hitmarker {
+            color: #E8C800 !important;
+        }
+
+        /* Mode buttons active state */
+        .aim-mode-btn.active {
+            background: #E8C800 !important;
+            color: #000 !important;
+            border-color: #E8C800 !important;
+        }
+
+        /* CPS tab active */
+        .cps-tab.active,
+        .cps-duration-btn.active {
+            background: #E8C800 !important;
+            color: #000 !important;
+            border-color: #E8C800 !important;
+        }
+
+        /* Click zone running state */
+        .cps-click-zone {
+            border-top-color: rgba(232,200,0, 0.3) !important;
+        }
+        .cps-click-zone.running {
+            border-top-color: #E8C800 !important;
+            box-shadow: 0 0 30px rgba(232,200,0, 0.12) !important;
+        }
+        .cps-live-cps {
+            color: #E8C800 !important;
+        }
+        .cps-progress-inner {
+            background: linear-gradient(90deg, #E8C800, #22c55e) !important;
+        }
+        .cps-ripple {
+            background: rgba(232,200,0, 0.2) !important;
+        }
+
+        /* Reflex circle states — override to tool accent for result */
+        .reflex-circle-wrap.state-result .reflex-ring {
+            border-color: #E8C800 !important;
+            box-shadow: 0 0 20px rgba(232,200,0, 0.25) !important;
+        }
+        .reflex-circle-wrap.state-result .reflex-circle-value {
+            color: #E8C800 !important;
+        }
+        .reflex-circle-wrap.state-idle .reflex-circle {
+            background: #050a0f !important;
+        }
+
+        /* Sequence tiles */
+        .sequence-tile.active {
+            background: rgba(232,200,0, 0.25) !important;
+            border-color: #E8C800 !important;
+            box-shadow: 0 0 16px rgba(232,200,0, 0.3) !important;
+        }
+
+        /* Color options / stroop buttons */
+        .stroop-btn.correct {
+            background: #E8C800 !important;
+            box-shadow: 0 0 16px rgba(232,200,0, 0.4) !important;
+        }
+
+        /* Typing current char */
+        .typing-text .current-char {
+            background: rgba(232,200,0, 0.25) !important;
+            border-bottom-color: #E8C800 !important;
+        }
+        .typing-input:focus {
+            border-color: #E8C800 !important;
+        }
+
+        /* Peripheral / coordination target */
+        .peripheral-center {
+            background: #E8C800 !important;
+        }
+        .coordination-target {
+            background: #E8C800 !important;
+            box-shadow: 0 0 16px rgba(232,200,0, 0.4) !important;
+        }
+
+        /* Number tiles */
+        .number-tile {
+            background: rgba(232,200,0, 0.08) !important;
+            border-color: rgba(232,200,0, 0.4) !important;
+        }
+        .number-tile.next {
+            background: rgba(232,200,0, 0.25) !important;
+            border-color: #E8C800 !important;
+        }
+
+        /* Progress fill */
+        .progress-fill {
+            background: #E8C800 !important;
+        }
+
+        /* Form focus */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .sens-field select:focus,
+        .sens-field input:focus {
+            border-color: #E8C800 !important;
+        }
+
+        /* Filter buttons */
+        .filter-btn.active,
+        .cps-duration-btn.active {
+            color: #E8C800 !important;
+            border-color: rgba(232,200,0, 0.5) !important;
+            background: rgba(232,200,0, 0.1) !important;
+        }
+
+        /* Dashboard card value */
+        .dashboard-card .card-value {
+            color: #E8C800 !important;
+        }
+
+        /* Breadcrumb active link */
+        .breadcrumb a:hover {
+            color: #E8C800 !important;
+        }
+
+        /* Score display inline (legacy fallback) */
+        #scoreDisplay .score-card-value,
+        #resultDisplay {
+            color: #E8C800 !important;
+        }
+
+        /* Focus visible outline */
+        :focus-visible {
+            outline-color: #E8C800 !important;
+        }
+        /* ═══════════════════════════════════════════════════════════════════ */
+
+        .nade-arena {
             position: relative;
-            border: 2px solid #f5b041;
+            width: 100%;
+            height: 420px;
+            background: linear-gradient(180deg, #1a2a20 0%, #0e1a12 60%, #2a3528 100%);
+            border: 2px solid #3a5a40;
+            border-radius: 18px;
             overflow: hidden;
+            cursor: crosshair;
+            user-select: none;
+            -webkit-user-select: none;
         }
+        .nade-arena.idle { cursor: default; }
+        .nade-arena.aiming { border-color: #f59e0b; }
+        .nade-arena.hit-flash { border-color: #22c55e; }
+        .nade-arena.miss-flash { border-color: #ef4444; }
 
-        .grenade-arc {
-            position: absolute;
-            width: 4px;
-            background: rgba(255, 255, 255, 0.6);
-            transform-origin: bottom center;
-            transition: all 0.3s;
-        }
-
-        .grenade-target {
-            width: 80px;
-            height: 80px;
-            border: 3px dashed #fff;
-            border-radius: 50%;
-            position: absolute;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .grenade-target.hit {
-            background: #10b981;
-            border-color: #059669;
-            animation: targetHit 0.5s;
-        }
-
-        @keyframes targetHit {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.3);
-            }
-        }
-
-        .throw-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
+        /* Ground grid */
+        .nade-ground {
+            position: absolute; bottom: 0; left: 0; right: 0;
             height: 60px;
-            background: rgba(255, 255, 255, 0.3);
-            border: 3px solid #fff;
+            background: repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(255,255,255,0.05) 49px, rgba(255,255,255,0.05) 50px);
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* Target */
+        .nade-target {
+            position: absolute;
             border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: radial-gradient(circle, rgba(255,80,40,0.7), rgba(255,60,20,0.3));
+            border: 3px dashed rgba(255,255,255,0.5);
+            display: none;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(255,80,40,0.4);
+            z-index: 3;
+        }
+        .nade-target.hit { background: radial-gradient(circle, rgba(0,230,80,0.7), rgba(0,180,60,0.3)); border-color: #22c55e; border-style: solid; animation: tgtHit 0.3s ease; }
+        @keyframes tgtHit { 0%{transform:translate(-50%,-50%) scale(1)} 50%{transform:translate(-50%,-50%) scale(1.3)} 100%{transform:translate(-50%,-50%) scale(1)} }
+
+        /* Landing marker */
+        .nade-land {
+            position: absolute;
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: landFade 0.8s ease forwards;
+            z-index: 4;
+        }
+        @keyframes landFade { 0%{opacity:1;transform:translate(-50%,-50%) scale(1)} 100%{opacity:0;transform:translate(-50%,-50%) scale(2.5)} }
+
+        /* Throw indicator */
+        .nade-throw-zone {
+            position: absolute; bottom: 10px; left: 50%;
+            transform: translateX(-50%);
+            width: 60px; height: 60px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
             font-size: 2rem;
+            z-index: 5;
+            transition: transform 0.15s;
+        }
+        .nade-throw-zone:active { transform: translateX(-50%) scale(0.9); }
+
+        /* Power meter */
+        .nade-power-bar {
+            position: absolute; left: 12px; bottom: 80px; top: 50px;
+            width: 12px; background: rgba(255,255,255,0.1);
+            border-radius: 6px; overflow: hidden; z-index: 5;
+        }
+        .nade-power-fill {
+            position: absolute; bottom: 0; width: 100%;
+            border-radius: 6px;
+            background: linear-gradient(0deg, #22c55e, #fbbf24, #ef4444);
+            transition: height 0.05s;
         }
 
-        .grenade-controls {
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            padding: var(--space-xl);
-            border: 1px solid var(--border-subtle);
-        }
+        /* Canvas for trajectory */
+        .nade-canvas { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
 
-        .stat-box {
-            background: var(--bg-tertiary);
-            padding: var(--space-md);
+        /* HUD */
+        .nade-hud {
+            position: absolute; top: 10px; left: 10px; right: 10px;
+            display: flex; justify-content: space-between;
+            z-index: 6; pointer-events: none;
+        }
+        .nade-hud-left, .nade-hud-right {
+            background: rgba(0,0,0,0.7);
+            padding: 8px 14px;
             border-radius: 8px;
-            margin-bottom: var(--space-md);
+            font-size: 0.85rem;
+            color: #e0e0e0;
+        }
+        .nade-hud-left span, .nade-hud-right span { color: #fbbf24; font-weight: 700; }
+
+        /* Result overlay */
+        .nade-result-overlay {
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(4px);
+            display: none; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 12px; z-index: 10;
+            border-radius: 18px;
+        }
+        .nade-result-overlay.show { display: flex; }
+        .nade-result-score { font-size: 2.4rem; font-weight: 900; }
+        .nade-result-sub { font-size: 0.95rem; color: var(--text-secondary); }
+
+        /* Grade */
+        .grade-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 16px; border-radius:20px; font-size:0.85rem; font-weight:700; letter-spacing:0.05em; border:1px solid; }
+        .grade-exceptional { background:rgba(0,230,80,0.1); color:#00e650; border-color:rgba(0,230,80,0.3); }
+        .grade-excellent { background:rgba(0,200,255,0.1); color:#00c8ff; border-color:rgba(0,200,255,0.3); }
+        .grade-good { background:rgba(100,180,255,0.1); color:#64b4ff; border-color:rgba(100,180,255,0.3); }
+        .grade-average { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
+        .grade-poor { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
+
+        /* Controls */
+        .nade-controls { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin:16px 0; }
+        .nade-select {
+            padding: 10px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .reflex-hud { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; width:100%; max-width:640px; margin:0 auto; }
+        .hud-cell { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:12px 8px; text-align:center; }
+        .hud-cell-val { font-size:1.1rem; font-weight:700; color:var(--text-primary); margin-bottom:2px; }
+        .hud-cell-lbl { font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; }
+        @media(max-width:540px) { .reflex-hud { grid-template-columns:repeat(2,1fr); } }
+    
+        /* ── Performance Lab Design System (injected) ── */
+        :root {
+            --orange: #FF4D00;
+            --orange-dim: rgba(255,77,0,0.15);
+            --orange-glow: 0 0 24px rgba(255,77,0,0.3);
+        }
+
+        /* Grade badges — Performance Lab */
+        .grade-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1px solid;
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+        }
+        .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
+        .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
+        .grade-good        { background: rgba(255,77,0,0.1);   color: #FF4D00; border-color: rgba(255,77,0,0.35); }
+        .grade-average     { background: rgba(250,204,21,0.1); color: #facc15; border-color: rgba(250,204,21,0.35); }
+        .grade-poor        { background: rgba(239,68,68,0.1);  color: #f87171; border-color: rgba(239,68,68,0.35); }
+
+        /* HUD cells */
+        .hud-cell {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 6px;
+            padding: 14px 10px;
             text-align: center;
         }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
+        .hud-cell-val {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary, #f5f5f0);
+            margin-bottom: 3px;
+        }
+        .hud-cell-lbl {
+            font-size: 0.68rem;
+            color: var(--text-muted, #444);
             text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #f39c12;
-        }
-
-        .control-group {
-            background: var(--bg-tertiary);
-            padding: var(--space-md);
-            border-radius: 8px;
-            margin-bottom: var(--space-md);
-        }
-
-        .control-group label {
-            display: block;
-            margin-bottom: var(--space-xs);
+            letter-spacing: 0.08em;
             font-weight: 600;
-            color: var(--text-primary);
         }
 
-        .control-group select {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid var(--border-medium);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-size: 0.95rem;
+        /* Score display card */
+        .score-card {
+            background: #0d0d0d;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+            margin: 16px 0;
         }
-
-        .score-display {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 1.2rem;
+        .score-card-value {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 2.4rem;
             font-weight: 700;
-            color: #10b981;
-            z-index: 5;
+            color: var(--orange);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .score-card-sub {
+            font-size: 0.875rem;
+            color: var(--text-secondary, #888);
+            margin-bottom: 12px;
         }
 
-        .timer-display {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #fbbf24;
-            z-index: 5;
-        }
     </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
-    <link rel="canonical" href="https://reflextester.fun/tools/csgo-grenade-trainer.html">
-
 </head>
 
 <body>
@@ -197,55 +475,58 @@
         <section class="test-area">
             <div class="test-panel active">
                 <h1>💣 CS:GO Grenade Trainer</h1>
-                <p class="test-desc">Practice CS:GO grenade lineups! Click to throw grenades at targets and improve your
-                    utility accuracy.</p>
-                <div class="grenade-container">
-                    <div class="grenade-trainer" id="grenadeTrainer">
-                        <div class="score-display" id="score">Score: 0</div>
-                        <div class="timer-display" id="timer">60s</div>
-                        <div class="grenade-target" id="target"></div>
-                        <div class="throw-indicator" id="throwBtn">💣</div>
+                <p class="test-desc">Click inside the arena to throw grenades at the target zone. Power is based on distance from throw position. 15 throws per round — hit the target circle!</p>
+
+                <div class="nade-controls">
+                    <select class="nade-select" id="nadeType">
+                        <option value="smoke">💨 Smoke</option>
+                        <option value="flash">⚡ Flashbang</option>
+                        <option value="molotov">🔥 Molotov</option>
+                        <option value="he">💣 HE Grenade</option>
+                    </select>
+                    <select class="nade-select" id="mapSelect">
+                        <option value="dust2">Dust II</option>
+                        <option value="mirage">Mirage</option>
+                        <option value="inferno">Inferno</option>
+                        <option value="nuke">Nuke</option>
+                    </select>
+                </div>
+
+                <div class="nade-arena idle" id="nadeArena">
+                    <canvas class="nade-canvas" id="nadeCanvas"></canvas>
+                    <div class="nade-ground"></div>
+                    <div class="nade-target" id="nadeTarget"></div>
+                    <div class="nade-throw-zone" id="throwZone">💣</div>
+                    <div class="nade-power-bar"><div class="nade-power-fill" id="powerFill" style="height:0%"></div></div>
+                    <div class="nade-hud">
+                        <div class="nade-hud-left">Score: <span id="scoreHud">0</span></div>
+                        <div class="nade-hud-right">Throw <span id="throwCount">0</span> / 15</div>
                     </div>
-                    <div class="grenade-controls">
-                        <div class="stat-box">
-                            <div class="stat-label">Accuracy</div>
-                            <div class="stat-value" id="accuracy">0%</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-label">Best Score</div>
-                            <div class="stat-value" id="bestScore">0</div>
-                        </div>
-                        <div class="control-group">
-                            <label>Grenade Type</label>
-                            <select id="grenadeType">
-                                <option value="smoke">Smoke</option>
-                                <option value="flash">Flashbang</option>
-                                <option value="molotov">Molotov</option>
-                                <option value="he">HE Grenade</option>
-                            </select>
-                        </div>
-                        <div class="control-group">
-                            <label>Map</label>
-                            <select id="mapSelect">
-                                <option value="dust2">Dust 2</option>
-                                <option value="mirage">Mirage</option>
-                                <option value="inferno">Inferno</option>
-                                <option value="nuke">Nuke</option>
-                            </select>
-                        </div>
-                        <button class="btn btn-primary" id="startBtn"
-                            style="width: 100%; margin-top: var(--space-md);">▶ Start Practice</button>
-                        <button class="btn btn-secondary" id="resetBtn"
-                            style="width: 100%; margin-top: var(--space-sm);">🔄 Reset Stats</button>
+                    <div class="nade-result-overlay" id="resultOverlay">
+                        <div class="nade-result-score" id="resultScore">0 pts</div>
+                        <div class="nade-result-sub" id="resultSub">—</div>
+                        <div id="resultGrade"></div>
                     </div>
+                </div>
+
+                <div class="test-actions" style="margin-top:16px;">
+                    <button class="btn btn-primary" id="startBtn">▶ Start Practice</button>
+                    <button class="btn btn-secondary" id="resetBtn">🔄 Reset Stats</button>
+                </div>
+
+                <div class="reflex-hud" id="statsHud" style="display:none;margin-top:16px;">
+                    <div class="hud-cell"><div class="hud-cell-val" id="hudBest">—</div><div class="hud-cell-lbl">Best</div></div>
+                    <div class="hud-cell"><div class="hud-cell-val" id="hudAccuracy">—</div><div class="hud-cell-lbl">Best Acc</div></div>
+                    <div class="hud-cell"><div class="hud-cell-val" id="hudAvg">—</div><div class="hud-cell-lbl">Avg Score</div></div>
+                    <div class="hud-cell"><div class="hud-cell-val" id="hudGames">0</div><div class="hud-cell-lbl">Sessions</div></div>
                 </div>
             </div>
         </section>
+
         <section class="info-section">
             <div class="container-narrow">
                 <h2>About CS:GO Utility</h2>
-                <p>Mastering grenades is crucial in CS:GO. Proper utility usage can win rounds through site execution,
-                    retakes, and area control.</p>
+                <p>Mastering grenades is crucial in CS:GO. Proper utility usage can win rounds through site execution, retakes, and area control.</p>
                 <h3>Essential Grenades</h3>
                 <ul>
                     <li><strong>Smoke:</strong> Block vision for safe site entry or post-plant defense</li>
@@ -262,106 +543,258 @@
                 </ul>
             </div>
         </section>
-    </main>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="csgo-aim-trainer.html" class="rec-card"><div class="rec-icon">🎯</div><h3>CS:GO Aim Trainer</h3><p>3D shooting range practice</p></a>
+                    <a href="csgo-crosshair-generator.html" class="rec-card"><div class="rec-icon">➕</div><h3>Crosshair Generator</h3><p>Design your perfect crosshair</p></a>
+                    <a href="flick-shot-trainer.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Flick Shot Trainer</h3><p>Master snap aiming</p></a>
+                    <a href="sensitivity-calculator.html" class="rec-card"><div class="rec-icon">🎯</div><h3>Sensitivity Calculator</h3><p>Convert sens between games</p></a>
+                </div>
             </div>
-        </div>
-    </footer>
+        </section>
+    </main>
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p></div></div></footer>
     <script src="../main.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            (function () {
-            let score = 0, hits = 0, throws = 0, gameActive = false, timeLeft = 60, best = 0;
-            const els = { trainer: document.getElementById('grenadeTrainer'), target: document.getElementById('target'), throwBtn: document.getElementById('throwBtn'), score: document.getElementById('score'), timer: document.getElementById('timer'), accuracy: document.getElementById('accuracy'), bestScore: document.getElementById('bestScore'), startBtn: document.getElementById('startBtn'), resetBtn: document.getElementById('resetBtn') };
+    document.addEventListener('DOMContentLoaded', function () {
+        (function () {
+            const arena     = document.getElementById('nadeArena');
+            const canvas    = document.getElementById('nadeCanvas');
+            const ctx       = canvas.getContext('2d');
+            const target    = document.getElementById('nadeTarget');
+            const throwZone = document.getElementById('throwZone');
+            const powerFill = document.getElementById('powerFill');
+            const scoreHud  = document.getElementById('scoreHud');
+            const throwCountEl = document.getElementById('throwCount');
+            const resultOverlay = document.getElementById('resultOverlay');
+            const resultScore = document.getElementById('resultScore');
+            const resultSub   = document.getElementById('resultSub');
+            const resultGrade = document.getElementById('resultGrade');
+            const startBtn  = document.getElementById('startBtn');
+            const resetBtn  = document.getElementById('resetBtn');
+            const nadeType  = document.getElementById('nadeType');
+            const statsHud  = document.getElementById('statsHud');
 
-            function loadStats() {
-                const saved = localStorage.getItem('csgoGrenadeStats');
-                if (saved) {
-                    try {
-                        const stats = JSON.parse(saved);
-                        best = stats.best || 0;
-                        els.bestScore.textContent = best;
-                    } catch (e) { }
-                }
+            const TOTAL_THROWS = 15;
+            const TARGET_R = 45;
+            let state = 'idle'; // idle | playing | throwing | done
+            let score = 0, hits = 0, throws = 0;
+            let targetX = 0, targetY = 0;
+            let results = ReflexStore.get('grenade_results', []);
+
+            function resizeCanvas() {
+                canvas.width  = arena.clientWidth;
+                canvas.height = arena.clientHeight;
             }
 
-            function saveStats() {
-                if (score > best) {
-                    best = score;
-                    els.bestScore.textContent = best;
-                    localStorage.setItem('csgoGrenadeStats', JSON.stringify({ best }));
-                }
+            function getGrade(acc) {
+                if (acc >= 80) return { label: '🏆 EXCEPTIONAL', cls: 'grade-exceptional' };
+                if (acc >= 60) return { label: '⚡ EXCELLENT',   cls: 'grade-excellent'   };
+                if (acc >= 45) return { label: '👍 GOOD',        cls: 'grade-good'        };
+                if (acc >= 25) return { label: '📊 AVERAGE',     cls: 'grade-average'     };
+                return           { label: '📉 POOR',             cls: 'grade-poor'        };
+            }
+
+            function nadeIcon() {
+                const v = nadeType.value;
+                return v === 'smoke' ? '💨' : v === 'flash' ? '⚡' : v === 'molotov' ? '🔥' : '💣';
             }
 
             function spawnTarget() {
-                const maxX = els.trainer.offsetWidth - 100;
-                const maxY = els.trainer.offsetHeight - 180;
-                els.target.style.left = Math.random() * maxX + 20 + 'px';
-                els.target.style.top = Math.random() * maxY + 60 + 'px';
-                els.target.classList.remove('hit');
+                const padX = TARGET_R + 30;
+                const padY = TARGET_R + 60;
+                targetX = padX + Math.random() * (arena.clientWidth - padX * 2);
+                targetY = padY + Math.random() * (arena.clientHeight - padY * 2 - 80);
+                target.style.width = target.style.height = (TARGET_R * 2) + 'px';
+                target.style.left = targetX + 'px';
+                target.style.top  = targetY + 'px';
+                target.style.display = 'block';
+                target.classList.remove('hit');
             }
 
-            function throwGrenade() {
-                if (!gameActive) return;
-                throws++;
-                const targetRect = els.target.getBoundingClientRect();
-                const trainerRect = els.trainer.getBoundingClientRect();
-                const targetCenterX = targetRect.left + targetRect.width / 2 - trainerRect.left;
-                const targetCenterY = targetRect.top + targetRect.height / 2 - trainerRect.top;
-                const throwFromY = els.trainer.offsetHeight - 40;
-                const distance = Math.sqrt(Math.pow(targetCenterX - els.trainer.offsetWidth / 2, 2) + Math.pow(targetCenterY - throwFromY, 2));
-
-                if (distance < 100) {
-                    hits++; score += 10;
-                    els.target.classList.add('hit');
-                    setTimeout(spawnTarget, 300);
-                } else {
-                    score = Math.max(0, score - 5);
-                }
-
-                els.score.textContent = 'Score: ' + score;
-                const acc = throws > 0 ? Math.round((hits / throws) * 100) : 0;
-                els.accuracy.textContent = acc + '%';
+            function drawArc(fromX, fromY, toX, toY, color) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const midX = (fromX + toX) / 2;
+                const midY = Math.min(fromY, toY) - 80 - Math.abs(toX - fromX) * 0.15;
+                ctx.beginPath();
+                ctx.moveTo(fromX, fromY);
+                ctx.quadraticCurveTo(midX, midY, toX, toY);
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 3;
+                ctx.setLineDash([8, 6]);
+                ctx.stroke();
+                ctx.setLineDash([]);
             }
 
-            function startGame() {
-                score = 0; hits = 0; throws = 0; timeLeft = 60; gameActive = true;
-                els.startBtn.disabled = true;
-                spawnTarget();
-                const interval = setInterval(() => {
-                    timeLeft--;
-                    els.timer.textContent = timeLeft + 's';
-                    if (timeLeft <= 0) {
-                        clearInterval(interval);
-                        gameActive = false;
-                        els.startBtn.disabled = false;
-                        els.startBtn.textContent = '▶ Play Again';
-                        saveStats();
-                        alert(`Game Over! Score: ${score} | Accuracy: ${Math.round((hits / (throws || 1)) * 100)}%`);
+            function animateThrow(fromX, fromY, toX, toY, callback) {
+                state = 'throwing';
+                const steps = 30;
+                let step = 0;
+                const colors = { smoke: '#aaaaaa', flash: '#fbbf24', molotov: '#ef4444', he: '#ff9500' };
+                const color = colors[nadeType.value] || '#fbbf24';
+
+                function tick() {
+                    step++;
+                    const t = step / steps;
+                    const midX = (fromX + toX) / 2;
+                    const midY = Math.min(fromY, toY) - 80 - Math.abs(toX - fromX) * 0.15;
+                    const cx = (1-t)*(1-t)*fromX + 2*(1-t)*t*midX + t*t*toX;
+                    const cy = (1-t)*(1-t)*fromY + 2*(1-t)*t*midY + t*t*toY;
+
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    // trail
+                    ctx.beginPath();
+                    ctx.moveTo(fromX, fromY);
+                    const tm = step / steps;
+                    for (let i = 0; i <= step; i++) {
+                        const tt = i / steps;
+                        const px = (1-tt)*(1-tt)*fromX + 2*(1-tt)*tt*midX + tt*tt*toX;
+                        const py = (1-tt)*(1-tt)*fromY + 2*(1-tt)*tt*midY + tt*tt*toY;
+                        ctx.lineTo(px, py);
                     }
-                }, 1000);
+                    ctx.strokeStyle = color + '88';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+
+                    // grenade dot
+                    ctx.beginPath();
+                    ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+                    ctx.fillStyle = color;
+                    ctx.fill();
+
+                    if (step < steps) {
+                        requestAnimationFrame(tick);
+                    } else {
+                        setTimeout(() => { ctx.clearRect(0, 0, canvas.width, canvas.height); callback(toX, toY); }, 200);
+                    }
+                }
+                tick();
             }
 
-            els.throwBtn.addEventListener('click', throwGrenade);
-            els.startBtn.addEventListener('click', startGame);
-            els.resetBtn.addEventListener('click', () => {
-                if (confirm('Reset all stats?')) {
-                    localStorage.removeItem('csgoGrenadeStats');
-                    best = 0;
-                    els.bestScore.textContent = '0';
-                }
+            function handleThrowAt(clickX, clickY) {
+                if (state !== 'playing') return;
+                throws++;
+                throwCountEl.textContent = throws;
+
+                const throwFromX = arena.clientWidth / 2;
+                const throwFromY = arena.clientHeight - 40;
+
+                animateThrow(throwFromX, throwFromY, clickX, clickY, function (landX, landY) {
+                    const dist = Math.sqrt((landX - targetX) ** 2 + (landY - targetY) ** 2);
+                    const isHit = dist <= TARGET_R;
+
+                    // Landing marker
+                    const marker = document.createElement('div');
+                    marker.className = 'nade-land';
+                    marker.style.left = landX + 'px';
+                    marker.style.top  = landY + 'px';
+                    marker.style.background = isHit ? '#22c55e' : '#ef4444';
+                    arena.appendChild(marker);
+                    marker.addEventListener('animationend', () => marker.remove());
+
+                    if (isHit) {
+                        hits++;
+                        const bonus = Math.max(1, Math.round(20 - dist * 0.3));
+                        score += bonus;
+                        target.classList.add('hit');
+                        arena.classList.add('hit-flash');
+                        setTimeout(() => arena.classList.remove('hit-flash'), 300);
+                    } else {
+                        arena.classList.add('miss-flash');
+                        setTimeout(() => arena.classList.remove('miss-flash'), 300);
+                    }
+                    scoreHud.textContent = score;
+
+                    if (throws >= TOTAL_THROWS) {
+                        endGame();
+                    } else {
+                        state = 'playing';
+                        setTimeout(spawnTarget, 400);
+                    }
+                });
+            }
+
+            arena.addEventListener('click', function (e) {
+                if (state !== 'playing') return;
+                const rect = arena.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                // Don't throw if clicking on the throw zone itself
+                if (y > arena.clientHeight - 80) return;
+                handleThrowAt(x, y);
             });
 
-            loadStats();
+            function startGame() {
+                state = 'playing';
+                score = 0; hits = 0; throws = 0;
+                scoreHud.textContent = '0';
+                throwCountEl.textContent = '0';
+                arena.className = 'nade-arena';
+                resultOverlay.classList.remove('show');
+                startBtn.disabled = true;
+                throwZone.textContent = nadeIcon();
+                resizeCanvas();
+                spawnTarget();
+            }
+
+            function endGame() {
+                state = 'done';
+                target.style.display = 'none';
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                startBtn.disabled = false;
+                startBtn.textContent = '▶ Play Again';
+                arena.className = 'nade-arena idle';
+
+                const acc = Math.round((hits / TOTAL_THROWS) * 100);
+                const g = getGrade(acc);
+
+                resultScore.textContent = score + ' pts';
+                resultScore.style.color = g.cls.includes('exceptional') ? '#00e650' : g.cls.includes('excellent') ? '#00c8ff' : '#ffc800';
+                resultSub.textContent = hits + '/' + TOTAL_THROWS + ' hits · ' + acc + '% accuracy';
+                resultGrade.className = 'grade-badge ' + g.cls;
+                resultGrade.textContent = g.label;
+                resultOverlay.classList.add('show');
+
+                results.push({ score, acc, hits });
+                ReflexStore.set('grenade_results', results);
+                updateStats();
+            }
+
+            startBtn.addEventListener('click', startGame);
+            resetBtn.addEventListener('click', function () {
+                results = [];
+                ReflexStore.set('grenade_results', []);
+                state = 'idle';
+                score = 0; hits = 0; throws = 0;
+                target.style.display = 'none';
+                resultOverlay.classList.remove('show');
+                arena.className = 'nade-arena idle';
+                scoreHud.textContent = '0';
+                throwCountEl.textContent = '0';
+                startBtn.disabled = false;
+                startBtn.textContent = '▶ Start Practice';
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                updateStats();
+            });
+
+            function updateStats() {
+                if (!results.length) { statsHud.style.display = 'none'; return; }
+                statsHud.style.display = 'grid';
+                document.getElementById('hudBest').textContent = Math.max(...results.map(r => r.score)) + ' pts';
+                document.getElementById('hudAccuracy').textContent = Math.max(...results.map(r => r.acc)) + '%';
+                document.getElementById('hudAvg').textContent = Math.round(results.reduce((a,r) => a + r.score, 0) / results.length) + ' pts';
+                document.getElementById('hudGames').textContent = results.length;
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            updateStats();
         })();
-        });
+    });
     </script>
 <script src="../nav.js" defer></script>
 </body>
-
 </html>
-
-

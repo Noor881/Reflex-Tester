@@ -10,22 +10,15 @@
     <meta name="keywords"
         content="peripheral vision test, side vision test, peripheral vision training, field of vision test, peripheral awareness test, side vision training, visual field test online, peripheral vision game, eye test online, peripheral vision exercise, gaming vision test">
     <link rel="canonical" href="https://reflextester.fun/tools/peripheral-vision-test.html">
-
-    <!-- Open Graph -->
     <meta property="og:title" content="Peripheral Vision Test — How Wide Can You See?">
-    <meta property="og:description"
-        content="How wide is your field of vision? Spot targets at the edge of your sight — critical for gaming.">
+    <meta property="og:description" content="How wide is your field of vision? Spot targets at the edge of your sight — critical for gaming.">
     <meta property="og:url" content="https://reflextester.fun/tools/peripheral-vision-test.html">
     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Peripheral Vision Test — How Wide Can You See?">
-    <meta name="twitter:description"
-        content="Spot targets at the edge of your sight. Free peripheral vision test with instant results.">
-
+    <meta name="twitter:description" content="Spot targets at the edge of your sight. Free peripheral vision test with instant results.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -37,9 +30,410 @@
         "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD" }
     }
     </script>
-
     <link rel="stylesheet" href="../styles.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <style>
+        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
+        :root {
+            --tool-accent:     #6366F1;
+            --tool-accent-rgb: 99,102,241;
+            --tool-accent-dim: rgba(99,102,241, 0.12);
+            --tool-accent-glow: 0 0 24px rgba(99,102,241, 0.3);
+            --tool-bg:         #05050f;
+            --tool-text-on:    #fff;
+            --tool-header:     #818CF8;
+        }
+
+        /* Test panel — unique top border + subtle bg tint */
+        .test-panel {
+            border-top: 2px solid #6366F1 !important;
+            background: #05050f !important;
+        }
+
+        /* Headings inherit tool color */
+        .test-panel h1,
+        .test-panel h2 {
+            color: #818CF8;
+        }
+
+        /* Primary button — tool color */
+        .btn-primary {
+            background: #6366F1 !important;
+            color: #fff !important;
+            box-shadow: none;
+        }
+        .btn-primary:hover {
+            background: #6366F1 !important;
+            opacity: 0.88;
+            box-shadow: 0 6px 24px rgba(99,102,241, 0.4) !important;
+            transform: translateY(-1px);
+        }
+
+        /* HUD cells — tool accent top strip */
+        .hud-cell {
+            border-top: 2px solid #6366F1 !important;
+            background: color-mix(in srgb, #05050f 90%, #fff 10%) !important;
+        }
+        .hud-cell-val {
+            color: #6366F1 !important;
+        }
+
+        /* Score card */
+        .score-card {
+            border-top: 2px solid #6366F1 !important;
+            background: #05050f !important;
+        }
+        .score-card-value {
+            color: #6366F1 !important;
+        }
+
+        /* Stats panel left bar */
+        .stats-panel {
+            border-left: 2px solid #6366F1 !important;
+            background: #05050f !important;
+        }
+        .stats-panel h4 {
+            color: #6366F1 !important;
+        }
+
+        /* Section label / info h3 */
+        .info-section h3 {
+            color: #6366F1;
+        }
+
+        /* Aim canvas */
+        .aim-canvas-wrap {
+            background: linear-gradient(160deg, #05050f 0%, #05050f 100%) !important;
+            border-top: 2px solid #6366F1 !important;
+        }
+        .aim-hud-item span {
+            color: #6366F1 !important;
+        }
+        .aim-timer-display {
+            color: #6366F1 !important;
+        }
+        .hitmarker {
+            color: #6366F1 !important;
+        }
+
+        /* Mode buttons active state */
+        .aim-mode-btn.active {
+            background: #6366F1 !important;
+            color: #fff !important;
+            border-color: #6366F1 !important;
+        }
+
+        /* CPS tab active */
+        .cps-tab.active,
+        .cps-duration-btn.active {
+            background: #6366F1 !important;
+            color: #fff !important;
+            border-color: #6366F1 !important;
+        }
+
+        /* Click zone running state */
+        .cps-click-zone {
+            border-top-color: rgba(99,102,241, 0.3) !important;
+        }
+        .cps-click-zone.running {
+            border-top-color: #6366F1 !important;
+            box-shadow: 0 0 30px rgba(99,102,241, 0.12) !important;
+        }
+        .cps-live-cps {
+            color: #6366F1 !important;
+        }
+        .cps-progress-inner {
+            background: linear-gradient(90deg, #6366F1, #22c55e) !important;
+        }
+        .cps-ripple {
+            background: rgba(99,102,241, 0.2) !important;
+        }
+
+        /* Reflex circle states — override to tool accent for result */
+        .reflex-circle-wrap.state-result .reflex-ring {
+            border-color: #6366F1 !important;
+            box-shadow: 0 0 20px rgba(99,102,241, 0.25) !important;
+        }
+        .reflex-circle-wrap.state-result .reflex-circle-value {
+            color: #6366F1 !important;
+        }
+        .reflex-circle-wrap.state-idle .reflex-circle {
+            background: #05050f !important;
+        }
+
+        /* Sequence tiles */
+        .sequence-tile.active {
+            background: rgba(99,102,241, 0.25) !important;
+            border-color: #6366F1 !important;
+            box-shadow: 0 0 16px rgba(99,102,241, 0.3) !important;
+        }
+
+        /* Color options / stroop buttons */
+        .stroop-btn.correct {
+            background: #6366F1 !important;
+            box-shadow: 0 0 16px rgba(99,102,241, 0.4) !important;
+        }
+
+        /* Typing current char */
+        .typing-text .current-char {
+            background: rgba(99,102,241, 0.25) !important;
+            border-bottom-color: #6366F1 !important;
+        }
+        .typing-input:focus {
+            border-color: #6366F1 !important;
+        }
+
+        /* Peripheral / coordination target */
+        .peripheral-center {
+            background: #6366F1 !important;
+        }
+        .coordination-target {
+            background: #6366F1 !important;
+            box-shadow: 0 0 16px rgba(99,102,241, 0.4) !important;
+        }
+
+        /* Number tiles */
+        .number-tile {
+            background: rgba(99,102,241, 0.08) !important;
+            border-color: rgba(99,102,241, 0.4) !important;
+        }
+        .number-tile.next {
+            background: rgba(99,102,241, 0.25) !important;
+            border-color: #6366F1 !important;
+        }
+
+        /* Progress fill */
+        .progress-fill {
+            background: #6366F1 !important;
+        }
+
+        /* Form focus */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .sens-field select:focus,
+        .sens-field input:focus {
+            border-color: #6366F1 !important;
+        }
+
+        /* Filter buttons */
+        .filter-btn.active,
+        .cps-duration-btn.active {
+            color: #6366F1 !important;
+            border-color: rgba(99,102,241, 0.5) !important;
+            background: rgba(99,102,241, 0.1) !important;
+        }
+
+        /* Dashboard card value */
+        .dashboard-card .card-value {
+            color: #6366F1 !important;
+        }
+
+        /* Breadcrumb active link */
+        .breadcrumb a:hover {
+            color: #6366F1 !important;
+        }
+
+        /* Score display inline (legacy fallback) */
+        #scoreDisplay .score-card-value,
+        #resultDisplay {
+            color: #6366F1 !important;
+        }
+
+        /* Focus visible outline */
+        :focus-visible {
+            outline-color: #6366F1 !important;
+        }
+        /* ═══════════════════════════════════════════════════════════════════ */
+
+        .pv-arena { display:flex; flex-direction:column; align-items:center; gap:18px; padding:24px 16px; }
+
+        /* Peripheral field */
+        .pv-field {
+            position: relative;
+            width: min(640px, 92vw);
+            height: 220px;
+            background: radial-gradient(ellipse at center, #0e0e22 0%, #060610 100%);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 18px;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .pv-field.waiting { border-color: var(--accent-orange); }
+        .pv-field.active  { border-color: var(--accent-cyan); }
+        .pv-field.correct { border-color: var(--accent-green); }
+        .pv-field.wrong   { border-color: var(--accent-red); animation: pvShake 0.35s ease; }
+        .pv-field.early   { border-color: var(--accent-red); }
+        @keyframes pvShake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+        .pv-center-dot {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-cyan), #006688);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 14px rgba(0,200,255,0.5);
+            z-index: 5;
+        }
+        .pv-center-dot::after {
+            content:'';position:absolute;inset:-6px;border-radius:50%;
+            border:2px solid rgba(0,200,255,0.3);animation:pvPulse 2s infinite;
+        }
+        @keyframes pvPulse { 0%,100%{transform:scale(1);opacity:0.6;} 50%{transform:scale(1.6);opacity:0;} }
+
+        /* Targets left/right */
+        .pv-target {
+            position: absolute;
+            top: 50%;
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ff5040, #cc3020);
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 0 18px rgba(255,80,40,0.7);
+            transform: translateY(-50%);
+            display: none;
+            z-index: 4;
+        }
+        .pv-target.left  { left: var(--pv-dist, 10%); }
+        .pv-target.right { right: var(--pv-dist, 10%); }
+
+        .pv-overlay {
+            position: absolute; inset:0;
+            display: flex; align-items:center; justify-content:center;
+            flex-direction: column; gap: 8px;
+            background: rgba(10,10,24,0.7);
+            backdrop-filter: blur(2px);
+            z-index: 6;
+            font-size: 0.95rem; color: var(--text-secondary); font-weight: 600; text-align:center; padding:16px;
+        }
+
+        /* Side buttons for mobile */
+        .pv-buttons { display:flex; gap:12px; width:min(320px,80vw); }
+        .pv-side-btn {
+            flex: 1;
+            height: 56px;
+            border-radius: 14px;
+            border: 2px solid var(--border-subtle);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 1.3rem; font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.1s, border-color 0.15s, background 0.15s;
+        }
+        .pv-side-btn:hover { background: var(--bg-tertiary); }
+        .pv-side-btn:active { transform: scale(0.95); }
+        .pv-side-btn.flash-correct { border-color: var(--accent-green); background: rgba(0,230,80,0.15); }
+        .pv-side-btn.flash-wrong   { border-color: var(--accent-red); background: rgba(255,80,80,0.15); }
+
+        .key-hint { font-size:0.75rem; color:var(--text-muted); text-align:center; }
+        .key-hint kbd { display:inline-block; padding:1px 6px; border:1px solid var(--border-subtle); border-radius:4px; font-size:0.75rem; background:var(--bg-secondary); color:var(--text-secondary); }
+
+        /* Round indicator */
+        .pv-round-bar { display:flex; gap:4px; justify-content:center; }
+        .pv-rd { width:18px; height:6px; border-radius:3px; background:var(--bg-secondary); transition:background 0.2s; }
+        .pv-rd.hit  { background:var(--accent-green); }
+        .pv-rd.miss { background:var(--accent-red); }
+        .pv-rd.cur  { background:var(--accent-cyan); }
+
+        /* Distance indicator */
+        .pv-distance-label { font-size: 0.8rem; color: var(--text-muted); text-align:center; }
+        .pv-distance-label span { color: var(--accent-cyan); font-weight: 700; }
+
+        /* Grade & HUD */
+        .grade-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 16px; border-radius:20px; font-size:0.85rem; font-weight:700; letter-spacing:0.05em; border:1px solid; }
+        .grade-exceptional { background:rgba(0,230,80,0.1); color:#00e650; border-color:rgba(0,230,80,0.3); }
+        .grade-excellent { background:rgba(0,200,255,0.1); color:#00c8ff; border-color:rgba(0,200,255,0.3); }
+        .grade-good { background:rgba(100,180,255,0.1); color:#64b4ff; border-color:rgba(100,180,255,0.3); }
+        .grade-average { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
+        .grade-poor { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
+
+        .reflex-hud { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; width:100%; max-width:540px; }
+        .hud-cell { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:12px 8px; text-align:center; }
+        .hud-cell-val { font-size:1.1rem; font-weight:700; color:var(--text-primary); margin-bottom:2px; }
+        .hud-cell-lbl { font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; }
+
+        @media(max-width:540px) {
+            .reflex-hud { grid-template-columns:repeat(2,1fr); }
+        }
+    
+        /* ── Performance Lab Design System (injected) ── */
+        :root {
+            --orange: #FF4D00;
+            --orange-dim: rgba(255,77,0,0.15);
+            --orange-glow: 0 0 24px rgba(255,77,0,0.3);
+        }
+
+        /* Grade badges — Performance Lab */
+        .grade-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1px solid;
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+        }
+        .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
+        .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
+        .grade-good        { background: rgba(255,77,0,0.1);   color: #FF4D00; border-color: rgba(255,77,0,0.35); }
+        .grade-average     { background: rgba(250,204,21,0.1); color: #facc15; border-color: rgba(250,204,21,0.35); }
+        .grade-poor        { background: rgba(239,68,68,0.1);  color: #f87171; border-color: rgba(239,68,68,0.35); }
+
+        /* HUD cells */
+        .hud-cell {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 6px;
+            padding: 14px 10px;
+            text-align: center;
+        }
+        .hud-cell-val {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary, #f5f5f0);
+            margin-bottom: 3px;
+        }
+        .hud-cell-lbl {
+            font-size: 0.68rem;
+            color: var(--text-muted, #444);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        /* Score display card */
+        .score-card {
+            background: #0d0d0d;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+            margin: 16px 0;
+        }
+        .score-card-value {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .score-card-sub {
+            font-size: 0.875rem;
+            color: var(--text-secondary, #888);
+            margin-bottom: 12px;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -75,39 +469,46 @@
         <section class="test-area">
             <div class="test-panel active">
                 <h1>👁️ Peripheral Vision Test</h1>
-                <p class="test-desc">Keep your eyes on the <strong style="color: var(--accent-cyan);">CENTER DOT</strong>. Press the arrow key (← Left / → Right) matching where the target appears. On mobile, tap the target side!</p>
+                <p class="test-desc">Keep your eyes on the <strong style="color: var(--accent-cyan);">CENTER DOT</strong>. A target appears left or right — press the matching arrow key or tap the button. 10 rounds, targets move further out each round!</p>
 
-                <div class="peripheral-area" id="peripheralArea">
-                    <div class="peripheral-center" id="centerDot"></div>
-                    <div class="peripheral-target left" id="targetLeft" style="display: none;"></div>
-                    <div class="peripheral-target right" id="targetRight" style="display: none;"></div>
-                    <div id="peripheralOverlay">Focus on center dot. Press Space to start.</div>
-                </div>
+                <div class="pv-arena">
+                    <!-- Round bar -->
+                    <div class="pv-round-bar" id="roundBar"></div>
 
-                <div class="reaction-display" id="reactionDisplay" style="display: none;"></div>
+                    <div class="pv-distance-label">Distance: <span id="distLabel">20%</span></div>
 
-                <div class="test-actions">
-                    <button class="btn btn-primary peripheral-start-btn" id="startBtn">Start Round</button>
-                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
-                </div>
-
-                <div class="stats-panel" id="statsPanel" style="display: none;">
-                    <h4>👁️ Your Results</h4>
-                    <div class="stat-row">
-                        <span class="stat-label">Latest Time</span>
-                        <span class="stat-value" id="latestTime">—</span>
+                    <!-- Vision field -->
+                    <div class="pv-field" id="pvField">
+                        <div class="pv-center-dot"></div>
+                        <div class="pv-target left" id="tgtLeft"></div>
+                        <div class="pv-target right" id="tgtRight"></div>
+                        <div class="pv-overlay" id="pvOverlay">
+                            <div style="font-size:2rem;">👁️</div>
+                            <div>Press <strong>Start</strong> to begin</div>
+                            <div style="font-size:0.8rem;color:var(--text-muted);">10 rounds · targets get further away</div>
+                        </div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Best Time</span>
-                        <span class="stat-value" id="bestTime">—</span>
+
+                    <!-- Side buttons for mobile -->
+                    <div class="pv-buttons">
+                        <button class="pv-side-btn" id="btnLeft">← Left</button>
+                        <button class="pv-side-btn" id="btnRight">Right →</button>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Accuracy</span>
-                        <span class="stat-value" id="accuracy">—</span>
+                    <div class="key-hint">Keyboard: <kbd>←</kbd> or <kbd>→</kbd> arrow keys also work</div>
+
+                    <div id="gradeBadge" style="display:none;"></div>
+
+                    <!-- Persistent stats HUD -->
+                    <div class="reflex-hud" id="refHud" style="display:none;">
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudBest">—</div><div class="hud-cell-lbl">Best</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudAvg">—</div><div class="hud-cell-lbl">Average</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudAcc">—</div><div class="hud-cell-lbl">Accuracy</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudGames">0</div><div class="hud-cell-lbl">Games</div></div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Tests Completed</span>
-                        <span class="stat-value" id="testCount">0</span>
+
+                    <div class="test-actions">
+                        <button class="btn btn-primary peripheral-start-btn" id="startBtn">Start Round</button>
+                        <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
                     </div>
                 </div>
             </div>
@@ -116,19 +517,14 @@
         <section class="info-section">
             <div class="container-narrow">
                 <h2>About Peripheral Vision</h2>
-                <p>Peripheral vision is your ability to see objects and movement outside your direct line of sight.
-                    While we focus on what's in front of us, our peripheral vision covers about 180 degrees and is
-                    crucial for detecting motion and potential threats.</p>
-
+                <p>Peripheral vision is your ability to see objects and movement outside your direct line of sight. While we focus on what's in front of us, our peripheral vision covers about 180 degrees and is crucial for detecting motion and potential threats.</p>
                 <h3>Why Peripheral Vision Matters for Gaming</h3>
                 <ul>
                     <li><strong>Flanking detection:</strong> Notice enemies approaching from the sides</li>
-                    <li><strong>Minimap awareness:</strong> Process map information without looking away from the center
-                    </li>
+                    <li><strong>Minimap awareness:</strong> Process map information without looking away from the center</li>
                     <li><strong>Movement tracking:</strong> Detect player movement in your side vision</li>
                     <li><strong>Multi-target awareness:</strong> Keep track of multiple enemies simultaneously</li>
                 </ul>
-
                 <h3>Training Tips</h3>
                 <ul>
                     <li>Practice keeping your eyes fixed on the center while being aware of the edges</li>
@@ -142,30 +538,13 @@
             <div class="container">
                 <h2>Recommended Tools</h2>
                 <div class="rec-grid">
-                    <a href="hand-eye-coordination-test.html" class="rec-card">
-                        <div class="rec-icon">🎯</div>
-                        <h3>Hand-Eye Coordination</h3>
-                        <p>Hit moving targets with precision</p>
-                    </a>
-                    <a href="csgo-aim-trainer.html" class="rec-card">
-                        <div class="rec-icon">🎯</div>
-                        <h3>CS:GO Aim Trainer</h3>
-                        <p>3D shooting range practice</p>
-                    </a>
-                    <a href="visual-reflex-test.html" class="rec-card">
-                        <div class="rec-icon">⚡</div>
-                        <h3>Visual Reflex Test</h3>
-                        <p>Measure raw reaction time</p>
-                    </a>
-                    <a href="fortnite-aim-trainer.html" class="rec-card">
-                        <div class="rec-icon">🎮</div>
-                        <h3>Fortnite Aim Trainer</h3>
-                        <p>Arena shooting with character targets</p>
-                    </a>
+                    <a href="hand-eye-coordination-test.html" class="rec-card"><div class="rec-icon">🎯</div><h3>Hand-Eye Coordination</h3><p>Hit moving targets with precision</p></a>
+                    <a href="csgo-aim-trainer.html" class="rec-card"><div class="rec-icon">🎯</div><h3>CS:GO Aim Trainer</h3><p>3D shooting range practice</p></a>
+                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Visual Reflex Test</h3><p>Measure raw reaction time</p></a>
+                    <a href="fortnite-aim-trainer.html" class="rec-card"><div class="rec-icon">🎮</div><h3>Fortnite Aim Trainer</h3><p>Arena shooting with character targets</p></a>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -178,148 +557,237 @@
 
     <script src="../main.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            (function () {
-            const peripheralArea = document.getElementById('peripheralArea');
-            const centerDot = document.getElementById('centerDot');
-            const targetLeft = document.getElementById('targetLeft');
-            const targetRight = document.getElementById('targetRight');
-            const peripheralOverlay = document.getElementById('peripheralOverlay');
-            const reactionDisplay = document.getElementById('reactionDisplay');
-            const resetBtn = document.getElementById('resetBtn');
-            const statsPanel = document.getElementById('statsPanel');
+    document.addEventListener('DOMContentLoaded', function () {
+        (function () {
+            const pvField   = document.getElementById('pvField');
+            const tgtLeft   = document.getElementById('tgtLeft');
+            const tgtRight  = document.getElementById('tgtRight');
+            const pvOverlay = document.getElementById('pvOverlay');
+            const roundBar  = document.getElementById('roundBar');
+            const distLabel = document.getElementById('distLabel');
+            const gradeBadge= document.getElementById('gradeBadge');
+            const refHud    = document.getElementById('refHud');
+            const startBtn  = document.getElementById('startBtn');
+            const resetBtn  = document.getElementById('resetBtn');
+            const btnLeft   = document.getElementById('btnLeft');
+            const btnRight  = document.getElementById('btnRight');
 
-            let state = 'waiting';
-            let currentSide = '';
-            let startTime = 0;
-            let timeoutId = null;
-            let results = ReflexStore.get('peripheral_results', []);
-            let correct = ReflexStore.get('peripheral_correct', 0);
-            let total = ReflexStore.get('peripheral_total', 0);
+            const ROUNDS = 10;
+            let state      = 'idle'; // idle, waiting, active, result
+            let round      = 0;
+            let curSide    = '';
+            let startTime  = 0;
+            let timeoutId  = null;
+            let roundResults = []; // 'hit' | 'miss' per round
+            let reactionTimes = [];
+            let correct    = 0;
+            let total      = 0;
+            let results    = ReflexStore.get('peripheral_results', []);
+            let correctAll = ReflexStore.get('peripheral_correct', 0);
+            let totalAll   = ReflexStore.get('peripheral_total', 0);
 
-            function updateStats() {
-                if (results.length === 0) {
-                    statsPanel.style.display = 'none';
-                    return;
+            function getDistance(r) {
+                // Distance increases: 15% → 42% over 10 rounds
+                return 15 + Math.round((r / (ROUNDS - 1)) * 27);
+            }
+
+            function getGrade(ms) {
+                if (ms < 200) return { label: '🏆 EXCEPTIONAL', cls: 'grade-exceptional' };
+                if (ms < 300) return { label: '⚡ EXCELLENT',   cls: 'grade-excellent'   };
+                if (ms < 420) return { label: '👍 GOOD',        cls: 'grade-good'        };
+                if (ms < 550) return { label: '📊 AVERAGE',     cls: 'grade-average'     };
+                return           { label: '📉 POOR',             cls: 'grade-poor'        };
+            }
+
+            function buildRoundBar() {
+                roundBar.innerHTML = '';
+                for (let i = 0; i < ROUNDS; i++) {
+                    const d = document.createElement('div');
+                    let cls = 'pv-rd';
+                    if (roundResults[i] === 'hit')  cls += ' hit';
+                    else if (roundResults[i] === 'miss') cls += ' miss';
+                    else if (i === round && state !== 'idle') cls += ' cur';
+                    d.className = cls;
+                    roundBar.appendChild(d);
                 }
-                statsPanel.style.display = 'block';
-                document.getElementById('latestTime').textContent = results[results.length - 1] + 'ms';
-                document.getElementById('bestTime').textContent = Math.min(...results) + 'ms';
-                document.getElementById('accuracy').textContent = total > 0 ? Math.round((correct / total) * 100) + '%' : '—';
-                document.getElementById('testCount').textContent = results.length;
             }
 
             function showTarget() {
-                currentSide = Math.random() > 0.5 ? 'left' : 'right';
-                const target = currentSide === 'left' ? targetLeft : targetRight;
+                curSide = Math.random() > 0.5 ? 'left' : 'right';
+                const dist = getDistance(round);
+                distLabel.textContent = dist + '%';
+                const target = curSide === 'left' ? tgtLeft : tgtRight;
+                target.style.setProperty('--pv-dist', dist + '%');
                 target.style.display = 'block';
                 startTime = performance.now();
                 state = 'active';
+                pvField.className = 'pv-field active';
 
                 timeoutId = setTimeout(() => {
                     target.style.display = 'none';
-                    total++;
-                    ReflexStore.set('peripheral_total', total);
-                    reactionDisplay.textContent = 'Too slow!';
-                    reactionDisplay.style.color = 'var(--accent-red)';
-                    reactionDisplay.style.display = 'block';
+                    roundResults[round] = 'miss';
+                    total++; totalAll++;
+                    round++;
+                    buildRoundBar();
+                    if (round >= ROUNDS) { endGame(); return; }
                     state = 'waiting';
-                    peripheralOverlay.textContent = 'Press Space to try again';
-                    peripheralOverlay.style.display = 'block';
-                    updateStats();
+                    pvField.className = 'pv-field waiting';
+                    setTimeout(showTarget, 600 + Math.random() * 1200);
                 }, 1500);
             }
 
-            function startRound() {
-                state = 'ready';
-                peripheralOverlay.textContent = 'Focus on center...';
-                peripheralOverlay.style.display = 'block';
-                reactionDisplay.style.display = 'none';
-                targetLeft.style.display = 'none';
-                targetRight.style.display = 'none';
-
-                timeoutId = setTimeout(() => {
-                    peripheralOverlay.style.display = 'none';
-                    showTarget();
-                }, 1000 + Math.random() * 2000);
-            }
-
-            function handleKeyPress(e) {
-                if (e.key === ' ' && state === 'waiting') {
-                    e.preventDefault();
-                    startRound();
-                } else if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && state === 'active') {
-                    e.preventDefault();
+            function handleInput(side) {
+                if (state === 'idle') return;
+                if (state === 'waiting') {
                     clearTimeout(timeoutId);
-                    const pressed = e.key === 'ArrowLeft' ? 'left' : 'right';
-                    const reactionTime = Math.round(performance.now() - startTime);
-                    total++;
+                    state = 'early';
+                    pvField.className = 'pv-field early';
+                    pvOverlay.innerHTML = '<div style="color:var(--accent-red);font-size:1.1rem;font-weight:700;">Too early!</div><div style="font-size:0.85rem;color:var(--text-muted);">Wait for the target…</div>';
+                    pvOverlay.style.display = 'flex';
+                    setTimeout(() => {
+                        pvOverlay.style.display = 'none';
+                        state = 'waiting';
+                        pvField.className = 'pv-field waiting';
+                        setTimeout(showTarget, 600 + Math.random() * 1500);
+                    }, 1200);
+                    return;
+                }
+                if (state === 'active') {
+                    clearTimeout(timeoutId);
+                    const ms = Math.round(performance.now() - startTime);
+                    tgtLeft.style.display = 'none';
+                    tgtRight.style.display = 'none';
+                    total++; totalAll++;
 
-                    targetLeft.style.display = 'none';
-                    targetRight.style.display = 'none';
-
-                    if (pressed === currentSide) {
-                        correct++;
-                        results.push(reactionTime);
-                        reactionDisplay.textContent = reactionTime + 'ms ✓';
-                        reactionDisplay.style.color = 'var(--accent-green)';
+                    if (side === curSide) {
+                        correct++; correctAll++;
+                        reactionTimes.push(ms);
+                        roundResults[round] = 'hit';
+                        pvField.className = 'pv-field correct';
+                        flashBtn(side, true);
                     } else {
-                        reactionDisplay.textContent = 'Wrong side!';
-                        reactionDisplay.style.color = 'var(--accent-red)';
+                        roundResults[round] = 'miss';
+                        pvField.className = 'pv-field wrong';
+                        flashBtn(side, false);
+                        // briefly show correct side
+                        const correctBtn = curSide === 'left' ? btnLeft : btnRight;
+                        correctBtn.classList.add('flash-correct');
+                        setTimeout(() => correctBtn.classList.remove('flash-correct'), 500);
                     }
 
-                    reactionDisplay.style.display = 'block';
-                    ReflexStore.set('peripheral_results', results);
-                    ReflexStore.set('peripheral_correct', correct);
-                    ReflexStore.set('peripheral_total', total);
-                    updateStats();
+                    round++;
+                    buildRoundBar();
 
-                    state = 'waiting';
-                    peripheralOverlay.textContent = 'Press Space to continue';
-                    peripheralOverlay.style.display = 'block';
-                } else if (state === 'ready') {
-                    clearTimeout(timeoutId);
-                    reactionDisplay.textContent = 'Too early!';
-                    reactionDisplay.style.color = 'var(--accent-red)';
-                    reactionDisplay.style.display = 'block';
-                    state = 'waiting';
-                    peripheralOverlay.textContent = 'Press Space to retry';
-                    peripheralOverlay.style.display = 'block';
+                    if (round >= ROUNDS) { endGame(); return; }
+
+                    setTimeout(() => {
+                        pvField.className = 'pv-field waiting';
+                        state = 'waiting';
+                        setTimeout(showTarget, 500 + Math.random() * 1200);
+                    }, 500);
+                } else if (state === 'early' || state === 'result') {
+                    // ignore
                 }
             }
 
-            document.addEventListener('keydown', handleKeyPress);
-
-            var startBtn = document.getElementById('startBtn');
-            if (startBtn) {
-                startBtn.addEventListener('click', function () {
-                    if (state === 'waiting') {
-                        startRound();
-                    }
-                });
+            function flashBtn(side, isCorrect) {
+                const btn = side === 'left' ? btnLeft : btnRight;
+                btn.classList.add(isCorrect ? 'flash-correct' : 'flash-wrong');
+                setTimeout(() => btn.classList.remove('flash-correct', 'flash-wrong'), 400);
             }
 
+            function startGame() {
+                round = 0; correct = 0; total = 0;
+                reactionTimes = []; roundResults = [];
+                pvOverlay.style.display = 'none';
+                gradeBadge.style.display = 'none';
+                startBtn.disabled = true;
+                buildRoundBar();
+
+                state = 'waiting';
+                pvField.className = 'pv-field waiting';
+                setTimeout(showTarget, 800 + Math.random() * 1500);
+            }
+
+            function endGame() {
+                state = 'result';
+                tgtLeft.style.display = 'none';
+                tgtRight.style.display = 'none';
+                pvField.className = 'pv-field';
+                startBtn.disabled = false;
+                startBtn.textContent = 'Play Again';
+
+                const acc = Math.round((correct / total) * 100);
+                const avg = reactionTimes.length ? Math.round(reactionTimes.reduce((a,b)=>a+b,0)/reactionTimes.length) : 0;
+
+                pvOverlay.innerHTML = `<div style='font-size:1.2rem;font-weight:700;'>${correct}/${ROUNDS} correct · ${acc}% accuracy</div><div style='color:var(--text-muted);font-size:0.85rem;'>Avg reaction: ${avg}ms</div>`;
+                pvOverlay.style.display = 'flex';
+
+                if (avg > 0) {
+                    const g = getGrade(avg);
+                    gradeBadge.style.display = 'inline-flex';
+                    gradeBadge.className = 'grade-badge ' + g.cls;
+                    gradeBadge.textContent = g.label + '  ' + avg + 'ms';
+                }
+
+                results.push(avg || 999);
+                ReflexStore.set('peripheral_results', results);
+                ReflexStore.set('peripheral_correct', correctAll);
+                ReflexStore.set('peripheral_total', totalAll);
+                updateHUD();
+            }
+
+            // Keyboard
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft')  { e.preventDefault(); handleInput('left');  }
+                if (e.key === 'ArrowRight') { e.preventDefault(); handleInput('right'); }
+                if (e.key === ' ' && state === 'idle') { e.preventDefault(); startGame(); }
+            });
+
+            // Touch buttons
+            btnLeft.addEventListener('click',  function () { handleInput('left');  });
+            btnRight.addEventListener('click', function () { handleInput('right'); });
+
+            startBtn.addEventListener('click', function () {
+                if (state === 'idle' || state === 'result') startGame();
+            });
+
             resetBtn.addEventListener('click', function () {
-                results = [];
-                correct = 0;
-                total = 0;
+                clearTimeout(timeoutId);
+                state = 'idle';
+                round = 0; correct = 0; total = 0;
+                correctAll = 0; totalAll = 0;
+                reactionTimes = []; roundResults = []; results = [];
                 ReflexStore.set('peripheral_results', []);
                 ReflexStore.set('peripheral_correct', 0);
                 ReflexStore.set('peripheral_total', 0);
-                reactionDisplay.style.display = 'none';
-                peripheralOverlay.textContent = 'Focus on center dot. Press Space to start.';
-                peripheralOverlay.style.display = 'block';
-                state = 'waiting';
-                updateStats();
+                tgtLeft.style.display = 'none'; tgtRight.style.display = 'none';
+                pvField.className = 'pv-field';
+                pvOverlay.innerHTML = '<div style="font-size:2rem;">👁️</div><div>Press <strong>Start</strong> to begin</div><div style="font-size:0.8rem;color:var(--text-muted);">10 rounds · targets get further away</div>';
+                pvOverlay.style.display = 'flex';
+                gradeBadge.style.display = 'none';
+                startBtn.disabled = false;
+                startBtn.textContent = 'Start Round';
+                buildRoundBar();
+                updateHUD();
             });
 
-            updateStats();
+            function updateHUD() {
+                if (results.length === 0) { refHud.style.display = 'none'; return; }
+                refHud.style.display = 'grid';
+                const valid = results.filter(r => r < 999);
+                document.getElementById('hudBest').textContent  = valid.length ? Math.min(...valid) + 'ms' : '—';
+                document.getElementById('hudAvg').textContent   = valid.length ? Math.round(valid.reduce((a,b)=>a+b,0)/valid.length) + 'ms' : '—';
+                document.getElementById('hudAcc').textContent   = totalAll > 0 ? Math.round((correctAll/totalAll)*100) + '%' : '—';
+                document.getElementById('hudGames').textContent  = results.length;
+            }
+
+            buildRoundBar();
+            updateHUD();
         })();
-        });
+    });
     </script>
 <script src="../nav.js" defer></script>
 </body>
 
 </html>
-
-

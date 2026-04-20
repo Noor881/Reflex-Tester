@@ -33,6 +33,219 @@
     <link rel="stylesheet" href="../styles.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
     <style>
+        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
+        :root {
+            --tool-accent:     #EF4444;
+            --tool-accent-rgb: 239,68,68;
+            --tool-accent-dim: rgba(239,68,68, 0.12);
+            --tool-accent-glow: 0 0 24px rgba(239,68,68, 0.3);
+            --tool-bg:         #0f0505;
+            --tool-text-on:    #fff;
+            --tool-header:     #F87171;
+        }
+
+        /* Test panel — unique top border + subtle bg tint */
+        .test-panel {
+            border-top: 2px solid #EF4444 !important;
+            background: #0f0505 !important;
+        }
+
+        /* Headings inherit tool color */
+        .test-panel h1,
+        .test-panel h2 {
+            color: #F87171;
+        }
+
+        /* Primary button — tool color */
+        .btn-primary {
+            background: #EF4444 !important;
+            color: #fff !important;
+            box-shadow: none;
+        }
+        .btn-primary:hover {
+            background: #EF4444 !important;
+            opacity: 0.88;
+            box-shadow: 0 6px 24px rgba(239,68,68, 0.4) !important;
+            transform: translateY(-1px);
+        }
+
+        /* HUD cells — tool accent top strip */
+        .hud-cell {
+            border-top: 2px solid #EF4444 !important;
+            background: color-mix(in srgb, #0f0505 90%, #fff 10%) !important;
+        }
+        .hud-cell-val {
+            color: #EF4444 !important;
+        }
+
+        /* Score card */
+        .score-card {
+            border-top: 2px solid #EF4444 !important;
+            background: #0f0505 !important;
+        }
+        .score-card-value {
+            color: #EF4444 !important;
+        }
+
+        /* Stats panel left bar */
+        .stats-panel {
+            border-left: 2px solid #EF4444 !important;
+            background: #0f0505 !important;
+        }
+        .stats-panel h4 {
+            color: #EF4444 !important;
+        }
+
+        /* Section label / info h3 */
+        .info-section h3 {
+            color: #EF4444;
+        }
+
+        /* Aim canvas */
+        .aim-canvas-wrap {
+            background: linear-gradient(160deg, #0f0505 0%, #0f0505 100%) !important;
+            border-top: 2px solid #EF4444 !important;
+        }
+        .aim-hud-item span {
+            color: #EF4444 !important;
+        }
+        .aim-timer-display {
+            color: #EF4444 !important;
+        }
+        .hitmarker {
+            color: #EF4444 !important;
+        }
+
+        /* Mode buttons active state */
+        .aim-mode-btn.active {
+            background: #EF4444 !important;
+            color: #fff !important;
+            border-color: #EF4444 !important;
+        }
+
+        /* CPS tab active */
+        .cps-tab.active,
+        .cps-duration-btn.active {
+            background: #EF4444 !important;
+            color: #fff !important;
+            border-color: #EF4444 !important;
+        }
+
+        /* Click zone running state */
+        .cps-click-zone {
+            border-top-color: rgba(239,68,68, 0.3) !important;
+        }
+        .cps-click-zone.running {
+            border-top-color: #EF4444 !important;
+            box-shadow: 0 0 30px rgba(239,68,68, 0.12) !important;
+        }
+        .cps-live-cps {
+            color: #EF4444 !important;
+        }
+        .cps-progress-inner {
+            background: linear-gradient(90deg, #EF4444, #22c55e) !important;
+        }
+        .cps-ripple {
+            background: rgba(239,68,68, 0.2) !important;
+        }
+
+        /* Reflex circle states — override to tool accent for result */
+        .reflex-circle-wrap.state-result .reflex-ring {
+            border-color: #EF4444 !important;
+            box-shadow: 0 0 20px rgba(239,68,68, 0.25) !important;
+        }
+        .reflex-circle-wrap.state-result .reflex-circle-value {
+            color: #EF4444 !important;
+        }
+        .reflex-circle-wrap.state-idle .reflex-circle {
+            background: #0f0505 !important;
+        }
+
+        /* Sequence tiles */
+        .sequence-tile.active {
+            background: rgba(239,68,68, 0.25) !important;
+            border-color: #EF4444 !important;
+            box-shadow: 0 0 16px rgba(239,68,68, 0.3) !important;
+        }
+
+        /* Color options / stroop buttons */
+        .stroop-btn.correct {
+            background: #EF4444 !important;
+            box-shadow: 0 0 16px rgba(239,68,68, 0.4) !important;
+        }
+
+        /* Typing current char */
+        .typing-text .current-char {
+            background: rgba(239,68,68, 0.25) !important;
+            border-bottom-color: #EF4444 !important;
+        }
+        .typing-input:focus {
+            border-color: #EF4444 !important;
+        }
+
+        /* Peripheral / coordination target */
+        .peripheral-center {
+            background: #EF4444 !important;
+        }
+        .coordination-target {
+            background: #EF4444 !important;
+            box-shadow: 0 0 16px rgba(239,68,68, 0.4) !important;
+        }
+
+        /* Number tiles */
+        .number-tile {
+            background: rgba(239,68,68, 0.08) !important;
+            border-color: rgba(239,68,68, 0.4) !important;
+        }
+        .number-tile.next {
+            background: rgba(239,68,68, 0.25) !important;
+            border-color: #EF4444 !important;
+        }
+
+        /* Progress fill */
+        .progress-fill {
+            background: #EF4444 !important;
+        }
+
+        /* Form focus */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .sens-field select:focus,
+        .sens-field input:focus {
+            border-color: #EF4444 !important;
+        }
+
+        /* Filter buttons */
+        .filter-btn.active,
+        .cps-duration-btn.active {
+            color: #EF4444 !important;
+            border-color: rgba(239,68,68, 0.5) !important;
+            background: rgba(239,68,68, 0.1) !important;
+        }
+
+        /* Dashboard card value */
+        .dashboard-card .card-value {
+            color: #EF4444 !important;
+        }
+
+        /* Breadcrumb active link */
+        .breadcrumb a:hover {
+            color: #EF4444 !important;
+        }
+
+        /* Score display inline (legacy fallback) */
+        #scoreDisplay .score-card-value,
+        #resultDisplay {
+            color: #EF4444 !important;
+        }
+
+        /* Focus visible outline */
+        :focus-visible {
+            outline-color: #EF4444 !important;
+        }
+        /* ═══════════════════════════════════════════════════════════════════ */
+
         .cps-arena {
             display: flex;
             flex-direction: column;
@@ -47,7 +260,7 @@
             gap: 8px;
             background: var(--bg-secondary);
             border: 1px solid var(--border-subtle);
-            border-radius: 12px;
+            border-radius: 6px;
             padding: 6px;
         }
         .cps-tab {
@@ -62,7 +275,7 @@
             transition: all 0.2s;
         }
         .cps-tab.active {
-            background: var(--accent-cyan);
+            background: #FF4D00;
             color: #000;
         }
         .cps-tab:hover:not(.active) { background: var(--bg-tertiary); color: var(--text-primary); }
@@ -73,8 +286,8 @@
             width: min(480px, 90vw);
             height: 200px;
             border-radius: 20px;
-            background: #12122a;
-            border: 2px solid #2a2a4a;
+            background: #101010;
+            border: 2px solid rgba(255,255,255,0.1);
             cursor: pointer;
             overflow: hidden;
             display: flex;
@@ -86,10 +299,10 @@
             user-select: none;
             -webkit-user-select: none;
         }
-        .cps-click-zone.idle { border-color: #3a3a5a; }
+        .cps-click-zone.idle { border-color: rgba(255,255,255,0.1); }
         .cps-click-zone.running {
             border-color: var(--accent-cyan);
-            box-shadow: 0 0 30px rgba(0,200,255,0.2);
+            box-shadow: 0 0 30px rgba(255,77,0,0.2);
         }
         .cps-click-zone.done {
             border-color: var(--accent-green);
@@ -130,7 +343,7 @@
         .cps-progress-inner {
             height: 100%;
             width: 100%;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            background: linear-gradient(90deg, #FF4D00, #22c55e);
             transition: width 0.25s linear;
             transform-origin: left;
         }
@@ -139,7 +352,7 @@
         .cps-ripple {
             position: absolute;
             border-radius: 50%;
-            background: rgba(0,200,255,0.25);
+            background: rgba(255,77,0,0.2);
             pointer-events: none;
             transform: scale(0);
             animation: cpsRipple 0.4s ease-out forwards;
@@ -168,6 +381,192 @@
             .reflex-hud { grid-template-columns:repeat(3,1fr); }
             .cps-main-count { font-size:3rem; }
         }
+    
+        /* ── Performance Lab Design System (injected) ── */
+        :root {
+            --orange: #FF4D00;
+            --orange-dim: rgba(255,77,0,0.15);
+            --orange-glow: 0 0 24px rgba(255,77,0,0.3);
+        }
+
+        /* Grade badges — Performance Lab */
+        .grade-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1px solid;
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+        }
+        .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
+        .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
+        .grade-good        { background: rgba(255,77,0,0.1);   color: #FF4D00; border-color: rgba(255,77,0,0.35); }
+        .grade-average     { background: rgba(250,204,21,0.1); color: #facc15; border-color: rgba(250,204,21,0.35); }
+        .grade-poor        { background: rgba(239,68,68,0.1);  color: #f87171; border-color: rgba(239,68,68,0.35); }
+
+        /* HUD cells */
+        .hud-cell {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 6px;
+            padding: 14px 10px;
+            text-align: center;
+        }
+        .hud-cell-val {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary, #f5f5f0);
+            margin-bottom: 3px;
+        }
+        .hud-cell-lbl {
+            font-size: 0.68rem;
+            color: var(--text-muted, #444);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        /* Score display card */
+        .score-card {
+            background: #0d0d0d;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+            margin: 16px 0;
+        }
+        .score-card-value {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .score-card-sub {
+            font-size: 0.875rem;
+            color: var(--text-secondary, #888);
+            margin-bottom: 12px;
+        }
+
+    
+        .cps-tabs {
+            display: flex;
+            gap: 6px;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+        .cps-tab {
+            padding: 8px 18px;
+            border-radius: 5px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .cps-tab.active {
+            background: #FF4D00;
+            color: #000;
+            border-color: #FF4D00;
+        }
+        .cps-tab:hover:not(.active) {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.2);
+            color: var(--text-primary);
+        }
+
+        .cps-click-zone {
+            position: relative;
+            width: min(480px, 90vw);
+            height: 200px;
+            border-radius: 10px;
+            background: #0d0d0d;
+            border: 2px solid rgba(255,255,255,0.08);
+            border-top: 2px solid #FF4D00;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: border-color 0.15s, box-shadow 0.15s;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .cps-click-zone.idle { border-top-color: rgba(255,255,255,0.15); }
+        .cps-click-zone.running {
+            border-top-color: #FF4D00;
+            box-shadow: 0 0 30px rgba(255,77,0,0.15);
+        }
+        .cps-click-zone.done {
+            border-top-color: #22c55e;
+            box-shadow: 0 0 20px rgba(34,197,94,0.12);
+            cursor: default;
+        }
+        .cps-main-count {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+            transition: color 0.15s;
+        }
+        .cps-main-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .cps-live-cps {
+            font-family: var(--font-mono, monospace);
+            font-size: 1rem;
+            font-weight: 700;
+            color: #FF4D00;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .cps-click-zone.running .cps-live-cps { opacity: 1; }
+        .cps-progress-outer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: rgba(255,255,255,0.05);
+        }
+        .cps-progress-inner {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, #FF4D00, #22c55e);
+            transition: width 0.25s linear;
+            transform-origin: left;
+        }
+        .cps-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,77,0,0.2);
+            pointer-events: none;
+            transform: scale(0);
+            animation: cpsRipple 0.4s ease-out forwards;
+        }
+
     </style>
 </head>
 

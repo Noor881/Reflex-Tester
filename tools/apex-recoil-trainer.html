@@ -11,6 +11,219 @@
         content="apex legends recoil trainer, apex spray control, r301 recoil pattern, r99 spray pattern, apex aim trainer">
     <link rel="stylesheet" href="../styles.css">
     <style>
+        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
+        :root {
+            --tool-accent:     #E8692A;
+            --tool-accent-rgb: 232,105,42;
+            --tool-accent-dim: rgba(232,105,42, 0.12);
+            --tool-accent-glow: 0 0 24px rgba(232,105,42, 0.3);
+            --tool-bg:         #0c0602;
+            --tool-text-on:    #fff;
+            --tool-header:     #F97316;
+        }
+
+        /* Test panel — unique top border + subtle bg tint */
+        .test-panel {
+            border-top: 2px solid #E8692A !important;
+            background: #0c0602 !important;
+        }
+
+        /* Headings inherit tool color */
+        .test-panel h1,
+        .test-panel h2 {
+            color: #F97316;
+        }
+
+        /* Primary button — tool color */
+        .btn-primary {
+            background: #E8692A !important;
+            color: #fff !important;
+            box-shadow: none;
+        }
+        .btn-primary:hover {
+            background: #E8692A !important;
+            opacity: 0.88;
+            box-shadow: 0 6px 24px rgba(232,105,42, 0.4) !important;
+            transform: translateY(-1px);
+        }
+
+        /* HUD cells — tool accent top strip */
+        .hud-cell {
+            border-top: 2px solid #E8692A !important;
+            background: color-mix(in srgb, #0c0602 90%, #fff 10%) !important;
+        }
+        .hud-cell-val {
+            color: #E8692A !important;
+        }
+
+        /* Score card */
+        .score-card {
+            border-top: 2px solid #E8692A !important;
+            background: #0c0602 !important;
+        }
+        .score-card-value {
+            color: #E8692A !important;
+        }
+
+        /* Stats panel left bar */
+        .stats-panel {
+            border-left: 2px solid #E8692A !important;
+            background: #0c0602 !important;
+        }
+        .stats-panel h4 {
+            color: #E8692A !important;
+        }
+
+        /* Section label / info h3 */
+        .info-section h3 {
+            color: #E8692A;
+        }
+
+        /* Aim canvas */
+        .aim-canvas-wrap {
+            background: linear-gradient(160deg, #0c0602 0%, #0c0602 100%) !important;
+            border-top: 2px solid #E8692A !important;
+        }
+        .aim-hud-item span {
+            color: #E8692A !important;
+        }
+        .aim-timer-display {
+            color: #E8692A !important;
+        }
+        .hitmarker {
+            color: #E8692A !important;
+        }
+
+        /* Mode buttons active state */
+        .aim-mode-btn.active {
+            background: #E8692A !important;
+            color: #fff !important;
+            border-color: #E8692A !important;
+        }
+
+        /* CPS tab active */
+        .cps-tab.active,
+        .cps-duration-btn.active {
+            background: #E8692A !important;
+            color: #fff !important;
+            border-color: #E8692A !important;
+        }
+
+        /* Click zone running state */
+        .cps-click-zone {
+            border-top-color: rgba(232,105,42, 0.3) !important;
+        }
+        .cps-click-zone.running {
+            border-top-color: #E8692A !important;
+            box-shadow: 0 0 30px rgba(232,105,42, 0.12) !important;
+        }
+        .cps-live-cps {
+            color: #E8692A !important;
+        }
+        .cps-progress-inner {
+            background: linear-gradient(90deg, #E8692A, #22c55e) !important;
+        }
+        .cps-ripple {
+            background: rgba(232,105,42, 0.2) !important;
+        }
+
+        /* Reflex circle states — override to tool accent for result */
+        .reflex-circle-wrap.state-result .reflex-ring {
+            border-color: #E8692A !important;
+            box-shadow: 0 0 20px rgba(232,105,42, 0.25) !important;
+        }
+        .reflex-circle-wrap.state-result .reflex-circle-value {
+            color: #E8692A !important;
+        }
+        .reflex-circle-wrap.state-idle .reflex-circle {
+            background: #0c0602 !important;
+        }
+
+        /* Sequence tiles */
+        .sequence-tile.active {
+            background: rgba(232,105,42, 0.25) !important;
+            border-color: #E8692A !important;
+            box-shadow: 0 0 16px rgba(232,105,42, 0.3) !important;
+        }
+
+        /* Color options / stroop buttons */
+        .stroop-btn.correct {
+            background: #E8692A !important;
+            box-shadow: 0 0 16px rgba(232,105,42, 0.4) !important;
+        }
+
+        /* Typing current char */
+        .typing-text .current-char {
+            background: rgba(232,105,42, 0.25) !important;
+            border-bottom-color: #E8692A !important;
+        }
+        .typing-input:focus {
+            border-color: #E8692A !important;
+        }
+
+        /* Peripheral / coordination target */
+        .peripheral-center {
+            background: #E8692A !important;
+        }
+        .coordination-target {
+            background: #E8692A !important;
+            box-shadow: 0 0 16px rgba(232,105,42, 0.4) !important;
+        }
+
+        /* Number tiles */
+        .number-tile {
+            background: rgba(232,105,42, 0.08) !important;
+            border-color: rgba(232,105,42, 0.4) !important;
+        }
+        .number-tile.next {
+            background: rgba(232,105,42, 0.25) !important;
+            border-color: #E8692A !important;
+        }
+
+        /* Progress fill */
+        .progress-fill {
+            background: #E8692A !important;
+        }
+
+        /* Form focus */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .sens-field select:focus,
+        .sens-field input:focus {
+            border-color: #E8692A !important;
+        }
+
+        /* Filter buttons */
+        .filter-btn.active,
+        .cps-duration-btn.active {
+            color: #E8692A !important;
+            border-color: rgba(232,105,42, 0.5) !important;
+            background: rgba(232,105,42, 0.1) !important;
+        }
+
+        /* Dashboard card value */
+        .dashboard-card .card-value {
+            color: #E8692A !important;
+        }
+
+        /* Breadcrumb active link */
+        .breadcrumb a:hover {
+            color: #E8692A !important;
+        }
+
+        /* Score display inline (legacy fallback) */
+        #scoreDisplay .score-card-value,
+        #resultDisplay {
+            color: #E8692A !important;
+        }
+
+        /* Focus visible outline */
+        :focus-visible {
+            outline-color: #E8692A !important;
+        }
+        /* ═══════════════════════════════════════════════════════════════════ */
+
         .recoil-container {
             display: grid;
             grid-template-columns: 1fr 350px;
@@ -186,6 +399,95 @@
             color: #ff4444;
             z-index: 5;
         }
+        .result-overlay {
+            display:none; position:absolute; inset:0; z-index:20;
+            background:rgba(0,0,0,0.88); backdrop-filter:blur(4px);
+            border-radius:14px; flex-direction:column;
+            align-items:center; justify-content:center; gap:10px;
+        }
+        .result-overlay.show { display:flex; }
+        .grade-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 18px; border-radius:20px; font-size:0.85rem; font-weight:700; letter-spacing:0.05em; border:1px solid; }
+        .grade-exceptional { background:rgba(0,230,80,0.1); color:#00e650; border-color:rgba(0,230,80,0.3); }
+        .grade-excellent   { background:rgba(0,200,255,0.1); color:#00c8ff; border-color:rgba(0,200,255,0.3); }
+        .grade-good        { background:rgba(100,180,255,0.1); color:#64b4ff; border-color:rgba(100,180,255,0.3); }
+        .grade-average     { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
+        .grade-poor        { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
+    
+        /* ── Performance Lab Design System (injected) ── */
+        :root {
+            --orange: #FF4D00;
+            --orange-dim: rgba(255,77,0,0.15);
+            --orange-glow: 0 0 24px rgba(255,77,0,0.3);
+        }
+
+        /* Grade badges — Performance Lab */
+        .grade-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1px solid;
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+        }
+        .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
+        .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
+        .grade-good        { background: rgba(255,77,0,0.1);   color: #FF4D00; border-color: rgba(255,77,0,0.35); }
+        .grade-average     { background: rgba(250,204,21,0.1); color: #facc15; border-color: rgba(250,204,21,0.35); }
+        .grade-poor        { background: rgba(239,68,68,0.1);  color: #f87171; border-color: rgba(239,68,68,0.35); }
+
+        /* HUD cells */
+        .hud-cell {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 6px;
+            padding: 14px 10px;
+            text-align: center;
+        }
+        .hud-cell-val {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary, #f5f5f0);
+            margin-bottom: 3px;
+        }
+        .hud-cell-lbl {
+            font-size: 0.68rem;
+            color: var(--text-muted, #444);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        /* Score display card */
+        .score-card {
+            background: #0d0d0d;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+            margin: 16px 0;
+        }
+        .score-card-value {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .score-card-sub {
+            font-size: 0.875rem;
+            color: var(--text-secondary, #888);
+            margin-bottom: 12px;
+        }
+
     </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
 <link rel="canonical" href="https://reflextester.fun/tools/apex-recoil-trainer.html">
@@ -229,6 +531,11 @@
                         <div class="dummy-target" id="dummy">
                             <div class="head-zone"></div>
                             <div class="body-zone"></div>
+                        </div>
+                        <div class="result-overlay" id="resultOverlay">
+                            <div style="font-size:2rem;font-weight:900;" id="resTitle">Magazine Empty!</div>
+                            <div style="font-size:0.9rem;color:#ccc;margin-bottom:4px;" id="resSub"></div>
+                            <div id="resGrade"></div>
                         </div>
                     </div>
                     <div class="recoil-controls">
@@ -305,14 +612,12 @@
             const weapons = { r301: { mag: 27, recoil: 2.5, dmg: 14, pattern: 'vertical' }, r99: { mag: 27, recoil: 3.5, dmg: 11, pattern: 's-curve' }, flatline: { mag: 25, recoil: 4.5, dmg: 19, pattern: 'horizontal' }, volt: { mag: 28, recoil: 2, dmg: 15, pattern: 'vertical' } };
 
             function loadStats() {
-                const saved = localStorage.getItem('apexRecoilStats');
-                if (saved) {
-                    try {
-                        const stats = JSON.parse(saved);
-                        bestDmg = stats.bestDmg || 0;
-                        els.bestDmg.textContent = bestDmg;
-                    } catch (e) { }
+                const data = ReflexStore.get('apex_recoil_results', []);
+                if (data.length) {
+                    bestDmg = Math.max(...data.map(r => r.damage));
+                    els.bestDmg.textContent = bestDmg;
                 }
+                return data;
             }
 
             function shoot() {
@@ -369,16 +674,33 @@
 
                 if (ammo === 0) {
                     gameActive = false;
+                    const hsRate = shots > 0 ? Math.round((headshots / shots) * 100) : 0;
                     if (damage > bestDmg) {
                         bestDmg = damage;
                         els.bestDmg.textContent = bestDmg;
-                        localStorage.setItem('apexRecoilStats', JSON.stringify({ bestDmg }));
                     }
+                    const results = ReflexStore.get('apex_recoil_results', []);
+                    results.push({ damage, hsRate });
+                    ReflexStore.set('apex_recoil_results', results);
+
+                    let gLabel, gCls;
+                    if (damage >= 300 && hsRate >= 30) { gLabel = '🏆 EXCEPTIONAL'; gCls = 'grade-exceptional'; }
+                    else if (damage >= 200)             { gLabel = '⚡ EXCELLENT';   gCls = 'grade-excellent';   }
+                    else if (damage >= 120)             { gLabel = '👍 GOOD';        gCls = 'grade-good';        }
+                    else if (damage >= 60)              { gLabel = '📊 AVERAGE';     gCls = 'grade-average';     }
+                    else                               { gLabel = '📉 POOR';         gCls = 'grade-poor';        }
+
+                    const overlay = document.getElementById('resultOverlay');
+                    document.getElementById('resTitle').textContent = 'Magazine Empty!';
+                    document.getElementById('resSub').textContent   = 'Damage: ' + damage + '  ·  Headshots: ' + hsRate + '%';
+                    document.getElementById('resGrade').innerHTML   = '<span class="grade-badge ' + gCls + '">' + gLabel + '</span>';
+                    overlay.classList.add('show');
+
                     setTimeout(() => {
+                        overlay.classList.remove('show');
                         els.startBtn.disabled = false;
                         els.startBtn.textContent = '▶ Start Training';
-                        alert(`Magazine Empty! Damage: ${damage} | Headshots: ${hsRate}%`);
-                    }, 500);
+                    }, 3000);
                 }
             }
 
@@ -420,11 +742,9 @@
 
             els.startBtn.addEventListener('click', startGame);
             els.resetBtn.addEventListener('click', () => {
-                if (confirm('Reset all stats?')) {
-                    localStorage.removeItem('apexRecoilStats');
-                    bestDmg = 0;
-                    els.bestDmg.textContent = '0';
-                }
+                ReflexStore.set('apex_recoil_results', []);
+                bestDmg = 0;
+                els.bestDmg.textContent = '0';
             });
 
             loadStats();

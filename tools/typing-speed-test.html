@@ -10,22 +10,15 @@
     <meta name="keywords"
         content="typing speed test, wpm test, words per minute test, typing test online, how fast do i type, typing speed checker, keyboard speed test, typing accuracy test, wpm calculator, typing test free, type speed test, typing speed game, fast typing test, 1 minute typing test">
     <link rel="canonical" href="https://reflextester.fun/tools/typing-speed-test.html">
-
-    <!-- Open Graph -->
     <meta property="og:title" content="Typing Speed Test — Check Your WPM in 60 Seconds">
-    <meta property="og:description"
-        content="How fast do you type? Measure your WPM (words per minute) and accuracy with real sentences.">
+    <meta property="og:description" content="How fast do you type? Measure your WPM (words per minute) and accuracy with real sentences.">
     <meta property="og:url" content="https://reflextester.fun/tools/typing-speed-test.html">
     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Typing Speed Test — Check Your WPM in 60 Seconds">
-    <meta name="twitter:description"
-        content="Measure your WPM and accuracy. Average is 40 WPM — are you faster? Instant results.">
-
+    <meta name="twitter:description" content="Measure your WPM and accuracy. Average is 40 WPM — are you faster? Instant results.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -37,9 +30,375 @@
         "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD" }
     }
     </script>
-
     <link rel="stylesheet" href="../styles.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <style>
+        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
+        :root {
+            --tool-accent:     #94A3B8;
+            --tool-accent-rgb: 148,163,184;
+            --tool-accent-dim: rgba(148,163,184, 0.12);
+            --tool-accent-glow: 0 0 24px rgba(148,163,184, 0.3);
+            --tool-bg:         #060606;
+            --tool-text-on:    #000;
+            --tool-header:     #CBD5E1;
+        }
+
+        /* Test panel — unique top border + subtle bg tint */
+        .test-panel {
+            border-top: 2px solid #94A3B8 !important;
+            background: #060606 !important;
+        }
+
+        /* Headings inherit tool color */
+        .test-panel h1,
+        .test-panel h2 {
+            color: #CBD5E1;
+        }
+
+        /* Primary button — tool color */
+        .btn-primary {
+            background: #94A3B8 !important;
+            color: #000 !important;
+            box-shadow: none;
+        }
+        .btn-primary:hover {
+            background: #94A3B8 !important;
+            opacity: 0.88;
+            box-shadow: 0 6px 24px rgba(148,163,184, 0.4) !important;
+            transform: translateY(-1px);
+        }
+
+        /* HUD cells — tool accent top strip */
+        .hud-cell {
+            border-top: 2px solid #94A3B8 !important;
+            background: color-mix(in srgb, #060606 90%, #fff 10%) !important;
+        }
+        .hud-cell-val {
+            color: #94A3B8 !important;
+        }
+
+        /* Score card */
+        .score-card {
+            border-top: 2px solid #94A3B8 !important;
+            background: #060606 !important;
+        }
+        .score-card-value {
+            color: #94A3B8 !important;
+        }
+
+        /* Stats panel left bar */
+        .stats-panel {
+            border-left: 2px solid #94A3B8 !important;
+            background: #060606 !important;
+        }
+        .stats-panel h4 {
+            color: #94A3B8 !important;
+        }
+
+        /* Section label / info h3 */
+        .info-section h3 {
+            color: #94A3B8;
+        }
+
+        /* Aim canvas */
+        .aim-canvas-wrap {
+            background: linear-gradient(160deg, #060606 0%, #060606 100%) !important;
+            border-top: 2px solid #94A3B8 !important;
+        }
+        .aim-hud-item span {
+            color: #94A3B8 !important;
+        }
+        .aim-timer-display {
+            color: #94A3B8 !important;
+        }
+        .hitmarker {
+            color: #94A3B8 !important;
+        }
+
+        /* Mode buttons active state */
+        .aim-mode-btn.active {
+            background: #94A3B8 !important;
+            color: #000 !important;
+            border-color: #94A3B8 !important;
+        }
+
+        /* CPS tab active */
+        .cps-tab.active,
+        .cps-duration-btn.active {
+            background: #94A3B8 !important;
+            color: #000 !important;
+            border-color: #94A3B8 !important;
+        }
+
+        /* Click zone running state */
+        .cps-click-zone {
+            border-top-color: rgba(148,163,184, 0.3) !important;
+        }
+        .cps-click-zone.running {
+            border-top-color: #94A3B8 !important;
+            box-shadow: 0 0 30px rgba(148,163,184, 0.12) !important;
+        }
+        .cps-live-cps {
+            color: #94A3B8 !important;
+        }
+        .cps-progress-inner {
+            background: linear-gradient(90deg, #94A3B8, #22c55e) !important;
+        }
+        .cps-ripple {
+            background: rgba(148,163,184, 0.2) !important;
+        }
+
+        /* Reflex circle states — override to tool accent for result */
+        .reflex-circle-wrap.state-result .reflex-ring {
+            border-color: #94A3B8 !important;
+            box-shadow: 0 0 20px rgba(148,163,184, 0.25) !important;
+        }
+        .reflex-circle-wrap.state-result .reflex-circle-value {
+            color: #94A3B8 !important;
+        }
+        .reflex-circle-wrap.state-idle .reflex-circle {
+            background: #060606 !important;
+        }
+
+        /* Sequence tiles */
+        .sequence-tile.active {
+            background: rgba(148,163,184, 0.25) !important;
+            border-color: #94A3B8 !important;
+            box-shadow: 0 0 16px rgba(148,163,184, 0.3) !important;
+        }
+
+        /* Color options / stroop buttons */
+        .stroop-btn.correct {
+            background: #94A3B8 !important;
+            box-shadow: 0 0 16px rgba(148,163,184, 0.4) !important;
+        }
+
+        /* Typing current char */
+        .typing-text .current-char {
+            background: rgba(148,163,184, 0.25) !important;
+            border-bottom-color: #94A3B8 !important;
+        }
+        .typing-input:focus {
+            border-color: #94A3B8 !important;
+        }
+
+        /* Peripheral / coordination target */
+        .peripheral-center {
+            background: #94A3B8 !important;
+        }
+        .coordination-target {
+            background: #94A3B8 !important;
+            box-shadow: 0 0 16px rgba(148,163,184, 0.4) !important;
+        }
+
+        /* Number tiles */
+        .number-tile {
+            background: rgba(148,163,184, 0.08) !important;
+            border-color: rgba(148,163,184, 0.4) !important;
+        }
+        .number-tile.next {
+            background: rgba(148,163,184, 0.25) !important;
+            border-color: #94A3B8 !important;
+        }
+
+        /* Progress fill */
+        .progress-fill {
+            background: #94A3B8 !important;
+        }
+
+        /* Form focus */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .sens-field select:focus,
+        .sens-field input:focus {
+            border-color: #94A3B8 !important;
+        }
+
+        /* Filter buttons */
+        .filter-btn.active,
+        .cps-duration-btn.active {
+            color: #94A3B8 !important;
+            border-color: rgba(148,163,184, 0.5) !important;
+            background: rgba(148,163,184, 0.1) !important;
+        }
+
+        /* Dashboard card value */
+        .dashboard-card .card-value {
+            color: #94A3B8 !important;
+        }
+
+        /* Breadcrumb active link */
+        .breadcrumb a:hover {
+            color: #94A3B8 !important;
+        }
+
+        /* Score display inline (legacy fallback) */
+        #scoreDisplay .score-card-value,
+        #resultDisplay {
+            color: #94A3B8 !important;
+        }
+
+        /* Focus visible outline */
+        :focus-visible {
+            outline-color: #94A3B8 !important;
+        }
+        /* ═══════════════════════════════════════════════════════════════════ */
+
+        .typing-arena { display:flex; flex-direction:column; align-items:center; gap:18px; padding:24px 16px; }
+
+        /* Live HUD bar */
+        .typing-hud { display:flex; gap:10px; width:min(640px,92vw); justify-content:space-between; }
+        .typing-hud-cell { flex:1; padding:10px 8px; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:10px; text-align:center; }
+        .typing-hud-val { font-size:1.4rem; font-weight:800; color:var(--text-primary); font-variant-numeric:tabular-nums; }
+        .typing-hud-lbl { font-size:0.65rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; margin-top:2px; }
+
+        /* Countdown progress bar */
+        .typing-timer-bar { width:min(640px,92vw); height:6px; background:var(--bg-secondary); border-radius:3px; overflow:hidden; }
+        .typing-timer-fill { height:100%; border-radius:3px; background:linear-gradient(90deg,var(--accent-green),var(--accent-cyan)); transition:width 0.15s linear; }
+
+        /* Text display */
+        .typing-text-box {
+            width: min(640px, 92vw);
+            min-height: 100px;
+            padding: 20px 24px;
+            background: #0e0e22;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.02em;
+            user-select: none;
+            -webkit-user-select: none;
+            transition: border-color 0.2s;
+        }
+        .typing-text-box.typing { border-color: var(--accent-cyan); }
+        .typing-text-box.done   { border-color: var(--accent-green); }
+        .typing-text-box.error  { border-color: var(--accent-red); }
+
+        .correct-char { color: var(--accent-green); }
+        .wrong-char   { color: var(--accent-red); background: rgba(255,80,80,0.15); border-radius: 2px; text-decoration: underline; }
+        .current-char { color: var(--text-primary); border-bottom: 2px solid var(--accent-cyan); animation: cursorBlink 1s step-end infinite; }
+        @keyframes cursorBlink { 50% { border-bottom-color: transparent; } }
+        .pending-char { color: var(--text-muted); }
+
+        /* Input */
+        .typing-input-wrap { width: min(640px, 92vw); }
+        .typing-input {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 1.1rem;
+            background: var(--bg-card);
+            border: 2px solid var(--border-subtle);
+            border-radius: 6px;
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.15s;
+            font-family: 'Courier New', monospace;
+        }
+        .typing-input:focus { border-color: var(--accent-cyan); }
+        .typing-input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* Grade */
+        .grade-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 16px; border-radius:20px; font-size:0.85rem; font-weight:700; letter-spacing:0.05em; border:1px solid; }
+        .grade-exceptional { background:rgba(0,230,80,0.1); color:#00e650; border-color:rgba(0,230,80,0.3); }
+        .grade-excellent { background:rgba(0,200,255,0.1); color:#00c8ff; border-color:rgba(0,200,255,0.3); }
+        .grade-good { background:rgba(100,180,255,0.1); color:#64b4ff; border-color:rgba(100,180,255,0.3); }
+        .grade-average { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
+        .grade-poor { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
+
+        .reflex-hud { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; width:100%; max-width:640px; }
+        .hud-cell { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:12px 8px; text-align:center; }
+        .hud-cell-val { font-size:1.1rem; font-weight:700; color:var(--text-primary); margin-bottom:2px; }
+        .hud-cell-lbl { font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; }
+
+        .history-bars { display:flex; align-items:flex-end; gap:4px; height:50px; max-width:640px; width:100%; }
+        .history-bar { flex:1; border-radius:3px 3px 0 0; min-height:4px; cursor:default; transition:opacity 0.2s; }
+        .history-bar:hover { opacity:0.8; }
+
+        @media(max-width:540px) {
+            .reflex-hud { grid-template-columns:repeat(2,1fr); }
+            .typing-hud { flex-wrap:wrap; }
+        }
+    
+        /* ── Performance Lab Design System (injected) ── */
+        :root {
+            --orange: #FF4D00;
+            --orange-dim: rgba(255,77,0,0.15);
+            --orange-glow: 0 0 24px rgba(255,77,0,0.3);
+        }
+
+        /* Grade badges — Performance Lab */
+        .grade-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1px solid;
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+        }
+        .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
+        .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
+        .grade-good        { background: rgba(255,77,0,0.1);   color: #FF4D00; border-color: rgba(255,77,0,0.35); }
+        .grade-average     { background: rgba(250,204,21,0.1); color: #facc15; border-color: rgba(250,204,21,0.35); }
+        .grade-poor        { background: rgba(239,68,68,0.1);  color: #f87171; border-color: rgba(239,68,68,0.35); }
+
+        /* HUD cells */
+        .hud-cell {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 6px;
+            padding: 14px 10px;
+            text-align: center;
+        }
+        .hud-cell-val {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary, #f5f5f0);
+            margin-bottom: 3px;
+        }
+        .hud-cell-lbl {
+            font-size: 0.68rem;
+            color: var(--text-muted, #444);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        /* Score display card */
+        .score-card {
+            background: #0d0d0d;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--orange);
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+            margin: 16px 0;
+        }
+        .score-card-value {
+            font-family: var(--font-mono, 'JetBrains Mono', monospace);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .score-card-sub {
+            font-size: 0.875rem;
+            color: var(--text-secondary, #888);
+            margin-bottom: 12px;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -75,50 +434,44 @@
         <section class="test-area">
             <div class="test-panel active">
                 <h1>⌨️ Typing Speed Test</h1>
-                <p class="test-desc">Type the text below as fast and accurately as possible. Your WPM and accuracy will
-                    be calculated in real-time.</p>
+                <p class="test-desc">Type the text below as fast and accurately as possible. Timer starts on your first keystroke. Multiple sentences — complete them all!</p>
 
-                <div class="typing-area">
-                    <div class="typing-text" id="textDisplay"></div>
-                    <input type="text" class="typing-input" id="typingInput"
-                        placeholder="Click here and start typing..." autocomplete="off" autocorrect="off"
-                        autocapitalize="off" spellcheck="false">
-                </div>
+                <div class="typing-arena">
+                    <!-- Live HUD -->
+                    <div class="typing-hud">
+                        <div class="typing-hud-cell"><div class="typing-hud-val" id="livWpm">0</div><div class="typing-hud-lbl">WPM</div></div>
+                        <div class="typing-hud-cell"><div class="typing-hud-val" id="livAcc">100%</div><div class="typing-hud-lbl">Accuracy</div></div>
+                        <div class="typing-hud-cell"><div class="typing-hud-val" id="livTime">0s</div><div class="typing-hud-lbl">Time</div></div>
+                        <div class="typing-hud-cell"><div class="typing-hud-val" id="livErrors" style="color:var(--accent-red);">0</div><div class="typing-hud-lbl">Errors</div></div>
+                    </div>
 
-                <div class="typing-stats" id="typingStats">
-                    <div class="typing-stat">
-                        <div class="stat-value" id="wpmValue">0</div>
-                        <div class="stat-label">WPM</div>
-                    </div>
-                    <div class="typing-stat">
-                        <div class="stat-value" id="accuracyValue">100%</div>
-                        <div class="stat-label">Accuracy</div>
-                    </div>
-                    <div class="typing-stat">
-                        <div class="stat-value" id="timeValue">0s</div>
-                        <div class="stat-label">Time</div>
-                    </div>
-                </div>
+                    <!-- Timer bar -->
+                    <div class="typing-timer-bar"><div class="typing-timer-fill" id="timerFill" style="width:0%"></div></div>
 
-                <div class="typing-complete" id="typingComplete"></div>
-                <div class="test-actions">
-                    <button class="btn btn-primary" id="newTestBtn">New Test</button>
-                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
-                </div>
+                    <!-- Text display -->
+                    <div class="typing-text-box" id="textDisplay"></div>
 
-                <div class="stats-panel" id="statsPanel" style="display: none;">
-                    <h4>⌨️ Your Best Results</h4>
-                    <div class="stat-row">
-                        <span class="stat-label">Best WPM</span>
-                        <span class="stat-value" id="bestWpm">—</span>
+                    <!-- Input -->
+                    <div class="typing-input-wrap">
+                        <input type="text" class="typing-input" id="typingInput" placeholder="Click here and start typing..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Best Accuracy</span>
-                        <span class="stat-value" id="bestAccuracy">—</span>
+
+                    <!-- Grade -->
+                    <div id="gradeBadge" style="display:none;"></div>
+
+                    <!-- Persistent HUD -->
+                    <div class="reflex-hud" id="refHud" style="display:none;">
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudBestWpm">—</div><div class="hud-cell-lbl">Best WPM</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudAvgWpm">—</div><div class="hud-cell-lbl">Avg WPM</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudBestAcc">—</div><div class="hud-cell-lbl">Best Acc</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudTests">0</div><div class="hud-cell-lbl">Tests</div></div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Tests Completed</span>
-                        <span class="stat-value" id="testCount">0</span>
+
+                    <div class="history-bars" id="historyBars" style="display:none;"></div>
+
+                    <div class="test-actions">
+                        <button class="btn btn-primary" id="newTestBtn">New Test</button>
+                        <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
                     </div>
                 </div>
             </div>
@@ -127,10 +480,7 @@
         <section class="info-section">
             <div class="container-narrow">
                 <h2>About the Typing Speed Test</h2>
-                <p>Typing speed is measured in WPM (words per minute), where a "word" is standardized as 5 characters
-                    including spaces. Professional typists average 60-80 WPM, while competitive typists can exceed 150
-                    WPM.</p>
-
+                <p>Typing speed is measured in WPM (words per minute), where a "word" is standardized as 5 characters including spaces. Professional typists average 60-80 WPM, while competitive typists can exceed 150 WPM.</p>
                 <h3>WPM Benchmarks</h3>
                 <ul>
                     <li><strong>20-40 WPM:</strong> Beginner — Hunt and peck typing</li>
@@ -139,7 +489,6 @@
                     <li><strong>80-100 WPM:</strong> Very Fast — Professional level</li>
                     <li><strong>100+ WPM:</strong> Expert — Competitive typist level</li>
                 </ul>
-
                 <h3>Tips to Improve</h3>
                 <ul>
                     <li>Learn proper touch typing technique — keep fingers on home row</li>
@@ -154,30 +503,13 @@
             <div class="container">
                 <h2>Recommended Tools</h2>
                 <div class="rec-grid">
-                    <a href="click-speed-test.html" class="rec-card">
-                        <div class="rec-icon">🖱️</div>
-                        <h3>Click Speed Test</h3>
-                        <p>Measure your CPS performance</p>
-                    </a>
-                    <a href="memory-sequence-test.html" class="rec-card">
-                        <div class="rec-icon">🧠</div>
-                        <h3>Memory Sequence</h3>
-                        <p>Test working memory and recall</p>
-                    </a>
-                    <a href="number-speed-test.html" class="rec-card">
-                        <div class="rec-icon">🔢</div>
-                        <h3>Number Speed Test</h3>
-                        <p>Click numbers in order quickly</p>
-                    </a>
-                    <a href="visual-reflex-test.html" class="rec-card">
-                        <div class="rec-icon">⚡</div>
-                        <h3>Visual Reflex Test</h3>
-                        <p>Test raw reaction time</p>
-                    </a>
+                    <a href="click-speed-test.html" class="rec-card"><div class="rec-icon">🖱️</div><h3>Click Speed Test</h3><p>Measure your CPS performance</p></a>
+                    <a href="memory-sequence-test.html" class="rec-card"><div class="rec-icon">🧠</div><h3>Memory Sequence</h3><p>Test working memory and recall</p></a>
+                    <a href="number-speed-test.html" class="rec-card"><div class="rec-icon">🔢</div><h3>Number Speed Test</h3><p>React to numbers instantly</p></a>
+                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Visual Reflex Test</h3><p>Test raw reaction time</p></a>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -190,70 +522,66 @@
 
     <script src="../main.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            (function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        (function () {
             const sentences = [
-                "The quick brown fox jumps over the lazy dog near the riverbank.",
-                "Gaming requires fast reflexes and precise hand-eye coordination.",
-                "Professional esports players practice for hours every single day.",
-                "A good keyboard can significantly improve your typing speed.",
-                "Practice makes perfect when it comes to building muscle memory.",
-                "Competitive gamers often have reaction times under 200 milliseconds.",
-                "The best aim trainers help you build consistent flick accuracy.",
-                "Warming up before a match can improve your overall performance.",
-                "Focus on accuracy first and speed will naturally follow over time.",
-                "Regular breaks help prevent fatigue and maintain peak performance."
+                "The quick brown fox jumps over the lazy dog near the riverbank on a sunny afternoon.",
+                "Gaming requires fast reflexes and precise hand-eye coordination to compete at high levels.",
+                "Professional esports players practice for hours every single day to maintain peak performance.",
+                "A good mechanical keyboard can significantly improve your typing speed and comfort.",
+                "Practice makes perfect when it comes to building consistent muscle memory over time.",
+                "Competitive gamers often have reaction times well under 200 milliseconds on average.",
+                "The best aim trainers help you build consistent flick accuracy and tracking fundamentals.",
+                "Warming up before a ranked match can dramatically improve your overall game performance.",
+                "Focus on accuracy first and speed will naturally follow with dedicated practice over time.",
+                "Regular breaks help prevent fatigue and maintain peak cognitive performance throughout sessions.",
+                "Touch typing is a fundamental skill that every computer user should learn and practice daily.",
+                "The average person types at around 40 words per minute while professional typists exceed 80.",
+                "Ergonomic keyboards and proper posture can reduce strain and prevent repetitive injuries.",
+                "Speed and accuracy are both essential for competitive typing and real-world productivity gains."
             ];
 
             const textDisplay = document.getElementById('textDisplay');
             const typingInput = document.getElementById('typingInput');
-            const wpmValue = document.getElementById('wpmValue');
-            const accuracyValue = document.getElementById('accuracyValue');
-            const timeValue = document.getElementById('timeValue');
-            const newTestBtn = document.getElementById('newTestBtn');
-            const resetBtn = document.getElementById('resetBtn');
-            const statsPanel = document.getElementById('statsPanel');
+            const newTestBtn  = document.getElementById('newTestBtn');
+            const resetBtn    = document.getElementById('resetBtn');
+            const gradeBadge  = document.getElementById('gradeBadge');
+            const refHud      = document.getElementById('refHud');
+            const histBars    = document.getElementById('historyBars');
+            const timerFill   = document.getElementById('timerFill');
+
+            const livWpm    = document.getElementById('livWpm');
+            const livAcc    = document.getElementById('livAcc');
+            const livTime   = document.getElementById('livTime');
+            const livErrors = document.getElementById('livErrors');
 
             let currentText = '';
-            let startTime = null;
-            let intervalId = null;
-            let results = ReflexStore.get('typing_results', []);
+            let startTime   = null;
+            let animId      = null;
+            let done        = false;
+            let results     = ReflexStore.get('typing_results', []);
 
-            function updateStats() {
-                if (results.length === 0) {
-                    statsPanel.style.display = 'none';
-                    return;
-                }
-                statsPanel.style.display = 'block';
-                document.getElementById('bestWpm').textContent = Math.max(...results.map(r => r.wpm));
-                document.getElementById('bestAccuracy').textContent = Math.max(...results.map(r => r.accuracy)).toFixed(1) + '%';
-                document.getElementById('testCount').textContent = results.length;
+            function getGrade(wpm) {
+                if (wpm >= 100) return { label: '🏆 EXCEPTIONAL', cls: 'grade-exceptional' };
+                if (wpm >= 80)  return { label: '⚡ EXCELLENT',   cls: 'grade-excellent'   };
+                if (wpm >= 60)  return { label: '👍 GOOD',        cls: 'grade-good'        };
+                if (wpm >= 40)  return { label: '📊 AVERAGE',     cls: 'grade-average'     };
+                return            { label: '📉 POOR',             cls: 'grade-poor'        };
             }
 
-            function loadNewText() {
-                currentText = sentences[Math.floor(Math.random() * sentences.length)];
-                renderText('');
-                typingInput.value = '';
-                typingInput.disabled = false;
-                typingInput.focus();
-                startTime = null;
-                clearInterval(intervalId);
-                wpmValue.textContent = '0';
-                accuracyValue.textContent = '100%';
-                timeValue.textContent = '0s';
-                var banner = document.getElementById('typingComplete');
-                if (banner) banner.classList.remove('visible');
+            function pickText() {
+                // Pick 2 random sentences joined
+                const shuffled = [...sentences].sort(() => Math.random() - 0.5);
+                return shuffled[0] + ' ' + shuffled[1];
             }
 
             function renderText(typed) {
                 let html = '';
                 for (let i = 0; i < currentText.length; i++) {
                     if (i < typed.length) {
-                        if (typed[i] === currentText[i]) {
-                            html += '<span class="correct-char">' + currentText[i] + '</span>';
-                        } else {
-                            html += '<span class="wrong-char">' + currentText[i] + '</span>';
-                        }
+                        html += typed[i] === currentText[i]
+                            ? '<span class="correct-char">' + currentText[i] + '</span>'
+                            : '<span class="wrong-char">' + currentText[i] + '</span>';
                     } else if (i === typed.length) {
                         html += '<span class="current-char">' + currentText[i] + '</span>';
                     } else {
@@ -264,47 +592,96 @@
             }
 
             function calculateStats(typed) {
-                const elapsed = (Date.now() - startTime) / 1000 / 60;
+                const elapsedMin = (performance.now() - startTime) / 1000 / 60;
                 const wordsTyped = typed.length / 5;
-                const wpm = elapsed > 0 ? Math.round(wordsTyped / elapsed) : 0;
+                const wpm = elapsedMin > 0 ? Math.round(wordsTyped / elapsedMin) : 0;
 
-                let correct = 0;
+                let correct = 0, errors = 0;
                 for (let i = 0; i < typed.length; i++) {
                     if (typed[i] === currentText[i]) correct++;
+                    else errors++;
                 }
                 const accuracy = typed.length > 0 ? (correct / typed.length) * 100 : 100;
+                return { wpm, accuracy, errors };
+            }
 
-                return { wpm, accuracy };
+            function updateLiveHUD() {
+                if (!startTime || done) return;
+                const typed = typingInput.value;
+                const stats = calculateStats(typed);
+                const elapsed = Math.floor((performance.now() - startTime) / 1000);
+
+                livWpm.textContent    = stats.wpm;
+                livAcc.textContent    = stats.accuracy.toFixed(1) + '%';
+                livTime.textContent   = elapsed + 's';
+                livErrors.textContent = stats.errors;
+
+                // Progress bar based on characters typed
+                const pct = Math.min(100, (typed.length / currentText.length) * 100);
+                timerFill.style.width = pct + '%';
+
+                // Color the text box based on recent accuracy
+                if (stats.errors > 0 && typed.length > 3) {
+                    const recentErrors = typed.slice(-5).split('').filter((c,i) => c !== currentText[typed.length-5+i]).length;
+                    textDisplay.className = recentErrors > 1 ? 'typing-text-box error' : 'typing-text-box typing';
+                }
+
+                animId = requestAnimationFrame(updateLiveHUD);
+            }
+
+            function loadNewText() {
+                done = false;
+                startTime = null;
+                cancelAnimationFrame(animId);
+                currentText = pickText();
+                renderText('');
+                typingInput.value = '';
+                typingInput.disabled = false;
+                typingInput.focus();
+                gradeBadge.style.display = 'none';
+                textDisplay.className = 'typing-text-box';
+                timerFill.style.width = '0%';
+                livWpm.textContent = '0';
+                livAcc.textContent = '100%';
+                livTime.textContent = '0s';
+                livErrors.textContent = '0';
             }
 
             typingInput.addEventListener('input', function () {
+                if (done) return;
                 const typed = this.value;
 
                 if (!startTime && typed.length > 0) {
-                    startTime = Date.now();
-                    intervalId = setInterval(function () {
-                        const elapsed = Math.floor((Date.now() - startTime) / 1000);
-                        timeValue.textContent = elapsed + 's';
-                    }, 100);
+                    startTime = performance.now();
+                    textDisplay.className = 'typing-text-box typing';
+                    updateLiveHUD();
                 }
 
                 renderText(typed);
-                const stats = calculateStats(typed);
-                wpmValue.textContent = stats.wpm;
-                accuracyValue.textContent = stats.accuracy.toFixed(1) + '%';
 
                 if (typed.length >= currentText.length && startTime) {
-                    clearInterval(intervalId);
+                    done = true;
+                    cancelAnimationFrame(animId);
                     typingInput.disabled = true;
-                    renderText(currentText); // Show all as correct/wrong on completion
+                    textDisplay.className = 'typing-text-box done';
+
+                    const stats = calculateStats(typed);
+                    const elapsed = Math.round((performance.now() - startTime) / 1000);
+
+                    livWpm.textContent  = stats.wpm;
+                    livAcc.textContent  = stats.accuracy.toFixed(1) + '%';
+                    livTime.textContent = elapsed + 's';
+                    timerFill.style.width = '100%';
+
+                    const g = getGrade(stats.wpm);
+                    gradeBadge.style.display = 'inline-flex';
+                    gradeBadge.className = 'grade-badge ' + g.cls;
+                    gradeBadge.textContent = g.label + '  ' + stats.wpm + ' WPM';
+
                     results.push(stats);
+                    if (results.length > 50) results.shift();
                     ReflexStore.set('typing_results', results);
-                    updateStats();
-                    var banner = document.getElementById('typingComplete');
-                    if (banner) {
-                        banner.textContent = '✅ Done! ' + stats.wpm + ' WPM — ' + stats.accuracy.toFixed(1) + '% accuracy. Click "New Test" to go again!';
-                        banner.classList.add('visible');
-                    }
+                    updatePersistentHUD();
                 }
             });
 
@@ -313,18 +690,38 @@
             resetBtn.addEventListener('click', function () {
                 results = [];
                 ReflexStore.set('typing_results', []);
-                updateStats();
+                updatePersistentHUD();
                 loadNewText();
             });
 
+            function updatePersistentHUD() {
+                if (results.length === 0) { refHud.style.display = 'none'; histBars.style.display = 'none'; return; }
+                refHud.style.display = 'grid';
+                const wpms = results.map(r => r.wpm);
+                const accs = results.map(r => r.accuracy);
+                document.getElementById('hudBestWpm').textContent = Math.max(...wpms) + ' WPM';
+                document.getElementById('hudAvgWpm').textContent  = Math.round(wpms.reduce((a,b)=>a+b,0)/wpms.length) + ' WPM';
+                document.getElementById('hudBestAcc').textContent = Math.max(...accs).toFixed(1) + '%';
+                document.getElementById('hudTests').textContent   = results.length;
+
+                // History bars
+                const recent = wpms.slice(-15);
+                const maxV = Math.max(...recent, 100);
+                histBars.style.display = 'flex';
+                histBars.innerHTML = recent.map(v => {
+                    const pct = Math.max(8, Math.round((v / maxV) * 100));
+                    const g = getGrade(v);
+                    const colors = {'grade-exceptional':'#00e650','grade-excellent':'#00c8ff','grade-good':'#64b4ff','grade-average':'#ffc800','grade-poor':'#ff6450'};
+                    return '<div class="history-bar" title="' + v + ' WPM" style="height:' + pct + '%;background:' + colors[g.cls] + ';"></div>';
+                }).join('');
+            }
+
             loadNewText();
-            updateStats();
+            updatePersistentHUD();
         })();
-        });
+    });
     </script>
 <script src="../nav.js" defer></script>
 </body>
 
 </html>
-
-
