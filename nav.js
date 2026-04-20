@@ -4,6 +4,10 @@
    ============================================================ */
 
 (function () {
+  // Injection guard — prevents duplicate nav/footer if script loads twice
+  if (window.__navAlreadyInjected) return;
+  window.__navAlreadyInjected = true;
+
   const path = window.location.pathname;
   const inBlog = path.includes('/blog/');
   const inTools = path.includes('/tools/');

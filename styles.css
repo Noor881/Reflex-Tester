@@ -2598,3 +2598,50 @@ button {
 .typing-complete.visible {
   display: block;
 }
+
+/* Target hit feedback */
+.hit {
+  animation: hitPulse 0.2s ease;
+  background: var(--accent-green) !important;
+}
+@keyframes hitPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+/* Generic show/reveal utility */
+.show {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+/* Peripheral/aim target highlight */
+.target {
+  box-shadow: 0 0 20px var(--accent-cyan), 0 0 40px rgba(0, 212, 255, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════
+   CSS Variable Aliases (for blog article inline styles)
+   Maps legacy/external var names to design tokens
+   ═══════════════════════════════════════════════════════ */
+:root {
+  /* Aliases for blog article inline styles */
+  --primary-color:    var(--accent-cyan);
+  --secondary-color:  var(--accent-purple);
+  --accent-color:     var(--accent-cyan);
+  --success-color:    var(--accent-green);
+  --danger-color:     #ff4d4d;
+  --warning-color:    #f59e0b;
+  --info-color:       var(--accent-cyan);
+  --border-color:     rgba(255,255,255,0.08);
+  --primary:          var(--accent-cyan);
+
+  /* Category color aliases for blog topic tags */
+  --brain-purple:     #9333ea;
+  --medical-blue:     #3b82f6;
+  --mental-purple:    #a855f7;
+  --nap-teal:         #14b8a6;
+  --cat-color-1:      var(--accent-cyan);
+  --cat-color-2:      var(--accent-purple);
+}

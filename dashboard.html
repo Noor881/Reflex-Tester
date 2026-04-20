@@ -208,20 +208,39 @@
         /* Wait for main.js defer to load so ReflexStore is available */
         document.addEventListener('DOMContentLoaded', function () {
             function loadStats() {
-                var visual = ReflexStore.get('visual_results', []);
-                var audio = ReflexStore.get('audio_results', []);
-                var cps = ReflexStore.get('cps_results', []);
-                var typing = ReflexStore.get('typing_results', []);
-                var memory = ReflexStore.get('memory_results', []);
-                var csgo = ReflexStore.get('csgo_results', []);
+                var visual  = ReflexStore.get('visual_results', []);
+                var audio   = ReflexStore.get('audio_results', []);
+                var cps     = ReflexStore.get('cps_results', []);
+                var typing  = ReflexStore.get('typing_results', []);
+                // memory-sequence saves 'memory_best' (level number) and 'memory_games'
+                var memBest  = ReflexStore.get('memory_best', 0);
+                var memGames = ReflexStore.get('memory_games', 0);
+                // coord saves coord_scores as [{score, hits, misses, avgTime}]
+                var coord   = ReflexStore.get('coord_scores', []);
+                // csgo saves csgo_scores as [{score, hits, misses}]
+                var csgo    = ReflexStore.get('csgo_scores', []);
 
-                document.getElementById('visualBest').textContent = visual.length ? Math.min.apply(null, visual) + 'ms' : '—';
-                document.getElementById('audioBest').textContent = audio.length ? Math.min.apply(null, audio) + 'ms' : '—';
-                /* CPS results saved as plain numbers from click-speed-test.html */
-                document.getElementById('cpsBest').textContent = cps.length ? Math.max.apply(null, cps).toFixed(1) + ' CPS' : '—';
-                document.getElementById('typingBest').textContent = typing.length ? Math.max.apply(null, typing.map(function(r) { return r.wpm || r; })) + ' WPM' : '—';
-                document.getElementById('memoryBest').textContent = memory.length ? Math.max.apply(null, memory.map(function(r) { return r.level || r; })) : '—';
-                document.getElementById('csgoBest').textContent = csgo.length ? Math.max.apply(null, csgo.map(function(r) { return r.score || r; })) : '—';
+                // Visual: array of ms numbers
+                document.getElementById('visualBest').textContent =
+                    visual.length ? Math.min.apply(null, visual) + 'ms' : '—';
+                // Audio: array of ms numbers
+                document.getElementById('audioBest').textContent =
+                    audio.length ? Math.min.apply(null, audio) + 'ms' : '—';
+                // CPS: array of cps float numbers
+                document.getElementById('cpsBest').textContent =
+                    cps.length ? Math.max.apply(null, cps).toFixed(1) + ' CPS' : '—';
+                // Typing: array of {wpm, accuracy} objects
+                document.getElementById('typingBest').textContent =
+                    typing.length ? Math.max.apply(null, typing.map(function(r) { return r.wpm || 0; })) + ' WPM' : '—';
+                // Memory: best level reached (number)
+                document.getElementById('memoryBest').textContent =
+                    memBest > 0 ? 'Level ' + memBest + ' (' + memGames + ' games)' : '—';
+                // CS:GO aim: best score
+                var csgoBestEl = document.getElementById('csgoBest');
+                if (csgoBestEl) {
+                    csgoBestEl.textContent = csgo.length ?
+                        Math.max.apply(null, csgo.map(function(r) { return r.score || 0; })) + ' pts' : '—';
+                }
 
                 var historyContainer = document.getElementById('historyContainer');
                 var allResults = [];
