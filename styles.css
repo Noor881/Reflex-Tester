@@ -2646,6 +2646,18 @@ button {
   --cat-color-2:      var(--accent-purple);
 }
 
+/* Esports game cards hover effect */
+.esports-game-card:hover {
+    transform: translateY(-4px);
+    border-color: inherit !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    filter: brightness(1.1);
+}
+.esports-game-card:hover span:first-of-type {
+    transform: scale(1.15);
+}
+.esports-game-card span { transition: transform 0.2s; }
+
 /* Precision aim test hit animation (scoped to global sheet) */
 .hit-anim { animation: precHitFlash 0.25s ease forwards; }
 @keyframes precHitFlash {
