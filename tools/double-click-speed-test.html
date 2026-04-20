@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Click Speed Test — Measure Your Double-Click CPS [Free Online]</title>
+    <meta name="description" content="Test how fast you can double-click your mouse. Measures double-clicks per second, total DPS, and compares you against gaming benchmarks. Free, instant, no sign-up.">
+    <meta name="keywords" content="double click speed test, double click per second, dps test, mouse double click speed, gaming mouse test, click speed">
+    <link rel="canonical" href="https://reflextester.fun/tools/double-click-speed-test.html">
+    <meta property="og:title" content="Double Click Speed Test | ReflexTester.fun">
+    <meta property="og:description" content="How fast can you double-click? Test your double-click speed vs gaming benchmarks.">
+    <meta property="og:url" content="https://reflextester.fun/tools/double-click-speed-test.html">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Double Click Speed Test","applicationCategory":"GameApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":0,"priceCurrency":"USD"}}
+    </script>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .dclick-zone {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #0f1a2e 0%, #1a2a40 100%);
+            border: 2px solid var(--border-medium);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.15s;
+            position: relative;
+            overflow: hidden;
+        }
+        .dclick-zone:active { transform: scale(0.99); }
+        .dclick-zone.ready { border-color: var(--accent-cyan); box-shadow: 0 0 30px rgba(0,212,255,0.15); }
+        .dclick-zone.go   { border-color: var(--accent-green); background: linear-gradient(135deg,#0f2218,#182d1a); box-shadow: 0 0 40px rgba(0,230,100,0.2); }
+        .dclick-zone.done { border-color: var(--accent-purple); background: linear-gradient(135deg,#1a0f2e,#2a1a40); }
+        .dclick-icon { font-size: 3.5rem; margin-bottom: 12px; transition: transform 0.1s; }
+        .dclick-zone:active .dclick-icon { transform: scale(0.85); }
+        .dclick-instruction { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
+        .dclick-sub { font-size: 0.9rem; color: var(--text-muted); margin-top: 8px; }
+        .dclick-counter { font-size: 4rem; font-weight: 900; color: var(--accent-cyan); font-variant-numeric: tabular-nums; }
+        .dclick-timer  { font-size: 1.5rem; font-weight: 700; color: var(--accent-green); }
+        .ripple { position:absolute; border-radius:50%; background:rgba(0,212,255,0.25); transform:scale(0); animation:ripple-out 0.5s ease-out forwards; pointer-events:none; }
+        @keyframes ripple-out { to { transform:scale(4); opacity:0; } }
+        .result-score { font-size: 3rem; font-weight: 900; }
+        .result-grade { font-size: 1.1rem; margin-top: 8px; color: var(--text-secondary); }
+        .dps-badge { display:inline-block; padding:6px 16px; border-radius:100px; font-weight:700; font-size:0.9rem; margin-top:12px; }
+        .dps-badge.pro { background:#10b981; color:#fff; }
+        .dps-badge.good { background:#3b82f6; color:#fff; }
+        .dps-badge.avg  { background:#f59e0b; color:#000; }
+        .dps-badge.low  { background:#6b7280; color:#fff; }
+    </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../index.html">Home</a><span class="separator">›</span>
+                <a href="../tools.html">Tools</a><span class="separator">›</span>
+                <span>Double Click Speed Test</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🖱️ Double Click Speed Test</h1>
+                <p class="test-desc">Test how fast you can double-click. Choose your duration, then double-click the zone as fast as possible!</p>
+
+                <div class="test-actions" style="margin-bottom:20px;">
+                    <button class="btn btn-secondary" id="btn5s" data-dur="5">5 Seconds</button>
+                    <button class="btn btn-secondary active" id="btn10s" data-dur="10">10 Seconds</button>
+                    <button class="btn btn-secondary" id="btn15s" data-dur="15">15 Seconds</button>
+                </div>
+
+                <div class="dclick-zone" id="dclickZone">
+                    <div class="dclick-icon" id="dclickIcon">🖱️</div>
+                    <div class="dclick-instruction" id="dclickInstruction">Click to Start</div>
+                    <div class="dclick-sub" id="dclickSub">Double-click as fast as you can</div>
+                </div>
+
+                <div class="stats-grid" style="margin-top:24px;">
+                    <div class="stat-card">
+                        <div class="stat-value" id="dclickCount">0</div>
+                        <div class="stat-label">Double Clicks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="dpsDisplay">0.0</div>
+                        <div class="stat-label">DPS (Per Second)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="timeLeft">—</div>
+                        <div class="stat-label">Time Left</div>
+                    </div>
+                </div>
+
+                <div class="reaction-display" id="resultDisplay" style="display:none;"></div>
+
+                <div class="stats-panel" id="statsPanel" style="display:none;">
+                    <h4>🖱️ Your Double-Click Stats</h4>
+                    <div class="stat-row"><span class="stat-label">Best DPS</span><span class="stat-value" id="bestDps">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Avg DPS</span><span class="stat-value" id="avgDps">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Sessions</span><span class="stat-value" id="dclickSessions">0</span></div>
+                    <div class="stat-row"><span class="stat-label">Total Double-Clicks</span><span class="stat-value" id="totalClicks">0</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>What Is Double Click Speed?</h2>
+                <p>Double-click speed (DPS — Double-clicks Per Second) measures how quickly you can perform consecutive double-click actions. This matters for drag-select speed in games, file management, and any UI that requires rapid double-inputs.</p>
+                <h3>DPS Benchmarks</h3>
+                <ul>
+                    <li><strong>1–4 DPS:</strong> Average — most casual users</li>
+                    <li><strong>5–8 DPS:</strong> Good — experienced PC users</li>
+                    <li><strong>9–12 DPS:</strong> Fast — competitive gamers</li>
+                    <li><strong>13+ DPS:</strong> Elite — top 1% of clickers</li>
+                </ul>
+                <h3>Tips to Improve</h3>
+                <ul>
+                    <li>Use a gaming mouse with a fast debounce time (1ms–4ms)</li>
+                    <li>Rest your arm — wrist tension reduces click speed</li>
+                    <li>Butterfly clicking (two fingers alternating on one button) can exceed 20 DPS</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="click-speed-test.html" class="rec-card"><div class="rec-icon">🖱️</div><h3>Click Speed (CPS)</h3><p>Single-click speed test with multiple durations</p></a>
+                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Visual Reflex</h3><p>Test your raw visual reaction time</p></a>
+                    <a href="hand-eye-coordination-test.html" class="rec-card"><div class="rec-icon">🎯</div><h3>Hand-Eye Coordination</h3><p>Hit moving targets for precision</p></a>
+                    <a href="typing-speed-test.html" class="rec-card"><div class="rec-icon">⌨️</div><h3>Typing Speed</h3><p>Test WPM and accuracy</p></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const zone      = document.getElementById('dclickZone');
+            const icon      = document.getElementById('dclickIcon');
+            const instr     = document.getElementById('dclickInstruction');
+            const sub       = document.getElementById('dclickSub');
+            const countEl   = document.getElementById('dclickCount');
+            const dpsEl     = document.getElementById('dpsDisplay');
+            const timeEl    = document.getElementById('timeLeft');
+            const resultEl  = document.getElementById('resultDisplay');
+            const statsPanel = document.getElementById('statsPanel');
+            const durBtns   = document.querySelectorAll('[data-dur]');
+
+            let state = 'idle'; // idle, running, done
+            let duration = 10;
+            let dclicks = 0;
+            let startTime = 0;
+            let timerInterval = null;
+            let lastClickTime = 0;
+            const DOUBLE_THRESHOLD = 350; // ms between two clicks to count as double
+
+            let results = ReflexStore.get('dclick_results', []);
+
+            // Duration selector
+            durBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (state === 'running') return;
+                    durBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    duration = parseInt(this.dataset.dur);
+                    reset();
+                });
+            });
+
+            function reset() {
+                state = 'idle';
+                dclicks = 0;
+                lastClickTime = 0;
+                clearInterval(timerInterval);
+                zone.className = 'dclick-zone ready';
+                icon.textContent = '🖱️';
+                instr.textContent = 'Click to Start';
+                sub.textContent = 'Double-click the zone as fast as you can';
+                countEl.textContent = '0';
+                dpsEl.textContent = '0.0';
+                timeEl.textContent = '—';
+                resultEl.style.display = 'none';
+            }
+
+            function start() {
+                state = 'running';
+                dclicks = 0;
+                lastClickTime = 0;
+                startTime = Date.now();
+                zone.className = 'dclick-zone go';
+                icon.textContent = '💥';
+                instr.textContent = 'DOUBLE-CLICK!';
+                sub.textContent = 'Go go go!';
+                timeEl.textContent = duration + 's';
+
+                timerInterval = setInterval(function () {
+                    const elapsed = (Date.now() - startTime) / 1000;
+                    const left = Math.max(0, duration - elapsed);
+                    timeEl.textContent = left.toFixed(1) + 's';
+                    const curDps = elapsed > 0 ? (dclicks / elapsed).toFixed(1) : '0.0';
+                    dpsEl.textContent = curDps;
+                    if (left <= 0) endTest();
+                }, 50);
+            }
+
+            function endTest() {
+                clearInterval(timerInterval);
+                state = 'done';
+                zone.className = 'dclick-zone done';
+                icon.textContent = '🏁';
+                instr.textContent = 'Time Up!';
+                sub.textContent = 'Click to try again';
+                timeEl.textContent = '0.0s';
+
+                const finalDps = (dclicks / duration).toFixed(1);
+                dpsEl.textContent = finalDps;
+                countEl.textContent = dclicks;
+
+                let grade, badgeClass;
+                const dnum = parseFloat(finalDps);
+                if (dnum >= 13)      { grade = 'Elite! Top 1% 🏆';   badgeClass = 'pro'; }
+                else if (dnum >= 9)  { grade = 'Fast — Competitive Level 🔥'; badgeClass = 'pro'; }
+                else if (dnum >= 5)  { grade = 'Good — Above Average 👍'; badgeClass = 'good'; }
+                else if (dnum >= 2)  { grade = 'Average — Keep Practicing';  badgeClass = 'avg'; }
+                else                 { grade = 'Getting Started — Keep Going!'; badgeClass = 'low'; }
+
+                resultEl.innerHTML = '<div class="result-score">' + finalDps + ' DPS</div>' +
+                    '<div class="result-grade">' + dclicks + ' double-clicks in ' + duration + 's</div>' +
+                    '<span class="dps-badge ' + badgeClass + '">' + grade + '</span>';
+                resultEl.style.display = 'block';
+
+                results.push({ dps: parseFloat(finalDps), count: dclicks, duration });
+                ReflexStore.set('dclick_results', results);
+                updateStats();
+            }
+
+            function addRipple(e) {
+                const rect = zone.getBoundingClientRect();
+                const r = document.createElement('div');
+                r.className = 'ripple';
+                const size = 80;
+                r.style.cssText = 'width:' + size + 'px;height:' + size + 'px;left:' + (e.clientX - rect.left - size/2) + 'px;top:' + (e.clientY - rect.top - size/2) + 'px';
+                zone.appendChild(r);
+                r.addEventListener('animationend', () => r.remove());
+            }
+
+            zone.addEventListener('click', function (e) {
+                if (state === 'idle' || state === 'done') { reset(); start(); return; }
+                if (state !== 'running') return;
+
+                const now = Date.now();
+                if (lastClickTime > 0 && (now - lastClickTime) <= DOUBLE_THRESHOLD) {
+                    dclicks++;
+                    countEl.textContent = dclicks;
+                    addRipple(e);
+                    lastClickTime = 0; // reset so next needs two clicks again
+                } else {
+                    lastClickTime = now;
+                }
+            });
+
+            function updateStats() {
+                if (!results.length) { statsPanel.style.display = 'none'; return; }
+                statsPanel.style.display = 'block';
+                const dpsList = results.map(r => r.dps);
+                const bestDps = Math.max(...dpsList).toFixed(1);
+                const avgDps  = (dpsList.reduce((a,b) => a+b, 0) / dpsList.length).toFixed(1);
+                const totalDc = results.reduce((a, r) => a + (r.count || 0), 0);
+                document.getElementById('bestDps').textContent = bestDps + ' DPS';
+                document.getElementById('avgDps').textContent  = avgDps  + ' DPS';
+                document.getElementById('dclickSessions').textContent = results.length;
+                document.getElementById('totalClicks').textContent    = totalDc;
+            }
+
+            reset();
+            updateStats();
+        });
+    </script>
+<script src="../nav.js" defer></script>
+</body>
+</html>

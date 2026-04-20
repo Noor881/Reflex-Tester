@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Time Comparison Test — Visual vs Audio vs Touch Speed [Free]</title>
+    <meta name="description" content="Compare your visual, audio, and touch reaction times in one test. Find out which sense you react to fastest and how your scores compare to scientific averages.">
+    <meta name="keywords" content="reaction time comparison, visual vs audio reaction, touch reaction time, multi-sense test, fastest reaction, reflex comparison">
+    <link rel="canonical" href="https://reflextester.fun/tools/reaction-comparison-test.html">
+    <meta property="og:title" content="Reaction Time Comparison Test | ReflexTester.fun">
+    <meta property="og:description" content="Compare visual, audio, and touch reaction times side by side. Which sense do you react to fastest?">
+    <meta property="og:url" content="https://reflextester.fun/tools/reaction-comparison-test.html">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Reaction Time Comparison Test","applicationCategory":"GameApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":0,"priceCurrency":"USD"}}
+    </script>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .compare-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+        @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+        .compare-card {
+            border: 2px solid var(--border-medium);
+            border-radius: 16px;
+            padding: 24px 16px;
+            text-align: center;
+            background: var(--bg-card);
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+        }
+        .compare-card:hover { background: var(--bg-card-hover); transform: translateY(-2px); }
+        .compare-card.active  { border-color: var(--accent-cyan); box-shadow: 0 0 30px rgba(0,212,255,0.2); }
+        .compare-card.waiting { border-color: var(--accent-green); background: linear-gradient(135deg,#0f231a,#1a3022); }
+        .compare-card.go      { border-color: #22c55e; background: linear-gradient(135deg,#14532d,#166534); animation: cardPop 0.1s ease; }
+        .compare-card.done    { border-color: var(--accent-purple); }
+        .compare-card.too-early { border-color: #ef4444; background: linear-gradient(135deg,#2d0f0f,#3b1515); animation: shake 0.3s; }
+        @keyframes cardPop  { 0%{transform:scale(0.97)} 100%{transform:scale(1)} }
+        @keyframes shake     { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+        .compare-icon { font-size: 2.5rem; margin-bottom: 10px; }
+        .compare-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+        .compare-status { font-size: 0.85rem; color: var(--text-muted); }
+        .compare-result { font-size: 2rem; font-weight: 900; color: var(--accent-cyan); margin-top: 8px; display: none; }
+        .compare-best   { font-size: 0.8rem; color: var(--text-muted); }
+        .compare-bar-wrap { display: flex; flex-direction: column; gap: 12px; margin: 24px 0; }
+        .compare-bar-row { display: flex; align-items: center; gap: 12px; }
+        .compare-bar-label { width: 80px; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); text-align: right; }
+        .compare-bar-bg { flex: 1; height: 28px; background: var(--bg-secondary); border-radius: 8px; overflow: hidden; position: relative; }
+        .compare-bar-fill { height: 100%; border-radius: 8px; transition: width 0.6s ease; display: flex; align-items: center; padding-left: 10px; font-size: 0.8rem; font-weight: 700; color: #fff; }
+        .compare-bar-row.visual .compare-bar-fill  { background: linear-gradient(90deg, #00d4ff, #0088aa); }
+        .compare-bar-row.audio  .compare-bar-fill  { background: linear-gradient(90deg, #a78bfa, #7c3aed); }
+        .compare-bar-row.touch  .compare-bar-fill  { background: linear-gradient(90deg, #34d399, #059669); }
+        .compare-bar-avg { font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; }
+        .progress-indicator {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 8px 0;
+        }
+        .progress-indicator span { font-weight: 700; color: var(--text-primary); }
+        .winner-banner {
+            background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            display: none;
+        }
+        .winner-banner h3 { font-size: 1.4rem; margin-bottom: 8px; }
+        .winner-badge { font-size: 2rem; }
+    </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../index.html">Home</a><span class="separator">›</span>
+                <a href="../tools.html">Tools</a><span class="separator">›</span>
+                <span>Reaction Comparison Test</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>⚡ Reaction Time Comparison</h1>
+                <p class="test-desc">Test your reaction to 3 different senses — visual flash, audio beep, and touch vibration — then compare side by side to find your fastest sense!</p>
+
+                <div class="progress-indicator">Round <span id="roundNum">—</span> of 5 per sense</div>
+
+                <div class="compare-grid">
+                    <div class="compare-card" id="cardVisual" data-sense="visual">
+                        <div class="compare-icon">👁️</div>
+                        <div class="compare-title">Visual</div>
+                        <div class="compare-status" id="statusVisual">Click to start</div>
+                        <div class="compare-result" id="resultVisual">—</div>
+                        <div class="compare-best" id="bestVisual"></div>
+                    </div>
+                    <div class="compare-card" id="cardAudio" data-sense="audio">
+                        <div class="compare-icon">🔊</div>
+                        <div class="compare-title">Audio</div>
+                        <div class="compare-status" id="statusAudio">Click to start</div>
+                        <div class="compare-result" id="resultAudio">—</div>
+                        <div class="compare-best" id="bestAudio"></div>
+                    </div>
+                    <div class="compare-card" id="cardTouch" data-sense="touch">
+                        <div class="compare-icon">✋</div>
+                        <div class="compare-title">Touch/Vibration</div>
+                        <div class="compare-status" id="statusTouch">Click to start</div>
+                        <div class="compare-result" id="resultTouch">—</div>
+                        <div class="compare-best" id="bestTouch"></div>
+                    </div>
+                </div>
+
+                <div class="compare-bar-wrap" id="barWrap" style="display:none;">
+                    <div class="compare-bar-row visual">
+                        <div class="compare-bar-label">Visual</div>
+                        <div class="compare-bar-bg"><div class="compare-bar-fill" id="barVisual" style="width:0%">—</div></div>
+                        <div class="compare-bar-avg">avg: 250ms</div>
+                    </div>
+                    <div class="compare-bar-row audio">
+                        <div class="compare-bar-label">Audio</div>
+                        <div class="compare-bar-bg"><div class="compare-bar-fill" id="barAudio" style="width:0%">—</div></div>
+                        <div class="compare-bar-avg">avg: 170ms</div>
+                    </div>
+                    <div class="compare-bar-row touch">
+                        <div class="compare-bar-label">Touch</div>
+                        <div class="compare-bar-bg"><div class="compare-bar-fill" id="barTouch" style="width:0%">—</div></div>
+                        <div class="compare-bar-avg">avg: 155ms</div>
+                    </div>
+                </div>
+
+                <div class="winner-banner" id="winnerBanner">
+                    <div class="winner-badge" id="winnerBadge">🏆</div>
+                    <h3 id="winnerTitle">Your Fastest Sense</h3>
+                    <p id="winnerDesc"></p>
+                </div>
+
+                <div class="test-actions" style="margin-top:16px;">
+                    <button class="btn btn-primary" id="resetCompareBtn">Reset All</button>
+                </div>
+
+                <div class="stats-panel" id="compareStats" style="display:none;">
+                    <h4>⚡ Comparison Records</h4>
+                    <div class="stat-row"><span class="stat-label">Best Visual</span><span class="stat-value" id="csBestVis">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Best Audio</span><span class="stat-value" id="csBestAud">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Best Touch</span><span class="stat-value" id="csBestTou">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Sessions</span><span class="stat-value" id="csSessions">0</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>Visual vs Audio vs Touch Reaction Time</h2>
+                <p>Research consistently shows that reaction times differ by sense. For most people, audio reactions are fastest (~170ms), followed by touch (~155ms on the skin), and visual being slowest (~250ms) due to the additional processing required in the visual cortex.</p>
+                <h3>Scientific Averages</h3>
+                <ul>
+                    <li><strong>Visual (light):</strong> ~250ms average — slowest due to visual cortex processing</li>
+                    <li><strong>Audio (sound):</strong> ~170ms average — auditory cortex processes faster</li>
+                    <li><strong>Touch (vibration):</strong> ~155ms average — somatosensory cortex is highly efficient</li>
+                </ul>
+                <p><em>Note: The touch test here measures button-press reaction to a visual cue simulating a vibration prompt, as true haptic feedback requires device capability.</em></p>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">👁️</div><h3>Visual Reflex</h3><p>Dedicated visual reaction time test</p></a>
+                    <a href="audio-reflex-test.html" class="rec-card"><div class="rec-icon">🔊</div><h3>Audio Reflex</h3><p>Dedicated audio reaction time test</p></a>
+                    <a href="focus-attention-test.html" class="rec-card"><div class="rec-icon">🧠</div><h3>Focus & Attention</h3><p>Sustained vigilance and focus test</p></a>
+                    <a href="hand-eye-coordination-test.html" class="rec-card"><div class="rec-icon">🎯</div><h3>Hand-Eye Coordination</h3><p>Moving target accuracy challenge</p></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p></div></div></footer>
+
+    <script src="../main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ROUNDS = 5;
+            const MIN_DELAY = 1500, MAX_DELAY = 4000;
+            const VISUAL_AVG = 250, AUDIO_AVG = 170, TOUCH_AVG = 155;
+
+            // State per sense
+            const senses = {
+                visual: { rounds: [], state: 'idle', timer: null, startTime: 0 },
+                audio:  { rounds: [], state: 'idle', timer: null, startTime: 0 },
+                touch:  { rounds: [], state: 'idle', timer: null, startTime: 0 },
+            };
+
+            let audioCtx = null;
+            function getAudioCtx() {
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                return audioCtx;
+            }
+            function playBeep() {
+                const ctx = getAudioCtx();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.frequency.value = 800;
+                gain.gain.setValueAtTime(0.5, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+                osc.start(); osc.stop(ctx.currentTime + 0.4);
+            }
+            function vibrateDevice() {
+                if (navigator.vibrate) navigator.vibrate([80, 40, 80]);
+            }
+
+            const cards = { visual: document.getElementById('cardVisual'), audio: document.getElementById('cardAudio'), touch: document.getElementById('cardTouch') };
+            const statuses = { visual: document.getElementById('statusVisual'), audio: document.getElementById('statusAudio'), touch: document.getElementById('statusTouch') };
+            const resultEls = { visual: document.getElementById('resultVisual'), audio: document.getElementById('resultAudio'), touch: document.getElementById('resultTouch') };
+            const bestEls   = { visual: document.getElementById('bestVisual'), audio: document.getElementById('bestAudio'), touch: document.getElementById('bestTouch') };
+            const roundEl   = document.getElementById('roundNum');
+            const barWrap   = document.getElementById('barWrap');
+            const bars      = { visual: document.getElementById('barVisual'), audio: document.getElementById('barAudio'), touch: document.getElementById('barTouch') };
+            const winnerEl  = document.getElementById('winnerBanner');
+
+            let savedResults = ReflexStore.get('compare_results', []);
+
+            function avg(arr) { return arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : null; }
+
+            function updateBestDisplay(sense) {
+                const s = senses[sense];
+                if (s.rounds.length > 0) {
+                    bestEls[sense].textContent = 'Best: ' + Math.min(...s.rounds) + 'ms | Avg: ' + Math.round(avg(s.rounds)) + 'ms';
+                }
+            }
+
+            function triggerStimulus(sense) {
+                const s = senses[sense];
+                s.state = 'go';
+                cards[sense].className = 'compare-card go';
+                statuses[sense].textContent = sense === 'visual' ? '🟢 CLICK NOW!' : sense === 'audio' ? '🔊 Click now!' : '✋ Tap now!';
+                s.startTime = Date.now();
+                if (sense === 'audio') playBeep();
+                if (sense === 'touch') vibrateDevice();
+                // Auto-miss after 2s
+                s.timer = setTimeout(() => {
+                    if (s.state !== 'go') return;
+                    // Missed
+                    s.rounds.push(2000);
+                    endRound(sense, 2000, true);
+                }, 2000);
+            }
+
+            function startSense(sense) {
+                const s = senses[sense];
+                if (s.state === 'waiting' || s.state === 'go') return;
+                if (s.rounds.length >= ROUNDS) { resetSense(sense); return; }
+                s.state = 'waiting';
+                cards[sense].className = 'compare-card waiting';
+                statuses[sense].textContent = 'Wait for it...';
+                const delay = MIN_DELAY + Math.random() * (MAX_DELAY - MIN_DELAY);
+                s.timer = setTimeout(() => triggerStimulus(sense), delay);
+            }
+
+            function endRound(sense, rt, missed) {
+                const s = senses[sense];
+                clearTimeout(s.timer);
+                s.state = 'done';
+                const round = s.rounds.length;
+                if (!missed) s.rounds.push(rt);
+                roundEl.textContent = Math.max(...Object.values(senses).map(x => x.rounds.length)) + '/' + ROUNDS;
+                resultEls[sense].style.display = 'block';
+                resultEls[sense].textContent = missed ? 'Miss' : rt + 'ms';
+                resultEls[sense].style.color = missed ? '#ef4444' : rt < 200 ? '#22c55e' : '#00d4ff';
+                updateBestDisplay(sense);
+
+                if (round < ROUNDS) {
+                    cards[sense].className = 'compare-card active';
+                    statuses[sense].textContent = 'Round ' + (round+1) + ' — click for next';
+                    s.state = 'idle';
+                } else {
+                    cards[sense].className = 'compare-card done';
+                    statuses[sense].textContent = 'Complete! ' + ROUNDS + '/' + ROUNDS;
+                    checkAllDone();
+                }
+            }
+
+            function checkAllDone() {
+                const allDone = Object.values(senses).every(s => s.rounds.length >= ROUNDS);
+                if (!allDone) return;
+                showComparison();
+            }
+
+            function showComparison() {
+                const vAvg = avg(senses.visual.rounds);
+                const aAvg = avg(senses.audio.rounds);
+                const tAvg = avg(senses.touch.rounds);
+                barWrap.style.display = 'flex';
+                const maxMs = 600;
+                bars.visual.style.width = Math.min(100, (vAvg / maxMs) * 100) + '%';
+                bars.audio.style.width  = Math.min(100, (aAvg / maxMs) * 100) + '%';
+                bars.touch.style.width  = Math.min(100, (tAvg / maxMs) * 100) + '%';
+                bars.visual.textContent = Math.round(vAvg) + 'ms';
+                bars.audio.textContent  = Math.round(aAvg) + 'ms';
+                bars.touch.textContent  = Math.round(tAvg) + 'ms';
+
+                const scores = { Visual: vAvg, Audio: aAvg, Touch: tAvg };
+                const winner = Object.entries(scores).sort((a,b)=>a[1]-b[1])[0];
+                const icons  = { Visual: '👁️', Audio: '🔊', Touch: '✋' };
+                winnerEl.style.display = 'block';
+                document.getElementById('winnerBadge').textContent = icons[winner[0]];
+                document.getElementById('winnerTitle').textContent = winner[0] + ' is Your Fastest Sense!';
+                document.getElementById('winnerDesc').textContent =
+                    'Your ' + winner[0].toLowerCase() + ' reaction (' + Math.round(winner[1]) + 'ms) beats scientific average (' +
+                    (winner[0]==='Visual'?VISUAL_AVG:winner[0]==='Audio'?AUDIO_AVG:TOUCH_AVG) + 'ms). ' +
+                    (winner[1] < (winner[0]==='Visual'?VISUAL_AVG:winner[0]==='Audio'?AUDIO_AVG:TOUCH_AVG) ? 'Impressive — above average!' : 'Room to improve with practice!');
+
+                savedResults.push({ visual: Math.round(vAvg), audio: Math.round(aAvg), touch: Math.round(tAvg) });
+                ReflexStore.set('compare_results', savedResults);
+                updateStats();
+            }
+
+            function resetSense(sense) {
+                const s = senses[sense];
+                clearTimeout(s.timer);
+                s.rounds = []; s.state = 'idle';
+                cards[sense].className = 'compare-card';
+                statuses[sense].textContent = 'Click to start';
+                resultEls[sense].style.display = 'none';
+                resultEls[sense].textContent = '—';
+                bestEls[sense].textContent = '';
+            }
+
+            Object.keys(senses).forEach(sense => {
+                cards[sense].addEventListener('click', function () {
+                    const s = senses[sense];
+                    if (s.state === 'go') {
+                        clearTimeout(s.timer);
+                        const rt = Date.now() - s.startTime;
+                        if (rt < 80) {
+                            // Too early
+                            s.state = 'too-early';
+                            cards[sense].className = 'compare-card too-early';
+                            statuses[sense].textContent = 'Too early! Wait for the signal';
+                            setTimeout(() => { s.state = 'idle'; cards[sense].className = 'compare-card'; statuses[sense].textContent = 'Click to try again'; }, 1500);
+                            return;
+                        }
+                        endRound(sense, rt, false);
+                    } else if (s.state === 'idle') {
+                        startSense(sense);
+                    } else if (s.state === 'waiting') {
+                        // clicked too early
+                        clearTimeout(s.timer);
+                        s.state = 'too-early';
+                        cards[sense].className = 'compare-card too-early';
+                        statuses[sense].textContent = 'Too early! Wait for signal';
+                        setTimeout(() => { s.state = 'idle'; cards[sense].className = 'compare-card'; statuses[sense].textContent = 'Click to try again'; }, 1500);
+                    }
+                });
+            });
+
+            document.getElementById('resetCompareBtn').addEventListener('click', function () {
+                Object.keys(senses).forEach(resetSense);
+                roundEl.textContent = '—';
+                barWrap.style.display = 'none';
+                winnerEl.style.display = 'none';
+            });
+
+            function updateStats() {
+                if (!savedResults.length) { document.getElementById('compareStats').style.display='none'; return; }
+                document.getElementById('compareStats').style.display = 'block';
+                document.getElementById('csBestVis').textContent = Math.min(...savedResults.map(r=>r.visual)) + 'ms';
+                document.getElementById('csBestAud').textContent = Math.min(...savedResults.map(r=>r.audio))  + 'ms';
+                document.getElementById('csBestTou').textContent = Math.min(...savedResults.map(r=>r.touch))  + 'ms';
+                document.getElementById('csSessions').textContent = savedResults.length;
+            }
+
+            roundEl.textContent = '0/' + ROUNDS;
+            updateStats();
+        });
+    </script>
+<script src="../nav.js" defer></script>
+</body>
+</html>

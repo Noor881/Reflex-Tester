@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Aim Test — Click Accuracy & Target Size Challenge [Free]</title>
+    <meta name="description" content="Test your mouse precision by clicking increasingly smaller targets. Measures accuracy percentage and average miss distance. Essential for FPS gamers and shooter training.">
+    <meta name="keywords" content="precision aim test, mouse accuracy, click precision, aim training, small target test, FPS aim, click accuracy test">
+    <link rel="canonical" href="https://reflextester.fun/tools/precision-aim-test.html">
+    <meta property="og:title" content="Precision Aim Test | ReflexTester.fun">
+    <meta property="og:description" content="Click increasingly smaller targets to test your mouse precision and aim accuracy.">
+    <meta property="og:url" content="https://reflextester.fun/tools/precision-aim-test.html">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Precision Aim Test","applicationCategory":"GameApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":0,"priceCurrency":"USD"}}
+    </script>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .aim-arena {
+            width: 100%;
+            height: 380px;
+            background: radial-gradient(ellipse at center, #0f1a2e 0%, #060b15 100%);
+            border: 2px solid var(--border-medium);
+            border-radius: 20px;
+            position: relative;
+            cursor: crosshair;
+            overflow: hidden;
+            user-select: none;
+        }
+        .aim-arena.idle { cursor: default; display:flex; align-items:center; justify-content:center; }
+        .aim-arena-overlay {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 12px;
+            color: var(--text-primary);
+        }
+        .aim-target-circle {
+            position: absolute;
+            border-radius: 50%;
+            cursor: crosshair;
+            display: flex; align-items: center; justify-content: center;
+            transform: translate(-50%, -50%);
+            transition: box-shadow 0.1s;
+            animation: targetPulse 1s ease-in-out infinite;
+        }
+        @keyframes targetPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,255,0.6); }
+            50% { box-shadow: 0 0 0 12px rgba(0,212,255,0); }
+        }
+        .aim-target-circle.hit-anim {
+            animation: hitFlash 0.25s ease forwards;
+        }
+        @keyframes hitFlash { 0%{opacity:1;transform:translate(-50%,-50%) scale(1)} 100%{opacity:0;transform:translate(-50%,-50%) scale(2.5)} }
+        .miss-indicator {
+            position: absolute;
+            width: 8px; height: 8px;
+            background: #ef4444;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%,-50%);
+            animation: missFade 0.5s ease forwards;
+        }
+        @keyframes missFade { to { opacity:0; transform: translate(-50%,-50%) scale(3); } }
+        .precision-hud {
+            display: flex; gap: 24px; justify-content: center;
+            padding: 16px 0;
+        }
+        .hud-chip {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 10px 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .hud-chip .hud-val { font-size: 1.6rem; font-weight: 800; color: var(--accent-cyan); }
+        .hud-chip .hud-lbl { font-size: 0.75rem; color: var(--text-muted); margin-top:2px; }
+        .level-banner {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin: 8px 0;
+        }
+        .level-banner span { color: var(--accent-cyan); font-weight: 700; }
+        .progress-dots {
+            display:flex; gap:6px; justify-content:center; margin:8px 0;
+        }
+        .progress-dot {
+            width: 12px; height: 12px; border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            transition: background 0.3s;
+        }
+        .progress-dot.hit  { background: var(--accent-green); }
+        .progress-dot.miss { background: #ef4444; }
+    </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../index.html">Home</a><span class="separator">›</span>
+                <a href="../tools.html">Tools</a><span class="separator">›</span>
+                <span>Precision Aim Test</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🎯 Precision Aim Test</h1>
+                <p class="test-desc">Click the target circles as accurately as possible. Targets shrink with each level — 20 targets total. Miss distance is measured in pixels!</p>
+
+                <div class="precision-hud">
+                    <div class="hud-chip"><div class="hud-val" id="hitCountP">0</div><div class="hud-lbl">Hits</div></div>
+                    <div class="hud-chip"><div class="hud-val" id="missCountP">0</div><div class="hud-lbl">Misses</div></div>
+                    <div class="hud-chip"><div class="hud-val" id="accuracyP">—</div><div class="hud-lbl">Accuracy</div></div>
+                    <div class="hud-chip"><div class="hud-val" id="avgMissP">—</div><div class="hud-lbl">Avg Miss (px)</div></div>
+                </div>
+
+                <div class="level-banner">Level <span id="levelNum">—</span> — Target Size: <span id="targetSizeLabel">—</span>px</div>
+
+                <div class="progress-dots" id="progressDots"></div>
+
+                <div class="aim-arena idle" id="aimArena">
+                    <div class="aim-arena-overlay" id="arenaOverlay">
+                        <div style="font-size:3rem">🎯</div>
+                        <div style="font-size:1.3rem;font-weight:700;">Precision Aim Test</div>
+                        <div style="font-size:0.9rem;color:var(--text-muted);">Click targets as accurately as possible</div>
+                    </div>
+                </div>
+
+                <div class="test-actions" style="margin-top:20px;">
+                    <button class="btn btn-primary" id="startPrecBtn">Start Test</button>
+                    <button class="btn btn-secondary" id="resetPrecBtn">Reset Stats</button>
+                </div>
+
+                <div class="reaction-display" id="precResultEl" style="display:none;"></div>
+
+                <div class="stats-panel" id="precStatsPanel" style="display:none;">
+                    <h4>🎯 Precision Records</h4>
+                    <div class="stat-row"><span class="stat-label">Best Accuracy</span><span class="stat-value" id="precBestAcc">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Best Avg Miss</span><span class="stat-value" id="precBestMiss">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Sessions</span><span class="stat-value" id="precSessions">0</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>What Does Precision Aim Measure?</h2>
+                <p>Precision aim tests your ability to place your cursor exactly on small targets — the same skill used in FPS headshots, MOBA skill shots, and RTS micro-management. This test tracks both hit/miss ratio AND average miss distance in pixels.</p>
+                <h3>Precision Benchmarks</h3>
+                <ul>
+                    <li><strong>90%+ Accuracy:</strong> Elite — Pro FPS level precision</li>
+                    <li><strong>75–89%:</strong> Great — Strong competitive aim</li>
+                    <li><strong>60–74%:</strong> Average — Typical casual gamer</li>
+                    <li><strong>Below 60%:</strong> Needs training — Practice daily!</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="hand-eye-coordination-test.html" class="rec-card"><div class="rec-icon">🎯</div><h3>Hand-Eye Coordination</h3><p>Hit moving targets to build dynamic precision</p></a>
+                    <a href="csgo-aim-trainer.html" class="rec-card"><div class="rec-icon">🔫</div><h3>CS:GO Aim Trainer</h3><p>3D shooting range for FPS practitioners</p></a>
+                    <a href="double-click-speed-test.html" class="rec-card"><div class="rec-icon">🖱️</div><h3>Double Click Speed</h3><p>Test your double-click speed in DPS</p></a>
+                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Visual Reflex</h3><p>Measure raw visual reaction time</p></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p></div></div></footer>
+
+    <script src="../main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const arena      = document.getElementById('aimArena');
+            const overlay    = document.getElementById('arenaOverlay');
+            const startBtn   = document.getElementById('startPrecBtn');
+            const resetBtn   = document.getElementById('resetPrecBtn');
+            const hitEl      = document.getElementById('hitCountP');
+            const missEl     = document.getElementById('missCountP');
+            const accEl      = document.getElementById('accuracyP');
+            const avgMissEl  = document.getElementById('avgMissP');
+            const levelEl    = document.getElementById('levelNum');
+            const sizeEl     = document.getElementById('targetSizeLabel');
+            const dotsEl     = document.getElementById('progressDots');
+            const resultEl   = document.getElementById('precResultEl');
+            const statsPanel = document.getElementById('precStatsPanel');
+
+            const TOTAL_TARGETS = 20;
+            // Sizes shrink progressively: levels 1-4 large, 5-8 medium, 9-12 small, 13-16 tiny, 17-20 micro
+            function getSize(idx) {
+                if (idx < 4)  return 80;
+                if (idx < 8)  return 55;
+                if (idx < 12) return 35;
+                if (idx < 16) return 22;
+                return 14;
+            }
+
+            let state = 'idle';
+            let hits = 0, misses = 0, totalMissDist = 0;
+            let currentTarget = null;
+            let targetIndex = 0;
+            let dotResults = [];
+            let results = ReflexStore.get('precision_results', []);
+
+            function buildDots() {
+                dotsEl.innerHTML = '';
+                for (let i = 0; i < TOTAL_TARGETS; i++) {
+                    const d = document.createElement('div');
+                    d.className = 'progress-dot' + (dotResults[i] ? ' ' + dotResults[i] : '');
+                    dotsEl.appendChild(d);
+                }
+            }
+
+            function spawnTarget() {
+                if (targetIndex >= TOTAL_TARGETS) { endTest(); return; }
+                const size = getSize(targetIndex);
+                const pad  = size + 10;
+                const x = pad + Math.random() * (arena.clientWidth - pad * 2);
+                const y = pad + Math.random() * (arena.clientHeight - pad * 2);
+                const colors = ['#00d4ff','#a78bfa','#34d399','#fb923c','#f472b6'];
+                const color  = colors[Math.floor(Math.random() * colors.length)];
+
+                const t = document.createElement('div');
+                t.className = 'aim-target-circle';
+                t.style.cssText = `width:${size}px;height:${size}px;left:${x}px;top:${y}px;background:radial-gradient(circle,${color},${color}88);border:2px solid ${color};`;
+                t.dataset.cx = x;
+                t.dataset.cy = y;
+                t.dataset.r  = size / 2;
+                arena.appendChild(t);
+                currentTarget = t;
+                levelEl.textContent = (targetIndex + 1);
+                sizeEl.textContent  = size;
+            }
+
+            function removeTarget() {
+                if (currentTarget) {
+                    currentTarget.classList.add('hit-anim');
+                    const old = currentTarget;
+                    setTimeout(() => old.remove(), 250);
+                    currentTarget = null;
+                }
+            }
+
+            function updateHud() {
+                const total = hits + misses;
+                hitEl.textContent  = hits;
+                missEl.textContent = misses;
+                accEl.textContent  = total > 0 ? ((hits / total) * 100).toFixed(0) + '%' : '—';
+                avgMissEl.textContent = misses > 0 ? (totalMissDist / misses).toFixed(0) + 'px' : '—';
+            }
+
+            arena.addEventListener('click', function (e) {
+                if (state !== 'running') return;
+                const rect  = arena.getBoundingClientRect();
+                const cx    = parseFloat(currentTarget.dataset.cx);
+                const cy    = parseFloat(currentTarget.dataset.cy);
+                const r     = parseFloat(currentTarget.dataset.r);
+                const clickX = e.clientX - rect.left;
+                const clickY = e.clientY - rect.top;
+                const dist   = Math.sqrt((clickX - cx) ** 2 + (clickY - cy) ** 2);
+
+                if (dist <= r) {
+                    hits++;
+                    dotResults[targetIndex] = 'hit';
+                    removeTarget();
+                    targetIndex++;
+                    setTimeout(spawnTarget, 180);
+                } else {
+                    misses++;
+                    totalMissDist += dist - r;
+                    dotResults[targetIndex] = 'miss';
+                    // Show miss indicator
+                    const m = document.createElement('div');
+                    m.className = 'miss-indicator';
+                    m.style.left = clickX + 'px';
+                    m.style.top  = clickY + 'px';
+                    arena.appendChild(m);
+                    m.addEventListener('animationend', () => m.remove());
+                    removeTarget();
+                    targetIndex++;
+                    setTimeout(spawnTarget, 180);
+                }
+                buildDots();
+                updateHud();
+            });
+
+            function startTest() {
+                state = 'running';
+                hits = 0; misses = 0; totalMissDist = 0;
+                targetIndex = 0;
+                dotResults = [];
+                arena.className = 'aim-arena';
+                overlay.style.display = 'none';
+                resultEl.style.display = 'none';
+                startBtn.disabled = true;
+                buildDots();
+                updateHud();
+                spawnTarget();
+            }
+
+            function endTest() {
+                state = 'done';
+                removeTarget();
+                overlay.style.display = 'flex';
+                startBtn.disabled = false;
+                startBtn.textContent = 'Try Again';
+
+                const total = hits + misses;
+                const acc  = total > 0 ? (hits / total) * 100 : 0;
+                const avgM = misses > 0 ? (totalMissDist / misses).toFixed(0) : 0;
+                let grade;
+                if (acc >= 90) grade = 'Elite Precision 🏆';
+                else if (acc >= 75) grade = 'Great Aim! 🔥';
+                else if (acc >= 60) grade = 'Average Gamer 👍';
+                else grade = 'Keep Training! 💪';
+
+                resultEl.innerHTML = '<strong>' + acc.toFixed(0) + '% Accuracy</strong> — ' +
+                    hits + '/' + total + ' hit — Avg miss: ' + avgM + 'px<br><em>' + grade + '</em>';
+                resultEl.style.display = 'block';
+
+                results.push({ accuracy: acc, avgMiss: parseFloat(avgM) || 0 });
+                ReflexStore.set('precision_results', results);
+                updateStats();
+            }
+
+            startBtn.addEventListener('click', startTest);
+            resetBtn.addEventListener('click', function () {
+                results = [];
+                ReflexStore.set('precision_results', []);
+                state = 'idle';
+                hits = 0; misses = 0; totalMissDist = 0;
+                targetIndex = 0; dotResults = [];
+                startBtn.textContent = 'Start Test';
+                buildDots(); updateHud(); updateStats();
+                resultEl.style.display = 'none';
+            });
+
+            function updateStats() {
+                if (!results.length) { statsPanel.style.display = 'none'; return; }
+                statsPanel.style.display = 'block';
+                document.getElementById('precBestAcc').textContent  = Math.max(...results.map(r=>r.accuracy)).toFixed(0) + '%';
+                const missArr = results.filter(r=>r.avgMiss>0).map(r=>r.avgMiss);
+                document.getElementById('precBestMiss').textContent = missArr.length ? Math.min(...missArr).toFixed(0) + 'px' : '—';
+                document.getElementById('precSessions').textContent = results.length;
+            }
+
+            buildDots();
+            updateStats();
+        });
+    </script>
+<script src="../nav.js" defer></script>
+</body>
+</html>

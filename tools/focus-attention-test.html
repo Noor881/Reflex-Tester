@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus & Attention Test — Measure Your Concentration & Vigilance [Free]</title>
+    <meta name="description" content="Test your sustained attention and focus by responding only to specific stimuli. Measures hits, false alarms, and reaction time. Based on vigilance research used by neuroscientists.">
+    <meta name="keywords" content="focus test, attention test, vigilance test, concentration test, cognitive test, ADHD test, sustained attention, brain test">
+    <link rel="canonical" href="https://reflextester.fun/tools/focus-attention-test.html">
+    <meta property="og:title" content="Focus & Attention Test | ReflexTester.fun">
+    <meta property="og:description" content="Test your sustained attention and focus — hit targets, ignore distractors, measure vigilance.">
+    <meta property="og:url" content="https://reflextester.fun/tools/focus-attention-test.html">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Focus & Attention Test","applicationCategory":"HealthApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":0,"priceCurrency":"USD"}}
+    </script>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .focus-arena {
+            width: 100%;
+            height: 340px;
+            background: #07080f;
+            border: 2px solid var(--border-medium);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .focus-stimulus {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            transition: all 0.1s;
+            position: relative;
+        }
+        .focus-stimulus.target   { background: radial-gradient(circle, #22c55e44, #0f2218); border: 3px solid #22c55e; box-shadow: 0 0 40px rgba(34,197,94,0.4); }
+        .focus-stimulus.distract { background: radial-gradient(circle, #ef444433, #1f0a0a); border: 3px solid #ef4444; box-shadow: 0 0 40px rgba(239,68,68,0.3); }
+        .focus-stimulus.blank    { border: 2px dashed var(--border-subtle); }
+        .focus-key-hint {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            pointer-events: none;
+        }
+        .focus-key-hint kbd {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .focus-score-flash {
+            position: absolute;
+            font-size: 1.6rem;
+            font-weight: 900;
+            pointer-events: none;
+            animation: scoreFly 0.7s ease forwards;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes scoreFly { 0%{opacity:1;transform:translate(-50%,-120%)} 100%{opacity:0;transform:translate(-50%,-220%)} }
+        .focus-hud-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 16px 0;
+        }
+        .focus-chip {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 8px 16px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 80px;
+        }
+        .focus-chip .fc-val { font-size: 1.4rem; font-weight: 800; color: var(--accent-cyan); }
+        .focus-chip .fc-lbl { font-size: 0.7rem; color: var(--text-muted); }
+        .focus-timer-bar {
+            width: 100%;
+            height: 6px;
+            background: var(--bg-secondary);
+            border-radius: 3px;
+            margin: 8px 0;
+            overflow: hidden;
+        }
+        .focus-timer-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 3px;
+            transition: width 0.1s linear;
+        }
+        .focus-rule {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 12px 20px;
+            margin: 16px 0;
+            font-size: 0.95rem;
+        }
+        .rule-icon { font-size: 2rem; }
+        .rule-text strong { color: var(--accent-green); }
+        .rule-text em     { color: #ef4444; font-style: normal; }
+    </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress"></div>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../index.html">Home</a><span class="separator">›</span>
+                <a href="../tools.html">Tools</a><span class="separator">›</span>
+                <span>Focus & Attention Test</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🧠 Focus & Attention Test</h1>
+                <p class="test-desc">A vigilance test based on real neuroscience research. Press <kbd>Space</kbd> (or tap) only when you see the <strong>target stimulus</strong> — ignore the distractors!</p>
+
+                <div class="focus-rule" id="focusRule">
+                    <div class="rule-icon">⚠️</div>
+                    <div class="rule-text" id="ruleText">Loading rule...</div>
+                </div>
+
+                <div class="focus-timer-bar"><div class="focus-timer-fill" id="timerFill" style="width:100%"></div></div>
+
+                <div class="focus-hud-bar">
+                    <div class="focus-chip"><div class="fc-val" id="fcHits">0</div><div class="fc-lbl">Hits</div></div>
+                    <div class="focus-chip"><div class="fc-val" id="fcMisses">0</div><div class="fc-lbl">Misses</div></div>
+                    <div class="focus-chip"><div class="fc-val" id="fcFalse">0</div><div class="fc-lbl">False Alarms</div></div>
+                    <div class="focus-chip"><div class="fc-val" id="fcScore">0</div><div class="fc-lbl">Score</div></div>
+                    <div class="focus-chip"><div class="fc-val" id="fcAvgRT">—</div><div class="fc-lbl">Avg RT</div></div>
+                </div>
+
+                <div class="focus-arena" id="focusArena">
+                    <div class="focus-stimulus blank" id="focusStim">
+                        <span id="stimEmoji">—</span>
+                    </div>
+                    <div class="focus-key-hint" id="keyHint">Press <kbd>Start</kbd> to begin</div>
+                </div>
+
+                <div class="test-actions" style="margin-top:20px;">
+                    <button class="btn btn-primary" id="focusStartBtn">Start Test</button>
+                    <button class="btn btn-secondary" id="focusResetBtn">Reset Stats</button>
+                </div>
+
+                <div class="reaction-display" id="focusResult" style="display:none;"></div>
+
+                <div class="stats-panel" id="focusStats" style="display:none;">
+                    <h4>🧠 Focus Records</h4>
+                    <div class="stat-row"><span class="stat-label">Best Score</span><span class="stat-value" id="fsBestScore">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Best Accuracy</span><span class="stat-value" id="fsBestAcc">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Avg Reaction Time</span><span class="stat-value" id="fsAvgRT">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Sessions</span><span class="stat-value" id="fsSessions">0</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About the Vigilance / Focus Test</h2>
+                <p>The continuous performance test (CPT) is one of the most widely-used paradigms in cognitive neuroscience. It measures your ability to sustain attention over time — hitting targets while ignoring irrelevant stimuli — and is used in ADHD research, fatigue studies, and cognitive neuroscience.</p>
+                <h3>What the Scores Mean</h3>
+                <ul>
+                    <li><strong>Hits:</strong> Correct responses to target — measures detection</li>
+                    <li><strong>Misses:</strong> Failing to respond to target — attention lapse</li>
+                    <li><strong>False Alarms:</strong> Responding to non-target — impulse control</li>
+                    <li><strong>d' (d-prime):</strong> Signal detection sensitivity (high = great focus)</li>
+                </ul>
+                <h3>Improving Your Focus</h3>
+                <ul>
+                    <li>7-9 hours of quality sleep dramatically improves vigilance performance</li>
+                    <li>Meditation and mindfulness practice reduces false alarm rate</li>
+                    <li>Caffeine (100-200mg) can boost hit rate and reduce reaction time by up to 15%</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>Recommended Tools</h2>
+                <div class="rec-grid">
+                    <a href="stroop-effect-test.html" class="rec-card"><div class="rec-icon">🧪</div><h3>Stroop Effect</h3><p>Test cognitive flexibility and interference</p></a>
+                    <a href="memory-sequence-test.html" class="rec-card"><div class="rec-icon">🧠</div><h3>Memory Sequence</h3><p>Test working memory capacity</p></a>
+                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Visual Reflex</h3><p>Measure raw visual reaction time</p></a>
+                    <a href="audio-reflex-test.html" class="rec-card"><div class="rec-icon">🔊</div><h3>Audio Reflex</h3><p>React to sound for faster reflexes</p></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2025 ReflexTester.fun — Professional Reflex Testing Platform</p></div></div></footer>
+
+    <script src="../main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Stimulus sets: [target emoji, distractor emojis]
+            const MODES = [
+                { rule: 'Press <kbd>Space</kbd> only when you see <strong>🟢 Green Circle</strong> — ignore everything else', target: '🟢', distractors: ['🔴','🟡','🟣','🔵','🟠'] },
+                { rule: 'Press <kbd>Space</kbd> only when you see <strong>⭐ Star</strong> — ignore all other shapes', target: '⭐', distractors: ['🔷','🔸','🔹','💠','🔶'] },
+                { rule: 'Press <kbd>Space</kbd> only when you see the <strong>number 7</strong> — ignore all other digits', target: '7', distractors: ['1','2','3','4','5','6','8','9'] },
+            ];
+            const mode = MODES[Math.floor(Math.random() * MODES.length)];
+
+            const arena     = document.getElementById('focusArena');
+            const stim      = document.getElementById('focusStim');
+            const stimEmoji = document.getElementById('stimEmoji');
+            const ruleText  = document.getElementById('ruleText');
+            const keyHint   = document.getElementById('keyHint');
+            const timerFill = document.getElementById('timerFill');
+            const startBtn  = document.getElementById('focusStartBtn');
+            const resetBtn  = document.getElementById('focusResetBtn');
+            const resultEl  = document.getElementById('focusResult');
+            const statsEl   = document.getElementById('focusStats');
+
+            const els = {
+                hits: document.getElementById('fcHits'),
+                misses: document.getElementById('fcMisses'),
+                false: document.getElementById('fcFalse'),
+                score: document.getElementById('fcScore'),
+                avgRT: document.getElementById('fcAvgRT'),
+            };
+
+            ruleText.innerHTML = mode.rule;
+
+            const DURATION = 60000; // 60 seconds
+            const STIM_ON  = 600;   // how long stimulus shows
+            const STIM_OFF = 800;   // blank between stimuli
+            const TARGET_RATE = 0.35; // 35% of stimuli are targets
+
+            let state = 'idle';
+            let hits = 0, misses = 0, falseAlarms = 0, score = 0;
+            let rtSamples = [];
+            let currentIsTarget = false;
+            let stimStart = 0;
+            let responded = false;
+            let startTime = 0;
+            let stimTimer = null, mainTimer = null;
+
+            let results = ReflexStore.get('focus_results', []);
+
+            function updateHud() {
+                els.hits.textContent   = hits;
+                els.misses.textContent = misses;
+                els.false.textContent  = falseAlarms;
+                els.score.textContent  = score;
+                els.avgRT.textContent  = rtSamples.length ?
+                    Math.round(rtSamples.reduce((a,b)=>a+b,0)/rtSamples.length) + 'ms' : '—';
+            }
+
+            function flashScore(text, color) {
+                const f = document.createElement('div');
+                f.className = 'focus-score-flash';
+                f.style.color = color;
+                f.textContent = text;
+                arena.appendChild(f);
+                f.addEventListener('animationend', () => f.remove());
+            }
+
+            function showBlank() {
+                stim.className = 'focus-stimulus blank';
+                stimEmoji.textContent = '·';
+            }
+
+            function showStimulus() {
+                if (state !== 'running') return;
+                currentIsTarget = Math.random() < TARGET_RATE;
+                responded = false;
+                stimStart = Date.now();
+                if (currentIsTarget) {
+                    stim.className = 'focus-stimulus target';
+                    stimEmoji.textContent = mode.target;
+                } else {
+                    const d = mode.distractors[Math.floor(Math.random() * mode.distractors.length)];
+                    stim.className = 'focus-stimulus distract';
+                    stimEmoji.textContent = d;
+                }
+                stimTimer = setTimeout(() => {
+                    if (state !== 'running') return;
+                    if (currentIsTarget && !responded) {
+                        misses++;
+                        score = Math.max(0, score - 5);
+                        flashScore('-5 Miss', '#ef4444');
+                        updateHud();
+                    }
+                    showBlank();
+                    stimTimer = setTimeout(showStimulus, STIM_OFF);
+                }, STIM_ON);
+            }
+
+            function handleResponse() {
+                if (state !== 'running') return;
+                if (responded) return;
+                responded = true;
+                const rt = Date.now() - stimStart;
+                if (currentIsTarget) {
+                    hits++;
+                    score += 10;
+                    rtSamples.push(rt);
+                    flashScore('+10 Hit! ' + rt + 'ms', '#22c55e');
+                } else {
+                    falseAlarms++;
+                    score = Math.max(0, score - 8);
+                    flashScore('-8 False Alarm!', '#f59e0b');
+                }
+                updateHud();
+            }
+
+            function startTest() {
+                state = 'running';
+                hits = 0; misses = 0; falseAlarms = 0; score = 0; rtSamples = [];
+                startTime = Date.now();
+                startBtn.disabled = true;
+                keyHint.innerHTML = 'Press <kbd>Space</kbd> or tap arena for targets';
+                resultEl.style.display = 'none';
+                updateHud();
+                showStimulus();
+                mainTimer = setInterval(() => {
+                    const elapsed = Date.now() - startTime;
+                    const pct = Math.max(0, 100 - (elapsed / DURATION) * 100);
+                    timerFill.style.width = pct + '%';
+                    if (elapsed >= DURATION) endTest();
+                }, 100);
+            }
+
+            function endTest() {
+                state = 'done';
+                clearTimeout(stimTimer);
+                clearInterval(mainTimer);
+                showBlank();
+                timerFill.style.width = '0%';
+                startBtn.disabled = false;
+                startBtn.textContent = 'Try Again';
+                keyHint.textContent = 'Test complete';
+
+                const total   = hits + misses;
+                const acc     = total > 0 ? ((hits / total) * 100).toFixed(0) : 0;
+                const avgRT   = rtSamples.length ? Math.round(rtSamples.reduce((a,b)=>a+b,0)/rtSamples.length) : 0;
+                let grade;
+                if (score >= 150 && falseAlarms <= 3) grade = 'Elite Focus 🧠';
+                else if (score >= 100) grade = 'Strong Attention 💡';
+                else if (score >= 60)  grade = 'Average — Keep Practicing 👍';
+                else                   grade = 'Needs Training 💪';
+
+                resultEl.innerHTML = '<strong>Score: ' + score + '</strong> — ' + acc + '% Detection Accuracy<br>' +
+                    hits + ' hits, ' + misses + ' misses, ' + falseAlarms + ' false alarms<br>' +
+                    (avgRT ? 'Avg reaction time: ' + avgRT + 'ms — ' : '') +
+                    '<em>' + grade + '</em>';
+                resultEl.style.display = 'block';
+
+                results.push({ score, accuracy: parseFloat(acc), falseAlarms, avgRT });
+                ReflexStore.set('focus_results', results);
+                updateStats();
+            }
+
+            // Keyboard
+            document.addEventListener('keydown', function (e) {
+                if (e.code === 'Space' && state === 'running') {
+                    e.preventDefault();
+                    handleResponse();
+                }
+            });
+            // Touch/click on arena
+            arena.addEventListener('click', function () {
+                if (state === 'running') handleResponse();
+            });
+
+            startBtn.addEventListener('click', function () {
+                if (state === 'running') return;
+                startTest();
+            });
+            resetBtn.addEventListener('click', function () {
+                results = [];
+                ReflexStore.set('focus_results', []);
+                startBtn.textContent = 'Start Test';
+                startBtn.disabled = false;
+                state = 'idle';
+                resultEl.style.display = 'none';
+                timerFill.style.width = '100%';
+                hits = 0; misses = 0; falseAlarms = 0; score = 0; rtSamples = [];
+                updateHud(); updateStats();
+                showBlank();
+            });
+
+            function updateStats() {
+                if (!results.length) { statsEl.style.display = 'none'; return; }
+                statsEl.style.display = 'block';
+                document.getElementById('fsBestScore').textContent = Math.max(...results.map(r=>r.score));
+                document.getElementById('fsBestAcc').textContent   = Math.max(...results.map(r=>r.accuracy)).toFixed(0) + '%';
+                const rts = results.filter(r=>r.avgRT>0);
+                document.getElementById('fsAvgRT').textContent     = rts.length ? Math.round(rts.reduce((a,r)=>a+r.avgRT,0)/rts.length) + 'ms' : '—';
+                document.getElementById('fsSessions').textContent   = results.length;
+            }
+
+            showBlank();
+            updateStats();
+        });
+    </script>
+<script src="../nav.js" defer></script>
+</body>
+</html>

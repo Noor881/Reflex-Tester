@@ -553,6 +553,7 @@
 
                 results.push({ score, accuracy, hits, misses });
                 ReflexStore.set('csgo_results', results);
+                ReflexStore.set('csgo_scores', results); // dashboard alias
 
                 scoreDisplay.textContent = 'Score: ' + score + ' pts — Kills: ' + hits + ' — Accuracy: ' + accuracy.toFixed(1) + '%';
                 scoreDisplay.style.display = 'block';

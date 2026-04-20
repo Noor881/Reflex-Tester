@@ -2645,3 +2645,10 @@ button {
   --cat-color-1:      var(--accent-cyan);
   --cat-color-2:      var(--accent-purple);
 }
+
+/* Precision aim test hit animation (scoped to global sheet) */
+.hit-anim { animation: precHitFlash 0.25s ease forwards; }
+@keyframes precHitFlash {
+  0%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(2.5); }
+}
