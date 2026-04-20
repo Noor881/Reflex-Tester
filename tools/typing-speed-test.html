@@ -100,6 +100,7 @@
                     </div>
                 </div>
 
+                <div class="typing-complete" id="typingComplete"></div>
                 <div class="test-actions">
                     <button class="btn btn-primary" id="newTestBtn">New Test</button>
                     <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
@@ -240,6 +241,8 @@
                 wpmValue.textContent = '0';
                 accuracyValue.textContent = '100%';
                 timeValue.textContent = '0s';
+                var banner = document.getElementById('typingComplete');
+                if (banner) banner.classList.remove('visible');
             }
 
             function renderText(typed) {
@@ -290,12 +293,18 @@
                 wpmValue.textContent = stats.wpm;
                 accuracyValue.textContent = stats.accuracy.toFixed(1) + '%';
 
-                if (typed.length >= currentText.length) {
+                if (typed.length >= currentText.length && startTime) {
                     clearInterval(intervalId);
                     typingInput.disabled = true;
+                    renderText(currentText); // Show all as correct/wrong on completion
                     results.push(stats);
                     ReflexStore.set('typing_results', results);
                     updateStats();
+                    var banner = document.getElementById('typingComplete');
+                    if (banner) {
+                        banner.textContent = '✅ Done! ' + stats.wpm + ' WPM — ' + stats.accuracy.toFixed(1) + '% accuracy. Click "New Test" to go again!';
+                        banner.classList.add('visible');
+                    }
                 }
             });
 

@@ -221,15 +221,18 @@
 
             async function showSequence() {
                 isShowingSequence = true;
+                playerIndex = 0; // Reset input index at start of each sequence
                 statusDisplay.textContent = 'Watch the sequence...';
-                await new Promise(r => setTimeout(r, 500));
+                await new Promise(r => setTimeout(r, 600));
 
                 for (let i = 0; i < sequence.length; i++) {
-                    await flashTile(sequence[i], 400);
+                    await flashTile(sequence[i], 500);
+                    await new Promise(r => setTimeout(r, 100)); // Extra gap between tiles
                 }
 
+                await new Promise(r => setTimeout(r, 200)); // Final pause before accepting input
                 isShowingSequence = false;
-                statusDisplay.textContent = 'Your turn! Repeat the sequence';
+                statusDisplay.textContent = 'Your turn! Repeat the sequence (' + sequence.length + ' tiles)';
             }
 
             function addToSequence() {
@@ -245,9 +248,12 @@
                 isPlaying = true;
                 startBtn.textContent = 'Playing...';
                 startBtn.disabled = true;
+                statsPanel.style.display = 'block';
+                document.getElementById('currentLevel').textContent = '1';
+                document.getElementById('bestLevel').textContent = bestLevel || '—';
+                document.getElementById('gamesPlayed').textContent = gamesPlayed;
                 addToSequence();
                 showSequence();
-                updateStats();
             }
 
             function endGame() {

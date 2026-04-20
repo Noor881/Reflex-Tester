@@ -267,13 +267,14 @@
                     ReflexStore.set('color_total', total);
                     updateStats();
 
-                    setTimeout(() => {
-                        options.forEach(o => o.classList.remove('correct', 'wrong'));
+                    setTimeout(function () {
+                        options.forEach(function(o) { o.classList.remove('correct', 'wrong'); });
                         colorOptions.style.display = 'none';
                         colorTarget.style.background = 'var(--bg-tertiary)';
-                        targetText.textContent = 'Click Start';
+                        targetText.textContent = 'Click Start for next round';
                         startBtn.disabled = false;
-                    }, 1000);
+                        startBtn.focus();
+                    }, 800);
                 });
             });
 

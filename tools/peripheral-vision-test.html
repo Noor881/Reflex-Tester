@@ -75,8 +75,7 @@
         <section class="test-area">
             <div class="test-panel active">
                 <h1>👁️ Peripheral Vision Test</h1>
-                <p class="test-desc">Keep your eyes on the <strong style="color: var(--accent-cyan);">CENTER
-                        DOT</strong>. Press the arrow key matching where the target appears (← Left / → Right)!</p>
+                <p class="test-desc">Keep your eyes on the <strong style="color: var(--accent-cyan);">CENTER DOT</strong>. Press the arrow key (← Left / → Right) matching where the target appears. On mobile, tap the target side!</p>
 
                 <div class="peripheral-area" id="peripheralArea">
                     <div class="peripheral-center" id="centerDot"></div>
@@ -88,6 +87,7 @@
                 <div class="reaction-display" id="reactionDisplay" style="display: none;"></div>
 
                 <div class="test-actions">
+                    <button class="btn btn-primary peripheral-start-btn" id="startBtn">Start Round</button>
                     <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
                 </div>
 
@@ -289,6 +289,15 @@
             }
 
             document.addEventListener('keydown', handleKeyPress);
+
+            var startBtn = document.getElementById('startBtn');
+            if (startBtn) {
+                startBtn.addEventListener('click', function () {
+                    if (state === 'waiting') {
+                        startRound();
+                    }
+                });
+            }
 
             resetBtn.addEventListener('click', function () {
                 results = [];

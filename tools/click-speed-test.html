@@ -260,11 +260,10 @@
                 e.preventDefault();
                 if (!isRunning) {
                     startTest();
+                    return; // Don't count the start click
                 }
-                if (isRunning) {
-                    clicks++;
-                    clickCount.textContent = clicks;
-                }
+                clicks++;
+                clickCount.textContent = clicks;
             });
 
             resetBtn.addEventListener('click', function () {

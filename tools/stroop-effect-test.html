@@ -298,8 +298,11 @@
                 resultDisplay.style.display = 'none';
                 stroopWord.textContent = 'RED';
                 stroopWord.style.color = colors.blue;
-                progressText.textContent = 'Round 0 / 20';
+                progressText.textContent = 'Round 0 / ' + TOTAL_ROUNDS;
                 startBtn.textContent = 'Start Test';
+                startBtn.disabled = false;
+                isPlaying = false;
+                stroopOptions.style.pointerEvents = 'none';
                 updateStats();
             });
 

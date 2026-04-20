@@ -2472,3 +2472,129 @@ button {
 .tool-error h3 { color: var(--accent-red); margin-bottom: var(--space-sm); }
 .tool-error p { color: var(--text-secondary); margin-bottom: var(--space-md); }
 
+
+
+/* ════════════════════════════════════════════════════════════
+   GAME-SPECIFIC MISSING STYLES (added by fix script)
+   ════════════════════════════════════════════════════════════ */
+
+/* Stroop Effect — button feedback */
+.stroop-btn.correct {
+  background: var(--accent-green) !important;
+  transform: scale(1.05);
+  box-shadow: 0 0 16px var(--accent-green);
+}
+.stroop-btn.wrong {
+  background: #ff4444 !important;
+  transform: scale(0.95);
+  box-shadow: 0 0 16px #ff4444;
+  animation: shake 0.3s ease;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0) scale(0.95); }
+  25% { transform: translateX(-5px) scale(0.95); }
+  75% { transform: translateX(5px) scale(0.95); }
+}
+
+/* Hand-Eye / Aim area */
+.aim-area {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: crosshair;
+  user-select: none;
+}
+.aim-target {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  border: 3px solid #fff;
+  cursor: pointer;
+  box-shadow: 0 0 20px var(--accent-cyan);
+  animation: targetPulse 0.4s ease;
+  z-index: 2;
+}
+@keyframes targetPulse {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+#aimOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  background: rgba(0,0,0,0.4);
+  border-radius: var(--radius-lg);
+  z-index: 3;
+}
+
+/* Number Display */
+.number-display {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 3px solid var(--border-color);
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem auto;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+.number-display.active {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 212, 255, 0.08);
+  color: var(--accent-cyan);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+}
+.number-display span {
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Peripheral vision — mobile start button */
+.peripheral-start-btn {
+  display: none;
+}
+@media (max-width: 640px) {
+  .peripheral-start-btn {
+    display: inline-flex;
+  }
+}
+
+/* Score display inside aim-area */
+#scoreDisplay {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  text-align: center;
+  margin: 0.75rem 0;
+}
+
+/* Typing — completion banner */
+.typing-complete {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid var(--accent-cyan);
+  border-radius: var(--radius-md);
+  color: var(--accent-cyan);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  display: none;
+}
+.typing-complete.visible {
+  display: block;
+}

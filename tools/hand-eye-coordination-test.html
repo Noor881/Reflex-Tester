@@ -250,7 +250,7 @@
             function endGame() {
                 isPlaying = false;
                 target.style.display = 'none';
-                aimOverlay.style.display = 'flex';
+                aimOverlay.style.display = 'flex'; aimOverlay.style.alignItems = 'center'; aimOverlay.style.justifyContent = 'center';
                 aimOverlay.textContent = 'Test Complete!';
                 startBtn.disabled = false;
                 startBtn.textContent = 'Play Again';
@@ -278,9 +278,13 @@
                 nextTarget();
             });
 
-            aimArea.addEventListener('click', function () {
-                if (isPlaying && target.style.display === 'none') {
+            aimArea.addEventListener('click', function (e) {
+                // Only count as miss when target is currently visible and user clicked the background
+                if (isPlaying && target.style.display !== 'none') {
+                    clearTimeout(timeoutId);
                     targetsMissed++;
+                    target.style.display = 'none';
+                    nextTarget();
                 }
             });
 

@@ -197,14 +197,23 @@
 
             function playBeep() {
                 if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.frequency.value = 800;
-                gain.gain.value = 0.3;
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.15);
+                var doPlay = function() {
+                    var osc = audioCtx.createOscillator();
+                    var gain = audioCtx.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.frequency.value = 800;
+                    gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.3, audioCtx.currentTime + 0.01);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+                    osc.start(audioCtx.currentTime);
+                    osc.stop(audioCtx.currentTime + 0.15);
+                };
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume().then(doPlay);
+                } else {
+                    doPlay();
+                }
             }
 
             function updateStats() {
