@@ -167,7 +167,7 @@
 
     <main class="main-content" id="main">
         <div class="container">
-            <nav class="breadcrumb">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a>
                 <span class="separator">›</span>
                 <a href="../tools.html">Tools</a>
@@ -320,8 +320,10 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="../main.js" defer></script><script>
-        (function () {
+    <script src="../main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            (function () {
             const container = document.getElementById('canvasContainer');
             const canvas = document.getElementById('aimCanvas');
             const hitCountEl = document.getElementById('hitCount');
@@ -553,6 +555,7 @@
             initThree();
             updateStats();
         })();
+        });
     </script>
 <script src="../nav.js" defer></script>
 </body>

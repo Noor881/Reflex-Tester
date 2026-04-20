@@ -92,7 +92,6 @@
       </div>
     </footer>
   `;
-
   // Only inject nav if page doesn't already have one
   if (!document.querySelector('nav.nav')) {
     document.body.insertAdjacentHTML('afterbegin', navHTML);
@@ -103,25 +102,6 @@
     document.body.insertAdjacentHTML('beforeend', footerHTML);
   }
 
-  // Mobile toggle
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.getElementById('navToggle');
-    const menu = document.getElementById('navMenu');
-    if (toggle && menu) {
-      toggle.addEventListener('click', function () {
-        const isOpen = menu.classList.toggle('active');
-        toggle.setAttribute('aria-expanded', isOpen);
-        toggle.textContent = isOpen ? '✕' : '☰';
-      });
-    }
-
-    // Scroll progress bar
-    const bar = document.querySelector('.scroll-progress');
-    if (bar) {
-      window.addEventListener('scroll', function () {
-        const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-        bar.style.width = Math.min(pct, 100) + '%';
-      });
-    }
-  });
+  // Mobile toggle — handled by main.js initMobileNav()
+  // Scroll progress bar — handled by main.js initScrollProgress()
 })();

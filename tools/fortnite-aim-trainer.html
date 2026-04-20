@@ -157,7 +157,7 @@
                 <a href="../blog.html" class="nav-link">Blog</a>
                 <a href="../about.html" class="nav-link">About</a>
                 <a href="../contact.html" class="nav-link">Contact</a>
-                <a href="../index.html#tools" class="nav-cta">All Tools</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
         </div>
@@ -165,7 +165,7 @@
 
     <main class="main-content" id="main">
         <div class="container">
-            <nav class="breadcrumb">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a>
                 <span class="separator">›</span>
                 <a href="../index.html#tools">Tools</a>
@@ -280,8 +280,10 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="../main.js" defer></script><script>
-        (function () {
+    <script src="../main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            (function () {
             const container = document.getElementById('canvasContainer');
             const canvas = document.getElementById('aimCanvas');
             const hitCountEl = document.getElementById('hitCount');
@@ -580,6 +582,7 @@
             initThree();
             updateStats();
         })();
+        });
     </script>
 <script src="../nav.js" defer></script>
 </body>

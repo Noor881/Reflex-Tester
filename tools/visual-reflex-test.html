@@ -55,7 +55,7 @@
                 <a href="../blog.html" class="nav-link">Blog</a>
                 <a href="../about.html" class="nav-link">About</a>
                 <a href="../contact.html" class="nav-link">Contact</a>
-                <a href="../index.html#tools" class="nav-cta">All Tools</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
         </div>
@@ -185,8 +185,10 @@
         </div>
     </footer>
 
-    <script src="../main.js" defer></script><script>
-        (function () {
+    <script src="../main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            (function () {
             const gameArea = document.getElementById('gameArea');
             const gameText = document.getElementById('gameText');
             const reactionDisplay = document.getElementById('reactionDisplay');
@@ -270,6 +272,7 @@
 
             updateStats();
         })();
+        });
     </script>
 <script src="../nav.js" defer></script>
 </body>

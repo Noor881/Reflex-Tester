@@ -186,7 +186,7 @@
     </nav>
     <main class="main-content" id="main">
         <div class="container">
-            <nav class="breadcrumb">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a> <span class="separator">›</span>
                 <a href="../tools.html">Tools</a> <span class="separator">›</span>
                 <span>CS:GO Grenade Trainer</span>
@@ -268,8 +268,10 @@
             </div>
         </div>
     </footer>
-    <script src="../main.js" defer></script><script>
-        (function () {
+    <script src="../main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            (function () {
             let score = 0, hits = 0, throws = 0, gameActive = false, timeLeft = 60, best = 0;
             const els = { trainer: document.getElementById('grenadeTrainer'), target: document.getElementById('target'), throwBtn: document.getElementById('throwBtn'), score: document.getElementById('score'), timer: document.getElementById('timer'), accuracy: document.getElementById('accuracy'), bestScore: document.getElementById('bestScore'), startBtn: document.getElementById('startBtn'), resetBtn: document.getElementById('resetBtn') };
 
@@ -353,6 +355,7 @@
 
             loadStats();
         })();
+        });
     </script>
 <script src="../nav.js" defer></script>
 </body>

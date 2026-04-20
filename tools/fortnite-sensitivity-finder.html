@@ -191,7 +191,7 @@
     </nav>
     <main class="main-content" id="main">
         <div class="container">
-            <nav class="breadcrumb">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a> <span class="separator">›</span>
                 <a href="../tools.html">Tools</a> <span class="separator">›</span>
                 <span>Fortnite Sensitivity Finder</span>
@@ -308,8 +308,10 @@
             </div>
         </div>
     </footer>
-    <script src="../main.js" defer></script><script>
-        (function () {
+    <script src="../main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            (function () {
             let testActive = false, timeLeft = 15, hits = 0, shots = 0;
             const els = { sensSlider: document.getElementById('sensSlider'), sensValue: document.getElementById('sensValue'), buildSlider: document.getElementById('buildSlider'), buildValue: document.getElementById('buildValue'), playstyle: document.getElementById('playstyle'), dpi: document.getElementById('dpi'), convertGame: document.getElementById('convertGame'), testBtn: document.getElementById('testBtn'), sensTest: document.getElementById('sensTest'), target: document.getElementById('target'), timer: document.getElementById('timer'), score: document.getElementById('score'), results: document.getElementById('results'), recSens: document.getElementById('recSens'), recText: document.getElementById('recText') };
 
@@ -418,6 +420,7 @@
 
             els.testBtn.addEventListener('click', startTest);
         })();
+        });
     </script>
 <script src="../nav.js" defer></script>
 </body>

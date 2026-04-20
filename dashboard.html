@@ -7,6 +7,7 @@
     <title>Your Dashboard — Track Progress | ReflexTester.fun</title>
     <meta name="description"
         content="View your personal reflex testing stats and track progress over time. See your best scores, averages, and improvement trends.">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://reflextester.fun/dashboard.html">
 
     <!-- Open Graph -->
@@ -132,7 +133,7 @@
                 <a href="blog.html" class="nav-link">Blog</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="contact.html" class="nav-link">Contact</a>
-                <a href="index.html#tools" class="nav-cta">All Tools</a>
+                <a href="tools.html" class="nav-cta">All Tools</a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
         </div>
@@ -202,35 +203,40 @@
         </div>
     </footer>
 
-    <script src="main.js" defer></script><script>
-        (function () {
+    <script src="main.js" defer></script>
+    <script>
+        /* Wait for main.js defer to load so ReflexStore is available */
+        document.addEventListener('DOMContentLoaded', function () {
             function loadStats() {
-                const visual = ReflexStore.get('visual_results', []);
-                const audio = ReflexStore.get('audio_results', []);
-                const cps = ReflexStore.get('cps_results', []);
-                const typing = ReflexStore.get('typing_results', []);
-                const memory = ReflexStore.get('memory_results', []);
-                const csgo = ReflexStore.get('csgo_results', []);
+                var visual = ReflexStore.get('visual_results', []);
+                var audio = ReflexStore.get('audio_results', []);
+                var cps = ReflexStore.get('cps_results', []);
+                var typing = ReflexStore.get('typing_results', []);
+                var memory = ReflexStore.get('memory_results', []);
+                var csgo = ReflexStore.get('csgo_results', []);
 
-                document.getElementById('visualBest').textContent = visual.length ? Math.min(...visual) + 'ms' : '—';
-                document.getElementById('audioBest').textContent = audio.length ? Math.min(...audio) + 'ms' : '—';
-                document.getElementById('cpsBest').textContent = cps.length ? Math.max(...cps.map(r => r.cps)).toFixed(1) : '—';
-                document.getElementById('typingBest').textContent = typing.length ? Math.max(...typing.map(r => r.wpm)) : '—';
-                document.getElementById('memoryBest').textContent = memory.length ? Math.max(...memory.map(r => r.level)) : '—';
-                document.getElementById('csgoBest').textContent = csgo.length ? Math.max(...csgo.map(r => r.score)) : '—';
+                document.getElementById('visualBest').textContent = visual.length ? Math.min.apply(null, visual) + 'ms' : '—';
+                document.getElementById('audioBest').textContent = audio.length ? Math.min.apply(null, audio) + 'ms' : '—';
+                /* CPS results saved as plain numbers from click-speed-test.html */
+                document.getElementById('cpsBest').textContent = cps.length ? Math.max.apply(null, cps).toFixed(1) + ' CPS' : '—';
+                document.getElementById('typingBest').textContent = typing.length ? Math.max.apply(null, typing.map(function(r) { return r.wpm || r; })) + ' WPM' : '—';
+                document.getElementById('memoryBest').textContent = memory.length ? Math.max.apply(null, memory.map(function(r) { return r.level || r; })) : '—';
+                document.getElementById('csgoBest').textContent = csgo.length ? Math.max.apply(null, csgo.map(function(r) { return r.score || r; })) : '—';
 
-                const historyContainer = document.getElementById('historyContainer');
-                const allResults = [];
+                var historyContainer = document.getElementById('historyContainer');
+                var allResults = [];
 
-                visual.forEach((r, i) => allResults.push({ test: 'Visual Reflex', result: r + 'ms', index: i }));
-                audio.forEach((r, i) => allResults.push({ test: 'Audio Reflex', result: r + 'ms', index: i }));
-                cps.forEach((r, i) => allResults.push({ test: 'Click Speed', result: r.cps.toFixed(1) + ' CPS', index: i }));
+                visual.forEach(function(r, i) { allResults.push({ test: 'Visual Reflex', result: r + 'ms', ts: i }); });
+                audio.forEach(function(r, i) { allResults.push({ test: 'Audio Reflex', result: r + 'ms', ts: i }); });
+                cps.forEach(function(r, i) { allResults.push({ test: 'Click Speed', result: (typeof r === 'number' ? r : r.cps).toFixed(1) + ' CPS', ts: i }); });
 
                 if (allResults.length > 0) {
-                    const table = document.createElement('table');
+                    var table = document.createElement('table');
                     table.className = 'history-table';
                     table.innerHTML = '<thead><tr><th>Test</th><th>Result</th></tr></thead><tbody>' +
-                        allResults.slice(-20).reverse().map(r => '<tr><td>' + r.test + '</td><td>' + r.result + '</td></tr>').join('') +
+                        allResults.slice(-20).reverse().map(function(r) {
+                            return '<tr><td>' + r.test + '</td><td>' + r.result + '</td></tr>';
+                        }).join('') +
                         '</tbody>';
                     historyContainer.innerHTML = '';
                     historyContainer.appendChild(table);
@@ -245,7 +251,7 @@
             });
 
             loadStats();
-        })();
+        });
     </script>
 <script src="nav.js" defer></script>
 </body>

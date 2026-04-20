@@ -2291,7 +2291,7 @@ button {
   font-weight: 600;
   display: inline-block;
   margin-top: var(--space-sm);
-  transition: all var(--transition-base);
+  transition: all var(--transition-normal);
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(78, 205, 196, 0.2);
 }
@@ -2331,7 +2331,7 @@ button {
   text-decoration: none;
   color: inherit;
   display: block;
-  transition: all var(--transition-base);
+  transition: all var(--transition-normal);
 }
 .related-card:hover {
   background: var(--bg-card-hover);
@@ -2420,7 +2420,7 @@ button {
   font-weight: 600;
   cursor: pointer;
   border: none;
-  transition: all var(--transition-base);
+  transition: all var(--transition-normal);
   text-decoration: none;
 }
 .share-btn-twitter { background: #1d9bf0; color: #fff; }
@@ -2451,7 +2451,7 @@ button {
   font-weight: 500;
   color: var(--text-primary);
   text-decoration: none;
-  transition: all var(--transition-base);
+  transition: all var(--transition-normal);
 }
 .next-tool-link:hover {
   background: var(--bg-card-hover);
@@ -2471,4 +2471,4 @@ button {
 }
 .tool-error h3 { color: var(--accent-red); margin-bottom: var(--space-sm); }
 .tool-error p { color: var(--text-secondary); margin-bottom: var(--space-md); }
-
+

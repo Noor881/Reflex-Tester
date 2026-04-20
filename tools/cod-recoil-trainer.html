@@ -236,7 +236,7 @@
     </nav>
     <main class="main-content" id="main">
         <div class="container">
-            <nav class="breadcrumb">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a> <span class="separator">›</span>
                 <a href="../tools.html">Tools</a> <span class="separator">›</span>
                 <span>COD Recoil Trainer</span>
@@ -323,8 +323,10 @@
             </div>
         </div>
     </footer>
-    <script src="../main.js" defer></script><script>
-        (function () {
+    <script src="../main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            (function () {
             let shooting = false, ammo = 30, maxAmmo = 30, shots = 0, hits = 0, headshots = 0, gameActive = false, bestAcc = 0, recoilX = 0, recoilY = 0;
             const els = { trainer: document.getElementById('recoilTrainer'), target: document.querySelector('.bullseye'), crosshair: document.getElementById('crosshair'), ammo: document.getElementById('ammo'), score: document.getElementById('score'), bestAcc: document.getElementById('bestAcc'), headshot: document.getElementById('headshot'), weapon: document.getElementById('weaponSelect'), fireMode: document.getElementById('fireModeSelect'), startBtn: document.getElementById('startBtn'), resetBtn: document.getElementById('resetBtn') };
 
@@ -437,6 +439,7 @@
 
             loadStats();
         })();
+        });
     </script>
 <script src="../nav.js" defer></script>
 </body>

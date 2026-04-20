@@ -302,7 +302,7 @@
 
     <main class="main-content" id="main">
         <div class="container">
-            <nav class="breadcrumb">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a>
                 <span class="separator">›</span>
                 <a href="../tools.html">Tools</a>
@@ -465,8 +465,10 @@
         </div>
     </footer>
 
-    <script src="../main.js" defer></script><script>
-        (function () {
+    <script src="../main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            (function () {
             const editPatterns = {
                 wall: [1, 4], // center + middle left
                 door: [3, 6], // bottom two
@@ -657,6 +659,7 @@
 
             loadStats();
         })();
+        });
     </script>
 <script src="../nav.js" defer></script>
 </body>

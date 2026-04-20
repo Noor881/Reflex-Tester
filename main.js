@@ -97,24 +97,26 @@
       ticking = true;
       requestAnimationFrame(function () {
         const y = window.scrollY;
-        nav.classList.toggle('hidden', y > 120 && y > lastY);
-        nav.classList.toggle('hidden', false); // always show on scroll up
-        if (y > 120 && y > lastY) nav.classList.add('hidden');
-        else nav.classList.remove('hidden');
-        lastY = y; ticking = false;
+        if (y > 120 && y > lastY) {
+          nav.classList.add('hidden');
+        } else {
+          nav.classList.remove('hidden');
+        }
+        lastY = y;
+        ticking = false;
       });
     }, { passive: true });
   }
 
   /* ── Scroll Reveals ────────────────────────────────────── */
   function initScrollReveals() {
-    const targets = document.querySelectorAll('.fade-in, .slide-in-left');
+    var targets = document.querySelectorAll('.fade-in, .slide-in-left');
     if (!targets.length) return;
-    const obs = new IntersectionObserver(function (entries) {
+    var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.05, rootMargin: '500px 0px 0px 0px' });
     targets.forEach(function (el) { obs.observe(el); });
   }
 
@@ -143,45 +145,59 @@
   function initCounters() {
     const counters = document.querySelectorAll('[data-count]');
     if (!counters.length) return;
-    const obs = new IntersectionObserver(function (entries) {
+
+    function animateCounter(el) {
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      var prefix = el.getAttribute('data-prefix') || '';
+      var dur = 2000;
+      var startTime = null;
+      function step(now) {
+        if (!startTime) startTime = now;
+        var elapsed = now - startTime;
+        var p = Math.min(elapsed / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = prefix + Math.floor(target * eased).toLocaleString() + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    /* Larger rootMargin so above-fold elements (hero stats) always fire */
+    var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
-        const el = e.target;
-        const target = parseInt(el.getAttribute('data-count'), 10);
-        const suffix = el.getAttribute('data-suffix') || '';
-        const prefix = el.getAttribute('data-prefix') || '';
-        const start = performance.now();
-        const dur = 1500;
-        (function update(now) {
-          const p = Math.min((now - start) / dur, 1);
-          el.textContent = prefix + Math.floor(target * (1 - Math.pow(1 - p, 3))).toLocaleString() + suffix;
-          if (p < 1) requestAnimationFrame(update);
-        })(start);
-        obs.unobserve(el);
+        animateCounter(e.target);
+        obs.unobserve(e.target);
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.1, rootMargin: '200px 0px 0px 0px' });
+
     counters.forEach(function (el) { obs.observe(el); });
   }
 
   /* ── Typewriter Effect ─────────────────────────────────── */
   function initTypewriter() {
-    const heroTarget = document.getElementById('typingTarget');
+    var heroTarget = document.getElementById('typingTarget');
     if (heroTarget) {
-      const words = ['Reflexes', 'Aim', 'Speed', 'Precision', 'Reactions'];
-      let wi = 0, ci = words[0].length, del = false;
+      var words = ['Reflexes', 'Aim', 'Speed', 'Precision', 'Reactions'];
+      var wi = 0, ci = words[0].length, del = false;
+      /* Start already showing the first word, then begin cycling after 1.5s pause */
+      heroTarget.textContent = words[0];
       function tick() {
-        const w = words[wi];
+        var w = words[wi];
         if (!del) {
-          heroTarget.textContent = w.substring(0, ++ci);
-          if (ci === w.length) { del = true; setTimeout(tick, 2000); return; }
+          ci++;
+          heroTarget.textContent = w.substring(0, ci);
+          if (ci >= w.length) { del = true; setTimeout(tick, 1800); return; }
           setTimeout(tick, 80);
         } else {
-          heroTarget.textContent = w.substring(0, --ci);
-          if (ci === 0) { del = false; wi = (wi + 1) % words.length; setTimeout(tick, 400); return; }
-          setTimeout(tick, 50);
+          ci--;
+          heroTarget.textContent = w.substring(0, ci);
+          if (ci <= 0) { del = false; wi = (wi + 1) % words.length; ci = 0; setTimeout(tick, 300); return; }
+          setTimeout(tick, 45);
         }
       }
-      setTimeout(function () { del = true; tick(); }, 2000);
+      setTimeout(function () { del = true; tick(); }, 1500);
     }
 
     document.querySelectorAll('[data-typewriter]').forEach(function (el) {

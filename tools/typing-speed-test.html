@@ -55,7 +55,7 @@
                 <a href="../blog.html" class="nav-link">Blog</a>
                 <a href="../about.html" class="nav-link">About</a>
                 <a href="../contact.html" class="nav-link">Contact</a>
-                <a href="../index.html#tools" class="nav-cta">All Tools</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
         </div>
@@ -63,7 +63,7 @@
 
     <main class="main-content" id="main">
         <div class="container">
-            <nav class="breadcrumb">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a>
                 <span class="separator">›</span>
                 <a href="../index.html#tools">Tools</a>
@@ -187,8 +187,10 @@
         </div>
     </footer>
 
-    <script src="../main.js" defer></script><script>
-        (function () {
+    <script src="../main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            (function () {
             const sentences = [
                 "The quick brown fox jumps over the lazy dog near the riverbank.",
                 "Gaming requires fast reflexes and precise hand-eye coordination.",
@@ -309,6 +311,7 @@
             loadNewText();
             updateStats();
         })();
+        });
     </script>
 <script src="../nav.js" defer></script>
 </body>
