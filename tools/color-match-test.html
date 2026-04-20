@@ -10,21 +10,15 @@
     <meta name="keywords"
         content="color match test, color recognition test, color speed test, color matching game, visual processing test, color test online, color recognition speed, color reaction time, color matching challenge, visual discrimination test, color game online free">
     <link rel="canonical" href="https://reflextester.fun/tools/color-match-test.html">
-
-    <!-- Open Graph -->
     <meta property="og:title" content="Color Match Test — Visual Processing Speed">
-    <meta property="og:description"
-        content="How fast can you recognize and match colors? Test your visual processing speed.">
+    <meta property="og:description" content="How fast can you recognize and match colors? Test your visual processing speed.">
     <meta property="og:url" content="https://reflextester.fun/tools/color-match-test.html">
     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Color Match Test — Visual Processing Speed">
     <meta name="twitter:description" content="How fast can you recognize and match colors? Average time is 800ms.">
-
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -36,9 +30,156 @@
         "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD" }
     }
     </script>
-
     <link rel="stylesheet" href="../styles.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <style>
+        .color-arena {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 28px 16px;
+        }
+
+        /* Target display */
+        .color-target-zone {
+            width: min(320px, 85vw);
+            height: 130px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid transparent;
+            transition: background 0.25s, border-color 0.2s, transform 0.15s;
+            font-size: 1rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 0.08em;
+            position: relative;
+            overflow: hidden;
+        }
+        .color-target-zone.pulse {
+            animation: colorPulse 0.3s ease-out;
+        }
+        @keyframes colorPulse {
+            0%   { transform: scale(1.04); }
+            100% { transform: scale(1); }
+        }
+
+        /* Round/score HUD bar */
+        .color-hud-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: min(480px, 90vw);
+            padding: 10px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+        .hud-val { font-weight: 700; color: var(--text-primary); }
+        .hud-lbl { color: var(--text-muted); font-size: 0.75rem; margin-top: 1px; }
+        .hud-pair { text-align: center; }
+        .streak-val { color: var(--accent-green); }
+        .combo-anim {
+            animation: comboFlash 0.4s ease-out;
+        }
+        @keyframes comboFlash {
+            0%   { transform: scale(1.3); color: #fff; }
+            100% { transform: scale(1); }
+        }
+
+        /* Color option buttons */
+        .color-options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: min(480px, 90vw);
+        }
+        .color-btn {
+            height: 60px;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: transform 0.12s, border-color 0.15s, filter 0.15s, box-shadow 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: rgba(255,255,255,0.85);
+        }
+        .color-btn:hover { transform: scale(1.04); filter: brightness(1.15); }
+        .color-btn:active { transform: scale(0.97); }
+        .color-btn.correct {
+            border-color: #fff;
+            box-shadow: 0 0 20px rgba(255,255,255,0.4);
+            animation: btnCorrect 0.35s ease-out;
+        }
+        .color-btn.wrong {
+            animation: btnWrong 0.35s ease-out;
+            filter: brightness(0.5);
+        }
+        @keyframes btnCorrect {
+            0%   { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes btnWrong {
+            0%,40%,80% { transform: translateX(-6px); }
+            20%,60%     { transform: translateX(6px); }
+            100%         { transform: translateX(0); }
+        }
+
+        /* Feedback flash */
+        .feedback-flash {
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: opacity 0.2s;
+            min-width: 200px;
+        }
+
+        /* Progress dots */
+        .progress-dots {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 480px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border-subtle);
+            transition: background 0.2s;
+        }
+        .dot.hit  { background: var(--accent-green); }
+        .dot.miss { background: var(--accent-red); }
+
+        /* Grade etc */
+        .grade-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 16px; border-radius:20px; font-size:0.85rem; font-weight:700; letter-spacing:0.05em; border:1px solid; }
+        .grade-exceptional { background:rgba(0,230,80,0.1); color:#00e650; border-color:rgba(0,230,80,0.3); }
+        .grade-excellent { background:rgba(0,200,255,0.1); color:#00c8ff; border-color:rgba(0,200,255,0.3); }
+        .grade-good { background:rgba(100,180,255,0.1); color:#64b4ff; border-color:rgba(100,180,255,0.3); }
+        .grade-average { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
+        .grade-poor { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
+
+        .reflex-hud { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; width:100%; max-width:480px; }
+        .hud-cell { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:12px 8px; text-align:center; }
+        .hud-cell-val { font-size:1.1rem; font-weight:700; color:var(--text-primary); margin-bottom:2px; }
+        .hud-cell-lbl { font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; }
+
+        @media(max-width:480px) {
+            .color-options-grid { grid-template-columns:repeat(3,1fr); }
+            .reflex-hud { grid-template-columns:repeat(2,1fr); }
+        }
+    </style>
 </head>
 
 <body>
@@ -74,46 +215,53 @@
         <section class="test-area">
             <div class="test-panel active">
                 <h1>🎨 Color Match Test</h1>
-                <p class="test-desc">When a color appears in the box, quickly click the matching color from the options
-                    below!</p>
+                <p class="test-desc">Match the color displayed. 20 continuous rounds — no pauses. Build a streak for bonus points!</p>
 
-                <div class="color-target" id="colorTarget" style="background: var(--bg-tertiary);">
-                    <span id="targetText">Click Start</span>
-                </div>
+                <div class="color-arena">
 
-                <div class="color-options" id="colorOptions" style="display: none;">
-                    <div class="color-option" data-color="red" style="background: #ff6b6b;"></div>
-                    <div class="color-option" data-color="blue" style="background: #45b7d1;"></div>
-                    <div class="color-option" data-color="green" style="background: #4cd964;"></div>
-                    <div class="color-option" data-color="yellow" style="background: #ffc107;"></div>
-                    <div class="color-option" data-color="purple" style="background: #9b59b6;"></div>
-                    <div class="color-option" data-color="orange" style="background: #ff9500;"></div>
-                </div>
-
-                <div class="reaction-display" id="reactionDisplay" style="display: none;"></div>
-
-                <div class="test-actions">
-                    <button class="btn btn-primary" id="startBtn">Start Test</button>
-                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
-                </div>
-
-                <div class="stats-panel" id="statsPanel" style="display: none;">
-                    <h4>🎨 Your Results</h4>
-                    <div class="stat-row">
-                        <span class="stat-label">Latest Time</span>
-                        <span class="stat-value" id="latestTime">—</span>
+                    <!-- Live HUD bar -->
+                    <div class="color-hud-bar" id="liveHud">
+                        <div class="hud-pair"><div class="hud-val" id="livRound">0/20</div><div class="hud-lbl">Round</div></div>
+                        <div class="hud-pair"><div class="hud-val streak-val" id="livStreak">0</div><div class="hud-lbl">Streak 🔥</div></div>
+                        <div class="hud-pair"><div class="hud-val" id="livScore">0</div><div class="hud-lbl">Score</div></div>
+                        <div class="hud-pair"><div class="hud-val" id="livAvg">—</div><div class="hud-lbl">Avg ms</div></div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Best Time</span>
-                        <span class="stat-value" id="bestTime">—</span>
+
+                    <!-- Target color box -->
+                    <div class="color-target-zone" id="colorTarget" style="background:var(--bg-secondary);border-color:var(--border-subtle);">
+                        <span id="targetHint">Press Start</span>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Accuracy</span>
-                        <span class="stat-value" id="accuracy">—</span>
+
+                    <!-- Progress dots (20 rounds) -->
+                    <div class="progress-dots" id="progressDots"></div>
+
+                    <!-- Feedback line -->
+                    <div class="feedback-flash" id="feedbackFlash" style="opacity:0;">—</div>
+
+                    <!-- Color option buttons -->
+                    <div class="color-options-grid" id="colorOptions">
+                        <button class="color-btn" data-color="red"    style="background:#e53935;">RED</button>
+                        <button class="color-btn" data-color="blue"   style="background:#1e88e5;">BLUE</button>
+                        <button class="color-btn" data-color="green"  style="background:#43a047;">GREEN</button>
+                        <button class="color-btn" data-color="yellow" style="background:#f9a825;color:#1a1a2e;">YELLOW</button>
+                        <button class="color-btn" data-color="purple" style="background:#8e24aa;">PURPLE</button>
+                        <button class="color-btn" data-color="orange" style="background:#ef6c00;">ORANGE</button>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Tests Completed</span>
-                        <span class="stat-value" id="testCount">0</span>
+
+                    <!-- Grade -->
+                    <div id="gradeBadge" style="display:none;"></div>
+
+                    <!-- Final HUD -->
+                    <div class="reflex-hud" id="refHud" style="display:none;">
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudBest">—</div><div class="hud-cell-lbl">Best Score</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudAvgMs">—</div><div class="hud-cell-lbl">Avg Speed</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudAccuracy">—</div><div class="hud-cell-lbl">Accuracy</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudGames">0</div><div class="hud-cell-lbl">Games</div></div>
+                    </div>
+
+                    <div class="test-actions">
+                        <button class="btn btn-primary" id="startBtn">Start Test</button>
+                        <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
                     </div>
                 </div>
             </div>
@@ -122,9 +270,7 @@
         <section class="info-section">
             <div class="container-narrow">
                 <h2>About the Color Match Test</h2>
-                <p>The color match test measures your visual processing speed and color discrimination ability. When the
-                    target color appears, your brain must identify it, compare it against the options, and execute the
-                    correct motor response — all as quickly as possible.</p>
+                <p>20 continuous rounds of color matching. The target box shows a color — click the matching button as fast as possible. Correct answers in a row build a streak multiplier. No pauses between rounds — stay sharp!</p>
 
                 <h3>Why Color Recognition Matters</h3>
                 <ul>
@@ -134,9 +280,7 @@
                 </ul>
 
                 <h3>Related Tests</h3>
-                <p>Try the <a href="stroop-effect-test.html">Stroop Effect Test</a> for a more challenging color-related
-                    cognitive test, or the <a href="peripheral-vision-test.html">Peripheral Vision Test</a> to improve
-                    your visual awareness.</p>
+                <p>Try the <a href="stroop-effect-test.html">Stroop Effect Test</a> for a harder color-based cognitive challenge, or the <a href="visual-reflex-test.html">Visual Reflex Test</a> for pure reaction time measurement.</p>
             </div>
         </section>
 
@@ -144,30 +288,13 @@
             <div class="container">
                 <h2>Recommended Tools</h2>
                 <div class="rec-grid">
-                    <a href="memory-sequence-test.html" class="rec-card">
-                        <div class="rec-icon">🧠</div>
-                        <h3>Memory Sequence</h3>
-                        <p>Test pattern memory and recall</p>
-                    </a>
-                    <a href="stroop-effect-test.html" class="rec-card">
-                        <div class="rec-icon">🧪</div>
-                        <h3>Stroop Effect Test</h3>
-                        <p>Test cognitive flexibility</p>
-                    </a>
-                    <a href="visual-reflex-test.html" class="rec-card">
-                        <div class="rec-icon">⚡</div>
-                        <h3>Visual Reflex Test</h3>
-                        <p>Measure raw reaction time</p>
-                    </a>
-                    <a href="peripheral-vision-test.html" class="rec-card">
-                        <div class="rec-icon">👁️</div>
-                        <h3>Peripheral Vision</h3>
-                        <p>Spot targets in your side vision</p>
-                    </a>
+                    <a href="stroop-effect-test.html" class="rec-card"><div class="rec-icon">🧪</div><h3>Stroop Effect Test</h3><p>Words vs colors — harder version</p></a>
+                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Visual Reflex Test</h3><p>Measure raw reaction time</p></a>
+                    <a href="peripheral-vision-test.html" class="rec-card"><div class="rec-icon">👁️</div><h3>Peripheral Vision</h3><p>Spot targets in side vision</p></a>
+                    <a href="memory-sequence-test.html" class="rec-card"><div class="rec-icon">🧠</div><h3>Memory Sequence</h3><p>Test pattern memory and recall</p></a>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -180,124 +307,222 @@
 
     <script src="../main.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            (function () {
-            const colorTarget = document.getElementById('colorTarget');
-            const targetText = document.getElementById('targetText');
+    document.addEventListener('DOMContentLoaded', function () {
+        (function () {
+            const colorTarget  = document.getElementById('colorTarget');
+            const targetHint   = document.getElementById('targetHint');
             const colorOptions = document.getElementById('colorOptions');
-            const options = document.querySelectorAll('.color-option');
-            const reactionDisplay = document.getElementById('reactionDisplay');
-            const startBtn = document.getElementById('startBtn');
-            const resetBtn = document.getElementById('resetBtn');
-            const statsPanel = document.getElementById('statsPanel');
+            const buttons      = colorOptions.querySelectorAll('.color-btn');
+            const gradeBadge   = document.getElementById('gradeBadge');
+            const refHud       = document.getElementById('refHud');
+            const startBtn     = document.getElementById('startBtn');
+            const resetBtn     = document.getElementById('resetBtn');
+            const feedbackEl   = document.getElementById('feedbackFlash');
+            const dotsContainer= document.getElementById('progressDots');
+            const livRound  = document.getElementById('livRound');
+            const livStreak = document.getElementById('livStreak');
+            const livScore  = document.getElementById('livScore');
+            const livAvg    = document.getElementById('livAvg');
 
-            const colors = {
-                red: '#ff6b6b',
-                blue: '#45b7d1',
-                green: '#4cd964',
-                yellow: '#ffc107',
-                purple: '#9b59b6',
-                orange: '#ff9500'
+            const COLORS = {
+                red:    { hex: '#e53935', dark: '#b71c1c' },
+                blue:   { hex: '#1e88e5', dark: '#1565c0' },
+                green:  { hex: '#43a047', dark: '#2e7d32' },
+                yellow: { hex: '#f9a825', dark: '#f57f17' },
+                purple: { hex: '#8e24aa', dark: '#6a1b9a' },
+                orange: { hex: '#ef6c00', dark: '#e65100' }
             };
+            const COLOR_NAMES = Object.keys(COLORS);
+            const TOTAL_ROUNDS = 20;
 
-            let currentColor = null;
-            let startTime = 0;
-            let isActive = false;
-            let results = ReflexStore.get('color_results', []);
-            let correct = ReflexStore.get('color_correct', 0);
-            let total = ReflexStore.get('color_total', 0);
+            let isPlaying   = false;
+            let round       = 0;
+            let correct     = 0;
+            let streak      = 0;
+            let bestStreak  = 0;
+            let score       = 0;
+            let currentColor = '';
+            let startTime   = 0;
+            let reactionTimes = [];
+            let dotEls      = [];
+            let results     = ReflexStore.get('color_results2', []);
 
-            function updateStats() {
-                if (results.length === 0) {
-                    statsPanel.style.display = 'none';
-                    return;
+            function getGrade(acc) {
+                if (acc >= 95) return { label: '🏆 EXCEPTIONAL', cls: 'grade-exceptional' };
+                if (acc >= 85) return { label: '⚡ EXCELLENT',   cls: 'grade-excellent'   };
+                if (acc >= 70) return { label: '👍 GOOD',        cls: 'grade-good'        };
+                if (acc >= 55) return { label: '📊 AVERAGE',     cls: 'grade-average'     };
+                return           { label: '📉 POOR',             cls: 'grade-poor'        };
+            }
+
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                dotEls = [];
+                for (let i = 0; i < TOTAL_ROUNDS; i++) {
+                    const d = document.createElement('div');
+                    d.className = 'dot';
+                    dotsContainer.appendChild(d);
+                    dotEls.push(d);
                 }
-                statsPanel.style.display = 'block';
-                document.getElementById('latestTime').textContent = results[results.length - 1] + 'ms';
-                document.getElementById('bestTime').textContent = Math.min(...results) + 'ms';
-                document.getElementById('accuracy').textContent = total > 0 ? Math.round((correct / total) * 100) + '%' : '—';
-                document.getElementById('testCount').textContent = results.length;
             }
 
-            function showColor() {
-                const colorNames = Object.keys(colors);
-                currentColor = colorNames[Math.floor(Math.random() * colorNames.length)];
-                colorTarget.style.background = colors[currentColor];
-                targetText.textContent = '';
-                colorOptions.style.display = 'flex';
+            function showFeedback(text, color, ms) {
+                feedbackEl.textContent = text + (ms ? '  ' + ms + 'ms' : '');
+                feedbackEl.style.color = color;
+                feedbackEl.style.opacity = '1';
+                setTimeout(() => { feedbackEl.style.opacity = '0'; }, 700);
+            }
+
+            function nextRound() {
+                if (round >= TOTAL_ROUNDS) { endGame(); return; }
+                round++;
+                livRound.textContent = round + '/' + TOTAL_ROUNDS;
+
+                // Pick color ensuring it's different from last if possible
+                let color;
+                do { color = COLOR_NAMES[Math.floor(Math.random() * COLOR_NAMES.length)]; }
+                while (color === currentColor && COLOR_NAMES.length > 1);
+                currentColor = color;
+
+                const c = COLORS[color];
+                colorTarget.style.background = c.hex;
+                colorTarget.style.borderColor = c.dark;
+                targetHint.textContent = '';
+                colorTarget.classList.add('pulse');
+                setTimeout(() => colorTarget.classList.remove('pulse'), 300);
+
+                buttons.forEach(b => { b.classList.remove('correct', 'wrong'); b.disabled = false; });
                 startTime = performance.now();
-                isActive = true;
-                startBtn.disabled = true;
             }
 
-            function startTest() {
-                reactionDisplay.style.display = 'none';
-                targetText.textContent = 'Get ready...';
-                colorTarget.style.background = 'var(--bg-tertiary)';
-                colorOptions.style.display = 'none';
+            function startGame() {
+                isPlaying   = true;
+                round       = 0;
+                correct     = 0;
+                streak      = 0;
+                bestStreak  = 0;
+                score       = 0;
+                reactionTimes = [];
+                currentColor = '';
+                startBtn.textContent = 'Playing...';
+                startBtn.disabled   = true;
+                gradeBadge.style.display = 'none';
+                feedbackEl.style.opacity = '0';
 
-                setTimeout(() => {
-                    showColor();
-                }, 1000 + Math.random() * 2000);
+                livRound.textContent  = '0/' + TOTAL_ROUNDS;
+                livStreak.textContent = '0';
+                livScore.textContent  = '0';
+                livAvg.textContent    = '—';
+
+                buildDots();
+                nextRound();
             }
 
-            options.forEach(option => {
-                option.addEventListener('click', function () {
-                    if (!isActive) return;
-                    isActive = false;
-                    const reactionTime = Math.round(performance.now() - startTime);
-                    const selectedColor = this.dataset.color;
-                    total++;
+            function endGame() {
+                isPlaying = false;
+                const acc = Math.round((correct / TOTAL_ROUNDS) * 100);
+                const avg = reactionTimes.length ? Math.round(reactionTimes.reduce((a,b) => a+b,0) / reactionTimes.length) : 0;
+                const result = { score, acc, avg, streak: bestStreak };
+                results.push(result);
+                if (results.length > 30) results.shift();
+                ReflexStore.set('color_results2', results);
 
-                    if (selectedColor === currentColor) {
+                colorTarget.style.background = 'var(--bg-secondary)';
+                colorTarget.style.borderColor = 'var(--border-subtle)';
+                targetHint.textContent = acc + '% accuracy — ' + score + ' pts';
+                buttons.forEach(b => b.disabled = true);
+
+                const g = getGrade(acc);
+                gradeBadge.style.display = 'inline-flex';
+                gradeBadge.className = 'grade-badge ' + g.cls;
+                gradeBadge.textContent = g.label;
+
+                startBtn.textContent = 'Play Again';
+                startBtn.disabled   = false;
+                updateFinalHUD();
+            }
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (!isPlaying) return;
+                    const ms = Math.round(performance.now() - startTime);
+                    buttons.forEach(b => b.disabled = true);
+                    const idx = round - 1;
+
+                    if (this.dataset.color === currentColor) {
                         correct++;
-                        results.push(reactionTime);
-                        reactionDisplay.textContent = reactionTime + 'ms ✓';
-                        reactionDisplay.style.color = 'var(--accent-green)';
+                        streak++;
+                        if (streak > bestStreak) bestStreak = streak;
+                        const multiplier = Math.min(streak, 5);
+                        const pts = Math.max(10, Math.round((800 - Math.min(ms, 800)) / 10) * multiplier);
+                        score += pts;
+                        reactionTimes.push(ms);
                         this.classList.add('correct');
+                        if (dotEls[idx]) dotEls[idx].classList.add('hit');
+                        showFeedback((streak > 1 ? '🔥 ×' + multiplier + '  ' : '✓ ') + 'Correct!', '#00e650', ms);
+
+                        livStreak.textContent = streak;
+                        livStreak.classList.add('combo-anim');
+                        setTimeout(() => livStreak.classList.remove('combo-anim'), 400);
                     } else {
-                        reactionDisplay.textContent = 'Wrong color!';
-                        reactionDisplay.style.color = 'var(--accent-red)';
+                        streak = 0;
                         this.classList.add('wrong');
+                        // highlight the correct one
+                        buttons.forEach(b => { if (b.dataset.color === currentColor) b.classList.add('correct'); });
+                        if (dotEls[idx]) dotEls[idx].classList.add('miss');
+                        showFeedback('✗ Wrong!', '#ff6450', ms);
+                        livStreak.textContent = '0';
                     }
 
-                    reactionDisplay.style.display = 'block';
-                    ReflexStore.set('color_results', results);
-                    ReflexStore.set('color_correct', correct);
-                    ReflexStore.set('color_total', total);
-                    updateStats();
+                    livScore.textContent = score;
+                    const avgNow = reactionTimes.length ? Math.round(reactionTimes.reduce((a,b)=>a+b,0)/reactionTimes.length) : 0;
+                    livAvg.textContent  = reactionTimes.length ? avgNow + 'ms' : '—';
 
-                    setTimeout(function () {
-                        options.forEach(function(o) { o.classList.remove('correct', 'wrong'); });
-                        colorOptions.style.display = 'none';
-                        colorTarget.style.background = 'var(--bg-tertiary)';
-                        targetText.textContent = 'Click Start for next round';
-                        startBtn.disabled = false;
-                        startBtn.focus();
-                    }, 800);
+                    setTimeout(() => {
+                        buttons.forEach(b => b.classList.remove('correct','wrong'));
+                        nextRound();
+                    }, 350);
                 });
             });
 
-            startBtn.addEventListener('click', startTest);
+            function updateFinalHUD() {
+                if (results.length === 0) { refHud.style.display = 'none'; return; }
+                refHud.style.display = 'grid';
+                const bestScore = Math.max(...results.map(r => r.score));
+                const lastAcc   = results[results.length - 1].acc;
+                const lastAvg   = results[results.length - 1].avg;
+                document.getElementById('hudBest').textContent     = bestScore + ' pts';
+                document.getElementById('hudAvgMs').textContent    = lastAvg + 'ms';
+                document.getElementById('hudAccuracy').textContent = lastAcc + '%';
+                document.getElementById('hudGames').textContent    = results.length;
+            }
 
+            startBtn.addEventListener('click', startGame);
             resetBtn.addEventListener('click', function () {
                 results = [];
-                correct = 0;
-                total = 0;
-                ReflexStore.set('color_results', []);
-                ReflexStore.set('color_correct', 0);
-                ReflexStore.set('color_total', 0);
-                reactionDisplay.style.display = 'none';
-                updateStats();
+                ReflexStore.set('color_results2', []);
+                updateFinalHUD();
+                colorTarget.style.background = 'var(--bg-secondary)';
+                colorTarget.style.borderColor = 'var(--border-subtle)';
+                targetHint.textContent = 'Press Start';
+                gradeBadge.style.display = 'none';
+                startBtn.textContent = 'Start Test';
+                startBtn.disabled = false;
+                startBtn.focus();
+                buttons.forEach(b => b.disabled = false);
+                dotsContainer.innerHTML = '';
+                livRound.textContent = '0/20';
+                livStreak.textContent = '0';
+                livScore.textContent = '0';
+                livAvg.textContent = '—';
             });
 
-            updateStats();
+            updateFinalHUD();
+            buildDots();
         })();
-        });
+    });
     </script>
 <script src="../nav.js" defer></script>
 </body>
 
 </html>
-
-

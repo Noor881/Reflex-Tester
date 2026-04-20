@@ -10,20 +10,15 @@
     <meta name="keywords"
         content="click speed test, cps test, clicks per second test, how fast can i click, click counter, cps counter, jitter click test, butterfly click test, click speed challenge, mouse click speed, cps test online, clicking speed test, fast clicker test, click test game">
     <link rel="canonical" href="https://reflextester.fun/tools/click-speed-test.html">
-
     <meta property="og:title" content="Click Speed Test — CPS Counter">
-    <meta property="og:description"
-        content="How fast can you click? Measure your CPS (clicks per second) with timed challenges.">
+    <meta property="og:description" content="How fast can you click? Measure your CPS (clicks per second) with timed challenges.">
     <meta property="og:url" content="https://reflextester.fun/tools/click-speed-test.html">
     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Click Speed Test — CPS Counter">
     <meta name="twitter:description" content="How fast can you click? Test your CPS over 5s, 10s, or 30s intervals.">
-
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -35,9 +30,145 @@
         "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD" }
     }
     </script>
-
     <link rel="stylesheet" href="../styles.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <style>
+        .cps-arena {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 28px 16px;
+        }
+
+        /* Duration tab buttons */
+        .cps-tabs {
+            display: flex;
+            gap: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 6px;
+        }
+        .cps-tab {
+            padding: 8px 20px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cps-tab.active {
+            background: var(--accent-cyan);
+            color: #000;
+        }
+        .cps-tab:hover:not(.active) { background: var(--bg-tertiary); color: var(--text-primary); }
+
+        /* Main click area */
+        .cps-click-zone {
+            position: relative;
+            width: min(480px, 90vw);
+            height: 200px;
+            border-radius: 20px;
+            background: #12122a;
+            border: 2px solid #2a2a4a;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .cps-click-zone.idle { border-color: #3a3a5a; }
+        .cps-click-zone.running {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(0,200,255,0.2);
+        }
+        .cps-click-zone.done {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 20px rgba(0,230,80,0.15);
+            cursor: default;
+        }
+
+        .cps-main-count {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            line-height: 1;
+            transition: color 0.15s;
+        }
+        .cps-main-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .cps-live-cps {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .cps-click-zone.running .cps-live-cps { opacity: 1; }
+
+        /* Progress bar at bottom of zone */
+        .cps-progress-outer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: rgba(255,255,255,0.06);
+        }
+        .cps-progress-inner {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            transition: width 0.25s linear;
+            transform-origin: left;
+        }
+
+        /* Click ripple */
+        .cps-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0,200,255,0.25);
+            pointer-events: none;
+            transform: scale(0);
+            animation: cpsRipple 0.4s ease-out forwards;
+        }
+        @keyframes cpsRipple {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        /* Grade */
+        .grade-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 16px; border-radius:20px; font-size:0.85rem; font-weight:700; letter-spacing:0.05em; border:1px solid; }
+        .grade-exceptional { background:rgba(0,230,80,0.1); color:#00e650; border-color:rgba(0,230,80,0.3); }
+        .grade-excellent { background:rgba(0,200,255,0.1); color:#00c8ff; border-color:rgba(0,200,255,0.3); }
+        .grade-good { background:rgba(100,180,255,0.1); color:#64b4ff; border-color:rgba(100,180,255,0.3); }
+        .grade-average { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
+        .grade-poor { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
+
+        /* HUD */
+        .reflex-hud { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; max-width:480px; }
+        .hud-cell { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:14px 10px; text-align:center; }
+        .hud-cell-val { font-size:1.3rem; font-weight:700; color:var(--text-primary); margin-bottom:2px; }
+        .hud-cell-lbl { font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; }
+        .history-bars { display:flex; align-items:flex-end; gap:4px; height:40px; max-width:480px; width:100%; }
+        .history-bar { flex:1; border-radius:3px 3px 0 0; min-height:4px; }
+
+        @media(max-width:600px) {
+            .reflex-hud { grid-template-columns:repeat(3,1fr); }
+            .cps-main-count { font-size:3rem; }
+        }
+    </style>
 </head>
 
 <body>
@@ -73,39 +204,41 @@
         <section class="test-area">
             <div class="test-panel active">
                 <h1>🖱️ Click Speed Test</h1>
-                <p class="test-desc">Click as fast as you can! Measure your CPS (clicks per second) over different time
-                    intervals.</p>
+                <p class="test-desc">Click as fast as you can inside the zone. Livs CPS updates every second — can you beat 10 CPS?</p>
 
-                <div class="cps-duration-options">
-                    <button class="cps-duration-btn active" data-duration="5">5 Sec</button>
-                    <button class="cps-duration-btn" data-duration="10">10 Sec</button>
-                    <button class="cps-duration-btn" data-duration="30">30 Sec</button>
-                </div>
+                <div class="cps-arena">
 
-                <div class="cps-area" id="cpsArea" role="button" tabindex="0">
-                    <div class="cps-count" id="clickCount">0</div>
-                    <div class="cps-timer" id="timerDisplay">Click to Start</div>
-                </div>
-
-                <div class="reaction-display" id="resultDisplay" style="display: none;"></div>
-
-                <div class="test-actions">
-                    <button class="btn btn-secondary" id="resetBtn">Reset</button>
-                </div>
-
-                <div class="stats-panel" id="statsPanel" style="display: none;">
-                    <h4>🖱️ Your CPS Results</h4>
-                    <div class="stat-row">
-                        <span class="stat-label">Latest CPS</span>
-                        <span class="stat-value" id="latestCps">—</span>
+                    <!-- Duration tabs -->
+                    <div class="cps-tabs" id="cpsTabs">
+                        <button class="cps-tab active" data-duration="5">5s</button>
+                        <button class="cps-tab" data-duration="10">10s</button>
+                        <button class="cps-tab" data-duration="30">30s</button>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Best CPS</span>
-                        <span class="stat-value" id="bestCps">—</span>
+
+                    <!-- Click zone -->
+                    <div class="cps-click-zone idle" id="cpsZone" role="button" tabindex="0" aria-label="Click here to start and count clicks">
+                        <div class="cps-main-count" id="cpsMainCount">Click!</div>
+                        <div class="cps-main-label" id="cpsMainLabel">Tap to start</div>
+                        <div class="cps-live-cps" id="cpsLiveCps">0.00 CPS</div>
+                        <div class="cps-progress-outer">
+                            <div class="cps-progress-inner" id="cpsProgressBar"></div>
+                        </div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Total Clicks</span>
-                        <span class="stat-value" id="totalClicks">0</span>
+
+                    <!-- Grade badge -->
+                    <div id="gradeBadge" style="display:none;"></div>
+
+                    <!-- HUD -->
+                    <div class="reflex-hud" id="refHud" style="display:none;">
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudBest">—</div><div class="hud-cell-lbl">Best CPS</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudLast">—</div><div class="hud-cell-lbl">Latest CPS</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudCount">0</div><div class="hud-cell-lbl">Sessions</div></div>
+                    </div>
+
+                    <div class="history-bars" id="historyBars" style="display:none;"></div>
+
+                    <div class="test-actions">
+                        <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
                     </div>
                 </div>
             </div>
@@ -114,25 +247,23 @@
         <section class="info-section">
             <div class="container-narrow">
                 <h2>About the Click Speed Test</h2>
-                <p>The CPS (clicks per second) test measures how rapidly you can click your mouse button. This skill is
-                    particularly important in games like Minecraft PvP, where higher click rates can give you a
-                    significant advantage in combat.</p>
+                <p>The CPS (clicks per second) test measures how rapidly you can click your mouse button. The live CPS counter updates every second so you can see performance in real time. Clicking inside the box starts the timer automatically.</p>
+
+                <h3>CPS Grade Benchmarks</h3>
+                <ul>
+                    <li><strong style="color:#00e650;">14+ CPS — Exceptional:</strong> Butterfly or drag clicking technique</li>
+                    <li><strong style="color:#00c8ff;">10–14 CPS — Excellent:</strong> Jitter click or very fast technique</li>
+                    <li><strong style="color:#64b4ff;">8–10 CPS — Good:</strong> Above average, competitive for gaming</li>
+                    <li><strong style="color:#ffc800;">5–8 CPS — Average:</strong> Normal clicking for most users</li>
+                    <li><strong style="color:#ff6450;">Under 5 CPS — Poor:</strong> Slow — try to relax your arm muscles</li>
+                </ul>
 
                 <h3>Click Techniques</h3>
                 <ul>
-                    <li><strong>Regular clicking:</strong> 4-6 CPS — Standard clicking with your index finger</li>
-                    <li><strong>Jitter clicking:</strong> 8-14 CPS — Tensing your arm to create rapid vibrations</li>
-                    <li><strong>Butterfly clicking:</strong> 15-25+ CPS — Alternating between two fingers rapidly</li>
-                    <li><strong>Drag clicking:</strong> 25-100+ CPS — Dragging finger across textured mouse buttons</li>
-                </ul>
-
-                <h3>Average CPS Benchmarks</h3>
-                <ul>
-                    <li><strong>1-4 CPS:</strong> Slow — Below average clicking speed</li>
-                    <li><strong>5-7 CPS:</strong> Average — Normal clicking for most users</li>
-                    <li><strong>8-10 CPS:</strong> Fast — Above average, good for gaming</li>
-                    <li><strong>11-14 CPS:</strong> Very Fast — Competitive level for Minecraft PvP</li>
-                    <li><strong>15+ CPS:</strong> Exceptional — Pro-level clicking techniques required</li>
+                    <li><strong>Regular clicking:</strong> 4–6 CPS — Standard index finger clicking</li>
+                    <li><strong>Jitter clicking:</strong> 8–14 CPS — Tense arm creates rapid vibrations</li>
+                    <li><strong>Butterfly clicking:</strong> 15–25+ CPS — Alternating between two fingers</li>
+                    <li><strong>Drag clicking:</strong> 25–100+ CPS — Dragging finger across textured buttons</li>
                 </ul>
             </div>
         </section>
@@ -141,30 +272,13 @@
             <div class="container">
                 <h2>Recommended Tools</h2>
                 <div class="rec-grid">
-                    <a href="visual-reflex-test.html" class="rec-card">
-                        <div class="rec-icon">⚡</div>
-                        <h3>Visual Reflex Test</h3>
-                        <p>Measure raw reaction time</p>
-                    </a>
-                    <a href="csgo-aim-trainer.html" class="rec-card">
-                        <div class="rec-icon">🎯</div>
-                        <h3>CS:GO Aim Trainer</h3>
-                        <p>3D shooting range practice</p>
-                    </a>
-                    <a href="cod-aim-trainer.html" class="rec-card">
-                        <div class="rec-icon">🔫</div>
-                        <h3>COD Aim Trainer</h3>
-                        <p>Military shooting range targets</p>
-                    </a>
-                    <a href="hand-eye-coordination-test.html" class="rec-card">
-                        <div class="rec-icon">🎯</div>
-                        <h3>Hand-Eye Coordination</h3>
-                        <p>Hit moving targets with precision</p>
-                    </a>
+                    <a href="double-click-speed-test.html" class="rec-card"><div class="rec-icon">🖱️</div><h3>Double Click Speed</h3><p>Test your DPS rate</p></a>
+                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Visual Reflex Test</h3><p>Measure raw reaction time</p></a>
+                    <a href="hand-eye-coordination-test.html" class="rec-card"><div class="rec-icon">🎯</div><h3>Hand-Eye Coordination</h3><p>Hit moving targets</p></a>
+                    <a href="csgo-aim-trainer.html" class="rec-card"><div class="rec-icon">🔫</div><h3>CS2 Aim Trainer</h3><p>3D shooting range practice</p></a>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -177,109 +291,182 @@
 
     <script src="../main.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            (function () {
-            const cpsArea = document.getElementById('cpsArea');
-            const clickCount = document.getElementById('clickCount');
-            const timerDisplay = document.getElementById('timerDisplay');
-            const resultDisplay = document.getElementById('resultDisplay');
-            const statsPanel = document.getElementById('statsPanel');
-            const resetBtn = document.getElementById('resetBtn');
-            const durationBtns = document.querySelectorAll('.cps-duration-btn');
+    document.addEventListener('DOMContentLoaded', function () {
+        (function () {
+            const zone       = document.getElementById('cpsZone');
+            const mainCount  = document.getElementById('cpsMainCount');
+            const mainLabel  = document.getElementById('cpsMainLabel');
+            const liveCps    = document.getElementById('cpsLiveCps');
+            const progressBar= document.getElementById('cpsProgressBar');
+            const gradeBadge = document.getElementById('gradeBadge');
+            const refHud     = document.getElementById('refHud');
+            const histBars   = document.getElementById('historyBars');
+            const resetBtn   = document.getElementById('resetBtn');
+            const tabs       = document.querySelectorAll('.cps-tab');
 
             let duration = 5;
-            let clicks = 0;
-            let isRunning = false;
-            let intervalId = null;
-            let timeLeft = 0;
-            let results = ReflexStore.get('cps_results', []);
+            let clicks   = 0;
+            let isRunning= false;
+            let startEpoch = 0;
+            let rafId    = null;
+            let endTimeout = null;
+            let results  = ReflexStore.get('cps_results', []);
 
-            durationBtns.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    if (isRunning) return;
-                    durationBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    duration = parseInt(this.dataset.duration);
-                    reset();
-                });
-            });
+            function getGrade(cps) {
+                if (cps >= 14) return { label: '🏆 EXCEPTIONAL', cls: 'grade-exceptional' };
+                if (cps >= 10) return { label: '⚡ EXCELLENT',   cls: 'grade-excellent'   };
+                if (cps >= 8)  return { label: '👍 GOOD',        cls: 'grade-good'        };
+                if (cps >= 5)  return { label: '📊 AVERAGE',     cls: 'grade-average'     };
+                return           { label: '📉 POOR',             cls: 'grade-poor'        };
+            }
 
-            function updateStats() {
+            function updateHUD() {
                 if (results.length === 0) {
-                    statsPanel.style.display = 'none';
+                    refHud.style.display = 'none';
+                    histBars.style.display = 'none';
                     return;
                 }
-                statsPanel.style.display = 'block';
-                document.getElementById('latestCps').textContent = parseFloat(results[results.length - 1]).toFixed(2) + ' CPS';
-                document.getElementById('bestCps').textContent = Math.max.apply(null, results).toFixed(2) + ' CPS';
-                document.getElementById('totalClicks').textContent = results.reduce((a, b) => a + Math.round(b * duration), 0);
+                refHud.style.display = 'grid';
+                const best = Math.max(...results);
+                const last = results[results.length - 1];
+                document.getElementById('hudBest').textContent  = best.toFixed(2) + ' CPS';
+                document.getElementById('hudLast').textContent  = last.toFixed(2) + ' CPS';
+                document.getElementById('hudCount').textContent = results.length;
+
+                const recent = results.slice(-10);
+                const maxVal = Math.max(...recent);
+                histBars.style.display = 'flex';
+                histBars.innerHTML = recent.map(v => {
+                    const pct = Math.max(10, Math.round((v / Math.max(maxVal, 15)) * 100));
+                    const g = getGrade(v);
+                    const colors = {'grade-exceptional':'#00e650','grade-excellent':'#00c8ff','grade-good':'#64b4ff','grade-average':'#ffc800','grade-poor':'#ff6450'};
+                    return `<div class="history-bar" title="${v.toFixed(2)} CPS" style="height:${pct}%;background:${colors[g.cls]};"></div>`;
+                }).join('');
             }
 
             function startTest() {
                 isRunning = true;
-                clicks = 0;
-                timeLeft = duration;
-                clickCount.textContent = '0';
-                timerDisplay.textContent = timeLeft + 's remaining';
-                resultDisplay.style.display = 'none';
-                cpsArea.classList.add('active');
+                clicks    = 0;
+                startEpoch = performance.now();
+                zone.className = 'cps-click-zone running';
+                gradeBadge.style.display = 'none';
+                mainCount.textContent = '0';
+                mainLabel.textContent = duration + 's left';
+                liveCps.textContent   = '0.00 CPS';
+                progressBar.style.width = '100%';
+                tabs.forEach(t => t.disabled = true);
 
-                intervalId = setInterval(function () {
-                    timeLeft--;
-                    timerDisplay.textContent = timeLeft + 's remaining';
-                    if (timeLeft <= 0) {
-                        endTest();
-                    }
-                }, 1000);
+                // RAF loop for smooth countdown + live CPS
+                function tick() {
+                    if (!isRunning) return;
+                    const elapsed = (performance.now() - startEpoch) / 1000;
+                    const remaining = Math.max(0, duration - elapsed);
+                    const cps = elapsed > 0 ? (clicks / elapsed) : 0;
+
+                    mainLabel.textContent = remaining.toFixed(1) + 's left';
+                    liveCps.textContent   = cps.toFixed(2) + ' CPS';
+                    progressBar.style.width = ((remaining / duration) * 100) + '%';
+
+                    if (remaining <= 0) { endTest(); return; }
+                    rafId = requestAnimationFrame(tick);
+                }
+                rafId = requestAnimationFrame(tick);
             }
 
             function endTest() {
-                clearInterval(intervalId);
+                if (!isRunning) return;
                 isRunning = false;
-                cpsArea.classList.remove('active');
+                cancelAnimationFrame(rafId);
+                zone.className = 'cps-click-zone done';
+                progressBar.style.width = '0%';
+
                 const cps = clicks / duration;
-                results.push(cps);
+                results.push(parseFloat(cps.toFixed(2)));
+                if (results.length > 50) results.shift();
                 ReflexStore.set('cps_results', results);
-                resultDisplay.textContent = cps.toFixed(2) + ' CPS';
-                resultDisplay.style.display = 'block';
-                timerDisplay.textContent = 'Click to try again';
-                updateStats();
+
+                const g = getGrade(cps);
+                mainCount.textContent = cps.toFixed(2);
+                mainLabel.textContent = 'CPS — ' + clicks + ' clicks in ' + duration + 's';
+                liveCps.textContent   = '';
+
+                gradeBadge.style.display = 'inline-flex';
+                gradeBadge.className = 'grade-badge ' + g.cls;
+                gradeBadge.textContent = g.label;
+
+                tabs.forEach(t => t.disabled = false);
+                setTimeout(() => {
+                    zone.className = 'cps-click-zone idle';
+                    mainCount.textContent = 'Click!';
+                    mainLabel.textContent = 'Tap to start';
+                }, 3000);
+
+                updateHUD();
             }
 
-            function reset() {
-                clearInterval(intervalId);
-                isRunning = false;
-                clicks = 0;
-                clickCount.textContent = '0';
-                timerDisplay.textContent = 'Click to Start';
-                resultDisplay.style.display = 'none';
-                cpsArea.classList.remove('active');
+            function spawnRipple(e) {
+                const rect = zone.getBoundingClientRect();
+                const x = (e.clientX || rect.left + rect.width/2) - rect.left;
+                const y = (e.clientY || rect.top + rect.height/2) - rect.top;
+                const size = 60;
+                const ripple = document.createElement('div');
+                ripple.className = 'cps-ripple';
+                ripple.style.cssText = `width:${size}px;height:${size}px;left:${x - size/2}px;top:${y - size/2}px;`;
+                zone.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 400);
             }
 
-            cpsArea.addEventListener('click', function (e) {
+            zone.addEventListener('click', function (e) {
+                if (zone.classList.contains('done')) return;
                 e.preventDefault();
+                spawnRipple(e);
                 if (!isRunning) {
                     startTest();
                     return; // Don't count the start click
                 }
                 clicks++;
-                clickCount.textContent = clicks;
+                mainCount.textContent = clicks;
+            });
+
+            zone.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); zone.click(); }
+            });
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    if (isRunning) return;
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    duration = parseInt(this.dataset.duration);
+                    zone.className = 'cps-click-zone idle';
+                    mainCount.textContent = 'Click!';
+                    mainLabel.textContent = 'Tap to start';
+                    liveCps.textContent   = '';
+                    gradeBadge.style.display = 'none';
+                    progressBar.style.width = '100%';
+                });
             });
 
             resetBtn.addEventListener('click', function () {
+                cancelAnimationFrame(rafId);
+                isRunning = false;
                 results = [];
                 ReflexStore.set('cps_results', []);
-                reset();
-                updateStats();
+                zone.className = 'cps-click-zone idle';
+                mainCount.textContent = 'Click!';
+                mainLabel.textContent = 'Tap to start';
+                liveCps.textContent = '';
+                gradeBadge.style.display = 'none';
+                progressBar.style.width = '100%';
+                tabs.forEach(t => t.disabled = false);
+                updateHUD();
             });
 
-            updateStats();
+            updateHUD();
         })();
-        });
+    });
     </script>
 <script src="../nav.js" defer></script>
 </body>
 
 </html>
-
-

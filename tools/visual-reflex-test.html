@@ -10,21 +10,15 @@
     <meta name="keywords"
         content="visual reflex test, reaction time test, reflex tester, click speed test, gaming reflexes, response time">
     <link rel="canonical" href="https://reflextester.fun/tools/visual-reflex-test.html">
-
     <meta property="og:title" content="Visual Reflex Test — Reaction Time Tester">
-    <meta property="og:description"
-        content="Test your visual reaction time. Click when the screen turns green. Free professional reflex testing tool.">
+    <meta property="og:description" content="Test your visual reaction time. Click when the screen turns green. Free professional reflex testing tool.">
     <meta property="og:url" content="https://reflextester.fun/tools/visual-reflex-test.html">
     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Visual Reflex Test — Reaction Time Tester">
-    <meta name="twitter:description"
-        content="Test your visual reaction time. Click when green. Free professional reflex testing.">
-
+    <meta name="twitter:description" content="Test your visual reaction time. Click when green. Free professional reflex testing.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -37,9 +31,156 @@
         "url": "https://reflextester.fun/tools/visual-reflex-test.html"
     }
     </script>
-
     <link rel="stylesheet" href="../styles.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <style>
+        .reflex-arena {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            padding: 32px 16px;
+        }
+        .reflex-circle-wrap {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .reflex-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .reflex-circle {
+            position: absolute;
+            inset: 8px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: background 0.15s, transform 0.1s, box-shadow 0.2s;
+            background: #1e1e3a;
+            box-shadow: 0 0 30px rgba(0,0,0,0.4);
+        }
+        .reflex-circle-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+            transition: color 0.15s;
+        }
+        .reflex-circle-value {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            transition: color 0.15s;
+        }
+        .reflex-circle-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* States */
+        .reflex-circle-wrap.state-idle .reflex-circle { background: #1e1e3a; }
+        .reflex-circle-wrap.state-idle .reflex-ring { border-color: #3a3a5a; }
+
+        .reflex-circle-wrap.state-ready .reflex-circle { background: #1a1835; }
+        .reflex-circle-wrap.state-ready .reflex-ring { border-color: var(--accent-red); box-shadow: 0 0 20px rgba(255,80,80,0.3); }
+        .reflex-circle-wrap.state-ready .reflex-circle-value { color: var(--accent-red); }
+
+        .reflex-circle-wrap.state-go .reflex-circle {
+            background: #0a2a12;
+            box-shadow: 0 0 60px rgba(0,230,80,0.4), 0 0 120px rgba(0,230,80,0.15);
+        }
+        .reflex-circle-wrap.state-go .reflex-ring { border-color: var(--accent-green); box-shadow: 0 0 30px rgba(0,230,80,0.5); }
+        .reflex-circle-wrap.state-go .reflex-circle-value { color: var(--accent-green); }
+        .reflex-circle-wrap.state-go .reflex-circle-label { color: var(--accent-green); }
+
+        .reflex-circle-wrap.state-result .reflex-circle { background: #0d1a2e; }
+        .reflex-circle-wrap.state-result .reflex-ring { border-color: var(--accent-cyan); box-shadow: 0 0 20px rgba(0,200,255,0.3); }
+        .reflex-circle-wrap.state-result .reflex-circle-value { color: var(--accent-cyan); font-size: 2.2rem; }
+
+        .reflex-circle-wrap.state-early .reflex-circle { background: #2a1010; }
+        .reflex-circle-wrap.state-early .reflex-ring { border-color: var(--accent-orange); }
+        .reflex-circle-wrap.state-early .reflex-circle-value { color: var(--accent-orange); }
+
+        .reflex-circle-wrap:active .reflex-circle { transform: scale(0.96); }
+
+        /* Grade badge */
+        .grade-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            border: 1px solid;
+        }
+        .grade-exceptional { background: rgba(0,230,80,0.1); color: #00e650; border-color: rgba(0,230,80,0.3); }
+        .grade-excellent   { background: rgba(0,200,255,0.1); color: #00c8ff; border-color: rgba(0,200,255,0.3); }
+        .grade-good        { background: rgba(100,180,255,0.1); color: #64b4ff; border-color: rgba(100,180,255,0.3); }
+        .grade-average     { background: rgba(255,200,0,0.1); color: #ffc800; border-color: rgba(255,200,0,0.3); }
+        .grade-poor        { background: rgba(255,100,80,0.1); color: #ff6450; border-color: rgba(255,100,80,0.3); }
+
+        /* HUD stats */
+        .reflex-hud {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            width: 100%;
+            max-width: 560px;
+        }
+        .hud-cell {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 14px 10px;
+            text-align: center;
+        }
+        .hud-cell-val {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+        .hud-cell-lbl {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        /* History bars */
+        .history-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 48px;
+            max-width: 560px;
+            width: 100%;
+        }
+        .history-bar {
+            flex: 1;
+            border-radius: 3px 3px 0 0;
+            min-height: 4px;
+            transition: height 0.3s;
+        }
+        @media (max-width: 600px) {
+            .reflex-hud { grid-template-columns: repeat(2, 1fr); }
+            .reflex-circle-wrap { width: 220px; height: 220px; }
+            .reflex-circle-value { font-size: 2rem !important; }
+        }
+    </style>
 </head>
 
 <body>
@@ -75,37 +216,47 @@
         <section class="test-area">
             <div class="test-panel active" id="visualTest">
                 <h1>⚡ Visual Reflex Test</h1>
-                <p class="test-desc">Click the circle as soon as it turns <strong
-                        style="color: var(--accent-green);">GREEN</strong>. Wait for the signal, then react as fast as
-                    you can!</p>
+                <p class="test-desc">Click the circle the instant it turns <strong style="color:var(--accent-green);">GREEN</strong>. Wait patiently — it won't warn you!</p>
 
-                <div class="game-circle waiting" id="gameArea" role="button" tabindex="0" aria-label="Click when green">
-                    <span id="gameText">Click to Start</span>
-                </div>
-
-                <div class="reaction-display" id="reactionDisplay" style="display: none;"></div>
-
-                <div class="test-actions">
-                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
-                </div>
-
-                <div class="stats-panel" id="statsPanel" style="display: none;">
-                    <h4>📊 Your Results</h4>
-                    <div class="stat-row">
-                        <span class="stat-label">Latest Time</span>
-                        <span class="stat-value" id="latestTime">—</span>
+                <div class="reflex-arena">
+                    <!-- Circle -->
+                    <div class="reflex-circle-wrap state-idle" id="circleWrap" role="button" tabindex="0" aria-label="Click when green">
+                        <div class="reflex-ring" id="refRing"></div>
+                        <div class="reflex-circle" id="refCircle">
+                            <div class="reflex-circle-label" id="refLabel">CLICK TO START</div>
+                            <div class="reflex-circle-value" id="refValue">—</div>
+                            <div class="reflex-circle-sub" id="refSub"></div>
+                        </div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Best Time</span>
-                        <span class="stat-value" id="bestTime">—</span>
+
+                    <!-- Grade badge (hidden until result) -->
+                    <div id="gradeBadge" style="display:none;"></div>
+
+                    <!-- HUD -->
+                    <div class="reflex-hud" id="refHud" style="display:none;">
+                        <div class="hud-cell">
+                            <div class="hud-cell-val" id="hudBest">—</div>
+                            <div class="hud-cell-lbl">Best</div>
+                        </div>
+                        <div class="hud-cell">
+                            <div class="hud-cell-val" id="hudAvg">—</div>
+                            <div class="hud-cell-lbl">Average</div>
+                        </div>
+                        <div class="hud-cell">
+                            <div class="hud-cell-val" id="hudLast">—</div>
+                            <div class="hud-cell-lbl">Latest</div>
+                        </div>
+                        <div class="hud-cell">
+                            <div class="hud-cell-val" id="hudCount">0</div>
+                            <div class="hud-cell-lbl">Attempts</div>
+                        </div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Average Time</span>
-                        <span class="stat-value" id="avgTime">—</span>
-                    </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Tests Completed</span>
-                        <span class="stat-value" id="testCount">0</span>
+
+                    <!-- History bars -->
+                    <div class="history-bars" id="historyBars" style="display:none;"></div>
+
+                    <div class="test-actions">
+                        <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
                     </div>
                 </div>
             </div>
@@ -114,36 +265,22 @@
         <section class="info-section">
             <div class="container-narrow">
                 <h2>About the Visual Reflex Test</h2>
-                <p>The visual reflex test measures how quickly you can respond to a visual stimulus. When the circle
-                    changes from red to green, your brain processes the color change through the visual cortex, then
-                    sends a motor command to your hand to click. This entire process typically takes between 150-300
-                    milliseconds for most people.</p>
+                <p>The visual reflex test measures how quickly you can respond to a visual stimulus — the gold standard for gaming performance. When the circle turns green, your visual cortex fires a signal down to your hand in 150–300ms.</p>
 
-                <h3>Why Visual Reaction Time Matters for Gaming</h3>
-                <p>In competitive FPS games like CS:GO, Valorant, and Fortnite, the difference between winning and
-                    losing a gunfight often comes down to 50-100ms. Players with faster visual reflexes can:</p>
+                <h3>Performance Grades</h3>
                 <ul>
-                    <li>Spot enemies faster and begin aiming sooner</li>
-                    <li>React to peek situations more effectively</li>
-                    <li>Dodge incoming abilities and projectiles</li>
-                    <li>Win more 50/50 engagements against equally-skilled opponents</li>
+                    <li><strong style="color:#00e650;">Under 150ms — Exceptional:</strong> Pro esports level. Fighter pilot territory.</li>
+                    <li><strong style="color:#00c8ff;">150–200ms — Excellent:</strong> Top 5% of gamers. Ready for competitive play.</li>
+                    <li><strong style="color:#64b4ff;">200–250ms — Good:</strong> Above average. Regular training will get you to Excellent.</li>
+                    <li><strong style="color:#ffc800;">250–300ms — Average:</strong> Normal human range. Room to improve.</li>
+                    <li><strong style="color:#ff6450;">Over 300ms — Poor:</strong> May indicate fatigue, distraction, or need for more practice.</li>
                 </ul>
 
-                <h3>How to Improve Your Score</h3>
-                <ul>
-                    <li><strong>Practice daily:</strong> 10-15 minutes of consistent training yields better results than
-                        occasional long sessions</li>
-                    <li><strong>Optimize your setup:</strong> Use a 144Hz+ monitor and a gaming mouse with low latency
-                    </li>
-                    <li><strong>Stay alert:</strong> Focus your eyes on the center of the circle and be ready to click
-                    </li>
-                    <li><strong>Get enough sleep:</strong> Fatigue can slow reaction times by 20-30%</li>
-                </ul>
+                <h3>Why This Matters for Gaming</h3>
+                <p>In CS2, Valorant, and Apex Legends, a 50ms difference in reaction time determines who wins gunfights. Train daily for 10–15 minutes to see measurable improvement.</p>
 
                 <h3>Related Tests</h3>
-                <p>Try our <a href="audio-reflex-test.html">Audio Reflex Test</a> to compare your auditory reaction time
-                    — most people are 20-40ms faster with sound. For a more complex challenge, test your <a
-                        href="hand-eye-coordination-test.html">Hand-Eye Coordination</a> with moving targets.</p>
+                <p>Compare with the <a href="audio-reflex-test.html">Audio Reflex Test</a> — most people are 20–40ms faster with sound. Also try <a href="reaction-comparison-test.html">Reaction Comparison</a> to find your fastest sense.</p>
             </div>
         </section>
 
@@ -156,18 +293,18 @@
                         <h3>Audio Reflex Test</h3>
                         <p>React to sound instead of sight</p>
                     </a>
-                    <a href="click-speed-test.html" class="rec-card">
-                        <div class="rec-icon">🖱️</div>
-                        <h3>Click Speed Test</h3>
-                        <p>Measure your clicks per second</p>
+                    <a href="reaction-comparison-test.html" class="rec-card">
+                        <div class="rec-icon">⚡</div>
+                        <h3>Reaction Comparison</h3>
+                        <p>Visual vs Audio vs Touch</p>
                     </a>
                     <a href="csgo-aim-trainer.html" class="rec-card">
                         <div class="rec-icon">🎯</div>
-                        <h3>CS:GO Aim Trainer</h3>
+                        <h3>CS2 Aim Trainer</h3>
                         <p>3D shooting range with flick practice</p>
                     </a>
                     <a href="hand-eye-coordination-test.html" class="rec-card">
-                        <div class="rec-icon">🎯</div>
+                        <div class="rec-icon">🖱️</div>
                         <h3>Hand-Eye Coordination</h3>
                         <p>Hit moving targets with precision</p>
                     </a>
@@ -187,98 +324,140 @@
 
     <script src="../main.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            (function () {
-            const gameArea = document.getElementById('gameArea');
-            const gameText = document.getElementById('gameText');
-            const reactionDisplay = document.getElementById('reactionDisplay');
-            const statsPanel = document.getElementById('statsPanel');
+    document.addEventListener('DOMContentLoaded', function () {
+        (function () {
+            const wrap = document.getElementById('circleWrap');
+            const refLabel = document.getElementById('refLabel');
+            const refValue = document.getElementById('refValue');
+            const refSub   = document.getElementById('refSub');
+            const gradeBadge = document.getElementById('gradeBadge');
+            const refHud  = document.getElementById('refHud');
+            const historyBars = document.getElementById('historyBars');
             const resetBtn = document.getElementById('resetBtn');
 
-            let state = 'waiting';
+            let state = 'idle';
             let startTime = 0;
             let timeoutId = null;
             let results = ReflexStore.get('visual_results', []);
 
-            function updateStats() {
+            // ── Grade helper ──────────────────────────────────────
+            function getGrade(ms) {
+                if (ms < 150) return { label: '🏆 EXCEPTIONAL', cls: 'grade-exceptional' };
+                if (ms < 200) return { label: '⚡ EXCELLENT',   cls: 'grade-excellent'   };
+                if (ms < 250) return { label: '👍 GOOD',        cls: 'grade-good'        };
+                if (ms < 300) return { label: '📊 AVERAGE',     cls: 'grade-average'     };
+                return           { label: '📉 POOR',            cls: 'grade-poor'        };
+            }
+
+            // ── HUD update ────────────────────────────────────────
+            function updateHUD() {
                 if (results.length === 0) {
-                    statsPanel.style.display = 'none';
+                    refHud.style.display = 'none';
+                    historyBars.style.display = 'none';
                     return;
                 }
-                statsPanel.style.display = 'block';
-                document.getElementById('latestTime').textContent = results[results.length - 1] + 'ms';
-                document.getElementById('bestTime').textContent = Math.min(...results) + 'ms';
-                document.getElementById('avgTime').textContent = Math.round(results.reduce((a, b) => a + b, 0) / results.length) + 'ms';
-                document.getElementById('testCount').textContent = results.length;
+                refHud.style.display = 'grid';
+                const best = Math.min(...results);
+                const avg  = Math.round(results.reduce((a,b) => a+b, 0) / results.length);
+                const last = results[results.length - 1];
+                document.getElementById('hudBest').textContent  = best + 'ms';
+                document.getElementById('hudAvg').textContent   = avg  + 'ms';
+                document.getElementById('hudLast').textContent  = last + 'ms';
+                document.getElementById('hudCount').textContent = results.length;
+
+                // History bars (last 10)
+                const recent = results.slice(-10);
+                const maxVal = Math.max(...recent);
+                historyBars.style.display = 'flex';
+                historyBars.innerHTML = recent.map(v => {
+                    const pct = Math.max(10, Math.round((v / Math.max(maxVal, 400)) * 100));
+                    const g = getGrade(v);
+                    const color = g.cls === 'grade-exceptional' ? '#00e650'
+                                : g.cls === 'grade-excellent'   ? '#00c8ff'
+                                : g.cls === 'grade-good'        ? '#64b4ff'
+                                : g.cls === 'grade-average'     ? '#ffc800' : '#ff6450';
+                    return `<div class="history-bar" title="${v}ms" style="height:${pct}%;background:${color};"></div>`;
+                }).join('');
             }
 
-            function setState(newState) {
-                state = newState;
-                // Map 'result' -> 'waiting' visually (dark circle ready for next click)
-                var cssState = newState === 'result' ? 'waiting' : newState;
-                gameArea.className = 'game-circle ' + cssState;
+            // ── State machine ─────────────────────────────────────
+            function setState(s, extra) {
+                state = s;
+                wrap.className = 'reflex-circle-wrap state-' + s;
+                gradeBadge.style.display = 'none';
 
-                if (newState === 'waiting') {
-                    gameText.textContent = 'Click to Start';
-                    reactionDisplay.style.display = 'none';
-                } else if (newState === 'ready') {
-                    gameText.textContent = 'Wait for GREEN...';
-                } else if (newState === 'go') {
-                    gameText.textContent = 'CLICK NOW!';
+                if (s === 'idle') {
+                    refLabel.textContent = 'CLICK TO START';
+                    refValue.textContent = '—';
+                    refSub.textContent = '';
+                } else if (s === 'ready') {
+                    refLabel.textContent = 'WAIT...';
+                    refValue.textContent = '🔴';
+                    refSub.textContent = 'Stay focused';
+                } else if (s === 'go') {
+                    refLabel.textContent = 'CLICK NOW!';
+                    refValue.textContent = 'GO';
+                    refSub.textContent = '';
                     startTime = performance.now();
-                } else if (newState === 'result') {
-                    gameText.textContent = 'Click to try again';
+                } else if (s === 'result') {
+                    const ms = extra;
+                    const g  = getGrade(ms);
+                    refLabel.textContent = 'YOUR TIME';
+                    refValue.textContent = ms + 'ms';
+                    refSub.textContent   = 'Click to try again';
+                    gradeBadge.style.display = 'inline-flex';
+                    gradeBadge.className = 'grade-badge ' + g.cls;
+                    gradeBadge.textContent = g.label;
+                } else if (s === 'early') {
+                    refLabel.textContent = 'TOO EARLY!';
+                    refValue.textContent = '⚠️';
+                    refSub.textContent   = 'Click to retry';
                 }
             }
 
+            // ── Click handler ─────────────────────────────────────
             function handleClick() {
-                if (state === 'waiting') {
+                if (state === 'idle') {
                     setState('ready');
-                    const delay = 1500 + Math.random() * 3000;
-                    timeoutId = setTimeout(function () {
-                        setState('go');
-                    }, delay);
+                    const delay = 1500 + Math.random() * 3500;
+                    timeoutId = setTimeout(() => setState('go'), delay);
+
                 } else if (state === 'ready') {
                     clearTimeout(timeoutId);
-                    gameText.textContent = 'Too early! Click to retry';
-                    gameArea.className = 'game-circle waiting';
-                    state = 'waiting';
+                    setState('early');
+
                 } else if (state === 'go') {
-                    const reactionTime = Math.round(performance.now() - startTime);
-                    results.push(reactionTime);
+                    const ms = Math.round(performance.now() - startTime);
+                    results.push(ms);
+                    if (results.length > 100) results.shift();
                     ReflexStore.set('visual_results', results);
-                    reactionDisplay.textContent = reactionTime + 'ms';
-                    reactionDisplay.style.display = 'block';
-                    setState('result');
-                    updateStats();
-                } else if (state === 'result') {
-                    setState('waiting');
+                    setState('result', ms);
+                    updateHUD();
+
+                } else if (state === 'result' || state === 'early') {
+                    // CSS state: 'result' ? 'waiting' -> resets to idle on next click
+                    setState('idle');
                 }
             }
 
-            gameArea.addEventListener('click', handleClick);
-            gameArea.addEventListener('keydown', function (e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    handleClick();
-                }
+            wrap.addEventListener('click', handleClick);
+            wrap.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleClick(); }
             });
 
             resetBtn.addEventListener('click', function () {
+                clearTimeout(timeoutId);
                 results = [];
                 ReflexStore.set('visual_results', []);
-                reactionDisplay.style.display = 'none';
-                updateStats();
-                setState('waiting');
+                updateHUD();
+                setState('idle');
             });
 
-            updateStats();
+            updateHUD();
         })();
-        });
+    });
     </script>
 <script src="../nav.js" defer></script>
 </body>
 
 </html>
-
-

@@ -8,23 +8,17 @@
     <meta name="description"
         content="Test how fast you react to sound. Audio reflexes are 20-40ms faster than visual — measure yours now. Free instant results, no registration. Perfect for gamers and musicians.">
     <meta name="keywords"
-        content="audio reflex test, sound reaction time test, audio reaction time, hearing reflex test, sound reflex tester, react to sound, audio reaction test online, auditory reflex, how fast can i react to sound, reflex test sound, ear reaction time">
+        content="audio reflex test, sound reaction time test, audio reaction time, hearing reflex test, sound reflex tester, react to sound, audio reaction test online, auditory reflex, how fast can i react to sound">
     <link rel="canonical" href="https://reflextester.fun/tools/audio-reflex-test.html">
-
     <meta property="og:title" content="Audio Reflex Test — Sound Reaction Time">
-    <meta property="og:description"
-        content="Test your audio reaction time. React when you hear the beep. Typically 20-40ms faster than visual tests.">
+    <meta property="og:description" content="Test your audio reaction time. React when you hear the beep. Typically 20-40ms faster than visual tests.">
     <meta property="og:url" content="https://reflextester.fun/tools/audio-reflex-test.html">
     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Audio Reflex Test — Sound Reaction Time">
-    <meta name="twitter:description"
-        content="Test audio reaction time. React to beeps. Typically 20-40ms faster than visual.">
-
+    <meta name="twitter:description" content="Test audio reaction time. React to beeps. Typically 20-40ms faster than visual.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -36,9 +30,95 @@
         "description": "Professional audio reaction time tester. Measures response speed to auditory stimuli."
     }
     </script>
-
     <link rel="stylesheet" href="../styles.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <style>
+        .audio-arena {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            padding: 32px 16px;
+        }
+        /* Waveform visualizer */
+        .audio-viz {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            height: 60px;
+            margin-bottom: -8px;
+        }
+        .audio-bar {
+            width: 5px;
+            border-radius: 3px;
+            background: var(--border-subtle);
+            transition: height 0.1s, background 0.15s;
+            height: 6px;
+        }
+        .audio-viz.active .audio-bar {
+            animation: audioWave 0.5s ease-in-out infinite;
+            background: var(--accent-cyan);
+        }
+        @keyframes audioWave {
+            0%,100% { height: 6px; }
+            50% { height: var(--bar-height, 30px); }
+        }
+
+        /* Circle — reuse visual reflex styles */
+        .reflex-arena { display:flex; flex-direction:column; align-items:center; gap:24px; padding:32px 16px; }
+        .reflex-circle-wrap { position:relative; width:280px; height:280px; cursor:pointer; user-select:none; -webkit-user-select:none; }
+        .reflex-ring { position:absolute; inset:0; border-radius:50%; border:3px solid transparent; transition:border-color 0.2s, box-shadow 0.2s; }
+        .reflex-circle { position:absolute; inset:8px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; transition:background 0.15s, box-shadow 0.2s; background:#1e1e3a; box-shadow:0 0 30px rgba(0,0,0,0.4); }
+        .reflex-circle-label { font-size:1rem; font-weight:600; color:var(--text-secondary); letter-spacing:0.05em; transition:color 0.15s; }
+        .reflex-circle-value { font-size:2.8rem; font-weight:800; color:var(--text-primary); letter-spacing:-0.02em; transition:color 0.15s; }
+        .reflex-circle-sub { font-size:0.8rem; color:var(--text-muted); text-align:center; padding:0 16px; }
+        .reflex-circle-wrap:active .reflex-circle { transform:scale(0.96); }
+
+        .reflex-circle-wrap.state-idle .reflex-ring { border-color:#3a3a5a; }
+        .reflex-circle-wrap.state-ready .reflex-ring { border-color:var(--accent-red); box-shadow:0 0 20px rgba(255,80,80,0.3); }
+        .reflex-circle-wrap.state-ready .reflex-circle-value { color:var(--accent-red); }
+        .reflex-circle-wrap.state-go .reflex-circle { background:#0d1a2f; box-shadow:0 0 60px rgba(0,200,255,0.4); }
+        .reflex-circle-wrap.state-go .reflex-ring { border-color:var(--accent-cyan); box-shadow:0 0 30px rgba(0,200,255,0.5); }
+        .reflex-circle-wrap.state-go .reflex-circle-value { color:var(--accent-cyan); }
+        .reflex-circle-wrap.state-go .reflex-circle-label { color:var(--accent-cyan); }
+        .reflex-circle-wrap.state-result .reflex-ring { border-color:var(--accent-green); box-shadow:0 0 20px rgba(0,230,80,0.3); }
+        .reflex-circle-wrap.state-result .reflex-circle-value { color:var(--accent-green); font-size:2.2rem; }
+        .reflex-circle-wrap.state-early .reflex-ring { border-color:var(--accent-orange); }
+        .reflex-circle-wrap.state-early .reflex-circle-value { color:var(--accent-orange); }
+
+        .grade-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 16px; border-radius:20px; font-size:0.85rem; font-weight:700; letter-spacing:0.05em; border:1px solid; }
+        .grade-exceptional { background:rgba(0,230,80,0.1); color:#00e650; border-color:rgba(0,230,80,0.3); }
+        .grade-excellent { background:rgba(0,200,255,0.1); color:#00c8ff; border-color:rgba(0,200,255,0.3); }
+        .grade-good { background:rgba(100,180,255,0.1); color:#64b4ff; border-color:rgba(100,180,255,0.3); }
+        .grade-average { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
+        .grade-poor { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
+
+        .reflex-hud { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; width:100%; max-width:560px; }
+        .hud-cell { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:14px 10px; text-align:center; }
+        .hud-cell-val { font-size:1.3rem; font-weight:700; color:var(--text-primary); margin-bottom:2px; }
+        .hud-cell-lbl { font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; }
+        .history-bars { display:flex; align-items:flex-end; gap:4px; height:48px; max-width:560px; width:100%; }
+        .history-bar { flex:1; border-radius:3px 3px 0 0; min-height:4px; transition:height 0.3s; }
+
+        /* Sound ripple */
+        .sound-ripple {
+            position: absolute;
+            inset: 8px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-cyan);
+            opacity: 0;
+            animation: rippleOut 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+        @keyframes rippleOut {
+            0%   { transform:scale(1); opacity:0.7; }
+            100% { transform:scale(1.5); opacity:0; }
+        }
+        @media (max-width:600px) {
+            .reflex-hud { grid-template-columns:repeat(2,1fr); }
+            .reflex-circle-wrap { width:220px; height:220px; }
+        }
+    </style>
 </head>
 
 <body>
@@ -74,37 +154,48 @@
         <section class="test-area">
             <div class="test-panel active">
                 <h1>🔊 Audio Reflex Test</h1>
-                <p class="test-desc">Click when you hear the <strong style="color: var(--accent-cyan);">BEEP</strong>.
-                    Use headphones for best accuracy. Audio reflexes are typically 20-40ms faster than visual!</p>
+                <p class="test-desc">Listen for the <strong style="color:var(--accent-cyan);">BEEP</strong> — then click as fast as you can. <em>No visual cue</em> — pure audio reaction. Use headphones for best results!</p>
 
-                <div class="game-circle waiting" id="gameArea" role="button" tabindex="0"
-                    aria-label="Click when you hear beep">
-                    <span id="gameText">Click to Start</span>
+                <!-- Waveform visualizer -->
+                <div class="audio-viz" id="audioViz">
+                    <div class="audio-bar" style="--bar-height:20px;"></div>
+                    <div class="audio-bar" style="--bar-height:35px;"></div>
+                    <div class="audio-bar" style="--bar-height:50px;"></div>
+                    <div class="audio-bar" style="--bar-height:40px;"></div>
+                    <div class="audio-bar" style="--bar-height:28px;"></div>
+                    <div class="audio-bar" style="--bar-height:45px;"></div>
+                    <div class="audio-bar" style="--bar-height:30px;"></div>
+                    <div class="audio-bar" style="--bar-height:18px;"></div>
+                    <div class="audio-bar" style="--bar-height:38px;"></div>
+                    <div class="audio-bar" style="--bar-height:22px;"></div>
+                    <div class="audio-bar" style="--bar-height:46px;"></div>
+                    <div class="audio-bar" style="--bar-height:32px;"></div>
                 </div>
 
-                <div class="reaction-display" id="reactionDisplay" style="display: none;"></div>
+                <div class="reflex-arena" style="padding-top:0;">
+                    <!-- Circle -->
+                    <div class="reflex-circle-wrap state-idle" id="circleWrap" role="button" tabindex="0" aria-label="Click when you hear the beep">
+                        <div class="reflex-ring"></div>
+                        <div class="reflex-circle" id="refCircle">
+                            <div class="reflex-circle-label" id="refLabel">CLICK TO START</div>
+                            <div class="reflex-circle-value" id="refValue">🎧</div>
+                            <div class="reflex-circle-sub" id="refSub">Use headphones</div>
+                        </div>
+                    </div>
 
-                <div class="test-actions">
-                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
-                </div>
+                    <div id="gradeBadge" style="display:none;"></div>
 
-                <div class="stats-panel" id="statsPanel" style="display: none;">
-                    <h4>🎵 Your Results</h4>
-                    <div class="stat-row">
-                        <span class="stat-label">Latest Time</span>
-                        <span class="stat-value" id="latestTime">—</span>
+                    <div class="reflex-hud" id="refHud" style="display:none;">
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudBest">—</div><div class="hud-cell-lbl">Best</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudAvg">—</div><div class="hud-cell-lbl">Average</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudLast">—</div><div class="hud-cell-lbl">Latest</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudCount">0</div><div class="hud-cell-lbl">Attempts</div></div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Best Time</span>
-                        <span class="stat-value" id="bestTime">—</span>
-                    </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Average Time</span>
-                        <span class="stat-value" id="avgTime">—</span>
-                    </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Tests Completed</span>
-                        <span class="stat-value" id="testCount">0</span>
+
+                    <div class="history-bars" id="historyBars" style="display:none;"></div>
+
+                    <div class="test-actions">
+                        <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
                     </div>
                 </div>
             </div>
@@ -113,31 +204,25 @@
         <section class="info-section">
             <div class="container-narrow">
                 <h2>About the Audio Reflex Test</h2>
-                <p>The audio reflex test measures your reaction time to sound. Unlike visual stimuli, auditory signals
-                    are processed faster by the brain — the auditory cortex responds more quickly to sudden sounds than
-                    the visual cortex does to color changes. This is why most people score 20-40ms faster on audio
-                    tests.</p>
+                <p>The audio reflex test measures your reaction time to sound only — the screen gives <em>no visual cue</em> when the beep fires. This isolates your auditory processing pathway and is typically 20–40ms faster than visual reaction time.</p>
 
-                <h3>Why Audio Reflexes Matter</h3>
-                <p>In gaming, audio cues are just as important as visual information:</p>
+                <h3>Why Audio Reflexes Matter in Gaming</h3>
                 <ul>
-                    <li><strong>Footsteps:</strong> Hear enemies before you see them in CS:GO and Valorant</li>
-                    <li><strong>Gunfire direction:</strong> React to shots faster with good audio awareness</li>
+                    <li><strong>Footsteps in CS2 and Valorant:</strong> Hear enemies before you see them</li>
+                    <li><strong>Gunfire direction:</strong> React to shots faster with audio awareness</li>
                     <li><strong>Ability sounds:</strong> Respond to ultimates and special abilities instantly</li>
-                    <li><strong>Environmental cues:</strong> Doors, reloads, and item pickups all provide audio
-                        information</li>
+                    <li><strong>Door creaks, reloads, item pickups:</strong> All provide critical audio information</li>
                 </ul>
 
                 <h3>Tips for Better Audio Reaction</h3>
                 <ul>
-                    <li>Use quality headphones — they reduce latency compared to speakers</li>
+                    <li>Use quality headphones — they reduce latency vs. speakers</li>
                     <li>Minimize background noise for clearer audio perception</li>
-                    <li>Focus on anticipating the sound, not predicting it</li>
+                    <li>Focus your attention — don't anticipate or predict the beep</li>
                 </ul>
 
                 <h3>Related Tests</h3>
-                <p>Compare with your <a href="visual-reflex-test.html">Visual Reflex Test</a> results. Most people are
-                    faster with audio — if you're not, it might indicate you're a more visual processor.</p>
+                <p>Compare with your <a href="visual-reflex-test.html">Visual Reflex Test</a> results using our <a href="reaction-comparison-test.html">Reaction Comparison Test</a>.</p>
             </div>
         </section>
 
@@ -145,30 +230,13 @@
             <div class="container">
                 <h2>Recommended Tools</h2>
                 <div class="rec-grid">
-                    <a href="visual-reflex-test.html" class="rec-card">
-                        <div class="rec-icon">⚡</div>
-                        <h3>Visual Reflex Test</h3>
-                        <p>Test your visual reaction time</p>
-                    </a>
-                    <a href="memory-sequence-test.html" class="rec-card">
-                        <div class="rec-icon">🧠</div>
-                        <h3>Memory Sequence</h3>
-                        <p>Test working memory and recall</p>
-                    </a>
-                    <a href="typing-speed-test.html" class="rec-card">
-                        <div class="rec-icon">⌨️</div>
-                        <h3>Typing Speed Test</h3>
-                        <p>Measure WPM and accuracy</p>
-                    </a>
-                    <a href="stroop-effect-test.html" class="rec-card">
-                        <div class="rec-icon">🧪</div>
-                        <h3>Stroop Effect Test</h3>
-                        <p>Test cognitive flexibility</p>
-                    </a>
+                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Visual Reflex Test</h3><p>Test your visual reaction time</p></a>
+                    <a href="reaction-comparison-test.html" class="rec-card"><div class="rec-icon">📊</div><h3>Reaction Comparison</h3><p>Visual vs Audio vs Touch</p></a>
+                    <a href="typing-speed-test.html" class="rec-card"><div class="rec-icon">⌨️</div><h3>Typing Speed Test</h3><p>Measure WPM and accuracy</p></a>
+                    <a href="stroop-effect-test.html" class="rec-card"><div class="rec-icon">🧪</div><h3>Stroop Effect Test</h3><p>Test cognitive flexibility</p></a>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -181,34 +249,64 @@
 
     <script src="../main.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            (function () {
-            const gameArea = document.getElementById('gameArea');
-            const gameText = document.getElementById('gameText');
-            const reactionDisplay = document.getElementById('reactionDisplay');
-            const statsPanel = document.getElementById('statsPanel');
+    document.addEventListener('DOMContentLoaded', function () {
+        (function () {
+            const wrap   = document.getElementById('circleWrap');
+            const refLabel = document.getElementById('refLabel');
+            const refValue = document.getElementById('refValue');
+            const refSub   = document.getElementById('refSub');
+            const refCircle = document.getElementById('refCircle');
+            const gradeBadge = document.getElementById('gradeBadge');
+            const refHud = document.getElementById('refHud');
+            const historyBars = document.getElementById('historyBars');
+            const audioViz = document.getElementById('audioViz');
             const resetBtn = document.getElementById('resetBtn');
 
             let audioCtx = null;
-            let state = 'waiting';
+            let state = 'idle';
             let startTime = 0;
             let timeoutId = null;
             let results = ReflexStore.get('audio_results', []);
 
+            function getGrade(ms) {
+                if (ms < 140) return { label: '🏆 EXCEPTIONAL', cls: 'grade-exceptional' };
+                if (ms < 190) return { label: '⚡ EXCELLENT',   cls: 'grade-excellent'   };
+                if (ms < 240) return { label: '👍 GOOD',        cls: 'grade-good'        };
+                if (ms < 290) return { label: '📊 AVERAGE',     cls: 'grade-average'     };
+                return           { label: '📉 POOR',            cls: 'grade-poor'        };
+            }
+
+            // ── Audio: only sound, NO visual "go" marker ───────────────
             function playBeep() {
                 if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                var doPlay = function() {
-                    var osc = audioCtx.createOscillator();
-                    var gain = audioCtx.createGain();
+                function doPlay() {
+                    // Short, punchy tone at 880Hz — easier to perceive than 800Hz
+                    const osc  = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
                     osc.connect(gain);
                     gain.connect(audioCtx.destination);
-                    osc.frequency.value = 800;
-                    gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.3, audioCtx.currentTime + 0.01);
-                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
-                    osc.start(audioCtx.currentTime);
-                    osc.stop(audioCtx.currentTime + 0.15);
-                };
+                    osc.frequency.value = 880;
+                    osc.type = 'sine';
+
+                    const t = audioCtx.currentTime;
+                    gain.gain.setValueAtTime(0.001, t);
+                    gain.gain.exponentialRampToValueAtTime(0.4, t + 0.008);
+                    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.18);
+                    osc.start(t);
+                    osc.stop(t + 0.20);
+
+                    // Visualizer fires
+                    audioViz.classList.add('active');
+                    setTimeout(() => audioViz.classList.remove('active'), 300);
+
+                    // Add sound ripple
+                    const ripple = document.createElement('div');
+                    ripple.className = 'sound-ripple';
+                    refCircle.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 650);
+
+                    startTime = performance.now();
+                }
                 if (audioCtx.state === 'suspended') {
                     audioCtx.resume().then(doPlay);
                 } else {
@@ -216,80 +314,115 @@
                 }
             }
 
-            function updateStats() {
+            function updateHUD() {
                 if (results.length === 0) {
-                    statsPanel.style.display = 'none';
+                    refHud.style.display = 'none';
+                    historyBars.style.display = 'none';
                     return;
                 }
-                statsPanel.style.display = 'block';
-                document.getElementById('latestTime').textContent = results[results.length - 1] + 'ms';
-                document.getElementById('bestTime').textContent = Math.min(...results) + 'ms';
-                document.getElementById('avgTime').textContent = Math.round(results.reduce((a, b) => a + b, 0) / results.length) + 'ms';
-                document.getElementById('testCount').textContent = results.length;
+                refHud.style.display = 'grid';
+                const best = Math.min(...results);
+                const avg  = Math.round(results.reduce((a,b) => a+b,0) / results.length);
+                const last = results[results.length - 1];
+                document.getElementById('hudBest').textContent  = best + 'ms';
+                document.getElementById('hudAvg').textContent   = avg  + 'ms';
+                document.getElementById('hudLast').textContent  = last + 'ms';
+                document.getElementById('hudCount').textContent = results.length;
+
+                const recent = results.slice(-10);
+                const maxVal = Math.max(...recent);
+                historyBars.style.display = 'flex';
+                historyBars.innerHTML = recent.map(v => {
+                    const pct = Math.max(10, Math.round((v / Math.max(maxVal, 350)) * 100));
+                    const g = getGrade(v);
+                    const colors = { 'grade-exceptional':'#00e650','grade-excellent':'#00c8ff','grade-good':'#64b4ff','grade-average':'#ffc800','grade-poor':'#ff6450' };
+                    return `<div class="history-bar" title="${v}ms" style="height:${pct}%;background:${colors[g.cls]};"></div>`;
+                }).join('');
             }
 
-            function setState(newState) {
-                state = newState;
-                gameArea.className = 'game-circle ' + (newState === 'go' ? 'go' : newState === 'ready' ? 'ready' : 'waiting');
+            function setState(s, extra) {
+                state = s;
+                wrap.className = 'reflex-circle-wrap state-' + s;
+                gradeBadge.style.display = 'none';
 
-                if (newState === 'waiting') {
-                    gameText.textContent = 'Click to Start';
-                    reactionDisplay.style.display = 'none';
-                } else if (newState === 'ready') {
-                    gameText.textContent = 'Wait for BEEP...';
-                } else if (newState === 'go') {
-                    gameText.textContent = 'CLICK NOW!';
-                    playBeep();
-                    startTime = performance.now();
-                } else if (newState === 'result') {
-                    gameText.textContent = 'Click to try again';
+                if (s === 'idle') {
+                    refLabel.textContent = 'CLICK TO START';
+                    refValue.textContent = '🎧';
+                    refSub.textContent   = 'Use headphones';
+                } else if (s === 'ready') {
+                    refLabel.textContent = 'LISTEN...';
+                    refValue.textContent = '👂';
+                    refSub.textContent   = 'Wait for the beep';
+                } else if (s === 'go') {
+                    // VISUAL stays in "waiting" state — only SOUND signals go!
+                    wrap.className = 'reflex-circle-wrap state-ready';
+                    refLabel.textContent = 'LISTEN...';
+                    refValue.textContent = '👂';
+                    refSub.textContent   = 'Wait for the beep';
+                    // State internally is 'go' but circle stays dark/waiting
+                    // The beep already played in the caller
+                } else if (s === 'result') {
+                    const ms = extra;
+                    const g  = getGrade(ms);
+                    refLabel.textContent = 'YOUR TIME';
+                    refValue.textContent = ms + 'ms';
+                    refSub.textContent   = 'Click to try again';
+                    gradeBadge.style.display = 'inline-flex';
+                    gradeBadge.className = 'grade-badge ' + g.cls;
+                    gradeBadge.textContent = g.label;
+                } else if (s === 'early') {
+                    refLabel.textContent = 'TOO EARLY!';
+                    refValue.textContent = '⚠️';
+                    refSub.textContent   = 'Wait for the beep before clicking';
                 }
             }
 
             function handleClick() {
-                if (state === 'waiting') {
+                if (state === 'idle') {
                     if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
                     setState('ready');
-                    const delay = 1500 + Math.random() * 3000;
-                    timeoutId = setTimeout(function () { setState('go'); }, delay);
+                    const delay = 1800 + Math.random() * 3500;
+                    timeoutId = setTimeout(() => {
+                        state = 'go'; // internal state = go
+                        playBeep();   // only sound fires
+                        // circle stays visually "ready" — no color change
+                    }, delay);
+
                 } else if (state === 'ready') {
                     clearTimeout(timeoutId);
-                    gameText.textContent = 'Too early! Click to retry';
-                    gameArea.className = 'game-circle waiting';
-                    state = 'waiting';
+                    setState('early');
+
                 } else if (state === 'go') {
-                    const reactionTime = Math.round(performance.now() - startTime);
-                    results.push(reactionTime);
+                    const ms = Math.round(performance.now() - startTime);
+                    results.push(ms);
+                    if (results.length > 100) results.shift();
                     ReflexStore.set('audio_results', results);
-                    reactionDisplay.textContent = reactionTime + 'ms';
-                    reactionDisplay.style.display = 'block';
-                    setState('result');
-                    updateStats();
-                } else if (state === 'result') {
-                    setState('waiting');
+                    setState('result', ms);
+                    updateHUD();
+
+                } else if (state === 'result' || state === 'early') {
+                    setState('idle');
                 }
             }
 
-            gameArea.addEventListener('click', handleClick);
-            gameArea.addEventListener('keydown', function (e) {
+            wrap.addEventListener('click', handleClick);
+            wrap.addEventListener('keydown', e => {
                 if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleClick(); }
             });
 
             resetBtn.addEventListener('click', function () {
+                clearTimeout(timeoutId);
                 results = [];
                 ReflexStore.set('audio_results', []);
-                reactionDisplay.style.display = 'none';
-                updateStats();
-                setState('waiting');
+                updateHUD();
+                setState('idle');
             });
 
-            updateStats();
+            updateHUD();
         })();
-        });
+    });
     </script>
 <script src="../nav.js" defer></script>
 </body>
 
 </html>
-
-

@@ -2646,6 +2646,14 @@ button {
   --cat-color-2:      var(--accent-purple);
 }
 
+
+/* Color match test helpers */
+.combo-anim { animation: comboFlashKf 0.4s ease-out; }
+@keyframes comboFlashKf { 0%{transform:scale(1.3);} 100%{transform:scale(1);} }
+.dot.miss { background: var(--accent-red); }
+.dot.hit  { background: var(--accent-green); }
+.color-target-zone.pulse { animation: colorPulseKf 0.3s ease-out; }
+@keyframes colorPulseKf { 0%{transform:scale(1.04);} 100%{transform:scale(1);} }
 /* Esports game cards hover effect */
 .esports-game-card:hover {
     transform: translateY(-4px);
