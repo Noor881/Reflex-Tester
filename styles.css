@@ -2647,6 +2647,16 @@ button {
 }
 
 
+
+/* Batch 2 game helpers */
+.mem-tile.locked { cursor: not-allowed; }
+.mem-tile.player-hit { filter: brightness(2.5); transform: scale(0.93); }
+.num-pad-btn.pressed-correct { border-color: var(--accent-green); background: rgba(0,230,80,0.1); }
+.stroop-word-box.timeout { border-color: var(--accent-red); }
+.mem-tile.wrong-hit { border-color: #ff2020; }
+.dot.skip { background: var(--accent-orange); }
+.stroop-word.fade { opacity: 0; }
+
 /* Color match test helpers */
 .combo-anim { animation: comboFlashKf 0.4s ease-out; }
 @keyframes comboFlashKf { 0%{transform:scale(1.3);} 100%{transform:scale(1);} }

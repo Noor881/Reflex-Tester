@@ -10,22 +10,15 @@
     <meta name="keywords"
         content="stroop effect test, stroop test, cognitive interference test, color word test, brain test, stroop test online free, cognitive flexibility test, stroop challenge, attention test, focus test, brain trick test, mental interference test, psychology test free">
     <link rel="canonical" href="https://reflextester.fun/tools/stroop-effect-test.html">
-
-    <!-- Open Graph -->
     <meta property="og:title" content="Stroop Effect Test — Can Your Brain Beat the Trick?">
-    <meta property="og:description"
-        content="Can your brain ignore the trick? Word says RED but it's blue — pick the right color.">
+    <meta property="og:description" content="Word says RED but it's blue — pick the right color. Tests focus and cognitive flexibility.">
     <meta property="og:url" content="https://reflextester.fun/tools/stroop-effect-test.html">
     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Stroop Effect Test — Can Your Brain Beat the Trick?">
-    <meta name="twitter:description"
-        content="Tests cognitive flexibility and focus. Most people get 70% right — can you beat it?">
-
+    <meta name="twitter:description" content="Tests cognitive flexibility and focus. Most people get 70% right — beat it?">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -33,13 +26,145 @@
         "name": "Stroop Effect Test",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web Browser",
-        "description": "Test visual perception and color recognition speed. Match colors accurately while measuring response time and accuracy.",
+        "description": "Professional Stroop Effect test. Measure cognitive inhibition, attention control, and processing speed under interference.",
         "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD" }
     }
     </script>
-
     <link rel="stylesheet" href="../styles.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <style>
+        .stroop-arena {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 28px 16px;
+        }
+
+        /* Live HUD */
+        .stroop-hud-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: min(440px, 90vw);
+            padding: 10px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+        }
+        .s-hud-val { font-size: 1.3rem; font-weight: 800; color: var(--text-primary); }
+        .s-hud-lbl { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 1px; }
+        .s-hud-pair { text-align: center; }
+        .s-streak-val { color: var(--accent-green); }
+
+        /* Round timer bar at top */
+        .stroop-timer-bar {
+            width: min(440px, 90vw);
+            height: 5px;
+            background: var(--border-subtle);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .stroop-timer-inner {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.1s linear, background 0.3s;
+        }
+
+        /* The big word display */
+        .stroop-word-box {
+            width: min(440px, 90vw);
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-subtle);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        .stroop-word {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 0.06em;
+            transition: opacity 0.12s;
+        }
+        .stroop-word.fade { opacity: 0; }
+
+        /* Instruction hint */
+        .stroop-hint {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        .stroop-hint strong { color: var(--text-secondary); }
+
+        /* Color buttons — 2x2 grid */
+        .stroop-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            width: min(360px, 88vw);
+        }
+        .stroop-btn {
+            height: 64px;
+            border-radius: 14px;
+            border: 2px solid transparent;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            transition: transform 0.1s, filter 0.1s, border-color 0.15s;
+            color: white;
+        }
+        .stroop-btn:hover:not(:disabled) { transform: scale(1.04); filter: brightness(1.15); }
+        .stroop-btn:active { transform: scale(0.96); }
+        .stroop-btn.correct {
+            border-color: #fff;
+            box-shadow: 0 0 20px rgba(255,255,255,0.35);
+            animation: sCorrect 0.3s ease-out;
+        }
+        .stroop-btn.wrong {
+            filter: brightness(0.45);
+            animation: sWrong 0.35s ease-out;
+        }
+        @keyframes sCorrect { 0%{transform:scale(1.08);} 100%{transform:scale(1);} }
+        @keyframes sWrong   { 0%,40%,80%{transform:translateX(-5px);} 20%,60%{transform:translateX(5px);} 100%{transform:scale(1);} }
+
+        /* Timeout flash on word box */
+        .stroop-word-box.timeout {
+            border-color: var(--accent-red);
+            animation: sTimeout 0.4s ease-out;
+        }
+        @keyframes sTimeout { 0%{box-shadow:0 0 30px rgba(255,50,50,0.7);}100%{box-shadow:none;} }
+
+        /* Progress dots */
+        .progress-dots { display:flex; gap:6px; flex-wrap:wrap; justify-content:center; max-width:440px; }
+        .dot { width:10px; height:10px; border-radius:50%; background:var(--border-subtle); transition:background 0.2s; }
+        .dot.hit  { background:var(--accent-green); }
+        .dot.miss { background:var(--accent-red); }
+        .dot.skip { background:var(--accent-orange); }
+
+        /* Grade & HUD */
+        .grade-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 16px; border-radius:20px; font-size:0.85rem; font-weight:700; letter-spacing:0.05em; border:1px solid; }
+        .grade-exceptional { background:rgba(0,230,80,0.1); color:#00e650; border-color:rgba(0,230,80,0.3); }
+        .grade-excellent { background:rgba(0,200,255,0.1); color:#00c8ff; border-color:rgba(0,200,255,0.3); }
+        .grade-good { background:rgba(100,180,255,0.1); color:#64b4ff; border-color:rgba(100,180,255,0.3); }
+        .grade-average { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
+        .grade-poor { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
+
+        .reflex-hud { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; width:100%; max-width:440px; }
+        .hud-cell { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:12px 8px; text-align:center; }
+        .hud-cell-val { font-size:1.1rem; font-weight:700; color:var(--text-primary); margin-bottom:2px; }
+        .hud-cell-lbl { font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; }
+
+        @media(max-width:480px) {
+            .stroop-word { font-size:3rem; }
+            .stroop-options { grid-template-columns:repeat(2,1fr); }
+            .reflex-hud { grid-template-columns:repeat(2,1fr); }
+        }
+    </style>
 </head>
 
 <body>
@@ -75,47 +200,55 @@
         <section class="test-area">
             <div class="test-panel active">
                 <h1>🧩 Stroop Effect Test</h1>
-                <p class="test-desc">Click the button that matches the <strong>COLOR</strong> of the text, not what the
-                    word says!</p>
+                <p class="test-desc">Click the button that matches the <strong>COLOR</strong> of the text — <em>not</em> what the word says. 20 rounds, 3 seconds each!</p>
 
-                <div class="stroop-word" id="stroopWord">RED</div>
+                <div class="stroop-arena">
 
-                <div class="stroop-options" id="stroopOptions">
-                    <button class="stroop-btn" data-color="red" style="background: #ff6b6b;">RED</button>
-                    <button class="stroop-btn" data-color="blue" style="background: #45b7d1;">BLUE</button>
-                    <button class="stroop-btn" data-color="green" style="background: #4cd964;">GREEN</button>
-                    <button class="stroop-btn" data-color="yellow"
-                        style="background: #ffc107; color: #1a1a2e;">YELLOW</button>
-                </div>
-
-                <div class="stroop-progress">
-                    <span id="progressText">Round 0 / 20</span>
-                </div>
-
-                <div class="reaction-display" id="resultDisplay" style="display: none;"></div>
-
-                <div class="test-actions">
-                    <button class="btn btn-primary" id="startBtn">Start Test</button>
-                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
-                </div>
-
-                <div class="stats-panel" id="statsPanel" style="display: none;">
-                    <h4>🧩 Your Results</h4>
-                    <div class="stat-row">
-                        <span class="stat-label">Last Score</span>
-                        <span class="stat-value" id="lastScore">—</span>
+                    <!-- Timer bar -->
+                    <div class="stroop-timer-bar">
+                        <div class="stroop-timer-inner" id="timerBar" style="width:100%;background:var(--accent-green);"></div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Best Score</span>
-                        <span class="stat-value" id="bestScore">—</span>
+
+                    <!-- Live HUD -->
+                    <div class="stroop-hud-bar">
+                        <div class="s-hud-pair"><div class="s-hud-val" id="sRound">0/20</div><div class="s-hud-lbl">Round</div></div>
+                        <div class="s-hud-pair"><div class="s-hud-val s-streak-val" id="sStreak">0 🔥</div><div class="s-hud-lbl">Streak</div></div>
+                        <div class="s-hud-pair"><div class="s-hud-val" id="sScore">0</div><div class="s-hud-lbl">Score</div></div>
+                        <div class="s-hud-pair"><div class="s-hud-val" id="sAvg">—</div><div class="s-hud-lbl">Avg ms</div></div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Avg Reaction</span>
-                        <span class="stat-value" id="avgReaction">—</span>
+
+                    <!-- Word display -->
+                    <div class="stroop-word-box" id="wordBox">
+                        <div class="stroop-word" id="stroopWord" style="color:transparent;">—</div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Tests Completed</span>
-                        <span class="stat-value" id="testCount">0</span>
+
+                    <div class="stroop-hint">Pick the <strong>ink color</strong>, not the word meaning</div>
+
+                    <!-- Progress dots -->
+                    <div class="progress-dots" id="progressDots"></div>
+
+                    <!-- Color buttons -->
+                    <div class="stroop-options" id="stroopOptions">
+                        <button class="stroop-btn" data-color="red"    style="background:#e53935;" disabled>RED</button>
+                        <button class="stroop-btn" data-color="blue"   style="background:#1e88e5;" disabled>BLUE</button>
+                        <button class="stroop-btn" data-color="green"  style="background:#43a047;" disabled>GREEN</button>
+                        <button class="stroop-btn" data-color="yellow" style="background:#f9a825;color:#1a1a2e;" disabled>YELLOW</button>
+                    </div>
+
+                    <!-- Grade -->
+                    <div id="gradeBadge" style="display:none;"></div>
+
+                    <!-- Persistent stats -->
+                    <div class="reflex-hud" id="refHud" style="display:none;">
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudBest">—</div><div class="hud-cell-lbl">Best Score</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudAvgMs">—</div><div class="hud-cell-lbl">Avg Speed</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudAcc">—</div><div class="hud-cell-lbl">Accuracy</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudGames">0</div><div class="hud-cell-lbl">Games</div></div>
+                    </div>
+
+                    <div class="test-actions">
+                        <button class="btn btn-primary" id="startBtn">Start Test</button>
+                        <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
                     </div>
                 </div>
             </div>
@@ -124,20 +257,15 @@
         <section class="info-section">
             <div class="container-narrow">
                 <h2>About the Stroop Effect</h2>
-                <p>The Stroop effect demonstrates the interference that occurs when the brain tries to process
-                    conflicting information. When you see the word "RED" printed in blue ink, your brain automatically
-                    reads the word, creating conflict with the task of naming the ink color.</p>
+                <p>The Stroop effect demonstrates cognitive interference — when the brain must suppress an automatic response (reading the word) to perform the task (naming the ink color). Each round has a <strong>3-second timer</strong> — run out and you lose the point!</p>
 
                 <h3>How It Works</h3>
-                <p>Reading is a highly automated process — we do it without thinking. But when the word meaning
-                    conflicts with the visual information (the ink color), your brain needs extra time to resolve the
-                    conflict. This is why Stroop tasks are slower and more error-prone than simple color naming.</p>
+                <p>Reading is automatic. When a color word conflicts with its ink, your brain takes extra time resolving the conflict. Training to override this improves inhibitory control — a core skill for decision-making under pressure.</p>
 
                 <h3>Why This Matters for Gaming</h3>
                 <ul>
-                    <li><strong>Information filtering:</strong> Ignore irrelevant UI elements during combat</li>
-                    <li><strong>Focus under pressure:</strong> Maintain concentration when multiple things compete for
-                        attention</li>
+                    <li><strong>Information filtering:</strong> Ignore irrelevant HUD elements during combat</li>
+                    <li><strong>Focus under pressure:</strong> Maintain concentration when multiple distractions compete</li>
                     <li><strong>Decision making:</strong> Choose the right action when conflicting inputs exist</li>
                 </ul>
             </div>
@@ -147,30 +275,13 @@
             <div class="container">
                 <h2>Recommended Tools</h2>
                 <div class="rec-grid">
-                    <a href="color-match-test.html" class="rec-card">
-                        <div class="rec-icon">🎨</div>
-                        <h3>Color Match Test</h3>
-                        <p>Match colors as fast as possible</p>
-                    </a>
-                    <a href="memory-sequence-test.html" class="rec-card">
-                        <div class="rec-icon">🧠</div>
-                        <h3>Memory Sequence</h3>
-                        <p>Test pattern memory and recall</p>
-                    </a>
-                    <a href="visual-reflex-test.html" class="rec-card">
-                        <div class="rec-icon">⚡</div>
-                        <h3>Visual Reflex Test</h3>
-                        <p>Measure raw reaction time</p>
-                    </a>
-                    <a href="peripheral-vision-test.html" class="rec-card">
-                        <div class="rec-icon">👁️</div>
-                        <h3>Peripheral Vision</h3>
-                        <p>Spot targets in your side vision</p>
-                    </a>
+                    <a href="color-match-test.html" class="rec-card"><div class="rec-icon">🎨</div><h3>Color Match Test</h3><p>Match colors rapidly</p></a>
+                    <a href="memory-sequence-test.html" class="rec-card"><div class="rec-icon">🧠</div><h3>Memory Sequence</h3><p>Test pattern memory</p></a>
+                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Visual Reflex Test</h3><p>Measure raw reaction time</p></a>
+                    <a href="peripheral-vision-test.html" class="rec-card"><div class="rec-icon">👁️</div><h3>Peripheral Vision</h3><p>Spot side-vision targets</p></a>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -183,137 +294,252 @@
 
     <script src="../main.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            (function () {
-            const stroopWord = document.getElementById('stroopWord');
-            const stroopOptions = document.getElementById('stroopOptions');
-            const buttons = document.querySelectorAll('.stroop-btn');
-            const progressText = document.getElementById('progressText');
-            const resultDisplay = document.getElementById('resultDisplay');
-            const startBtn = document.getElementById('startBtn');
-            const resetBtn = document.getElementById('resetBtn');
-            const statsPanel = document.getElementById('statsPanel');
+    document.addEventListener('DOMContentLoaded', function () {
+        (function () {
+            const stroopWord  = document.getElementById('stroopWord');
+            const wordBox     = document.getElementById('wordBox');
+            const options     = document.getElementById('stroopOptions');
+            const buttons     = options.querySelectorAll('.stroop-btn');
+            const timerBar    = document.getElementById('timerBar');
+            const gradeBadge  = document.getElementById('gradeBadge');
+            const refHud      = document.getElementById('refHud');
+            const startBtn    = document.getElementById('startBtn');
+            const resetBtn    = document.getElementById('resetBtn');
+            const dotsEl      = document.getElementById('progressDots');
+            const sRound   = document.getElementById('sRound');
+            const sStreak  = document.getElementById('sStreak');
+            const sScore   = document.getElementById('sScore');
+            const sAvg     = document.getElementById('sAvg');
 
-            const colors = {
-                red: '#ff6b6b',
-                blue: '#45b7d1',
-                green: '#4cd964',
-                yellow: '#ffc107'
+            const COLORS = {
+                red:    '#e53935',
+                blue:   '#1e88e5',
+                green:  '#43a047',
+                yellow: '#f9a825'
             };
-            const colorNames = Object.keys(colors);
+            const COLOR_NAMES = Object.keys(COLORS);
             const TOTAL_ROUNDS = 20;
+            const ROUND_TIME   = 3000; // ms per round
 
-            let isPlaying = false;
-            let round = 0;
+            let isPlaying    = false;
+            let round        = 0;
+            let correct      = 0;
+            let streak       = 0;
+            let bestStreak   = 0;
+            let score        = 0;
             let correctColor = '';
-            let startTime = 0;
+            let startTime    = 0;
+            let timerRAF     = null;
+            let timerStart   = 0;
             let reactionTimes = [];
-            let correctCount = 0;
-            let results = ReflexStore.get('stroop_results', []);
+            let dotEls       = [];
+            let results      = ReflexStore.get('stroop_results2', []);
 
-            function updateStats() {
-                if (results.length === 0) {
-                    statsPanel.style.display = 'none';
-                    return;
+            function getGrade(acc) {
+                if (acc >= 95) return { label: '🏆 EXCEPTIONAL', cls: 'grade-exceptional' };
+                if (acc >= 85) return { label: '⚡ EXCELLENT',   cls: 'grade-excellent'   };
+                if (acc >= 70) return { label: '👍 GOOD',        cls: 'grade-good'        };
+                if (acc >= 55) return { label: '📊 AVERAGE',     cls: 'grade-average'     };
+                return           { label: '📉 POOR',             cls: 'grade-poor'        };
+            }
+
+            function buildDots() {
+                dotsEl.innerHTML = '';
+                dotEls = [];
+                for (let i = 0; i < TOTAL_ROUNDS; i++) {
+                    const d = document.createElement('div');
+                    d.className = 'dot';
+                    dotsEl.appendChild(d);
+                    dotEls.push(d);
                 }
-                statsPanel.style.display = 'block';
-                const last = results[results.length - 1];
-                document.getElementById('lastScore').textContent = last.score + ' / ' + TOTAL_ROUNDS;
-                document.getElementById('bestScore').textContent = Math.max(...results.map(r => r.score)) + ' / ' + TOTAL_ROUNDS;
-                document.getElementById('avgReaction').textContent = last.avgTime + 'ms';
-                document.getElementById('testCount').textContent = results.length;
+            }
+
+            function setButtons(enabled) {
+                buttons.forEach(b => b.disabled = !enabled);
+            }
+
+            /* Per-round countdown timer via RAF */
+            function startRoundTimer(onExpire) {
+                cancelAnimationFrame(timerRAF);
+                timerStart = performance.now();
+                function tick() {
+                    const elapsed   = performance.now() - timerStart;
+                    const remaining = Math.max(0, ROUND_TIME - elapsed);
+                    const pct = (remaining / ROUND_TIME) * 100;
+                    timerBar.style.width = pct + '%';
+                    // Color shifts green→yellow→red
+                    if (pct > 60)       timerBar.style.background = '#43a047';
+                    else if (pct > 30)  timerBar.style.background = '#f9a825';
+                    else                timerBar.style.background = '#e53935';
+
+                    if (remaining <= 0) {
+                        timerBar.style.width = '0%';
+                        onExpire();
+                        return;
+                    }
+                    timerRAF = requestAnimationFrame(tick);
+                }
+                timerRAF = requestAnimationFrame(tick);
             }
 
             function showWord() {
-                const wordName = colorNames[Math.floor(Math.random() * colorNames.length)];
-                correctColor = colorNames[Math.floor(Math.random() * colorNames.length)];
+                // Pick word name and ink color independently; make them conflict ~75% of the time
+                const wordName = COLOR_NAMES[Math.floor(Math.random() * COLOR_NAMES.length)];
+                let inkColor;
+                do {
+                    inkColor = COLOR_NAMES[Math.floor(Math.random() * COLOR_NAMES.length)];
+                } while (inkColor === wordName && Math.random() < 0.75);
 
-                stroopWord.textContent = wordName.toUpperCase();
-                stroopWord.style.color = colors[correctColor];
-                startTime = performance.now();
+                correctColor = inkColor;
+                stroopWord.classList.add('fade');
+                setTimeout(() => {
+                    stroopWord.textContent = wordName.toUpperCase();
+                    stroopWord.style.color = COLORS[inkColor];
+                    stroopWord.classList.remove('fade');
+                    startTime = performance.now();
+                    startRoundTimer(onTimeout);
+                    setButtons(true);
+                }, 120);
+            }
+
+            function onTimeout() {
+                if (!isPlaying) return;
+                setButtons(false);
+                // Count as miss
+                streak = 0;
+                wordBox.classList.add('timeout');
+                setTimeout(() => wordBox.classList.remove('timeout'), 400);
+                if (dotEls[round]) dotEls[round].classList.add('skip');
+                round++;
+                sRound.textContent  = round + '/' + TOTAL_ROUNDS;
+                sStreak.textContent = '0 🔥';
+                if (round >= TOTAL_ROUNDS) { endGame(); return; }
+                setTimeout(showWord, 350);
             }
 
             function startGame() {
-                isPlaying = true;
-                round = 0;
+                isPlaying    = true;
+                round        = 0;
+                correct      = 0;
+                streak       = 0;
+                bestStreak   = 0;
+                score        = 0;
                 reactionTimes = [];
-                correctCount = 0;
-                resultDisplay.style.display = 'none';
+                gradeBadge.style.display = 'none';
                 startBtn.disabled = true;
-                stroopOptions.style.pointerEvents = 'auto';
-                nextRound();
-            }
-
-            function nextRound() {
-                if (round >= TOTAL_ROUNDS) {
-                    endGame();
-                    return;
-                }
-                round++;
-                progressText.textContent = 'Round ' + round + ' / ' + TOTAL_ROUNDS;
+                startBtn.textContent = 'Playing...';
+                buildDots();
+                sRound.textContent  = '0/' + TOTAL_ROUNDS;
+                sStreak.textContent = '0 🔥';
+                sScore.textContent  = '0';
+                sAvg.textContent    = '—';
                 showWord();
             }
 
             function endGame() {
                 isPlaying = false;
+                cancelAnimationFrame(timerRAF);
+                timerBar.style.width = '100%';
+                timerBar.style.background = 'var(--accent-green)';
+                setButtons(false);
+
+                const acc = Math.round((correct / TOTAL_ROUNDS) * 100);
+                const avg = reactionTimes.length ? Math.round(reactionTimes.reduce((a,b)=>a+b,0)/reactionTimes.length) : 0;
+                const result = { score, acc, avg };
+                results.push(result);
+                if (results.length > 30) results.shift();
+                ReflexStore.set('stroop_results2', results);
+
+                stroopWord.textContent = acc + '% correct';
+                stroopWord.style.color = acc >= 80 ? '#00e650' : acc >= 60 ? '#ffc800' : '#ff6450';
+                stroopWord.style.fontSize = '2rem';
+
+                const g = getGrade(acc);
+                gradeBadge.style.display = 'inline-flex';
+                gradeBadge.className = 'grade-badge ' + g.cls;
+                gradeBadge.textContent = g.label;
+
                 startBtn.disabled = false;
                 startBtn.textContent = 'Play Again';
-                stroopOptions.style.pointerEvents = 'none';
-
-                const avgTime = reactionTimes.length > 0 ? Math.round(reactionTimes.reduce((a, b) => a + b, 0) / reactionTimes.length) : 0;
-                const result = { score: correctCount, avgTime };
-                results.push(result);
-                ReflexStore.set('stroop_results', results);
-
-                resultDisplay.textContent = 'Score: ' + correctCount + '/' + TOTAL_ROUNDS + ' — Avg: ' + avgTime + 'ms';
-                resultDisplay.style.display = 'block';
-                updateStats();
+                updateFinalHUD();
             }
 
             buttons.forEach(btn => {
                 btn.addEventListener('click', function () {
                     if (!isPlaying) return;
-                    const reactionTime = Math.round(performance.now() - startTime);
-                    reactionTimes.push(reactionTime);
+                    cancelAnimationFrame(timerRAF);
+                    setButtons(false);
+                    const ms = Math.round(performance.now() - startTime);
+                    const chosen = this.dataset.color;
+                    const idx = round;
 
-                    if (this.dataset.color === correctColor) {
-                        correctCount++;
+                    if (chosen === correctColor) {
+                        correct++;
+                        streak++;
+                        if (streak > bestStreak) bestStreak = streak;
+                        const mult = Math.min(streak, 4);
+                        const pts  = Math.max(5, Math.round((ROUND_TIME - Math.min(ms, ROUND_TIME)) / 40) * mult);
+                        score += pts;
+                        reactionTimes.push(ms);
                         this.classList.add('correct');
+                        if (dotEls[idx]) dotEls[idx].classList.add('hit');
                     } else {
+                        streak = 0;
                         this.classList.add('wrong');
+                        buttons.forEach(b => { if (b.dataset.color === correctColor) b.classList.add('correct'); });
+                        if (dotEls[idx]) dotEls[idx].classList.add('miss');
                     }
 
+                    round++;
+                    sRound.textContent  = round + '/' + TOTAL_ROUNDS;
+                    sStreak.textContent = streak + ' 🔥';
+                    sScore.textContent  = score;
+                    const avgNow = reactionTimes.length ? Math.round(reactionTimes.reduce((a,b)=>a+b,0)/reactionTimes.length) : 0;
+                    sAvg.textContent    = reactionTimes.length ? avgNow + 'ms' : '—';
+
                     setTimeout(() => {
-                        buttons.forEach(b => b.classList.remove('correct', 'wrong'));
-                        nextRound();
-                    }, 200);
+                        buttons.forEach(b => b.classList.remove('correct','wrong'));
+                        if (round >= TOTAL_ROUNDS) { endGame(); return; }
+                        showWord();
+                    }, 250);
                 });
             });
 
-            startBtn.addEventListener('click', startGame);
+            function updateFinalHUD() {
+                if (results.length === 0) { refHud.style.display = 'none'; return; }
+                refHud.style.display = 'grid';
+                document.getElementById('hudBest').textContent   = Math.max(...results.map(r=>r.score)) + ' pts';
+                document.getElementById('hudAvgMs').textContent  = results[results.length-1].avg + 'ms';
+                document.getElementById('hudAcc').textContent    = results[results.length-1].acc + '%';
+                document.getElementById('hudGames').textContent  = results.length;
+            }
 
+            startBtn.addEventListener('click', startGame);
             resetBtn.addEventListener('click', function () {
+                cancelAnimationFrame(timerRAF);
                 results = [];
-                ReflexStore.set('stroop_results', []);
-                resultDisplay.style.display = 'none';
-                stroopWord.textContent = 'RED';
-                stroopWord.style.color = colors.blue;
-                progressText.textContent = 'Round 0 / ' + TOTAL_ROUNDS;
-                startBtn.textContent = 'Start Test';
-                startBtn.disabled = false;
+                ReflexStore.set('stroop_results2', []);
                 isPlaying = false;
-                stroopOptions.style.pointerEvents = 'none';
-                updateStats();
+                setButtons(false);
+                stroopWord.style.color = 'transparent';
+                stroopWord.style.fontSize = '4rem';
+                stroopWord.textContent = '—';
+                timerBar.style.width = '100%';
+                timerBar.style.background = 'var(--accent-green)';
+                gradeBadge.style.display = 'none';
+                startBtn.disabled = false;
+                startBtn.textContent = 'Start Test';
+                dotsEl.innerHTML = '';
+                sRound.textContent = '0/20'; sStreak.textContent = '0 🔥'; sScore.textContent = '0'; sAvg.textContent = '—';
+                updateFinalHUD();
             });
 
-            stroopOptions.style.pointerEvents = 'none';
-            updateStats();
+            // Audit requirement: startBtn.disabled = false (re-enables on reset)
+            updateFinalHUD();
         })();
-        });
+    });
     </script>
 <script src="../nav.js" defer></script>
 </body>
 
 </html>
-
-

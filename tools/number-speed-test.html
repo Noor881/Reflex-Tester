@@ -10,22 +10,15 @@
     <meta name="keywords"
         content="number speed test, number processing test, click numbers in order, number game, schulte table, cognitive speed test, brain speed test, number reaction test, processing speed test, mental speed test, number sequence game, brain game free">
     <link rel="canonical" href="https://reflextester.fun/tools/number-speed-test.html">
-
-    <!-- Open Graph -->
     <meta property="og:title" content="Number Speed Test — Click Numbers in Order">
-    <meta property="og:description"
-        content="How fast can you process numbers? Click 1 through 25 in order as fast as possible.">
+    <meta property="og:description" content="How fast can you process numbers? Press the matching key when you see 1-9. Free cognitive speed test.">
     <meta property="og:url" content="https://reflextester.fun/tools/number-speed-test.html">
     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Number Speed Test — Click Numbers in Order">
-    <meta name="twitter:description"
-        content="How fast can you process numbers? Average time is 35 seconds — can you go faster?">
-
+    <meta name="twitter:description" content="React to numbers by pressing the matching key or button. Free cognitive speed test.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -37,9 +30,124 @@
         "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD" }
     }
     </script>
-
     <link rel="stylesheet" href="../styles.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <style>
+        .num-arena {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 28px 16px;
+        }
+
+        /* Big number display */
+        .number-box {
+            position: relative;
+            width: min(320px, 88vw);
+            height: 180px;
+            border-radius: 20px;
+            background: #0e0e22;
+            border: 2px solid #2a2a4a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .number-box.idle    { border-color: #2a2a4a; }
+        .number-box.ready   { border-color: var(--accent-red); box-shadow: 0 0 20px rgba(255,80,80,0.2); }
+        .number-box.active  { border-color: var(--accent-cyan); box-shadow: 0 0 30px rgba(0,200,255,0.3); }
+        .number-box.correct { border-color: var(--accent-green); box-shadow: 0 0 25px rgba(0,230,80,0.3); animation: numCorrect 0.3s ease-out; }
+        .number-box.wrong   { border-color: var(--accent-red); animation: numWrong 0.4s ease-out; }
+        .number-box.early   { border-color: var(--accent-orange); }
+
+        @keyframes numCorrect { 0%{transform:scale(1.03);}100%{transform:scale(1);} }
+        @keyframes numWrong   { 0%,40%,80%{transform:translateX(-5px);}20%,60%{transform:translateX(5px);}100%{} }
+
+        .num-display {
+            font-size: 6rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            line-height: 1;
+            transition: color 0.12s;
+        }
+        .num-status {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* Keyboard number buttons (1–9 visible) */
+        .num-pad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            width: min(280px, 86vw);
+        }
+        .num-pad-btn {
+            height: 60px;
+            border-radius: 12px;
+            border: 2px solid var(--border-subtle);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 1.4rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.1s, background 0.1s, border-color 0.15s, box-shadow 0.15s;
+        }
+        .num-pad-btn:hover { background: var(--bg-tertiary); transform: scale(1.04); }
+        .num-pad-btn:active { transform: scale(0.96); }
+        .num-pad-btn.pressed-correct {
+            background: rgba(0,230,80,0.15);
+            border-color: var(--accent-green);
+            box-shadow: 0 0 14px rgba(0,230,80,0.3);
+            animation: btnFlash 0.25s ease-out;
+        }
+        .num-pad-btn.pressed-wrong {
+            background: rgba(255,80,80,0.15);
+            border-color: var(--accent-red);
+            animation: numWrong 0.4s ease-out;
+        }
+        @keyframes btnFlash { 0%{transform:scale(1.1);}100%{transform:scale(1);} }
+
+        /* Key hint row */
+        .key-hint {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        .key-hint kbd {
+            display: inline-block;
+            padding: 1px 6px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+        }
+
+        /* Grade & stats */
+        .grade-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 16px; border-radius:20px; font-size:0.85rem; font-weight:700; letter-spacing:0.05em; border:1px solid; }
+        .grade-exceptional { background:rgba(0,230,80,0.1); color:#00e650; border-color:rgba(0,230,80,0.3); }
+        .grade-excellent { background:rgba(0,200,255,0.1); color:#00c8ff; border-color:rgba(0,200,255,0.3); }
+        .grade-good { background:rgba(100,180,255,0.1); color:#64b4ff; border-color:rgba(100,180,255,0.3); }
+        .grade-average { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
+        .grade-poor { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
+
+        .reflex-hud { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; width:100%; max-width:380px; }
+        .hud-cell { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:12px 8px; text-align:center; }
+        .hud-cell-val { font-size:1.1rem; font-weight:700; color:var(--text-primary); margin-bottom:2px; }
+        .hud-cell-lbl { font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; }
+        .history-bars { display:flex; align-items:flex-end; gap:4px; height:40px; max-width:380px; width:100%; }
+        .history-bar { flex:1; border-radius:3px 3px 0 0; min-height:4px; }
+
+        @media(max-width:480px) {
+            .reflex-hud { grid-template-columns:repeat(2,1fr); }
+            .num-display { font-size:4.5rem; }
+        }
+    </style>
 </head>
 
 <body>
@@ -75,36 +183,46 @@
         <section class="test-area">
             <div class="test-panel active">
                 <h1>🔢 Number Speed Test</h1>
-                <p class="test-desc">A number from 1-9 will appear on screen. Click the matching number key on your
-                    keyboard as fast as possible!</p>
+                <p class="test-desc">A random number (1–9) appears. Press the matching key — or tap the button on mobile. React as fast as you can!</p>
 
-                <div class="number-display" id="numberDisplay">
-                    <span id="displayText">Press any key to start</span>
-                </div>
+                <div class="num-arena">
 
-                <div class="reaction-display" id="reactionDisplay" style="display: none;"></div>
-
-                <div class="test-actions">
-                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
-                </div>
-
-                <div class="stats-panel" id="statsPanel" style="display: none;">
-                    <h4>🔢 Your Results</h4>
-                    <div class="stat-row">
-                        <span class="stat-label">Latest Time</span>
-                        <span class="stat-value" id="latestTime">—</span>
+                    <!-- Number display box -->
+                    <div class="number-box idle" id="numberBox">
+                        <div class="num-display" id="numDisplay">?</div>
+                        <div class="num-status" id="numStatus">Tap a button or press any number key to start</div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Best Time</span>
-                        <span class="stat-value" id="bestTime">—</span>
+
+                    <!-- Grade badge -->
+                    <div id="gradeBadge" style="display:none;"></div>
+
+                    <!-- Numpad buttons (mobile + desktop) -->
+                    <div class="num-pad" id="numPad">
+                        <button class="num-pad-btn" data-num="7">7</button>
+                        <button class="num-pad-btn" data-num="8">8</button>
+                        <button class="num-pad-btn" data-num="9">9</button>
+                        <button class="num-pad-btn" data-num="4">4</button>
+                        <button class="num-pad-btn" data-num="5">5</button>
+                        <button class="num-pad-btn" data-num="6">6</button>
+                        <button class="num-pad-btn" data-num="1">1</button>
+                        <button class="num-pad-btn" data-num="2">2</button>
+                        <button class="num-pad-btn" data-num="3">3</button>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Average Time</span>
-                        <span class="stat-value" id="avgTime">—</span>
+
+                    <div class="key-hint">Keyboard: <kbd>1</kbd>–<kbd>9</kbd> number keys also work</div>
+
+                    <!-- Persistent stats HUD -->
+                    <div class="reflex-hud" id="refHud" style="display:none;">
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudBest">—</div><div class="hud-cell-lbl">Best</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudAvg">—</div><div class="hud-cell-lbl">Average</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudAcc">—</div><div class="hud-cell-lbl">Accuracy</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudCount">0</div><div class="hud-cell-lbl">Attempts</div></div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Accuracy</span>
-                        <span class="stat-value" id="accuracy">—</span>
+
+                    <div class="history-bars" id="historyBars" style="display:none;"></div>
+
+                    <div class="test-actions">
+                        <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
                     </div>
                 </div>
             </div>
@@ -113,24 +231,20 @@
         <section class="info-section">
             <div class="container-narrow">
                 <h2>About the Number Speed Test</h2>
-                <p>The number speed test measures how quickly you can recognize and respond to numerical stimuli. This
-                    involves symbol recognition, short-term memory recall, and motor response — all compressed into
-                    milliseconds.</p>
+                <p>A random digit 1–9 appears on screen. Press the matching number key (<em>or tap the on-screen button on mobile</em>) as fast as possible. The test measures both reaction time and accuracy. You can use the on-screen numpad or the keyboard number row — no numpad required!</p>
 
                 <h3>Why Number Processing Matters</h3>
                 <ul>
-                    <li><strong>In-game HUD reading:</strong> Process ammo counts, health values, and timers instantly
-                    </li>
-                    <li><strong>Economy management:</strong> Quick calculations for buy rounds and resource tracking
-                    </li>
+                    <li><strong>In-game HUD reading:</strong> Process ammo counts, health values, and timers instantly</li>
+                    <li><strong>Economy management:</strong> Quick calculations for buy rounds and resource tracking</li>
                     <li><strong>Callouts:</strong> Instantly recognize and communicate enemy counts and positions</li>
                 </ul>
 
                 <h3>Tips for Improvement</h3>
                 <ul>
-                    <li>Use the number row keys rather than the numpad for faster access</li>
-                    <li>Keep your fingers positioned near the number keys during practice</li>
+                    <li>Keep fingers near the number keys between rounds</li>
                     <li>Focus on the center of the screen where the number appears</li>
+                    <li>Mobile: Position thumbs near the center buttons for fastest average</li>
                 </ul>
             </div>
         </section>
@@ -139,30 +253,13 @@
             <div class="container">
                 <h2>Recommended Tools</h2>
                 <div class="rec-grid">
-                    <a href="memory-sequence-test.html" class="rec-card">
-                        <div class="rec-icon">🧠</div>
-                        <h3>Memory Sequence</h3>
-                        <p>Test pattern memory and recall</p>
-                    </a>
-                    <a href="typing-speed-test.html" class="rec-card">
-                        <div class="rec-icon">⌨️</div>
-                        <h3>Typing Speed Test</h3>
-                        <p>Measure WPM and accuracy</p>
-                    </a>
-                    <a href="click-speed-test.html" class="rec-card">
-                        <div class="rec-icon">🖱️</div>
-                        <h3>Click Speed Test</h3>
-                        <p>Measure your CPS rate</p>
-                    </a>
-                    <a href="color-match-test.html" class="rec-card">
-                        <div class="rec-icon">🎨</div>
-                        <h3>Color Match Test</h3>
-                        <p>Match colors quickly</p>
-                    </a>
+                    <a href="memory-sequence-test.html" class="rec-card"><div class="rec-icon">🧠</div><h3>Memory Sequence</h3><p>Test pattern memory and recall</p></a>
+                    <a href="typing-speed-test.html" class="rec-card"><div class="rec-icon">⌨️</div><h3>Typing Speed Test</h3><p>Measure WPM and accuracy</p></a>
+                    <a href="click-speed-test.html" class="rec-card"><div class="rec-icon">🖱️</div><h3>Click Speed Test</h3><p>Measure your CPS rate</p></a>
+                    <a href="color-match-test.html" class="rec-card"><div class="rec-icon">🎨</div><h3>Color Match Test</h3><p>Match colors quickly</p></a>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -175,114 +272,172 @@
 
     <script src="../main.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            (function () {
-            const numberDisplay = document.getElementById('numberDisplay');
-            const displayText = document.getElementById('displayText');
-            const reactionDisplay = document.getElementById('reactionDisplay');
-            const resetBtn = document.getElementById('resetBtn');
-            const statsPanel = document.getElementById('statsPanel');
+    document.addEventListener('DOMContentLoaded', function () {
+        (function () {
+            const numBox    = document.getElementById('numberBox');
+            const numDisp   = document.getElementById('numDisplay');
+            const numStatus = document.getElementById('numStatus');
+            const gradeBadge= document.getElementById('gradeBadge');
+            const refHud    = document.getElementById('refHud');
+            const histBars  = document.getElementById('historyBars');
+            const resetBtn  = document.getElementById('resetBtn');
+            const padBtns   = document.querySelectorAll('.num-pad-btn');
 
-            let currentNumber = null;
+            let current   = null;
             let startTime = 0;
-            let state = 'waiting';
+            let state     = 'waiting';  // 'waiting' | 'ready' | 'active'
             let timeoutId = null;
-            let results = ReflexStore.get('number_results', []);
-            let correct = ReflexStore.get('number_correct', 0);
-            let total = ReflexStore.get('number_total', 0);
+            let results   = ReflexStore.get('number_results2', []);
+            let correct   = ReflexStore.get('number_correct2', 0);
+            let total     = ReflexStore.get('number_total2', 0);
 
-            function updateStats() {
-                if (results.length === 0) {
-                    statsPanel.style.display = 'none';
-                    return;
-                }
-                statsPanel.style.display = 'block';
-                document.getElementById('latestTime').textContent = results[results.length - 1] + 'ms';
-                document.getElementById('bestTime').textContent = Math.min(...results) + 'ms';
-                document.getElementById('avgTime').textContent = Math.round(results.reduce((a, b) => a + b, 0) / results.length) + 'ms';
-                document.getElementById('accuracy').textContent = total > 0 ? Math.round((correct / total) * 100) + '%' : '—';
+            function getGrade(ms) {
+                if (ms < 200) return { label: '🏆 EXCEPTIONAL', cls: 'grade-exceptional' };
+                if (ms < 280) return { label: '⚡ EXCELLENT',   cls: 'grade-excellent'   };
+                if (ms < 380) return { label: '👍 GOOD',        cls: 'grade-good'        };
+                if (ms < 500) return { label: '📊 AVERAGE',     cls: 'grade-average'     };
+                return           { label: '📉 POOR',             cls: 'grade-poor'        };
+            }
+
+            function setState(s) {
+                state = s;
+                numBox.className = 'number-box ' + s;
+            }
+
+            function updateHUD() {
+                if (results.length === 0) { refHud.style.display = 'none'; histBars.style.display = 'none'; return; }
+                refHud.style.display = 'grid';
+                const best = Math.min(...results);
+                const avg  = Math.round(results.reduce((a,b)=>a+b,0)/results.length);
+                const acc  = total > 0 ? Math.round((correct/total)*100) : 0;
+                document.getElementById('hudBest').textContent  = best + 'ms';
+                document.getElementById('hudAvg').textContent   = avg  + 'ms';
+                document.getElementById('hudAcc').textContent   = acc  + '%';
+                document.getElementById('hudCount').textContent = total;
+
+                const recent = results.slice(-10);
+                const maxV = Math.max(...recent);
+                histBars.style.display = 'flex';
+                histBars.innerHTML = recent.map(v => {
+                    const pct = Math.max(10, Math.round((v / Math.max(maxV, 500)) * 100));
+                    const g = getGrade(v);
+                    const colors = {'grade-exceptional':'#00e650','grade-excellent':'#00c8ff','grade-good':'#64b4ff','grade-average':'#ffc800','grade-poor':'#ff6450'};
+                    return `<div class="history-bar" title="${v}ms" style="height:${pct}%;background:${colors[g.cls]};"></div>`;
+                }).join('');
             }
 
             function showNumber() {
-                currentNumber = Math.floor(Math.random() * 9) + 1;
-                displayText.textContent = currentNumber;
-                displayText.style.fontSize = '6rem';
-                numberDisplay.classList.add('active');
+                current = Math.floor(Math.random() * 9) + 1;
+                numDisp.textContent = current;
+                numDisp.style.color = '';
+                numStatus.textContent = 'Press the matching key!';
                 startTime = performance.now();
-                state = 'active';
+                setState('active');
             }
 
             function startRound() {
-                state = 'ready';
-                displayText.textContent = 'Get ready...';
-                displayText.style.fontSize = '1.5rem';
-                reactionDisplay.style.display = 'none';
-                numberDisplay.classList.remove('active');
+                clearTimeout(timeoutId);
+                setState('ready');
+                numDisp.textContent = '…';
+                numDisp.style.color = 'var(--text-muted)';
+                numStatus.textContent = 'Get ready…';
+                gradeBadge.style.display = 'none';
 
-                timeoutId = setTimeout(() => {
-                    showNumber();
-                }, 1000 + Math.random() * 2000);
+                timeoutId = setTimeout(() => showNumber(), 800 + Math.random() * 1800);
             }
 
-            function handleKeyPress(e) {
-                if (e.key >= '1' && e.key <= '9') {
-                    if (state === 'waiting') {
-                        startRound();
-                    } else if (state === 'ready') {
-                        clearTimeout(timeoutId);
-                        displayText.textContent = 'Too early! Press any key...';
-                        state = 'waiting';
-                    } else if (state === 'active') {
-                        const reactionTime = Math.round(performance.now() - startTime);
-                        const pressed = parseInt(e.key);
-                        total++;
+            function handleInput(pressed) {
+                pressed = parseInt(pressed);
+                if (state === 'waiting') {
+                    startRound();
+                } else if (state === 'ready') {
+                    clearTimeout(timeoutId);
+                    setState('early');
+                    numDisp.textContent = '!';
+                    numDisp.style.color = 'var(--accent-orange)';
+                    numStatus.textContent = 'Too early! Tap again to continue.';
+                } else if (state === 'active') {
+                    const ms = Math.round(performance.now() - startTime);
+                    total++;
 
-                        if (pressed === currentNumber) {
-                            correct++;
-                            results.push(reactionTime);
-                            reactionDisplay.textContent = reactionTime + 'ms ✓';
-                            reactionDisplay.style.color = 'var(--accent-green)';
-                        } else {
-                            reactionDisplay.textContent = 'Wrong! Was ' + currentNumber;
-                            reactionDisplay.style.color = 'var(--accent-red)';
+                    if (pressed === current) {
+                        correct++;
+                        results.push(ms);
+                        if (results.length > 100) results.shift();
+
+                        const g = getGrade(ms);
+                        gradeBadge.style.display = 'inline-flex';
+                        gradeBadge.className = 'grade-badge ' + g.cls;
+                        gradeBadge.textContent = g.label + '  ' + ms + 'ms';
+
+                        numDisp.style.color = 'var(--accent-green)';
+                        numStatus.textContent = '✓ ' + ms + 'ms — tap again for next';
+                        setState('correct');
+                        highlightBtn(pressed, true);
+                    } else {
+                        numDisp.style.color = 'var(--accent-red)';
+                        numStatus.textContent = '✗ Wrong! Was ' + current + ' — tap to continue';
+                        setState('wrong');
+                        highlightBtn(pressed, false);
+                        // Show correct one briefly
+                        const correctBtn = document.querySelector(`.num-pad-btn[data-num="${current}"]`);
+                        if (correctBtn) {
+                            correctBtn.classList.add('pressed-correct');
+                            setTimeout(() => correctBtn.classList.remove('pressed-correct'), 500);
                         }
-
-                        reactionDisplay.style.display = 'block';
-                        ReflexStore.set('number_results', results);
-                        ReflexStore.set('number_correct', correct);
-                        ReflexStore.set('number_total', total);
-                        updateStats();
-
-                        numberDisplay.classList.remove('active');
-                        displayText.textContent = 'Press any key...';
-                        displayText.style.fontSize = '1.5rem';
-                        state = 'waiting';
                     }
+
+                    ReflexStore.set('number_results2', results);
+                    ReflexStore.set('number_correct2', correct);
+                    ReflexStore.set('number_total2', total);
+                    updateHUD();
+
+                } else if (state === 'correct' || state === 'wrong' || state === 'early') {
+                    startRound();
                 }
             }
 
-            document.addEventListener('keydown', handleKeyPress);
+            function highlightBtn(num, isCorrect) {
+                const btn = document.querySelector(`.num-pad-btn[data-num="${num}"]`);
+                if (!btn) return;
+                btn.classList.add(isCorrect ? 'pressed-correct' : 'pressed-wrong');
+                setTimeout(() => btn.classList.remove('pressed-correct', 'pressed-wrong'), 400);
+            }
 
-            resetBtn.addEventListener('click', function () {
-                results = [];
-                correct = 0;
-                total = 0;
-                ReflexStore.set('number_results', []);
-                ReflexStore.set('number_correct', 0);
-                ReflexStore.set('number_total', 0);
-                reactionDisplay.style.display = 'none';
-                displayText.textContent = 'Press any key to start';
-                state = 'waiting';
-                updateStats();
+            // Numpad button clicks
+            padBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    handleInput(parseInt(this.dataset.num));
+                });
             });
 
-            updateStats();
+            // Keyboard handler
+            document.addEventListener('keydown', function (e) {
+                if (e.key >= '1' && e.key <= '9') {
+                    e.preventDefault();
+                    handleInput(e.key);
+                }
+            });
+
+            resetBtn.addEventListener('click', function () {
+                clearTimeout(timeoutId);
+                results = []; correct = 0; total = 0;
+                ReflexStore.set('number_results2', []);
+                ReflexStore.set('number_correct2', 0);
+                ReflexStore.set('number_total2', 0);
+                setState('waiting');
+                numDisp.textContent = '?';
+                numDisp.style.color = '';
+                numStatus.textContent = 'Tap a button or press any number key to start';
+                gradeBadge.style.display = 'none';
+                updateHUD();
+            });
+
+            updateHUD();
         })();
-        });
+    });
     </script>
 <script src="../nav.js" defer></script>
 </body>
 
 </html>
-
-

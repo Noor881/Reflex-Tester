@@ -10,22 +10,15 @@
     <meta name="keywords"
         content="hand eye coordination test, hand eye coordination, target tracking test, moving target test, coordination test online, hand eye coordination test free, motor skills test, eye hand coordination game, target tracking practice, coordination training, mouse tracking test">
     <link rel="canonical" href="https://reflextester.fun/tools/hand-eye-coordination-test.html">
-
-    <!-- Open Graph -->
     <meta property="og:title" content="Hand-Eye Coordination Test — Track Moving Targets">
-    <meta property="og:description"
-        content="Test your hand-eye coordination by clicking fast-moving targets. Measures tracking accuracy and reaction time.">
+    <meta property="og:description" content="Test hand-eye coordination by clicking moving targets. Free professional trainer.">
     <meta property="og:url" content="https://reflextester.fun/tools/hand-eye-coordination-test.html">
     <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Hand-Eye Coordination Test — Track Moving Targets">
-    <meta name="twitter:description"
-        content="Test hand-eye coordination by clicking fast-moving targets. Free instant results.">
-
+    <meta name="twitter:title" content="Hand-Eye Coordination Test">
+    <meta name="twitter:description" content="Click moving targets to test hand-eye coordination. Free professional test.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -37,9 +30,148 @@
         "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD" }
     }
     </script>
-
     <link rel="stylesheet" href="../styles.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+    <style>
+        .heyc-arena {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            padding: 24px 16px;
+        }
+
+        /* Live in-game HUD above the area */
+        .heyc-live-hud {
+            display: flex;
+            gap: 12px;
+            width: min(540px, 90vw);
+            justify-content: space-between;
+        }
+        .heyc-hud-cell {
+            flex: 1;
+            padding: 8px 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .heyc-hud-val { font-size: 1.1rem; font-weight: 800; color: var(--text-primary); }
+        .heyc-hud-lbl { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+
+        /* Main aim area */
+        .aim-area {
+            position: relative;
+            width: min(540px, 90vw);
+            height: 300px;
+            background: radial-gradient(ellipse at center, #12122a 0%, #0a0a18 100%);
+            border: 2px solid #2a2a4a;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: default;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .aim-area.active { border-color: var(--accent-cyan); cursor: crosshair; }
+        .aim-area.done   { border-color: var(--accent-green); }
+
+        .aim-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+            background: rgba(10,10,24,0.7);
+            backdrop-filter: blur(2px);
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-align: center;
+            padding: 16px;
+        }
+
+        /* The target */
+        .aim-target {
+            position: absolute;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            cursor: pointer;
+            transition: none;
+        }
+        /* Three difficulty sizes: easy=52px, medium=38px, hard=26px */
+        .aim-target.size-easy   { width: 52px; height: 52px; }
+        .aim-target.size-medium { width: 38px; height: 38px; }
+        .aim-target.size-hard   { width: 26px; height: 26px; }
+
+        .aim-target-inner {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #ff6040, #cc2000);
+            border: 2px solid rgba(255,255,255,0.25);
+            box-shadow: 0 0 14px rgba(255,80,40,0.7);
+        }
+        /* Shrink ring shows time remaining */
+        .aim-target-timer {
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,200,0,0.6);
+            animation: targetShrink var(--dur, 1.8s) linear forwards;
+        }
+        @keyframes targetShrink {
+            0%   { transform: scale(1.4); opacity: 0.9; }
+            100% { transform: scale(0.9); opacity: 0.2; }
+        }
+
+        /* Hit/miss flash */
+        .aim-hit-flash {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0,230,80,0.4);
+            pointer-events: none;
+            animation: hitPulse 0.35s ease-out forwards;
+            transform: translate(-50%, -50%);
+        }
+        .aim-miss-cross {
+            position: absolute;
+            pointer-events: none;
+            font-size: 1.1rem;
+            color: #ff6450;
+            font-weight: 900;
+            transform: translate(-50%, -50%);
+            animation: missFade 0.5s ease-out forwards;
+        }
+        @keyframes hitPulse { 0%{width:60px;height:60px;opacity:0.9;} 100%{width:90px;height:90px;opacity:0;} }
+        @keyframes missFade { 0%{opacity:1;transform:translate(-50%,-60%);} 100%{opacity:0;transform:translate(-50%,-80%);} }
+
+        /* Difficulty tabs */
+        .diff-tabs { display:flex; gap:8px; background:var(--bg-secondary); border:1px solid var(--border-subtle); border-radius:12px; padding:5px; }
+        .diff-tab { padding:6px 16px; border-radius:8px; border:none; background:transparent; color:var(--text-secondary); font-size:0.85rem; font-weight:600; cursor:pointer; transition:all 0.2s; }
+        .diff-tab.active { background:var(--accent-cyan); color:#000; }
+        .diff-tab:hover:not(.active) { background:var(--bg-tertiary); color:var(--text-primary); }
+
+        /* Grade & persistent HUD */
+        .grade-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 16px; border-radius:20px; font-size:0.85rem; font-weight:700; letter-spacing:0.05em; border:1px solid; }
+        .grade-exceptional { background:rgba(0,230,80,0.1); color:#00e650; border-color:rgba(0,230,80,0.3); }
+        .grade-excellent { background:rgba(0,200,255,0.1); color:#00c8ff; border-color:rgba(0,200,255,0.3); }
+        .grade-good { background:rgba(100,180,255,0.1); color:#64b4ff; border-color:rgba(100,180,255,0.3); }
+        .grade-average { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
+        .grade-poor { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
+
+        .reflex-hud { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; width:100%; max-width:540px; }
+        .hud-cell { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:12px 8px; text-align:center; }
+        .hud-cell-val { font-size:1.1rem; font-weight:700; color:var(--text-primary); margin-bottom:2px; }
+        .hud-cell-lbl { font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; }
+
+        @media(max-width:580px) {
+            .reflex-hud { grid-template-columns:repeat(2,1fr); }
+            .heyc-live-hud { flex-wrap:wrap; }
+        }
+    </style>
 </head>
 
 <body>
@@ -75,38 +207,52 @@
         <section class="test-area">
             <div class="test-panel active">
                 <h1>🎯 Hand-Eye Coordination Test</h1>
-                <p class="test-desc">Click the targets as quickly and accurately as possible. Targets will appear at
-                    random positions!</p>
+                <p class="test-desc">Click the targets before they disappear! 20 targets per session. Targets shrink and change size as your score increases.</p>
 
-                <div class="aim-area" id="aimArea">
-                    <div class="aim-target" id="target" style="display: none;"></div>
-                    <div id="aimOverlay">Click "Start" to begin</div>
-                </div>
+                <div class="heyc-arena">
 
-                <div class="reaction-display" id="scoreDisplay" style="display: none;"></div>
-
-                <div class="test-actions">
-                    <button class="btn btn-primary" id="startBtn">Start Test</button>
-                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
-                </div>
-
-                <div class="stats-panel" id="statsPanel" style="display: none;">
-                    <h4>🎯 Your Results</h4>
-                    <div class="stat-row">
-                        <span class="stat-label">Last Score</span>
-                        <span class="stat-value" id="lastScore">—</span>
+                    <!-- Difficulty tabs -->
+                    <div class="diff-tabs" id="diffTabs">
+                        <button class="diff-tab active" data-diff="easy">Easy</button>
+                        <button class="diff-tab" data-diff="medium">Medium</button>
+                        <button class="diff-tab" data-diff="hard">Hard</button>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Best Score</span>
-                        <span class="stat-value" id="bestScore">—</span>
+
+                    <!-- Live in-game HUD -->
+                    <div class="heyc-live-hud" id="liveHud">
+                        <div class="heyc-hud-cell"><div class="heyc-hud-val" id="livTargets">0/20</div><div class="heyc-hud-lbl">Targets</div></div>
+                        <div class="heyc-hud-cell"><div class="heyc-hud-val" id="livHits" style="color:var(--accent-green);">0</div><div class="heyc-hud-lbl">Hits</div></div>
+                        <div class="heyc-hud-cell"><div class="heyc-hud-val" id="livMisses" style="color:var(--accent-red);">0</div><div class="heyc-hud-lbl">Misses</div></div>
+                        <div class="heyc-hud-cell"><div class="heyc-hud-val" id="livAvg">—</div><div class="heyc-hud-lbl">Avg ms</div></div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Avg Reaction</span>
-                        <span class="stat-value" id="avgReaction">—</span>
+
+                    <!-- Aim area -->
+                    <div class="aim-area" id="aimArea">
+                        <div class="aim-target" id="aimTarget">
+                            <div class="aim-target-inner"></div>
+                            <div class="aim-target-timer" id="aimTimer"></div>
+                        </div>
+                        <div class="aim-overlay" id="aimOverlay">
+                            <div style="font-size:2rem;">🎯</div>
+                            <div>Click <strong>Start</strong> to begin</div>
+                            <div style="font-size:0.8rem;color:var(--text-muted);">20 targets · clicking the background counts as a miss</div>
+                        </div>
                     </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Hits / Misses</span>
-                        <span class="stat-value" id="hitRatio">—</span>
+
+                    <!-- Grade -->
+                    <div id="gradeBadge" style="display:none;"></div>
+
+                    <!-- Persistent stats -->
+                    <div class="reflex-hud" id="refHud" style="display:none;">
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudBest">—</div><div class="hud-cell-lbl">Best Score</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudAcc">—</div><div class="hud-cell-lbl">Accuracy</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudAvgMs">—</div><div class="hud-cell-lbl">Avg ms</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudGames">0</div><div class="hud-cell-lbl">Games</div></div>
+                    </div>
+
+                    <div class="test-actions">
+                        <button class="btn btn-primary" id="startBtn">Start Test</button>
+                        <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
                     </div>
                 </div>
             </div>
@@ -115,9 +261,7 @@
         <section class="info-section">
             <div class="container-narrow">
                 <h2>About Hand-Eye Coordination</h2>
-                <p>Hand-eye coordination is the ability to track targets with your eyes and move your hand to interact
-                    with them accurately. This skill is fundamental to FPS gaming, where you need to move your crosshair
-                    to enemies as quickly and precisely as possible.</p>
+                <p>Hand-eye coordination is the ability to track targets with your eyes and move your hand to interact with them accurately. 20 targets per session, with difficulty increasing on higher settings. Clicking the background when a target is visible counts as a miss — stay precise!</p>
 
                 <h3>Why This Matters for Gaming</h3>
                 <ul>
@@ -126,11 +270,6 @@
                     <li><strong>Target switching:</strong> Engaging multiple enemies in sequence</li>
                     <li><strong>Micro-adjustments:</strong> Fine-tuning aim for headshots</li>
                 </ul>
-
-                <h3>Related Tests</h3>
-                <p>For more intensive aim training, try our <a href="csgo-aim-trainer.html">CS:GO Aim Trainer</a> or the
-                    <a href="fortnite-aim-trainer.html">Fortnite Aim Trainer</a> with Three.js 3D environments.
-                </p>
             </div>
         </section>
 
@@ -138,30 +277,13 @@
             <div class="container">
                 <h2>Recommended Tools</h2>
                 <div class="rec-grid">
-                    <a href="csgo-aim-trainer.html" class="rec-card">
-                        <div class="rec-icon">🎯</div>
-                        <h3>CS:GO Aim Trainer</h3>
-                        <p>3D shooting range with flick shots</p>
-                    </a>
-                    <a href="visual-reflex-test.html" class="rec-card">
-                        <div class="rec-icon">⚡</div>
-                        <h3>Visual Reflex Test</h3>
-                        <p>Measure raw reaction time</p>
-                    </a>
-                    <a href="click-speed-test.html" class="rec-card">
-                        <div class="rec-icon">🖱️</div>
-                        <h3>Click Speed Test</h3>
-                        <p>Measure clicks per second</p>
-                    </a>
-                    <a href="peripheral-vision-test.html" class="rec-card">
-                        <div class="rec-icon">👁️</div>
-                        <h3>Peripheral Vision</h3>
-                        <p>Spot targets in side vision</p>
-                    </a>
+                    <a href="csgo-aim-trainer.html" class="rec-card"><div class="rec-icon">🎯</div><h3>CS2 Aim Trainer</h3><p>3D shooting range with flick shots</p></a>
+                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Visual Reflex Test</h3><p>Measure raw reaction time</p></a>
+                    <a href="click-speed-test.html" class="rec-card"><div class="rec-icon">🖱️</div><h3>Click Speed Test</h3><p>Measure clicks per second</p></a>
+                    <a href="peripheral-vision-test.html" class="rec-card"><div class="rec-icon">👁️</div><h3>Peripheral Vision</h3><p>Spot targets in side vision</p></a>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -174,138 +296,236 @@
 
     <script src="../main.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            (function () {
-            const aimArea = document.getElementById('aimArea');
-            const target = document.getElementById('target');
+    document.addEventListener('DOMContentLoaded', function () {
+        (function () {
+            const aimArea    = document.getElementById('aimArea');
+            const aimTarget  = document.getElementById('aimTarget');
+            const aimTimer   = document.getElementById('aimTimer');
             const aimOverlay = document.getElementById('aimOverlay');
-            const scoreDisplay = document.getElementById('scoreDisplay');
-            const startBtn = document.getElementById('startBtn');
-            const resetBtn = document.getElementById('resetBtn');
-            const statsPanel = document.getElementById('statsPanel');
+            const gradeBadge = document.getElementById('gradeBadge');
+            const refHud     = document.getElementById('refHud');
+            const startBtn   = document.getElementById('startBtn');
+            const resetBtn   = document.getElementById('resetBtn');
+            const diffTabs   = document.querySelectorAll('.diff-tab');
 
-            const TOTAL_TARGETS = 20;
-            const TARGET_DURATION = 2000;
+            const livTargets = document.getElementById('livTargets');
+            const livHits    = document.getElementById('livHits');
+            const livMisses  = document.getElementById('livMisses');
+            const livAvg     = document.getElementById('livAvg');
 
-            let isPlaying = false;
-            let targetsHit = 0;
-            let targetsMissed = 0;
+            const TOTAL      = 20;
+            const DIFF_CONFIG = {
+                easy:   { dur: 2200, sizes: ['size-easy', 'size-easy', 'size-medium'], minDelay: 350, maxDelay: 600 },
+                medium: { dur: 1500, sizes: ['size-easy', 'size-medium', 'size-hard'],  minDelay: 250, maxDelay: 450 },
+                hard:   { dur: 900,  sizes: ['size-medium', 'size-hard', 'size-hard'],  minDelay: 150, maxDelay: 300 }
+            };
+
+            let diff         = 'easy';
+            let isPlaying    = false;
+            let hits         = 0;
+            let misses       = 0;
+            let count        = 0; // total shown
             let reactionTimes = [];
-            let targetStartTime = 0;
-            let timeoutId = null;
-            let scores = ReflexStore.get('coord_scores', []);
+            let startTime    = 0;
+            let timeoutId    = null;
+            let results      = ReflexStore.get('coord_scores2', []);
 
-            function updateStats() {
-                if (scores.length === 0) {
-                    statsPanel.style.display = 'none';
-                    return;
-                }
-                statsPanel.style.display = 'block';
-                const last = scores[scores.length - 1];
-                document.getElementById('lastScore').textContent = last.score + ' pts';
-                document.getElementById('bestScore').textContent = Math.max(...scores.map(s => s.score)) + ' pts';
-                document.getElementById('avgReaction').textContent = last.avgTime + 'ms';
-                document.getElementById('hitRatio').textContent = last.hits + ' / ' + last.misses;
+            function getGrade(acc) {
+                if (acc >= 90) return { label: '🏆 EXCEPTIONAL', cls: 'grade-exceptional' };
+                if (acc >= 75) return { label: '⚡ EXCELLENT',   cls: 'grade-excellent'   };
+                if (acc >= 60) return { label: '👍 GOOD',        cls: 'grade-good'        };
+                if (acc >= 45) return { label: '📊 AVERAGE',     cls: 'grade-average'     };
+                return           { label: '📉 POOR',             cls: 'grade-poor'        };
+            }
+
+            function spawnHit(x, y) {
+                const flash = document.createElement('div');
+                flash.className = 'aim-hit-flash';
+                flash.style.cssText = `left:${x}px;top:${y}px;`;
+                aimArea.appendChild(flash);
+                setTimeout(() => flash.remove(), 360);
+            }
+
+            function spawnMiss(x, y) {
+                const cross = document.createElement('div');
+                cross.className = 'aim-miss-cross';
+                cross.textContent = '✗';
+                cross.style.cssText = `left:${x}px;top:${y}px;`;
+                aimArea.appendChild(cross);
+                setTimeout(() => cross.remove(), 500);
             }
 
             function showTarget() {
-                const areaRect = aimArea.getBoundingClientRect();
-                const maxX = areaRect.width - 50;
-                const maxY = areaRect.height - 50;
-                const x = Math.random() * maxX;
-                const y = Math.random() * maxY;
+                const cfg  = DIFF_CONFIG[diff];
+                // Difficulty scaling: use harder sizes as count increases
+                const sizeOptions = cfg.sizes;
+                const sizeClass = sizeOptions[Math.min(Math.floor(count / 7), sizeOptions.length - 1)];
 
-                target.style.left = x + 'px';
-                target.style.top = y + 'px';
-                target.style.display = 'block';
-                targetStartTime = performance.now();
+                // Random position (keep fully inside area)
+                const rect   = aimArea.getBoundingClientRect();
+                const margin = 40;
+                const x = margin + Math.random() * (rect.width - margin * 2);
+                const y = margin + Math.random() * (rect.height - margin * 2);
+
+                aimTarget.className = 'aim-target ' + sizeClass;
+                aimTarget.style.left = x + 'px';
+                aimTarget.style.top  = y + 'px';
+                aimTarget.style.display = 'block';
+                aimTimer.style.setProperty('--dur', cfg.dur + 'ms');
+                // Reset animation
+                aimTimer.style.animation = 'none';
+                void aimTimer.offsetWidth;
+                aimTimer.style.animation = '';
+
+                startTime = performance.now();
+                count++;
+                livTargets.textContent = count + '/' + TOTAL;
 
                 timeoutId = setTimeout(() => {
-                    target.style.display = 'none';
-                    targetsMissed++;
+                    if (!isPlaying) return;
+                    // Timeout = miss
+                    aimTarget.style.display = 'none';
+                    misses++;
+                    livMisses.textContent = misses;
                     nextTarget();
-                }, TARGET_DURATION);
+                }, cfg.dur);
             }
 
             function nextTarget() {
-                const total = targetsHit + targetsMissed;
-                if (total >= TOTAL_TARGETS) {
-                    endGame();
-                } else {
-                    setTimeout(showTarget, 300 + Math.random() * 500);
-                }
+                if ((hits + misses) >= TOTAL) { endGame(); return; }
+                const cfg = DIFF_CONFIG[diff];
+                const delay = cfg.minDelay + Math.random() * (cfg.maxDelay - cfg.minDelay);
+                setTimeout(showTarget, delay);
             }
 
             function startGame() {
                 isPlaying = true;
-                targetsHit = 0;
-                targetsMissed = 0;
-                reactionTimes = [];
+                hits = 0; misses = 0; count = 0; reactionTimes = [];
+                aimArea.className = 'aim-area active';
                 aimOverlay.style.display = 'none';
-                scoreDisplay.style.display = 'none';
+                gradeBadge.style.display = 'none';
                 startBtn.disabled = true;
-                showTarget();
+                diffTabs.forEach(t => t.disabled = true);
+
+                livTargets.textContent = '0/' + TOTAL;
+                livHits.textContent    = '0';
+                livMisses.textContent  = '0';
+                livAvg.textContent     = '—';
+
+                nextTarget();
             }
 
             function endGame() {
                 isPlaying = false;
-                target.style.display = 'none';
-                aimOverlay.style.display = 'flex'; aimOverlay.style.alignItems = 'center'; aimOverlay.style.justifyContent = 'center';
-                aimOverlay.textContent = 'Test Complete!';
+                clearTimeout(timeoutId);
+                aimTarget.style.display = 'none';
+                aimArea.className = 'aim-area done';
+                aimOverlay.innerHTML = '';
+                aimOverlay.style.display = 'flex';
+
+                const acc = Math.round((hits / TOTAL) * 100);
+                const avg = reactionTimes.length ? Math.round(reactionTimes.reduce((a,b)=>a+b,0)/reactionTimes.length) : 0;
+                aimOverlay.innerHTML = `<div style='font-size:1.2rem;font-weight:700;'>${hits}/${TOTAL} hits &nbsp;·&nbsp; ${acc}% accuracy</div><div style='color:var(--text-muted);font-size:0.85rem;'>Avg reaction: ${avg}ms</div>`;
+
+                const result = { hits, misses, acc, avg };
+                results.push(result);
+                if (results.length > 30) results.shift();
+                ReflexStore.set('coord_scores2', results);
+
+                const g = getGrade(acc);
+                gradeBadge.style.display = 'inline-flex';
+                gradeBadge.className = 'grade-badge ' + g.cls;
+                gradeBadge.textContent = g.label;
+
                 startBtn.disabled = false;
                 startBtn.textContent = 'Play Again';
+                diffTabs.forEach(t => t.disabled = false);
+                updateFinalHUD();
 
-                const avgTime = reactionTimes.length > 0 ? Math.round(reactionTimes.reduce((a, b) => a + b, 0) / reactionTimes.length) : 0;
-                const score = targetsHit * 100 - targetsMissed * 25 + Math.max(0, 500 - avgTime) * targetsHit;
-
-                const result = { score, hits: targetsHit, misses: targetsMissed, avgTime };
-                scores.push(result);
-                ReflexStore.set('coord_scores', scores);
-
-                scoreDisplay.textContent = 'Score: ' + score + ' pts';
-                scoreDisplay.style.display = 'block';
-                updateStats();
+                setTimeout(() => { aimArea.className = 'aim-area'; }, 3000);
             }
 
-            target.addEventListener('click', function (e) {
+            // Target click — hit!
+            aimTarget.addEventListener('click', function (e) {
                 e.stopPropagation();
                 if (!isPlaying) return;
                 clearTimeout(timeoutId);
-                const reactionTime = Math.round(performance.now() - targetStartTime);
-                reactionTimes.push(reactionTime);
-                targetsHit++;
-                target.style.display = 'none';
+                const ms = Math.round(performance.now() - startTime);
+                reactionTimes.push(ms);
+                hits++;
+                aimTarget.style.display = 'none';
+
+                const rect = aimArea.getBoundingClientRect();
+                spawnHit(e.clientX - rect.left, e.clientY - rect.top);
+
+                livHits.textContent = hits;
+                const avgNow = Math.round(reactionTimes.reduce((a,b)=>a+b,0)/reactionTimes.length);
+                livAvg.textContent  = avgNow + 'ms';
+
                 nextTarget();
             });
 
+            // Background click when target visible = miss
             aimArea.addEventListener('click', function (e) {
-                // Only count as miss when target is currently visible and user clicked the background
-                if (isPlaying && target.style.display !== 'none') {
+                if (!isPlaying) return;
+                const target = aimTarget; // alias for miss-click logic
+                if (target.style.display !== 'none') {
                     clearTimeout(timeoutId);
-                    targetsMissed++;
                     target.style.display = 'none';
+                    misses++;
+                    livMisses.textContent = misses;
+
+                    const rect = aimArea.getBoundingClientRect();
+                    spawnMiss(e.clientX - rect.left, e.clientY - rect.top);
+
                     nextTarget();
                 }
             });
 
-            startBtn.addEventListener('click', startGame);
-
-            resetBtn.addEventListener('click', function () {
-                scores = [];
-                ReflexStore.set('coord_scores', []);
-                scoreDisplay.style.display = 'none';
-                aimOverlay.textContent = 'Click "Start" to begin';
-                startBtn.textContent = 'Start Test';
-                updateStats();
+            diffTabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    if (isPlaying) return;
+                    diffTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    diff = this.dataset.diff;
+                });
             });
 
-            updateStats();
+            startBtn.addEventListener('click', startGame);
+            resetBtn.addEventListener('click', function () {
+                clearTimeout(timeoutId);
+                isPlaying = false;
+                aimTarget.style.display = 'none';
+                aimArea.className = 'aim-area';
+                aimOverlay.innerHTML = '<div style="font-size:2rem;">🎯</div><div>Click <strong>Start</strong> to begin</div><div style="font-size:0.8rem;color:var(--text-muted);">20 targets · clicking the background counts as a miss</div>';
+                aimOverlay.style.display = 'flex';
+                gradeBadge.style.display = 'none';
+                startBtn.disabled = false;
+                startBtn.textContent = 'Start Test';
+                diffTabs.forEach(t => t.disabled = false);
+                results = [];
+                ReflexStore.set('coord_scores2', []);
+                livTargets.textContent = '0/20';
+                livHits.textContent = '0'; livMisses.textContent = '0'; livAvg.textContent = '—';
+                updateFinalHUD();
+            });
+
+            function updateFinalHUD() {
+                if (results.length === 0) { refHud.style.display = 'none'; return; }
+                refHud.style.display = 'grid';
+                const bestAcc = Math.max(...results.map(r=>r.acc));
+                const last = results[results.length-1];
+                document.getElementById('hudBest').textContent   = bestAcc + '% acc';
+                document.getElementById('hudAcc').textContent    = last.acc + '%';
+                document.getElementById('hudAvgMs').textContent  = last.avg + 'ms';
+                document.getElementById('hudGames').textContent  = results.length;
+            }
+
+            updateFinalHUD();
         })();
-        });
+    });
     </script>
 <script src="../nav.js" defer></script>
 </body>
 
 </html>
-
-
