@@ -521,11 +521,11 @@
                 <a href="../contact.html" class="nav-link">Contact</a>
                 <a href="../tools.html" class="nav-cta">All Tools</a>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
         </div>
     </nav>
 
-    <main class="main-content" id="main">
+    <main role="main" class="main-content" id="main">
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a>
@@ -543,9 +543,9 @@
                     spray control, and headshots!</p>
 
                 <div class="aim-mode-btns">
-                    <button class="aim-mode-btn active" data-mode="quickscope">Quick Scope</button>
-                    <button class="aim-mode-btn" data-mode="spray">Spray Control</button>
-                    <button class="aim-mode-btn" data-mode="headshot">Headshot Only</button>
+                    <button type="button" class="aim-mode-btn active" data-mode="quickscope">Quick Scope</button>
+                    <button type="button" class="aim-mode-btn" data-mode="spray">Spray Control</button>
+                    <button type="button" class="aim-mode-btn" data-mode="headshot">Headshot Only</button>
                 </div>
 
                 <div class="aim-canvas-wrap" id="canvasContainer">
@@ -575,8 +575,8 @@
                 </div>
 
                 <div class="test-actions">
-                    <button class="btn btn-primary" id="startBtn">Start Training</button>
-                    <button class="btn btn-secondary" id="resetBtn">Reset Stats</button>
+                    <button type="button" class="btn btn-primary" id="startBtn">Start Training</button>
+                    <button type="button" class="btn btn-secondary" id="resetBtn">Reset Stats</button>
                 </div>
 
                 <div class="stats-panel" id="statsPanel" style="display: none;">

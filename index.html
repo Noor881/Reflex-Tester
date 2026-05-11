@@ -177,13 +177,13 @@
                 <a href="contact.html" class="nav-link">Contact</a>
                 <a href="tools.html" class="nav-cta">All Tools</a>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu"
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu"
                 aria-expanded="false">☰</button>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="main-content" id="main">
+    <main role="main" class="main-content" id="main">
         <!-- Hero Section — Full Viewport -->
         <section class="hero hero-fullscreen">
             <div class="container">
@@ -459,7 +459,7 @@
 
                 <div class="faq-list">
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
+                        <button type="button" class="faq-question" aria-expanded="false">
                             How accurate is this online reflex tester?
                             <span class="faq-arrow">▼</span>
                         </button>
@@ -472,7 +472,7 @@
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
+                        <button type="button" class="faq-question" aria-expanded="false">
                             What's the difference between visual and audio reflex testing?
                             <span class="faq-arrow">▼</span>
                         </button>
@@ -485,7 +485,7 @@
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
+                        <button type="button" class="faq-question" aria-expanded="false">
                             Can regular reflex testing improve my gaming performance?
                             <span class="faq-arrow">▼</span>
                         </button>
@@ -498,7 +498,7 @@
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
+                        <button type="button" class="faq-question" aria-expanded="false">
                             What aim trainers are available on this platform?
                             <span class="faq-arrow">▼</span>
                         </button>
@@ -512,7 +512,7 @@
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
+                        <button type="button" class="faq-question" aria-expanded="false">
                             How often should I train for optimal results?
                             <span class="faq-arrow">▼</span>
                         </button>
@@ -525,7 +525,7 @@
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
+                        <button type="button" class="faq-question" aria-expanded="false">
                             Is this reflex tester suitable for professional or medical use?
                             <span class="faq-arrow">▼</span>
                         </button>
@@ -592,6 +592,32 @@
     </main>
 
     <!-- Footer -->
+    
+        <!-- newsletter-signup -->
+        <section class="section" id="newsletter" style="border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div class="container" style="max-width:700px;text-align:center;">
+                <div style="background:var(--bg-secondary,#101014);border:1px solid rgba(232,160,32,0.2);border-radius:16px;padding:48px 32px;">
+                    <span style="font-size:2em;">📬</span>
+                    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.6em;margin:16px 0 8px;color:#f5f5f0;">Level Up Your Reflexes</h2>
+                    <p style="color:#888880;margin-bottom:24px;font-size:1rem;">Weekly tips on reaction time training, gaming performance, and cognitive science. Join 2,000+ gamers & athletes.</p>
+                    <form action="https://formspree.io/f/xwpkjpvn" method="POST" style="display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap;justify-content:center;" id="newsletterForm">
+                        <input type="email" name="email" placeholder="your@email.com" required
+                            aria-label="Email address for newsletter"
+                            style="flex:1;min-width:200px;padding:13px 18px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.05);color:#f5f5f0;font-size:0.95rem;outline:none;transition:border-color 0.2s;"
+                            onfocus="this.style.borderColor='#E8A020'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"
+                        >
+                        <input type="hidden" name="_subject" value="New Newsletter Subscriber">
+                        <button type="submit"
+                            style="padding:13px 28px;background:#E8A020;color:#000;border:none;border-radius:8px;font-weight:700;font-size:0.9rem;cursor:pointer;letter-spacing:0.02em;transition:all 0.15s;"
+                            onmouseover="this.style.background='#F0B030';this.style.boxShadow='0 4px 20px rgba(232,160,32,0.4)'"
+                            onmouseout="this.style.background='#E8A020';this.style.boxShadow='none'"
+                        >Subscribe</button>
+                    </form>
+                    <p style="color:#444440;font-size:0.78rem;margin-top:14px;">No spam. Unsubscribe anytime. We respect your privacy.</p>
+                </div>
+            </div>
+        </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">

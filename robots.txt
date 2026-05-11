@@ -1,7 +1,13 @@
 # robots.txt for ReflexTester.fun
+# Updated 2026-05-11
+
 User-agent: *
 Allow: /
 Crawl-delay: 1
+
+# Block utility files
+Disallow: /sw.js
+Disallow: /*.py$
 
 # Block specific crawlers from resource-heavy pages
 User-agent: AhrefsBot
@@ -9,6 +15,12 @@ Crawl-delay: 10
 
 User-agent: SemrushBot
 Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
 
 # Allow all AI crawlers for GEO optimization
 User-agent: GPTBot
@@ -33,6 +45,12 @@ User-agent: PerplexityBot
 Allow: /
 
 User-agent: Claude-Web
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
 Allow: /
 
 # Sitemap location

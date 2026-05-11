@@ -4,148 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found | ReflexTester.fun</title>
-    <meta name="description" content="Page not found. The page you're looking for doesn't exist on ReflexTester.fun. Return to our reaction time testing platform.">
+    <meta name="description" content="Page not found. Explore our 31+ free reaction time tests and aim training tools.">
     <meta name="robots" content="noindex, nofollow">
-    
-    <!-- Added Open Graph tags for social sharing -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://reflextester.fun/404.html">
-    <meta property="og:title" content="404 - Page Not Found | ReflexTester.fun">
-    <meta property="og:description" content="Page not found. Return to ReflexTester.fun to test your reaction time.">
-    <meta property="og:image" content="https://reflextester.fun/images/404-og.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="ReflexTester">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="404 - Page Not Found">
-    <meta name="twitter:description" content="Page not found on ReflexTester.fun">
-    <meta name="twitter:image" content="https://reflextester.fun/images/404-og.jpg">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "404 - Page Not Found",
-      "description": "This page could not be found on ReflexTester.fun",
-      "url": "https://reflextester.fun/404.html",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "ReflexTester.fun",
-        "url": "https://reflextester.fun"
-      }
-    }
-    </script>
-    
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        .error-container {
-            max-width: 600px;
-            padding: 40px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .error-code {
-            font-size: 8em;
-            font-weight: 700;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-        }
-
-        .error-title {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #4ecdc4;
-        }
-
-        .error-message {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .btn {
-            background: linear-gradient(45deg, #4ecdc4, #44a08d);
-            color: white;
-            border: none;
-            padding: 15px 35px;
-            border-radius: 30px;
-            font-size: 1.1em;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
-            font-weight: 600;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(78, 205, 196, 0.5);
-        }
-
-        .btn.secondary {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-        }
-
-        .btn.secondary:hover {
-            box-shadow: 0 12px 30px rgba(255, 107, 107, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .error-code {
-                font-size: 5em;
-            }
-            
-            .error-title {
-                font-size: 2em;
-            }
-            
-            .error-container {
-                margin: 20px;
-                padding: 30px 20px;
-            }
-        }
+        .error-page { min-height: calc(100vh - var(--nav-height)); display: flex; align-items: center; justify-content: center; padding: var(--space-2xl); }
+        .error-box { max-width: 640px; text-align: center; }
+        .error-code { font-family: var(--font-mono); font-size: clamp(5rem, 12vw, 8rem); font-weight: 700; color: #E8A020; letter-spacing: -4px; margin-bottom: var(--space-sm); line-height: 1; }
+        .error-title { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.8rem); margin-bottom: var(--space-md); color: var(--text-primary); }
+        .error-desc { color: var(--text-secondary); margin-bottom: var(--space-xl); font-size: 1rem; line-height: 1.7; }
+        .error-actions { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-3xl); }
+        .suggested-tools { text-align: left; }
+        .suggested-tools h3 { font-family: var(--font-display); font-size: 1rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); text-align: center; }
+        .tool-suggestions { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-md); }
+        .tool-sug-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 10px; padding: var(--space-lg); text-decoration: none; transition: border-color 0.2s, background 0.2s; display: block; }
+        .tool-sug-card:hover { border-color: rgba(232,160,32,0.4); background: var(--bg-card-hover); }
+        .tool-sug-card .sug-icon { font-size: 1.5em; margin-bottom: var(--space-xs); display: block; }
+        .tool-sug-card .sug-name { font-family: var(--font-display); font-weight: 600; font-size: 0.9rem; color: var(--text-primary); }
+        .tool-sug-card .sug-desc { font-size: 0.78rem; color: var(--text-secondary); margin-top: 4px; }
     </style>
-<link rel="canonical" href="https://reflextester.fun/404.html">
 </head>
 <body>
-    <div class="error-container">
-        <div class="error-code">404</div>
-        <h1 class="error-title">Page Not Found</h1>
-        <p class="error-message">
-            Oops! The page you're looking for doesn't exist. 
-            Let's get you back to testing your reaction time!
-        </p>
-        
-        <a href="index.html" class="btn">🏠 Go Home</a>
-        <a href="/#visual" class="btn secondary">⚡ Start Test</a>
-    </div>
-<!-- nav-cta --><a href="tools.html" class="nav-cta" style="display:none">All Tools</a></body>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
+
+    <main class="main-content error-page" id="main" role="main">
+        <div class="error-box">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-desc">
+                The page you're looking for doesn't exist or has been moved.<br>
+                But hey — your reflexes brought you here fast! Let's put them to good use.
+            </p>
+            <div class="error-actions">
+                <a href="index.html" class="btn btn-primary">🏠 Go Home</a>
+                <a href="tools.html" class="btn btn-secondary">🎮 All Tools</a>
+            </div>
+
+            <div class="suggested-tools">
+                <h3>Popular Tools</h3>
+                <div class="tool-suggestions">
+                    <a href="tools/visual-reflex-test.html" class="tool-sug-card">
+                        <span class="sug-icon">⚡</span>
+                        <span class="sug-name">Reflex Test</span>
+                        <span class="sug-desc">Test your visual reaction time</span>
+                    </a>
+                    <a href="tools/click-speed-test.html" class="tool-sug-card">
+                        <span class="sug-icon">🖱️</span>
+                        <span class="sug-name">CPS Test</span>
+                        <span class="sug-desc">Clicks per second challenge</span>
+                    </a>
+                    <a href="tools/csgo-aim-trainer.html" class="tool-sug-card">
+                        <span class="sug-icon">🎯</span>
+                        <span class="sug-name">Aim Trainer</span>
+                        <span class="sug-desc">Sharpen your aim</span>
+                    </a>
+                    <a href="tools/typing-speed-test.html" class="tool-sug-card">
+                        <span class="sug-icon">⌨️</span>
+                        <span class="sug-name">Typing Test</span>
+                        <span class="sug-desc">WPM speed challenge</span>
+                    </a>
+                    <a href="tools/memory-sequence-test.html" class="tool-sug-card">
+                        <span class="sug-icon">🧠</span>
+                        <span class="sug-name">Memory Test</span>
+                        <span class="sug-desc">Sequence memory challenge</span>
+                    </a>
+                    <a href="tools/hand-eye-coordination-test.html" class="tool-sug-card">
+                        <span class="sug-icon">🤝</span>
+                        <span class="sug-name">Coordination</span>
+                        <span class="sug-desc">Hand-eye coordination drill</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js" defer></script>
+    <script src="nav.js" defer></script>
+</body>
 </html>
