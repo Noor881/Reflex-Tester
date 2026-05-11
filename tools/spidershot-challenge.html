@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spidershot Challenge — Hit Shrinking Targets [Free Aim Game]</title>
+    <meta name="description" content="Race against time as targets appear and shrink. Hit them before they vanish! Progressive difficulty with particle effects and combos.">
+    <meta name="keywords" content="spidershot, shrinking targets game, aim trainer game, target practice game, reflex clicking game, spider shot aim, aim game free online">
+    <link rel="canonical" href="https://reflextester.fun/tools/spidershot-challenge.html">
+    <meta property="og:title" content="Spidershot Challenge — Shrinking Target Aim Game">
+    <meta property="og:description" content="Targets shrink and disappear. Click them before they're gone. Combos, particles, and progressive difficulty.">
+    <meta property="og:url" content="https://reflextester.fun/tools/spidershot-challenge.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ReflexTester.fun">
+    <meta property="og:image" content="https://reflextester.fun/images/og-default.svg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Spidershot Challenge",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web Browser",
+        "description": "Canvas-based shrinking target aim game with progressive difficulty and combo scoring.",
+        "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD" }
+    }
+    </script>
+    <link rel="stylesheet" href="../styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
+    <style>
+        :root { --tool-accent: #A855F7; --tool-accent-rgb: 168,85,247; }
+        .test-panel { border-top: 2px solid var(--tool-accent) !important; background: #08040f !important; }
+        .test-panel h1, .test-panel h2 { color: #C084FC; }
+        .btn-primary { background: var(--tool-accent) !important; color: #fff !important; }
+        .btn-primary:hover { opacity: 0.9; box-shadow: 0 6px 24px rgba(168,85,247,0.4) !important; }
+        .hud-cell { border-top: 2px solid var(--tool-accent) !important; }
+        .hud-cell-val { color: var(--tool-accent) !important; }
+        .info-section h3 { color: var(--tool-accent); }
+        :focus-visible { outline-color: var(--tool-accent) !important; }
+
+        .game-canvas-wrap {
+            position: relative; width: 100%; max-width: 800px; margin: 0 auto;
+            aspect-ratio: 4/3; background: #050308; border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--tool-accent); border-radius: 12px; overflow: hidden; cursor: crosshair;
+        }
+        #gameCanvas { display: block; width: 100%; height: 100%; }
+        .game-hud {
+            position: absolute; top: 0; left: 0; right: 0;
+            display: flex; justify-content: space-between; padding: 12px 20px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8), transparent);
+            font-family: var(--font-mono, monospace); font-size: 0.85rem; color: rgba(255,255,255,0.8);
+            pointer-events: none; z-index: 2;
+        }
+        .hud-score { font-size: 1.4rem; font-weight: 700; color: var(--tool-accent); }
+        .hud-combo { color: #FFD700; font-weight: 700; }
+        .hud-timer { font-size: 1.2rem; font-weight: 700; }
+        .game-overlay {
+            position: absolute; inset: 0; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; background: rgba(5,3,8,0.92);
+            z-index: 5; backdrop-filter: blur(6px);
+        }
+        .game-overlay.hidden { display: none; }
+        .overlay-title { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: #f5f5f0; margin-bottom: 8px; }
+        .overlay-sub { color: #888; font-size: 1rem; margin-bottom: 24px; }
+        .overlay-score { font-size: 4rem; font-weight: 700; color: var(--tool-accent); font-family: var(--font-mono); margin-bottom: 8px; }
+        .overlay-stats { color: #aaa; font-size: 0.9rem; margin-bottom: 24px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; max-width: 800px; margin: 20px auto 0; }
+        @media(max-width:600px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="../tools.html" class="nav-cta">All Tools</a>
+            </div>
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
+
+    <main role="main" class="main-content" id="main">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../index.html">Home</a><span class="separator">›</span>
+                <a href="../tools.html">Tools</a><span class="separator">›</span>
+                <span>Spidershot Challenge</span>
+            </nav>
+        </div>
+
+        <section class="test-area">
+            <div class="test-panel active">
+                <h1>🕷️ Spidershot Challenge</h1>
+                <p class="test-desc">Targets appear and shrink away. Click them before they vanish! Difficulty increases as you build streaks.</p>
+
+                <div class="game-canvas-wrap" id="gameWrap">
+                    <canvas id="gameCanvas"></canvas>
+                    <div class="game-hud">
+                        <div><span class="hud-score" id="hudScore">0</span></div>
+                        <div class="hud-combo" id="hudCombo"></div>
+                        <div class="hud-timer" id="hudTimer">45s</div>
+                    </div>
+                    <div class="game-overlay" id="startOverlay">
+                        <div class="overlay-title">Spidershot</div>
+                        <div class="overlay-sub">Targets shrink. Click fast. Don't miss.</div>
+                        <button type="button" class="btn btn-primary" id="playBtn" style="font-size:1.1rem;padding:14px 40px;">▶ Play</button>
+                    </div>
+                    <div class="game-overlay hidden" id="endOverlay">
+                        <div class="overlay-title">Round Over</div>
+                        <div class="overlay-score" id="finalScore">0</div>
+                        <div class="overlay-stats" id="finalStats"></div>
+                        <div id="finalGrade" style="margin-bottom:20px;"></div>
+                        <button type="button" class="btn btn-primary" id="replayBtn" style="font-size:1rem;padding:12px 36px;">Play Again</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid" id="statsGrid" style="display:none;">
+                    <div class="hud-cell"><div class="hud-cell-val" id="statBest">—</div><div class="hud-cell-lbl">Best</div></div>
+                    <div class="hud-cell"><div class="hud-cell-val" id="statAvg">—</div><div class="hud-cell-lbl">Average</div></div>
+                    <div class="hud-cell"><div class="hud-cell-val" id="statBestAcc">—</div><div class="hud-cell-lbl">Best Acc</div></div>
+                    <div class="hud-cell"><div class="hud-cell-val" id="statGames">0</div><div class="hud-cell-lbl">Games</div></div>
+                </div>
+                <div class="test-actions" style="margin-top:16px;">
+                    <button type="button" class="btn btn-secondary" id="resetStats">Reset Stats</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container-narrow">
+                <h2>About Spidershot</h2>
+                <p>Spidershot tests both speed and precision. Unlike static targets, these shrink over time, forcing you to react quickly. As your combo grows, targets spawn faster and shrink more aggressively.</p>
+                <h3>Why Shrinking Targets?</h3>
+                <ul>
+                    <li><strong>Time pressure:</strong> Simulates moving enemies that disappear behind cover</li>
+                    <li><strong>Progressive difficulty:</strong> Gets harder as you improve within a round</li>
+                    <li><strong>Precision under stress:</strong> Small targets demand accuracy even when rushing</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="recommended-tools">
+            <div class="container">
+                <h2>More Aim Games</h2>
+                <div class="rec-grid">
+                    <a href="gridshot-arena.html" class="rec-card"><div class="rec-icon">🎯</div><h3>Gridshot Arena</h3><p>Classic target clicking</p></a>
+                    <a href="tracking-challenge.html" class="rec-card"><div class="rec-icon">🔄</div><h3>Tracking Challenge</h3><p>Follow moving targets</p></a>
+                    <a href="flick-shot-trainer.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Flick Shot Trainer</h3><p>360° snap aim practice</p></a>
+                    <a href="precision-aim-test.html" class="rec-card"><div class="rec-icon">🎯</div><h3>Precision Aim</h3><p>Pixel-perfect accuracy</p></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2025-2026 ReflexTester.fun — Professional Reflex Testing Platform</p></div></div></footer>
+
+    <script src="../main.js" defer></script>
+    <script src="../nav.js" defer></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    (function() {
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const wrap = document.getElementById('gameWrap');
+        let W, H, dpr;
+        let targets = [], particles = [];
+        let score = 0, combo = 0, hits = 0, misses = 0;
+        let playing = false, timeLeft = 45;
+        let timerInterval, animId;
+        let spawnRate = 1200; // ms between spawns
+        let lastSpawn = 0;
+        let results = [];
+        try { results = JSON.parse(localStorage.getItem('spidershot_results') || '[]'); } catch(e) { results = []; }
+
+        function resize() {
+            const rect = wrap.getBoundingClientRect();
+            dpr = window.devicePixelRatio || 1;
+            W = rect.width; H = rect.height;
+            canvas.width = W * dpr; canvas.height = H * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        function spawnTarget() {
+            const pad = 50;
+            const maxR = 22 + Math.random() * 16;
+            // As combo grows, shrink speed increases
+            const shrinkSpeed = 0.012 + combo * 0.001;
+            targets.push({
+                x: pad + Math.random() * (W - pad * 2),
+                y: pad + Math.random() * (H - pad * 2),
+                r: maxR, maxR,
+                shrinkSpeed,
+                spawnTime: performance.now(),
+                hue: 260 + Math.random() * 40 // purple range
+            });
+        }
+
+        function spawnParticles(x, y, hue) {
+            for (let i = 0; i < 15; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = 1.5 + Math.random() * 5;
+                particles.push({
+                    x, y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+                    r: 1.5 + Math.random() * 3, life: 1, hue
+                });
+            }
+        }
+
+        function update() {
+            const now = performance.now();
+
+            // Spawn
+            if (playing && now - lastSpawn > spawnRate) {
+                spawnTarget();
+                lastSpawn = now;
+                // Accelerate spawning as combo grows
+                spawnRate = Math.max(400, 1200 - combo * 30);
+            }
+
+            // Update targets (shrink)
+            for (let i = targets.length - 1; i >= 0; i--) {
+                const t = targets[i];
+                t.r -= t.shrinkSpeed;
+                if (t.r <= 1) {
+                    targets.splice(i, 1);
+                    if (playing) { misses++; combo = 0; document.getElementById('hudCombo').textContent = ''; }
+                }
+            }
+
+            // Update particles
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx; p.y += p.vy;
+                p.vx *= 0.95; p.vy *= 0.95;
+                p.life -= 0.025; p.r *= 0.98;
+                if (p.life <= 0) particles.splice(i, 1);
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+
+            // Subtle radial bg
+            const bgGrad = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, W * 0.6);
+            bgGrad.addColorStop(0, 'rgba(168,85,247,0.03)');
+            bgGrad.addColorStop(1, 'transparent');
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, W, H);
+
+            // Targets
+            targets.forEach(t => {
+                const lifeRatio = t.r / t.maxR;
+
+                // Shrink ring (shows remaining life)
+                ctx.strokeStyle = `hsla(${t.hue}, 70%, 65%, 0.15)`;
+                ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.arc(t.x, t.y, t.maxR + 4, 0, Math.PI * 2 * lifeRatio); ctx.stroke();
+
+                // Glow
+                const grad = ctx.createRadialGradient(t.x, t.y, t.r * 0.3, t.x, t.y, t.r * 1.8);
+                grad.addColorStop(0, `hsla(${t.hue}, 80%, 60%, 0.2)`);
+                grad.addColorStop(1, 'transparent');
+                ctx.fillStyle = grad;
+                ctx.beginPath(); ctx.arc(t.x, t.y, t.r * 1.8, 0, Math.PI * 2); ctx.fill();
+
+                // Main
+                ctx.fillStyle = `hsl(${t.hue}, 80%, ${50 + lifeRatio * 15}%)`;
+                ctx.beginPath(); ctx.arc(t.x, t.y, t.r, 0, Math.PI * 2); ctx.fill();
+
+                // Urgency flash when small
+                if (lifeRatio < 0.3) {
+                    ctx.strokeStyle = `hsla(0, 90%, 60%, ${0.5 - lifeRatio})`;
+                    ctx.lineWidth = 2;
+                    ctx.beginPath(); ctx.arc(t.x, t.y, t.r + 3, 0, Math.PI * 2); ctx.stroke();
+                }
+
+                // Center
+                ctx.fillStyle = 'rgba(255,255,255,0.7)';
+                ctx.beginPath(); ctx.arc(t.x, t.y, Math.max(1.5, t.r * 0.15), 0, Math.PI * 2); ctx.fill();
+            });
+
+            // Particles
+            particles.forEach(p => {
+                ctx.globalAlpha = p.life;
+                ctx.fillStyle = `hsl(${p.hue}, 80%, 65%)`;
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
+            });
+            ctx.globalAlpha = 1;
+        }
+
+        function gameLoop() { update(); draw(); animId = requestAnimationFrame(gameLoop); }
+
+        function startGame() {
+            score = 0; combo = 0; hits = 0; misses = 0;
+            targets = []; particles = [];
+            timeLeft = 45; spawnRate = 1200; lastSpawn = 0;
+            document.getElementById('hudScore').textContent = '0';
+            document.getElementById('hudCombo').textContent = '';
+            document.getElementById('hudTimer').textContent = '45s';
+            document.getElementById('startOverlay').classList.add('hidden');
+            document.getElementById('endOverlay').classList.add('hidden');
+            playing = true;
+
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('hudTimer').textContent = timeLeft + 's';
+                if (timeLeft <= 5) document.getElementById('hudTimer').style.color = '#A855F7';
+                if (timeLeft <= 0) endGame();
+            }, 1000);
+        }
+
+        function endGame() {
+            playing = false;
+            clearInterval(timerInterval);
+            document.getElementById('hudTimer').style.color = '';
+            const acc = hits + misses > 0 ? Math.round((hits / (hits + misses)) * 100) : 0;
+            document.getElementById('finalScore').textContent = score.toLocaleString();
+            document.getElementById('finalStats').textContent = `${hits} hits · ${misses} expired · ${acc}% accuracy`;
+
+            let g;
+            if (score >= 4000) g = { label: '🏆 LEGENDARY', cls: 'grade-exceptional' };
+            else if (score >= 2500) g = { label: '⚡ ELITE', cls: 'grade-excellent' };
+            else if (score >= 1200) g = { label: '👍 GREAT', cls: 'grade-good' };
+            else if (score >= 600) g = { label: '📊 AVERAGE', cls: 'grade-average' };
+            else g = { label: '📉 ROOKIE', cls: 'grade-poor' };
+            document.getElementById('finalGrade').innerHTML = '<span class="grade-badge ' + g.cls + '">' + g.label + '</span>';
+            document.getElementById('endOverlay').classList.remove('hidden');
+
+            results.push({ score, hits, misses, acc, date: Date.now() });
+            if (results.length > 50) results.shift();
+            localStorage.setItem('spidershot_results', JSON.stringify(results));
+            updateStats();
+        }
+
+        function updateStats() {
+            if (results.length === 0) { document.getElementById('statsGrid').style.display = 'none'; return; }
+            document.getElementById('statsGrid').style.display = 'grid';
+            const s = results.map(r => r.score);
+            document.getElementById('statBest').textContent = Math.max(...s).toLocaleString();
+            document.getElementById('statAvg').textContent = Math.round(s.reduce((a,b)=>a+b,0)/s.length).toLocaleString();
+            document.getElementById('statBestAcc').textContent = Math.max(...results.map(r => r.acc)) + '%';
+            document.getElementById('statGames').textContent = results.length;
+        }
+
+        canvas.addEventListener('click', function(e) {
+            if (!playing) return;
+            const rect = canvas.getBoundingClientRect();
+            const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+            let hit = false;
+            for (let i = targets.length - 1; i >= 0; i--) {
+                const t = targets[i];
+                if (Math.hypot(mx - t.x, my - t.y) <= t.r) {
+                    hit = true; hits++; combo++;
+                    const sizeBonus = Math.round((1 - t.r / t.maxR) * 150);
+                    const comboMult = combo >= 15 ? 4 : combo >= 8 ? 3 : combo >= 3 ? 2 : 1;
+                    score += (100 + sizeBonus) * comboMult;
+                    document.getElementById('hudScore').textContent = score.toLocaleString();
+                    if (combo >= 3) document.getElementById('hudCombo').textContent = combo + 'x';
+                    spawnParticles(t.x, t.y, t.hue);
+                    targets.splice(i, 1);
+                    if (window.SFX) SFX.play('hit');
+                    break;
+                }
+            }
+            if (!hit) {
+                misses++; combo = 0;
+                document.getElementById('hudCombo').textContent = '';
+                if (window.SFX) SFX.play('miss');
+            }
+        });
+
+        document.getElementById('playBtn').addEventListener('click', startGame);
+        document.getElementById('replayBtn').addEventListener('click', startGame);
+        document.getElementById('resetStats').addEventListener('click', () => {
+            results = []; localStorage.removeItem('spidershot_results'); updateStats();
+        });
+
+        window.addEventListener('resize', resize);
+        resize(); gameLoop(); updateStats();
+    })();
+    });
+    </script>
+</body>
+</html>
