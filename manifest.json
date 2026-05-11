@@ -1,15 +1,16 @@
 {
-    "name": "ReflexTester.fun",
+    "name": "ReflexTester.fun — Reflex Testing & Aim Training",
     "short_name": "ReflexTester",
-    "description": "Free professional reflex testing and aim training. 13 tools for gamers.",
+    "description": "Free professional reflex testing and aim training. 31+ tools for gamers, athletes, and researchers.",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#0a0a0f",
-    "theme_color": "#4ecdc4",
+    "background_color": "#0a0a0c",
+    "theme_color": "#E8A020",
     "orientation": "any",
     "scope": "/",
     "lang": "en-US",
     "categories": ["games", "sports", "education"],
+    "id": "/",
     "icons": [
         {
             "src": "/favicon-16x16.png",
@@ -52,6 +53,20 @@
             "short_name": "Aim Trainer",
             "url": "/tools/csgo-aim-trainer.html",
             "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+        },
+        {
+            "name": "Click Speed Test",
+            "short_name": "CPS Test",
+            "url": "/tools/click-speed-test.html",
+            "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+        },
+        {
+            "name": "Typing Speed Test",
+            "short_name": "Typing Test",
+            "url": "/tools/typing-speed-test.html",
+            "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
         }
-    ]
+    ],
+    "screenshots": [],
+    "prefer_related_applications": false
 }

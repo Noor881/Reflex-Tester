@@ -361,6 +361,28 @@
     });
   }
 
+  /* ── Lazy Load Images ──────────────────────────────────── */
+  function initLazyImages() {
+    document.querySelectorAll('img:not([loading])').forEach(function (img) {
+      img.setAttribute('loading', 'lazy');
+      img.setAttribute('decoding', 'async');
+    });
+  }
+
+  /* ── Service Worker Registration ─────────────────────── */
+  function initServiceWorker() {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js').then(function (reg) {
+          console.log('[SW] Registered:', reg.scope);
+          setInterval(function () { reg.update(); }, 60 * 60 * 1000);
+        }).catch(function (err) {
+          console.log('[SW] Registration failed:', err);
+        });
+      });
+    }
+  }
+
   /* ── Init All ──────────────────────────────────────────── */
   function init() {
     initMobileNav();
@@ -377,6 +399,8 @@
     initHeroParallax();
     initShareBar();
     initErrorBoundary();
+    initLazyImages();
+    initServiceWorker();
   }
 
   if (document.readyState === 'loading') {
