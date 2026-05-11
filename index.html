@@ -23,7 +23,7 @@
     <meta property="og:description"
         content="How fast are your reflexes? Test your reaction time, train your aim with 3D shooters, and benchmark against 500K+ gamers. 100% free, no sign-up.">
     <meta property="og:url" content="https://reflextester.fun/">
-    <meta property="og:image" content="https://reflextester.fun/images/og-default.jpg">
+    <meta property="og:image" content="https://reflextester.fun/images/og-default.svg">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
 
@@ -157,6 +157,7 @@
         gtag('js', new Date());
         gtag('config', 'G-SQXHSZ3JNC');
     </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
 </head>
 
 <body>
@@ -227,6 +228,36 @@
                 </div>
             </div>
         </section>
+        <!-- daily-challenge -->
+        <section class="section" id="dailyChallenge" style="border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div class="container" style="max-width:700px;">
+                <div style="background:linear-gradient(135deg,rgba(232,160,32,0.06),rgba(34,197,94,0.04));border:1px solid rgba(232,160,32,0.15);border-radius:16px;padding:32px;position:relative;overflow:hidden;">
+                    <div style="position:absolute;top:12px;right:16px;background:rgba(232,160,32,0.15);padding:4px 12px;border-radius:20px;font-size:0.7rem;color:#E8A020;font-weight:700;letter-spacing:0.05em;">DAILY</div>
+                    <p style="font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 8px;font-weight:600;">Today's Challenge</p>
+                    <h3 id="challengeTitle" style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;color:#f5f5f0;margin:0 0 8px;"></h3>
+                    <p id="challengeDesc" style="color:#888;font-size:0.9rem;margin:0 0 20px;"></p>
+                    <a id="challengeLink" href="#" class="btn btn-primary" style="font-size:0.85rem;padding:10px 24px;">Start Challenge</a>
+                </div>
+            </div>
+        </section>
+        <script>
+        (function(){
+            var challenges = [
+                {title:"Speed Demon",desc:"Score under 200ms on the Visual Reflex Test 3 times in a row",link:"tools/visual-reflex-test.html"},
+                {title:"Click Frenzy",desc:"Hit 10+ CPS on the Click Speed Test",link:"tools/click-speed-test.html"},
+                {title:"Aim Master",desc:"Score 90%+ accuracy in the Precision Aim Test",link:"tools/precision-aim-test.html"},
+                {title:"Memory Champ",desc:"Reach level 8+ on the Memory Sequence Test",link:"tools/memory-sequence-test.html"},
+                {title:"Type Racer",desc:"Hit 60+ WPM with 95% accuracy on the Typing Test",link:"tools/typing-speed-test.html"},
+                {title:"Focus Mode",desc:"Complete the Stroop Effect Test with zero mistakes",link:"tools/stroop-effect-test.html"},
+                {title:"Peripheral Pro",desc:"Score 85%+ on the Peripheral Vision Test",link:"tools/peripheral-vision-test.html"},
+            ];
+            var day = Math.floor(Date.now()/86400000) % challenges.length;
+            var c = challenges[day];
+            document.getElementById('challengeTitle').textContent = c.title;
+            document.getElementById('challengeDesc').textContent = c.desc;
+            document.getElementById('challengeLink').href = c.link;
+        })();
+        </script>
 
         <!-- Featured Tools -->
         <section class="section">
