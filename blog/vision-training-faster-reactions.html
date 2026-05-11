@@ -9,6 +9,9 @@
     <!-- Charset/viewport FIRST -->
 
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -2270,6 +2273,16 @@
             <a href="../tools/color-match-test.html" class="article-nav-btn">🎨 Color Match Test</a>
             </div>
         </div>
+        
+        <!-- social-share -->
+        <div style="margin:32px 0 0;padding:20px 0;border-top:1px solid rgba(255,255,255,0.07);">
+            <p style="color:var(--text-muted,#444);font-size:0.85rem;margin-bottom:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Share this article</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <a href="https://twitter.com/intent/tweet?url=https://reflextester.fun/blog/vision-training-faster-reactions.html" target="_blank" rel="noopener" style="padding:8px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:var(--text-secondary,#888);font-size:0.85rem;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='#E8A020';this.style.color='#E8A020'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='var(--text-secondary,#888)'">&#120143; Share on X</a>
+                <a href="https://reddit.com/submit?url=https://reflextester.fun/blog/vision-training-faster-reactions.html" target="_blank" rel="noopener" style="padding:8px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:var(--text-secondary,#888);font-size:0.85rem;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='#FF5700';this.style.color='#FF5700'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='var(--text-secondary,#888)'">Reddit</a>
+                <button type="button" onclick="navigator.clipboard.writeText('https://reflextester.fun/blog/vision-training-faster-reactions.html').then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Link',2000)})" style="padding:8px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:var(--text-secondary,#888);font-size:0.85rem;cursor:pointer;transition:all 0.2s;">Copy Link</button>
+            </div>
+        </div>
         </article>
 
 <!-- People Also Read Section -->
@@ -2400,6 +2413,17 @@
 
 <script src="../nav.js" defer></script>
 
+<!-- cookie-consent -->
+<div id="cookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(10,10,12,0.97);border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;backdrop-filter:blur(12px);">
+    <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+        <p style="color:#888880;font-size:0.85rem;margin:0;flex:1;min-width:200px;">We use cookies for analytics and to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html" style="color:#E8A020;text-decoration:underline;">Privacy Policy</a>.</p>
+        <div style="display:flex;gap:8px;">
+            <button type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" style="padding:8px 20px;background:#E8A020;color:#000;border:none;border-radius:6px;font-weight:700;font-size:0.8rem;cursor:pointer;">Accept</button>
+            <button type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" style="padding:8px 20px;background:transparent;color:#888;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-size:0.8rem;cursor:pointer;">Decline</button>
+        </div>
+    </div>
+</div>
+<script>if(!localStorage.getItem('cookie_consent'))document.getElementById('cookieConsent').style.display='block';</script>
 </body>
 
 
