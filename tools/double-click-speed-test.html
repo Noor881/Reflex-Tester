@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Double Click Speed Test — Measure Your Double-Click CPS [Free Online]</title>
@@ -267,7 +269,7 @@
         .dps-badge.good { background:#3b82f6; color:#fff; }
         .dps-badge.avg  { background:#f59e0b; color:#000; }
         .dps-badge.low  { background:#6b7280; color:#fff; }
-    
+
         /* ── Performance Lab Design System (injected) ── */
         :root {
             --orange: #FF4D00;
@@ -287,7 +289,7 @@
             letter-spacing: 0.06em;
             text-transform: uppercase;
             border: 1px solid;
-            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+            font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
         }
         .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
         .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
@@ -343,7 +345,7 @@
             margin-bottom: 12px;
         }
 
-    
+
         .cps-tabs {
             display: flex;
             gap: 6px;
@@ -357,7 +359,7 @@
             border: 1px solid rgba(255,255,255,0.1);
             background: transparent;
             color: var(--text-secondary);
-            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+            font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -466,7 +468,7 @@
             border: 1px solid rgba(255,255,255,0.1);
             background: transparent;
             color: var(--text-secondary);
-            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+            font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -585,28 +587,22 @@
       ]
     }
     </script>
-    <meta property="og:image" content="https://reflextester.fun/images/og-default.svg">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+    <meta property="og:image" content="https://reflextester.fun/images/double-click-speed-test-og.svg">
+                                            <link rel="stylesheet" href="../polish.css?v=6">
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <div class="scroll-progress"></div>
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
-            <div class="nav-menu" id="navMenu">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="../dashboard.html" class="nav-link">Dashboard</a>
-                <a href="../blog.html" class="nav-link">Blog</a>
-                <a href="../about.html" class="nav-link">About</a>
-                <a href="../contact.html" class="nav-link">Contact</a>
-                <a href="../tools.html" class="nav-cta">All Tools</a>
+<main role="main" class="main-content" id="main">
+        <section class="tool-hero-banner" style="--tool-accent:#EC4899;--tool-accent-rgb:236, 72, 153;">
+            <div class="container tool-hero-inner">
+                <div class="tool-hero-copy">
+                    <span class="tool-category-badge">Reflex Tests</span>
+                    <h1>Double Click Speed Test</h1>
+                    <p>Test how fast you can double-click. Measures DPS across 5, 10, and 15 second intervals.</p>
+                </div>
+                <img class="tool-hero-art" src="../images/tool-previews/double-click-speed-test.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="eager" decoding="async">
             </div>
-            <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-        </div>
-    </nav>
+        </section>
 
-    <main role="main" class="main-content" id="main">
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a><span class="separator">›</span>
@@ -617,17 +613,17 @@
 
         <section class="test-area">
             <div class="test-panel active">
-                <h1>🖱️ Double Click Speed Test</h1>
+                <h1> Double Click Speed Test</h1>
                 <p class="test-desc">Test how fast you can double-click. Choose your duration, then double-click the zone as fast as possible!</p>
 
                 <div class="test-actions" style="margin-bottom:20px;">
-                    <button type="button" class="btn btn-secondary" id="btn5s" data-dur="5">5 Seconds</button>
-                    <button type="button" class="btn btn-secondary active" id="btn10s" data-dur="10">10 Seconds</button>
-                    <button type="button" class="btn btn-secondary" id="btn15s" data-dur="15">15 Seconds</button>
+                    <button aria-label="5 Seconds" type="button" class="btn btn-secondary" id="btn5s" data-dur="5">5 Seconds</button>
+                    <button aria-label="10 Seconds" type="button" class="btn btn-secondary active" id="btn10s" data-dur="10">10 Seconds</button>
+                    <button aria-label="15 Seconds" type="button" class="btn btn-secondary" id="btn15s" data-dur="15">15 Seconds</button>
                 </div>
 
                 <div class="dclick-zone" id="dclickZone">
-                    <div class="dclick-icon" id="dclickIcon">🖱️</div>
+                    <div class="dclick-icon" id="dclickIcon"></div>
                     <div class="dclick-instruction" id="dclickInstruction">Click to Start</div>
                     <div class="dclick-sub" id="dclickSub">Double-click as fast as you can</div>
                 </div>
@@ -650,7 +646,7 @@
                 <div class="reaction-display" id="resultDisplay" style="display:none;"></div>
 
                 <div class="stats-panel" id="statsPanel" style="display:none;">
-                    <h4>🖱️ Your Double-Click Stats</h4>
+                    <h4> Your Double-Click Stats</h4>
                     <div class="stat-row"><span class="stat-label">Best DPS</span><span class="stat-value" id="bestDps">—</span></div>
                     <div class="stat-row"><span class="stat-label">Avg DPS</span><span class="stat-value" id="avgDps">—</span></div>
                     <div class="stat-row"><span class="stat-label">Sessions</span><span class="stat-value" id="dclickSessions">0</span></div>
@@ -678,29 +674,67 @@
                 </ul>
             </div>
         </section>
-
-        <section class="recommended-tools">
+        <section class="tool-details-section" aria-label="Double Click Speed Test training notes">
             <div class="container">
-                <h2>Recommended Tools</h2>
-                <div class="rec-grid">
-                    <a href="click-speed-test.html" class="rec-card"><div class="rec-icon">🖱️</div><h3>Click Speed (CPS)</h3><p>Single-click speed test with multiple durations</p></a>
-                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Visual Reflex</h3><p>Test your raw visual reaction time</p></a>
-                    <a href="hand-eye-coordination-test.html" class="rec-card"><div class="rec-icon">🎯</div><h3>Hand-Eye Coordination</h3><p>Hit moving targets for precision</p></a>
-                    <a href="typing-speed-test.html" class="rec-card"><div class="rec-icon">⌨️</div><h3>Typing Speed</h3><p>Test WPM and accuracy</p></a>
+                <div class="tool-details-grid">
+                    <article class="tool-detail-card">
+                        <h2>What This Trains</h2>
+                        <p>Stimulus recognition, click timing, decision speed, and recovery after missed or early reactions.</p>
+                    </article>
+                    <article class="tool-detail-card">
+                        <h2>How To Use It Well</h2>
+                        <p>Take several attempts instead of trusting one result. Reaction time varies with sleep, caffeine, hardware latency, and focus.</p>
+                    </article>
+                    <article class="tool-detail-card">
+                        <h2>Best For</h2>
+                        <ul>
+                            <li>Baseline reaction checks</li>
+                            <li>Daily speed tracking</li>
+                            <li>Comparing visual, audio, and click response</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-tools-section">
+            <div class="container">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a class="related-tool-card" href="visual-reflex-test.html">
+                        <img class="related-tool-media" src="../images/tool-previews/visual-reflex-test.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Reflex Tests</span>
+                        <h3>Visual Reflex Test</h3>
+                        <p>Click the instant the screen turns green. Measure your visual reaction time with laboratory-grade accuracy.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="audio-reflex-test.html">
+                        <img class="related-tool-media" src="../images/tool-previews/audio-reflex-test.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Reflex Tests</span>
+                        <h3>Audio Reflex Test</h3>
+                        <p>React to sound instead of sight. Audio reflexes are typically 20-40ms faster than visual for most people.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="click-speed-test.html">
+                        <img class="related-tool-media" src="../images/tool-previews/click-speed-test.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Reflex Tests</span>
+                        <h3>Click Speed Test</h3>
+                        <p>How fast can you click? Measure clicks per second over 5, 10, or 30 second intervals.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="color-match-test.html">
+                        <img class="related-tool-media" src="../images/tool-previews/color-match-test.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Reflex Tests</span>
+                        <h3>Color Match Test</h3>
+                        <p>Match the target color as fast as possible. Measures color processing speed and visual discrimination.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025-2026 ReflexTester.fun — Professional Reflex Testing Platform</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../main.js" defer></script>
+<script src="../tool-runtime.js?v=4"></script>
+    <script src="../main.js?v=5" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const zone      = document.getElementById('dclickZone');
@@ -741,7 +775,7 @@
                 lastClickTime = 0;
                 clearInterval(timerInterval);
                 zone.className = 'dclick-zone ready';
-                icon.textContent = '🖱️';
+                icon.textContent = '';
                 instr.textContent = 'Click to Start';
                 sub.textContent = 'Double-click the zone as fast as you can';
                 countEl.textContent = '0';
@@ -756,7 +790,7 @@
                 lastClickTime = 0;
                 startTime = Date.now();
                 zone.className = 'dclick-zone go';
-                icon.textContent = '💥';
+                icon.textContent = '';
                 instr.textContent = 'DOUBLE-CLICK!';
                 sub.textContent = 'Go go go!';
                 timeEl.textContent = duration + 's';
@@ -775,7 +809,7 @@
                 clearInterval(timerInterval);
                 state = 'done';
                 zone.className = 'dclick-zone done';
-                icon.textContent = '🏁';
+                icon.textContent = '';
                 instr.textContent = 'Time Up!';
                 sub.textContent = 'Click to try again';
                 timeEl.textContent = '0.0s';
@@ -786,9 +820,9 @@
 
                 let grade, badgeClass;
                 const dnum = parseFloat(finalDps);
-                if (dnum >= 13)      { grade = 'Elite! Top 1% 🏆';   badgeClass = 'pro'; }
-                else if (dnum >= 9)  { grade = 'Fast — Competitive Level 🔥'; badgeClass = 'pro'; }
-                else if (dnum >= 5)  { grade = 'Good — Above Average 👍'; badgeClass = 'good'; }
+                if (dnum >= 13)      { grade = 'Elite! Top 1% ';   badgeClass = 'pro'; }
+                else if (dnum >= 9)  { grade = 'Fast — Competitive Level '; badgeClass = 'pro'; }
+                else if (dnum >= 5)  { grade = 'Good — Above Average '; badgeClass = 'good'; }
                 else if (dnum >= 2)  { grade = 'Average — Keep Practicing';  badgeClass = 'avg'; }
                 else                 { grade = 'Getting Started — Keep Going!'; badgeClass = 'low'; }
 
@@ -844,14 +878,14 @@
             updateStats();
         });
     </script>
-<script src="../nav.js" defer></script>
+<script src="../nav.js?v=3" defer></script>
 <!-- cookie-consent -->
 <div id="cookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(10,10,12,0.97);border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;backdrop-filter:blur(12px);">
     <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
         <p style="color:#888880;font-size:0.85rem;margin:0;flex:1;min-width:200px;">We use cookies for analytics and to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html" style="color:#E8A020;text-decoration:underline;">Privacy Policy</a>.</p>
         <div style="display:flex;gap:8px;">
-            <button type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" style="padding:8px 20px;background:#E8A020;color:#000;border:none;border-radius:6px;font-weight:700;font-size:0.8rem;cursor:pointer;">Accept</button>
-            <button type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" style="padding:8px 20px;background:transparent;color:#888;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-size:0.8rem;cursor:pointer;">Decline</button>
+            <button aria-label="Accept" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" style="padding:8px 20px;background:#E8A020;color:#000;border:none;border-radius:6px;font-weight:700;font-size:0.8rem;cursor:pointer;">Accept</button>
+            <button aria-label="Decline" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" style="padding:8px 20px;background:transparent;color:#888;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-size:0.8rem;cursor:pointer;">Decline</button>
         </div>
     </div>
 </div>

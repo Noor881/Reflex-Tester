@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Sensitivity Calculator — Convert Mouse Sens Between Games [2025]</title>
+    <title>Gaming Sensitivity Calculator — Convert Mouse Sens Between Games</title>
     <meta name="description"
         content="Free gaming sensitivity calculator. Convert mouse sensitivity between 15+ games including Valorant, CS:GO, Apex, COD, Fortnite. Match your cm/360° across all FPS games.">
     <meta name="keywords"
@@ -20,7 +22,7 @@
     <meta property="og:url" content="https://reflextester.fun/tools/sensitivity-calculator.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
-    <meta property="og:image" content="https://reflextester.fun/images/og-default.svg">
+    <meta property="og:image" content="https://reflextester.fun/images/sensitivity-calculator-og.svg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
@@ -28,7 +30,7 @@
     <meta name="twitter:title" content="Gaming Sensitivity Calculator — Convert Between Games">
     <meta name="twitter:description"
         content="Convert mouse sensitivity between 15+ FPS games. Free tool to match your aim settings.">
-    <meta name="twitter:image" content="https://reflextester.fun/images/og-default.svg">
+    <meta name="twitter:image" content="https://reflextester.fun/images/sensitivity-calculator-og.svg">
 
     <script type="application/ld+json">
     {
@@ -414,7 +416,7 @@
             color: #fff;
             border-color: #a855f7;
         }
-    
+
         /* ── Performance Lab Design System (injected) ── */
         :root {
             --orange: #FF4D00;
@@ -434,7 +436,7 @@
             letter-spacing: 0.06em;
             text-transform: uppercase;
             border: 1px solid;
-            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+            font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
         }
         .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
         .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
@@ -490,7 +492,7 @@
             margin-bottom: 12px;
         }
 
-    
+
         .sens-form {
             display: grid;
             gap: 16px;
@@ -568,29 +570,22 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+                                            <link rel="stylesheet" href="../polish.css?v=6">
 </head>
 
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <div class="scroll-progress"></div>
-
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
-            <div class="nav-menu" id="navMenu">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="../dashboard.html" class="nav-link">Dashboard</a>
-                <a href="../blog.html" class="nav-link">Blog</a>
-                <a href="../about.html" class="nav-link">About</a>
-                <a href="../contact.html" class="nav-link">Contact</a>
-                <a href="../tools.html" class="nav-cta">All Tools</a>
+<main role="main" class="main-content" id="main">
+        <section class="tool-hero-banner" style="--tool-accent:#64748B;--tool-accent-rgb:100, 116, 139;">
+            <div class="container tool-hero-inner">
+                <div class="tool-hero-copy">
+                    <span class="tool-category-badge">Game Utilities</span>
+                    <h1>Gaming Sensitivity Calculator</h1>
+                    <p>Convert mouse sensitivity between 13+ FPS games. Match your cm/360° across Valorant, CS:GO, Apex, and more.</p>
+                </div>
+                <img class="tool-hero-art" src="../images/tool-previews/sensitivity-calculator.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="eager" decoding="async">
             </div>
-            <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-        </div>
-    </nav>
+        </section>
 
-    <main role="main" class="main-content" id="main">
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a>
@@ -603,7 +598,7 @@
 
         <section class="test-area">
             <div class="test-panel active">
-                <h1>🎯 Gaming Sensitivity Calculator</h1>
+                <h1> Gaming Sensitivity Calculator</h1>
                 <p class="test-desc">Convert your mouse sensitivity between 15+ FPS games. Match your cm/360° and eDPI
                     across all your favorite shooters!</p>
 
@@ -637,19 +632,19 @@
 
                         <div class="input-group">
                             <label for="fromSens">Your Sensitivity in Source Game</label>
-                            <input type="number" id="fromSens" step="0.01" value="1.5" placeholder="e.g., 1.5">
+                            <input type="number" id="fromSens" step="0.01" min="0.01" max="20" value="1.5" placeholder="e.g., 1.5">
                         </div>
 
                         <div class="input-group">
                             <label for="dpi">Your Mouse DPI</label>
-                            <input type="number" id="dpi" step="50" value="800" placeholder="e.g., 800">
+                            <input type="number" id="dpi" step="50" min="100" max="32000" value="800" placeholder="e.g., 800">
                         </div>
 
                         <div class="quick-presets">
-                            <button type="button" class="preset-btn" onclick="setPreset(400)">400 DPI</button>
-                            <button type="button" class="preset-btn" onclick="setPreset(800)">800 DPI</button>
-                            <button type="button" class="preset-btn" onclick="setPreset(1600)">1600 DPI</button>
-                            <button type="button" class="preset-btn" onclick="setPreset(3200)">3200 DPI</button>
+                            <button aria-label="400 DPI" type="button" class="preset-btn" onclick="setPreset(400)">400 DPI</button>
+                            <button aria-label="800 DPI" type="button" class="preset-btn" onclick="setPreset(800)">800 DPI</button>
+                            <button aria-label="1600 DPI" type="button" class="preset-btn" onclick="setPreset(1600)">1600 DPI</button>
+                            <button aria-label="3200 DPI" type="button" class="preset-btn" onclick="setPreset(3200)">3200 DPI</button>
                         </div>
                     </div>
 
@@ -675,7 +670,7 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-calculate" onclick="calculate()">Calculate Sensitivity</button>
+                    <button aria-label="Calculate Sensitivity" type="button" class="btn-calculate" onclick="calculate()">Calculate Sensitivity</button>
 
                     <div class="result-box" id="resultBox" style="display: none;">
                         <h4>Converted Sensitivity</h4>
@@ -730,45 +725,67 @@
                 </ul>
             </div>
         </section>
-
-        <section class="recommended-tools">
+        <section class="tool-details-section" aria-label="Gaming Sensitivity Calculator training notes">
             <div class="container">
-                <h2>Test Your New Sensitivity</h2>
-                <div class="rec-grid">
-                    <a href="valorant-aim-trainer.html" class="rec-card">
-                        <div class="rec-icon">⚔️</div>
-                        <h3>Valorant Aim Trainer</h3>
-                        <p>Test your Valorant sensitivity conversion</p>
+                <div class="tool-details-grid">
+                    <article class="tool-detail-card">
+                        <h2>What This Trains</h2>
+                        <p>Setup confidence: crosshair tuning, recoil familiarity, sensitivity matching, lineups, and loadout planning.</p>
+                    </article>
+                    <article class="tool-detail-card">
+                        <h2>How To Use It Well</h2>
+                        <p>Make one change, test it immediately, and save the setting only after it feels stable across multiple attempts.</p>
+                    </article>
+                    <article class="tool-detail-card">
+                        <h2>Best For</h2>
+                        <ul>
+                            <li>Pre-match setup</li>
+                            <li>Game-specific configuration</li>
+                            <li>Sharing or exporting practical settings</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-tools-section">
+            <div class="container">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a class="related-tool-card" href="valorant-crosshair-generator.html">
+                        <img class="related-tool-media" src="../images/tool-previews/valorant-crosshair-generator.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Game Utilities</span>
+                        <h3>Valorant Crosshair Generator</h3>
+                        <p>Customize your Valorant crosshair with real-time preview. Includes pro player presets and code export.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
                     </a>
-                    <a href="apex-aim-trainer.html" class="rec-card">
-                        <div class="rec-icon">🔫</div>
-                        <h3>Apex Aim Trainer</h3>
-                        <p>Practice with your new Apex settings</p>
+                    <a class="related-tool-card" href="valorant-lineup-trainer.html">
+                        <img class="related-tool-media" src="../images/tool-previews/valorant-lineup-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Game Utilities</span>
+                        <h3>Valorant Lineup Trainer</h3>
+                        <p>Practice utility lineups with moving targets. Master crosshair placement for each agent.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
                     </a>
-                    <a href="csgo-aim-trainer.html" class="rec-card">
-                        <div class="rec-icon">🎮</div>
-                        <h3>CS:GO Aim Trainer</h3>
-                        <p>Verify your CS:GO sensitivity</p>
+                    <a class="related-tool-card" href="csgo-crosshair-generator.html">
+                        <img class="related-tool-media" src="../images/tool-previews/csgo-crosshair-generator.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Game Utilities</span>
+                        <h3>CS2 Crosshair Generator</h3>
+                        <p>Create CS:GO/CS2 crosshairs with console command export. Pro player presets included.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
                     </a>
-                    <a href="flick-shot-trainer.html" class="rec-card">
-                        <div class="rec-icon">⚡</div>
-                        <h3>Flick Shot Trainer</h3>
-                        <p>Build muscle memory with flicks</p>
+                    <a class="related-tool-card" href="csgo-grenade-trainer.html">
+                        <img class="related-tool-media" src="../images/tool-previews/csgo-grenade-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Game Utilities</span>
+                        <h3>CS2 Grenade Trainer</h3>
+                        <p>Master grenade throws with moving targets. Practice smokes, flashes, and mollies with accuracy tracking.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
                     </a>
                 </div>
             </div>
         </section>
     </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025-2026 ReflexTester.fun — Professional Reflex Testing Platform</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../main.js" defer></script><script>
+<script src="../tool-runtime.js?v=4"></script>
+    <script src="../main.js?v=5" defer></script><script>
         const sensitivityMultipliers = {
             valorant: 1.0,
             csgo: 3.18,
@@ -827,7 +844,7 @@
             if (!fromSens || !dpi || fromSens <= 0 || dpi <= 0) {
                 document.getElementById('resultBox').style.display = 'block';
                 document.getElementById('resultBox').style.borderColor = '#ef4444';
-                document.getElementById('resultBox').innerHTML = '<p style="color:#ef4444;font-weight:700;">⚠️ Please enter valid sensitivity and DPI values.</p>';
+                document.getElementById('resultBox').innerHTML = '<p style="color:#ef4444;font-weight:700;"> Please enter valid sensitivity and DPI values.</p>';
                 return;
             }
             document.getElementById('resultBox').style.borderColor = '';
@@ -870,15 +887,23 @@
         document.getElementById('dpi').addEventListener('input', () => {
             if (document.getElementById('resultBox').style.display !== 'none') calculate();
         });
-    </script>
-<script src="../nav.js" defer></script>
+
+            // live-validation-patch
+            ['fromGame','toGame','fromSens','dpi'].forEach(function(id){
+                var el = document.getElementById(id);
+                if (!el) return;
+                el.addEventListener('input', function(){ if (typeof calculate === 'function' && el.checkValidity()) calculate(); });
+                el.addEventListener('change', function(){ if (typeof calculate === 'function' && el.checkValidity()) calculate(); });
+            });
+        </script>
+<script src="../nav.js?v=3" defer></script>
 <!-- cookie-consent -->
 <div id="cookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(10,10,12,0.97);border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;backdrop-filter:blur(12px);">
     <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
         <p style="color:#888880;font-size:0.85rem;margin:0;flex:1;min-width:200px;">We use cookies for analytics and to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html" style="color:#E8A020;text-decoration:underline;">Privacy Policy</a>.</p>
         <div style="display:flex;gap:8px;">
-            <button type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" style="padding:8px 20px;background:#E8A020;color:#000;border:none;border-radius:6px;font-weight:700;font-size:0.8rem;cursor:pointer;">Accept</button>
-            <button type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" style="padding:8px 20px;background:transparent;color:#888;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-size:0.8rem;cursor:pointer;">Decline</button>
+            <button aria-label="Accept" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" style="padding:8px 20px;background:#E8A020;color:#000;border:none;border-radius:6px;font-weight:700;font-size:0.8rem;cursor:pointer;">Accept</button>
+            <button aria-label="Decline" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" style="padding:8px 20px;background:transparent;color:#888;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-size:0.8rem;cursor:pointer;">Decline</button>
         </div>
     </div>
 </div>

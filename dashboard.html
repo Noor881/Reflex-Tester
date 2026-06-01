@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Dashboard — Track Progress | ReflexTester.fun</title>
@@ -18,7 +20,7 @@
     <meta property="og:description"
         content="View your personal reflex testing stats and track progress over time. See your best scores, averages, and improvement trends.">
     <meta property="og:url" content="https://reflextester.fun/dashboard.html">
-    <meta property="og:image" content="https://reflextester.fun/images/og-default.svg">
+    <meta property="og:image" content="https://reflextester.fun/images/dashboard-og.svg">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
 
@@ -121,32 +123,14 @@
         }
     </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+                                            <link rel="stylesheet" href="polish.css?v=6">
 </head>
 
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <div class="scroll-progress"></div>
-
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="dashboard.html" class="nav-link active">Dashboard</a>
-                <a href="blog.html" class="nav-link">Blog</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="tools.html" class="nav-cta">All Tools</a>
-            </div>
-            <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-        </div>
-    </nav>
-
-    <main role="main" class="main-content" id="main">
+<main role="main" class="main-content" id="main">
         <section class="dashboard-hero">
             <div class="container">
-                <h1>📊 Your Dashboard</h1>
+                <h1> Your Dashboard</h1>
                 <p>Track your reflex testing progress and see how you stack up against benchmarks.</p>
             </div>
         </section>
@@ -154,17 +138,17 @@
         <section class="container">
             <div class="dashboard-grid" id="statsGrid">
                 <div class="stat-card">
-                    <h3>⚡ Visual Reflex</h3>
+                    <h3> Visual Reflex</h3>
                     <div class="value" id="visualBest">—</div>
                     <div class="subtitle">Best Time (ms)</div>
                 </div>
                 <div class="stat-card">
-                    <h3>🔊 Audio Reflex</h3>
+                    <h3> Audio Reflex</h3>
                     <div class="value" id="audioBest">—</div>
                     <div class="subtitle">Best Time (ms)</div>
                 </div>
                 <div class="stat-card">
-                    <h3>🖱️ Click Speed</h3>
+                    <h3> Click Speed</h3>
                     <div class="value" id="cpsBest">—</div>
                     <div class="subtitle">Best CPS</div>
                 </div>
@@ -174,12 +158,12 @@
                     <div class="subtitle">Best WPM</div>
                 </div>
                 <div class="stat-card">
-                    <h3>🧠 Memory Sequence</h3>
+                    <h3> Memory Sequence</h3>
                     <div class="value" id="memoryBest">—</div>
                     <div class="subtitle">Best Level</div>
                 </div>
                 <div class="stat-card">
-                    <h3>🎯 CS:GO Aim</h3>
+                    <h3> CS:GO Aim</h3>
                     <div class="value" id="csgoBest">—</div>
                     <div class="subtitle">Best Score</div>
                 </div>
@@ -189,7 +173,7 @@
                 <h2>Test History</h2>
                 <div id="historyContainer">
                     <div class="no-data">
-                        <div class="icon">📋</div>
+                        <div class="icon"></div>
                         <p>No test data yet. Complete some tests to see your history!</p>
                     </div>
                 </div>
@@ -198,18 +182,9 @@
             <button type="button" class="btn btn-secondary clear-btn" id="clearBtn">Clear All Data</button>
         </section>
     </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025-2026 ReflexTester.fun — Professional Reflex Testing Platform</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="main.js" defer></script>
+<script src="main.js?v=5" defer></script>
     <script>
-        /* Wait for main.js defer to load so ReflexStore is available */
+        /* Wait for main.js?v=5 defer to load so ReflexStore is available */
         document.addEventListener('DOMContentLoaded', function () {
             function loadStats() {
                 var visual  = ReflexStore.get('visual_results', []);
@@ -276,7 +251,7 @@
             loadStats();
         });
     </script>
-<script src="nav.js" defer></script>
+<script src="nav.js?v=3" defer></script>
 <!-- cookie-consent -->
 <div id="cookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(10,10,12,0.97);border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;backdrop-filter:blur(12px);">
     <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">

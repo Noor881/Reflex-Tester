@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Focus & Attention Test — Measure Your Concentration & Vigilance [Free]</title>
@@ -337,7 +339,7 @@
         .grade-good        { background:rgba(100,180,255,0.1); color:#64b4ff; border-color:rgba(100,180,255,0.3); }
         .grade-average     { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
         .grade-poor        { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
-    
+
         /* ── Performance Lab Design System (injected) ── */
         :root {
             --orange: #FF4D00;
@@ -357,7 +359,7 @@
             letter-spacing: 0.06em;
             text-transform: uppercase;
             border: 1px solid;
-            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+            font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
         }
         .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
         .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
@@ -436,28 +438,22 @@
       ]
     }
     </script>
-    <meta property="og:image" content="https://reflextester.fun/images/og-default.svg">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+    <meta property="og:image" content="https://reflextester.fun/images/focus-attention-test-og.svg">
+                                            <link rel="stylesheet" href="../polish.css?v=6">
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <div class="scroll-progress"></div>
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
-            <div class="nav-menu" id="navMenu">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="../dashboard.html" class="nav-link">Dashboard</a>
-                <a href="../blog.html" class="nav-link">Blog</a>
-                <a href="../about.html" class="nav-link">About</a>
-                <a href="../contact.html" class="nav-link">Contact</a>
-                <a href="../tools.html" class="nav-cta">All Tools</a>
+<main role="main" class="main-content" id="main">
+        <section class="tool-hero-banner" style="--tool-accent:#14B8A6;--tool-accent-rgb:20, 184, 166;">
+            <div class="container tool-hero-inner">
+                <div class="tool-hero-copy">
+                    <span class="tool-category-badge">Cognitive Tests</span>
+                    <h1>Focus &amp; Attention Test</h1>
+                    <p>Press only for target stimuli, ignore distractors. Based on CPT vigilance research used in neuroscience.</p>
+                </div>
+                <img class="tool-hero-art" src="../images/tool-previews/focus-attention-test.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="eager" decoding="async">
             </div>
-            <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-        </div>
-    </nav>
+        </section>
 
-    <main role="main" class="main-content" id="main">
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a><span class="separator">›</span>
@@ -468,11 +464,11 @@
 
         <section class="test-area">
             <div class="test-panel active">
-                <h1>🧠 Focus & Attention Test</h1>
+                <h1> Focus & Attention Test</h1>
                 <p class="test-desc">A vigilance test based on real neuroscience research. Press <kbd>Space</kbd> (or tap) only when you see the <strong>target stimulus</strong> — ignore the distractors!</p>
 
                 <div class="focus-rule" id="focusRule">
-                    <div class="rule-icon">⚠️</div>
+                    <div class="rule-icon"></div>
                     <div class="rule-text" id="ruleText">Loading rule...</div>
                 </div>
 
@@ -494,8 +490,8 @@
                 </div>
 
                 <div class="test-actions" style="margin-top:20px;">
-                    <button type="button" class="btn btn-primary" id="focusStartBtn">Start Test</button>
-                    <button type="button" class="btn btn-secondary" id="focusResetBtn">Reset Stats</button>
+                    <button aria-label="Start Test" type="button" class="btn btn-primary" id="focusStartBtn">Start Test</button>
+                    <button aria-label="Reset Stats" type="button" class="btn btn-secondary" id="focusResetBtn">Reset Stats</button>
                 </div>
 
                 <div id="focusResult" style="display:none; text-align:center; padding:20px; background:var(--bg-card); border-radius:16px; border:1px solid var(--border-subtle); margin-top:16px;">
@@ -505,7 +501,7 @@
                 </div>
 
                 <div class="stats-panel" id="focusStats" style="display:none;">
-                    <h4>🧠 Focus Records</h4>
+                    <h4> Focus Records</h4>
                     <div class="stat-row"><span class="stat-label">Best Score</span><span class="stat-value" id="fsBestScore">—</span></div>
                     <div class="stat-row"><span class="stat-label">Best Accuracy</span><span class="stat-value" id="fsBestAcc">—</span></div>
                     <div class="stat-row"><span class="stat-label">Avg Reaction Time</span><span class="stat-value" id="fsAvgRT">—</span></div>
@@ -533,29 +529,73 @@
                 </ul>
             </div>
         </section>
-
-        <section class="recommended-tools">
+        <section class="tool-details-section" aria-label="Focus &amp; Attention Test training notes">
             <div class="container">
-                <h2>Recommended Tools</h2>
-                <div class="rec-grid">
-                    <a href="stroop-effect-test.html" class="rec-card"><div class="rec-icon">🧪</div><h3>Stroop Effect</h3><p>Test cognitive flexibility and interference</p></a>
-                    <a href="memory-sequence-test.html" class="rec-card"><div class="rec-icon">🧠</div><h3>Memory Sequence</h3><p>Test working memory capacity</p></a>
-                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Visual Reflex</h3><p>Measure raw visual reaction time</p></a>
-                    <a href="audio-reflex-test.html" class="rec-card"><div class="rec-icon">🔊</div><h3>Audio Reflex</h3><p>React to sound for faster reflexes</p></a>
+                <div class="tool-details-grid">
+                    <article class="tool-detail-card">
+                        <h2>What This Trains</h2>
+                        <p>Working memory, attention control, processing speed, and the mental clarity behind fast in-game decisions.</p>
+                    </article>
+                    <article class="tool-detail-card">
+                        <h2>How To Use It Well</h2>
+                        <p>Keep sessions brief and clean. Stop when accuracy falls, then review whether speed or precision caused the drop.</p>
+                    </article>
+                    <article class="tool-detail-card">
+                        <h2>Best For</h2>
+                        <ul>
+                            <li>Focus training</li>
+                            <li>Memory drills</li>
+                            <li>Mental warm-ups before practice</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-tools-section">
+            <div class="container">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a class="related-tool-card" href="typing-speed-test.html">
+                        <img class="related-tool-media" src="../images/tool-previews/typing-speed-test.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Cognitive Tests</span>
+                        <h3>Typing Speed Test</h3>
+                        <p>Measure your words-per-minute speed and accuracy with real sentences. Track improvement over time.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="memory-sequence-test.html">
+                        <img class="related-tool-media" src="../images/tool-previews/memory-sequence-test.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Cognitive Tests</span>
+                        <h3>Memory Sequence Test</h3>
+                        <p>Watch the sequence, repeat it back. Tests working memory and cognitive processing speed simultaneously.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="stroop-effect-test.html">
+                        <img class="related-tool-media" src="../images/tool-previews/stroop-effect-test.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Cognitive Tests</span>
+                        <h3>Stroop Effect Test</h3>
+                        <p>Word says one color, displayed in another. Tests cognitive flexibility and resistance to interference.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="number-speed-test.html">
+                        <img class="related-tool-media" src="../images/tool-previews/number-speed-test.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Cognitive Tests</span>
+                        <h3>Number Speed Test</h3>
+                        <p>Click numbers in ascending order as fast as possible. Tests cognitive speed and hand-eye coordination.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
-
-    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2025-2026 ReflexTester.fun — Professional Reflex Testing Platform</p></div></div></footer>
-
-    <script src="../main.js" defer></script>
+<script src="../tool-runtime.js?v=4"></script>
+    <script src="../main.js?v=5" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Stimulus sets: [target emoji, distractor emojis]
             const MODES = [
-                { rule: 'Press <kbd>Space</kbd> only when you see <strong>🟢 Green Circle</strong> — ignore everything else', target: '🟢', distractors: ['🔴','🟡','🟣','🔵','🟠'] },
-                { rule: 'Press <kbd>Space</kbd> only when you see <strong>⭐ Star</strong> — ignore all other shapes', target: '⭐', distractors: ['🔷','🔸','🔹','💠','🔶'] },
+                { rule: 'Press <kbd>Space</kbd> only when you see <strong> Green Circle</strong> — ignore everything else', target: '', distractors: ['','','','',''] },
+                { rule: 'Press <kbd>Space</kbd> only when you see <strong>⭐ Star</strong> — ignore all other shapes', target: '⭐', distractors: ['','','','',''] },
                 { rule: 'Press <kbd>Space</kbd> only when you see the <strong>number 7</strong> — ignore all other digits', target: '7', distractors: ['1','2','3','4','5','6','8','9'] },
             ];
             const mode = MODES[Math.floor(Math.random() * MODES.length)];
@@ -682,11 +722,11 @@
             }
 
             function getGrade(s, fa) {
-                if (s >= 150 && fa <= 3) return { label: '🏆 EXCEPTIONAL',  cls: 'grade-exceptional' };
-                if (s >= 100)            return { label: '⚡ EXCELLENT',     cls: 'grade-excellent'   };
-                if (s >= 60)             return { label: '👍 GOOD',          cls: 'grade-good'        };
-                if (s >= 30)             return { label: '📊 AVERAGE',       cls: 'grade-average'     };
-                return                          { label: '📉 POOR',           cls: 'grade-poor'        };
+                if (s >= 150 && fa <= 3) return { label: ' EXCEPTIONAL',  cls: 'grade-exceptional' };
+                if (s >= 100)            return { label: ' EXCELLENT',     cls: 'grade-excellent'   };
+                if (s >= 60)             return { label: ' GOOD',          cls: 'grade-good'        };
+                if (s >= 30)             return { label: ' AVERAGE',       cls: 'grade-average'     };
+                return                          { label: ' POOR',           cls: 'grade-poor'        };
             }
 
             function endTest() {
@@ -758,14 +798,14 @@
             updateStats();
         });
     </script>
-<script src="../nav.js" defer></script>
+<script src="../nav.js?v=3" defer></script>
 <!-- cookie-consent -->
 <div id="cookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(10,10,12,0.97);border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;backdrop-filter:blur(12px);">
     <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
         <p style="color:#888880;font-size:0.85rem;margin:0;flex:1;min-width:200px;">We use cookies for analytics and to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html" style="color:#E8A020;text-decoration:underline;">Privacy Policy</a>.</p>
         <div style="display:flex;gap:8px;">
-            <button type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" style="padding:8px 20px;background:#E8A020;color:#000;border:none;border-radius:6px;font-weight:700;font-size:0.8rem;cursor:pointer;">Accept</button>
-            <button type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" style="padding:8px 20px;background:transparent;color:#888;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-size:0.8rem;cursor:pointer;">Decline</button>
+            <button aria-label="Accept" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" style="padding:8px 20px;background:#E8A020;color:#000;border:none;border-radius:6px;font-weight:700;font-size:0.8rem;cursor:pointer;">Accept</button>
+            <button aria-label="Decline" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" style="padding:8px 20px;background:transparent;color:#888;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-size:0.8rem;cursor:pointer;">Decline</button>
         </div>
     </div>
 </div>

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spidershot Challenge — Hit Shrinking Targets [Free Aim Game]</title>
@@ -15,7 +17,7 @@
     <meta property="og:url" content="https://reflextester.fun/tools/spidershot-challenge.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
-    <meta property="og:image" content="https://reflextester.fun/images/og-default.svg">
+    <meta property="og:image" content="https://reflextester.fun/images/spidershot-challenge-og.svg">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -69,26 +71,21 @@
         .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; max-width: 800px; margin: 20px auto 0; }
         @media(max-width:600px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
     </style>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+                                            <link rel="stylesheet" href="../polish.css?v=6">
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-        <div class="nav-inner">
-            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
-            <div class="nav-menu" id="navMenu">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="../dashboard.html" class="nav-link">Dashboard</a>
-                <a href="../blog.html" class="nav-link">Blog</a>
-                <a href="../about.html" class="nav-link">About</a>
-                <a href="../contact.html" class="nav-link">Contact</a>
-                <a href="../tools.html" class="nav-cta">All Tools</a>
+<main role="main" class="main-content" id="main">
+        <section class="tool-hero-banner" style="--tool-accent:#A855F7;--tool-accent-rgb:168, 85, 247;">
+            <div class="container tool-hero-inner">
+                <div class="tool-hero-copy">
+                    <span class="tool-category-badge">Aim Trainers</span>
+                    <h1>Spidershot Challenge</h1>
+                    <p>Targets appear and shrink away. Click before they vanish! Progressive difficulty as your combo grows.</p>
+                </div>
+                <img class="tool-hero-art" src="../images/tool-previews/spidershot-challenge.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="eager" decoding="async">
             </div>
-            <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
-        </div>
-    </nav>
+        </section>
 
-    <main role="main" class="main-content" id="main">
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a><span class="separator">›</span>
@@ -99,11 +96,11 @@
 
         <section class="test-area">
             <div class="test-panel active">
-                <h1>🕷️ Spidershot Challenge</h1>
+                <h1> Spidershot Challenge</h1>
                 <p class="test-desc">Targets appear and shrink away. Click them before they vanish! Difficulty increases as you build streaks.</p>
 
                 <div class="game-canvas-wrap" id="gameWrap">
-                    <canvas id="gameCanvas"></canvas>
+                    <canvas aria-label="Interactive training canvas" id="gameCanvas"></canvas>
                     <div class="game-hud">
                         <div><span class="hud-score" id="hudScore">0</span></div>
                         <div class="hud-combo" id="hudCombo"></div>
@@ -112,14 +109,14 @@
                     <div class="game-overlay" id="startOverlay">
                         <div class="overlay-title">Spidershot</div>
                         <div class="overlay-sub">Targets shrink. Click fast. Don't miss.</div>
-                        <button type="button" class="btn btn-primary" id="playBtn" style="font-size:1.1rem;padding:14px 40px;">▶ Play</button>
+                        <button aria-label="▶ Play" type="button" class="btn btn-primary" id="playBtn" style="font-size:1.1rem;padding:14px 40px;">▶ Play</button>
                     </div>
                     <div class="game-overlay hidden" id="endOverlay">
                         <div class="overlay-title">Round Over</div>
                         <div class="overlay-score" id="finalScore">0</div>
                         <div class="overlay-stats" id="finalStats"></div>
                         <div id="finalGrade" style="margin-bottom:20px;"></div>
-                        <button type="button" class="btn btn-primary" id="replayBtn" style="font-size:1rem;padding:12px 36px;">Play Again</button>
+                        <button aria-label="Play Again" type="button" class="btn btn-primary" id="replayBtn" style="font-size:1rem;padding:12px 36px;">Play Again</button>
                     </div>
                 </div>
 
@@ -130,7 +127,7 @@
                     <div class="hud-cell"><div class="hud-cell-val" id="statGames">0</div><div class="hud-cell-lbl">Games</div></div>
                 </div>
                 <div class="test-actions" style="margin-top:16px;">
-                    <button type="button" class="btn btn-secondary" id="resetStats">Reset Stats</button>
+                    <button aria-label="Reset Stats" type="button" class="btn btn-secondary" id="resetStats">Reset Stats</button>
                 </div>
             </div>
         </section>
@@ -147,24 +144,68 @@
                 </ul>
             </div>
         </section>
-
-        <section class="recommended-tools">
+        <section class="tool-details-section" aria-label="Spidershot Challenge training notes">
             <div class="container">
-                <h2>More Aim Games</h2>
-                <div class="rec-grid">
-                    <a href="gridshot-arena.html" class="rec-card"><div class="rec-icon">🎯</div><h3>Gridshot Arena</h3><p>Classic target clicking</p></a>
-                    <a href="tracking-challenge.html" class="rec-card"><div class="rec-icon">🔄</div><h3>Tracking Challenge</h3><p>Follow moving targets</p></a>
-                    <a href="flick-shot-trainer.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Flick Shot Trainer</h3><p>360° snap aim practice</p></a>
-                    <a href="precision-aim-test.html" class="rec-card"><div class="rec-icon">🎯</div><h3>Precision Aim</h3><p>Pixel-perfect accuracy</p></a>
+                <div class="tool-details-grid">
+                    <article class="tool-detail-card">
+                        <h2>What This Trains</h2>
+                        <p>Aiming consistency, first-shot placement, target switching, and the rhythm you need before queueing into a match.</p>
+                    </article>
+                    <article class="tool-detail-card">
+                        <h2>How To Use It Well</h2>
+                        <p>Run one short round, adjust only one setting, then repeat. Keep your wrist, sensitivity, and display refresh rate consistent while comparing scores.</p>
+                    </article>
+                    <article class="tool-detail-card">
+                        <h2>Best For</h2>
+                        <ul>
+                            <li>Warm-ups before ranked games</li>
+                            <li>Mouse control practice</li>
+                            <li>Finding weak spots in aim mechanics</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-tools-section">
+            <div class="container">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a class="related-tool-card" href="csgo-aim-trainer.html">
+                        <img class="related-tool-media" src="../images/tool-previews/csgo-aim-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Aim Trainers</span>
+                        <h3>CS2 Aim Trainer</h3>
+                        <p>3D aim training with CS:GO-style sensitivity. Practice flicks, tracking, and crosshair placement.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="valorant-aim-trainer.html">
+                        <img class="related-tool-media" src="../images/tool-previews/valorant-aim-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Aim Trainers</span>
+                        <h3>Valorant Aim Trainer</h3>
+                        <p>Tactical headshot training for Valorant. Practice precision aiming and crosshair placement in 3D.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="apex-aim-trainer.html">
+                        <img class="related-tool-media" src="../images/tool-previews/apex-aim-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Aim Trainers</span>
+                        <h3>Apex Legends Aim Trainer</h3>
+                        <p>Battle royale movement and tracking trainer. Practice fast-paced Apex aim with tracking and flick modes.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="cod-aim-trainer.html">
+                        <img class="related-tool-media" src="../images/tool-previews/cod-aim-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Aim Trainers</span>
+                        <h3>COD Aim Trainer</h3>
+                        <p>Call of Duty aim training with game-specific sensitivity. Fast-paced targets mimicking Warzone scenarios.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
-
-    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2025-2026 ReflexTester.fun — Professional Reflex Testing Platform</p></div></div></footer>
-
-    <script src="../main.js" defer></script>
-    <script src="../nav.js" defer></script>
+<script src="../tool-runtime.js?v=4"></script>
+    <script src="../main.js?v=5" defer></script>
+    <script src="../nav.js?v=3" defer></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
     (function() {
@@ -327,11 +368,11 @@
             document.getElementById('finalStats').textContent = `${hits} hits · ${misses} expired · ${acc}% accuracy`;
 
             let g;
-            if (score >= 4000) g = { label: '🏆 LEGENDARY', cls: 'grade-exceptional' };
-            else if (score >= 2500) g = { label: '⚡ ELITE', cls: 'grade-excellent' };
-            else if (score >= 1200) g = { label: '👍 GREAT', cls: 'grade-good' };
-            else if (score >= 600) g = { label: '📊 AVERAGE', cls: 'grade-average' };
-            else g = { label: '📉 ROOKIE', cls: 'grade-poor' };
+            if (score >= 4000) g = { label: ' LEGENDARY', cls: 'grade-exceptional' };
+            else if (score >= 2500) g = { label: ' ELITE', cls: 'grade-excellent' };
+            else if (score >= 1200) g = { label: ' GREAT', cls: 'grade-good' };
+            else if (score >= 600) g = { label: ' AVERAGE', cls: 'grade-average' };
+            else g = { label: ' ROOKIE', cls: 'grade-poor' };
             document.getElementById('finalGrade').innerHTML = '<span class="grade-badge ' + g.cls + '">' + g.label + '</span>';
             document.getElementById('endOverlay').classList.remove('hidden');
 

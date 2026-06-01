@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COD Recoil Trainer — Master Gun Control & Spray Patterns [Free 2025]</title>
+    <title>COD Recoil Trainer — Master Gun Control & Spray Patterns [Free]</title>
     <meta name="description"
         content="Free Call of Duty recoil control trainer. Practice recoil patterns for MW3, Warzone weapons. Improve spray control and accuracy.">
     <meta name="keywords"
@@ -442,7 +444,7 @@
         .grade-good        { background:rgba(100,180,255,0.1); color:#64b4ff; border-color:rgba(100,180,255,0.3); }
         .grade-average     { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
         .grade-poor        { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
-    
+
         /* ── Performance Lab Design System (injected) ── */
         :root {
             --orange: #FF4D00;
@@ -462,7 +464,7 @@
             letter-spacing: 0.06em;
             text-transform: uppercase;
             border: 1px solid;
-            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+            font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
         }
         .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
         .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
@@ -543,28 +545,23 @@
       ]
     }
     </script>
-    <meta property="og:image" content="https://reflextester.fun/images/og-default.svg">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+    <meta property="og:image" content="https://reflextester.fun/images/cod-recoil-trainer-og.svg">
+                                            <link rel="stylesheet" href="../polish.css?v=6">
 </head>
 
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <div class="scroll-progress"></div>
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
-            <div class="nav-menu" id="navMenu">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="../dashboard.html" class="nav-link">Dashboard</a>
-                <a href="../blog.html" class="nav-link">Blog</a>
-                <a href="../about.html" class="nav-link">About</a>
-                <a href="../contact.html" class="nav-link">Contact</a>
-                <a href="../tools.html" class="nav-cta">All Tools</a>
+<main role="main" class="main-content" id="main">
+        <section class="tool-hero-banner" style="--tool-accent:#8B9A2B;--tool-accent-rgb:139, 154, 43;">
+            <div class="container tool-hero-inner">
+                <div class="tool-hero-copy">
+                    <span class="tool-category-badge">Game Utilities</span>
+                    <h1>COD Recoil Trainer</h1>
+                    <p>Master COD recoil patterns with dynamic bullet visualization. Multi-weapon support with fire modes.</p>
+                </div>
+                <img class="tool-hero-art" src="../images/tool-previews/cod-recoil-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="eager" decoding="async">
             </div>
-            <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-        </div>
-    </nav>
-    <main role="main" class="main-content" id="main">
+        </section>
+
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a> <span class="separator">›</span>
@@ -574,7 +571,7 @@
         </div>
         <section class="test-area">
             <div class="test-panel active">
-                <h1>🎯 COD Recoil Control Trainer</h1>
+                <h1> COD Recoil Control Trainer</h1>
                 <p class="test-desc">Master Call of Duty weapon recoil! Click and hold to spray at the target and
                     improve your recoil control.</p>
                 <div class="recoil-container">
@@ -622,10 +619,10 @@
                                 <option value="semi">Semi-Auto</option>
                             </select>
                         </div>
-                        <button type="button" class="btn btn-primary" id="startBtn"
+                        <button aria-label="▶ Start Training" type="button" class="btn btn-primary" id="startBtn"
                             style="width: 100%; margin-top: var(--space-md);">▶ Start Training</button>
-                        <button type="button" class="btn btn-secondary" id="resetBtn"
-                            style="width: 100%; margin-top: var(--space-sm);">🔄 Reset Stats</button>
+                        <button aria-label=" Reset Stats" type="button" class="btn btn-secondary" id="resetBtn"
+                            style="width: 100%; margin-top: var(--space-sm);"> Reset Stats</button>
                     </div>
                 </div>
             </div>
@@ -650,15 +647,67 @@
                 </ul>
             </div>
         </section>
-    </main>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025-2026 ReflexTester.fun — Professional Reflex Testing Platform</p>
+        <section class="tool-details-section" aria-label="COD Recoil Trainer training notes">
+            <div class="container">
+                <div class="tool-details-grid">
+                    <article class="tool-detail-card">
+                        <h2>What This Trains</h2>
+                        <p>Setup confidence: crosshair tuning, recoil familiarity, sensitivity matching, lineups, and loadout planning.</p>
+                    </article>
+                    <article class="tool-detail-card">
+                        <h2>How To Use It Well</h2>
+                        <p>Make one change, test it immediately, and save the setting only after it feels stable across multiple attempts.</p>
+                    </article>
+                    <article class="tool-detail-card">
+                        <h2>Best For</h2>
+                        <ul>
+                            <li>Pre-match setup</li>
+                            <li>Game-specific configuration</li>
+                            <li>Sharing or exporting practical settings</li>
+                        </ul>
+                    </article>
+                </div>
             </div>
-        </div>
-    </footer>
-    <script src="../main.js" defer></script>
+        </section>
+
+        <section class="related-tools-section">
+            <div class="container">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a class="related-tool-card" href="valorant-crosshair-generator.html">
+                        <img class="related-tool-media" src="../images/tool-previews/valorant-crosshair-generator.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Game Utilities</span>
+                        <h3>Valorant Crosshair Generator</h3>
+                        <p>Customize your Valorant crosshair with real-time preview. Includes pro player presets and code export.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="valorant-lineup-trainer.html">
+                        <img class="related-tool-media" src="../images/tool-previews/valorant-lineup-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Game Utilities</span>
+                        <h3>Valorant Lineup Trainer</h3>
+                        <p>Practice utility lineups with moving targets. Master crosshair placement for each agent.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="csgo-crosshair-generator.html">
+                        <img class="related-tool-media" src="../images/tool-previews/csgo-crosshair-generator.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Game Utilities</span>
+                        <h3>CS2 Crosshair Generator</h3>
+                        <p>Create CS:GO/CS2 crosshairs with console command export. Pro player presets included.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="csgo-grenade-trainer.html">
+                        <img class="related-tool-media" src="../images/tool-previews/csgo-grenade-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Game Utilities</span>
+                        <h3>CS2 Grenade Trainer</h3>
+                        <p>Master grenade throws with moving targets. Practice smokes, flashes, and mollies with accuracy tracking.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+<script src="../tool-runtime.js?v=4"></script>
+    <script src="../main.js?v=5" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             (function () {
@@ -718,11 +767,11 @@
                     ReflexStore.set('cod_recoil_results', results);
 
                     let gLabel, gCls;
-                    if (acc >= 80 && hsRate >= 20) { gLabel = '🏆 EXCEPTIONAL'; gCls = 'grade-exceptional'; }
-                    else if (acc >= 65)             { gLabel = '⚡ EXCELLENT';   gCls = 'grade-excellent';   }
-                    else if (acc >= 50)             { gLabel = '👍 GOOD';        gCls = 'grade-good';        }
-                    else if (acc >= 30)             { gLabel = '📊 AVERAGE';     gCls = 'grade-average';     }
-                    else                            { gLabel = '📉 POOR';         gCls = 'grade-poor';        }
+                    if (acc >= 80 && hsRate >= 20) { gLabel = ' EXCEPTIONAL'; gCls = 'grade-exceptional'; }
+                    else if (acc >= 65)             { gLabel = ' EXCELLENT';   gCls = 'grade-excellent';   }
+                    else if (acc >= 50)             { gLabel = ' GOOD';        gCls = 'grade-good';        }
+                    else if (acc >= 30)             { gLabel = ' AVERAGE';     gCls = 'grade-average';     }
+                    else                            { gLabel = ' POOR';         gCls = 'grade-poor';        }
 
                     const overlay = document.getElementById('resultOverlay');
                     document.getElementById('resTitle').textContent = 'Magazine Empty!';
@@ -788,14 +837,14 @@
         })();
         });
     </script>
-<script src="../nav.js" defer></script>
+<script src="../nav.js?v=3" defer></script>
 <!-- cookie-consent -->
 <div id="cookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(10,10,12,0.97);border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;backdrop-filter:blur(12px);">
     <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
         <p style="color:#888880;font-size:0.85rem;margin:0;flex:1;min-width:200px;">We use cookies for analytics and to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html" style="color:#E8A020;text-decoration:underline;">Privacy Policy</a>.</p>
         <div style="display:flex;gap:8px;">
-            <button type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" style="padding:8px 20px;background:#E8A020;color:#000;border:none;border-radius:6px;font-weight:700;font-size:0.8rem;cursor:pointer;">Accept</button>
-            <button type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" style="padding:8px 20px;background:transparent;color:#888;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-size:0.8rem;cursor:pointer;">Decline</button>
+            <button aria-label="Accept" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" style="padding:8px 20px;background:#E8A020;color:#000;border:none;border-radius:6px;font-weight:700;font-size:0.8rem;cursor:pointer;">Accept</button>
+            <button aria-label="Decline" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" style="padding:8px 20px;background:transparent;color:#888;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-size:0.8rem;cursor:pointer;">Decline</button>
         </div>
     </div>
 </div>

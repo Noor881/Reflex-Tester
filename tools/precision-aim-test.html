@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Precision Aim Test — Click Accuracy & Target Size Challenge [Free]</title>
@@ -319,7 +321,7 @@
         }
         .progress-dot.hit  { background: var(--accent-green); }
         .progress-dot.miss { background: #ef4444; }
-    
+
         /* ── Performance Lab Design System (injected) ── */
         :root {
             --orange: #FF4D00;
@@ -339,7 +341,7 @@
             letter-spacing: 0.06em;
             text-transform: uppercase;
             border: 1px solid;
-            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+            font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
         }
         .grade-exceptional { background: rgba(34,197,94,0.1);  color: #22c55e; border-color: rgba(34,197,94,0.35); }
         .grade-excellent   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.35); }
@@ -395,7 +397,7 @@
             margin-bottom: 12px;
         }
 
-    
+
         .aim-canvas-wrap {
             position: relative;
             width: 100%;
@@ -450,7 +452,7 @@
             color: var(--text-secondary);
             border-radius: 5px;
             cursor: pointer;
-            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+            font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
             font-weight: 700;
             font-size: 0.8em;
             text-transform: uppercase;
@@ -491,28 +493,22 @@
       ]
     }
     </script>
-    <meta property="og:image" content="https://reflextester.fun/images/og-default.svg">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+    <meta property="og:image" content="https://reflextester.fun/images/precision-aim-test-og.svg">
+                                            <link rel="stylesheet" href="../polish.css?v=6">
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <div class="scroll-progress"></div>
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="../index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
-            <div class="nav-menu" id="navMenu">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="../dashboard.html" class="nav-link">Dashboard</a>
-                <a href="../blog.html" class="nav-link">Blog</a>
-                <a href="../about.html" class="nav-link">About</a>
-                <a href="../contact.html" class="nav-link">Contact</a>
-                <a href="../tools.html" class="nav-cta">All Tools</a>
+<main role="main" class="main-content" id="main">
+        <section class="tool-hero-banner" style="--tool-accent:#F0F0F0;--tool-accent-rgb:240, 240, 240;">
+            <div class="container tool-hero-inner">
+                <div class="tool-hero-copy">
+                    <span class="tool-category-badge">Aim Trainers</span>
+                    <h1>Precision Aim Test</h1>
+                    <p>Click 20 increasingly smaller targets. Measures accuracy % and average miss distance in pixels.</p>
+                </div>
+                <img class="tool-hero-art" src="../images/tool-previews/precision-aim-test.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="eager" decoding="async">
             </div>
-            <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-        </div>
-    </nav>
+        </section>
 
-    <main role="main" class="main-content" id="main">
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a><span class="separator">›</span>
@@ -523,7 +519,7 @@
 
         <section class="test-area">
             <div class="test-panel active">
-                <h1>🎯 Precision Aim Test</h1>
+                <h1> Precision Aim Test</h1>
                 <p class="test-desc">Click the target circles as accurately as possible. Targets shrink with each level — 20 targets total. Miss distance is measured in pixels!</p>
 
                 <div class="precision-hud">
@@ -539,7 +535,7 @@
 
                 <div class="aim-arena idle" id="aimArena">
                     <div class="aim-arena-overlay" id="arenaOverlay">
-                        <div style="font-size:3rem">🎯</div>
+                        <div style="font-size:3rem"></div>
                         <div style="font-size:1.3rem;font-weight:700;" id="overlayTitle">Precision Aim Test</div>
                         <div style="font-size:0.9rem;color:var(--text-muted);" id="overlayDesc">Click targets as accurately as possible</div>
                         <div id="overlayGrade" style="margin-top:4px;"></div>
@@ -548,14 +544,14 @@
                 </div>
 
                 <div class="test-actions" style="margin-top:20px;">
-                    <button type="button" class="btn btn-primary" id="startPrecBtn">Start Test</button>
-                    <button type="button" class="btn btn-secondary" id="resetPrecBtn">Reset Stats</button>
+                    <button aria-label="Start Test" type="button" class="btn btn-primary" id="startPrecBtn">Start Test</button>
+                    <button aria-label="Reset Stats" type="button" class="btn btn-secondary" id="resetPrecBtn">Reset Stats</button>
                 </div>
 
 
 
                 <div class="stats-panel" id="precStatsPanel" style="display:none;">
-                    <h4>🎯 Precision Records</h4>
+                    <h4> Precision Records</h4>
                     <div class="stat-row"><span class="stat-label">Best Accuracy</span><span class="stat-value" id="precBestAcc">—</span></div>
                     <div class="stat-row"><span class="stat-label">Best Avg Miss</span><span class="stat-value" id="precBestMiss">—</span></div>
                     <div class="stat-row"><span class="stat-label">Sessions</span><span class="stat-value" id="precSessions">0</span></div>
@@ -576,23 +572,67 @@
                 </ul>
             </div>
         </section>
-
-        <section class="recommended-tools">
+        <section class="tool-details-section" aria-label="Precision Aim Test training notes">
             <div class="container">
-                <h2>Recommended Tools</h2>
-                <div class="rec-grid">
-                    <a href="hand-eye-coordination-test.html" class="rec-card"><div class="rec-icon">🎯</div><h3>Hand-Eye Coordination</h3><p>Hit moving targets to build dynamic precision</p></a>
-                    <a href="csgo-aim-trainer.html" class="rec-card"><div class="rec-icon">🔫</div><h3>CS:GO Aim Trainer</h3><p>3D shooting range for FPS practitioners</p></a>
-                    <a href="double-click-speed-test.html" class="rec-card"><div class="rec-icon">🖱️</div><h3>Double Click Speed</h3><p>Test your double-click speed in DPS</p></a>
-                    <a href="visual-reflex-test.html" class="rec-card"><div class="rec-icon">⚡</div><h3>Visual Reflex</h3><p>Measure raw visual reaction time</p></a>
+                <div class="tool-details-grid">
+                    <article class="tool-detail-card">
+                        <h2>What This Trains</h2>
+                        <p>Aiming consistency, first-shot placement, target switching, and the rhythm you need before queueing into a match.</p>
+                    </article>
+                    <article class="tool-detail-card">
+                        <h2>How To Use It Well</h2>
+                        <p>Run one short round, adjust only one setting, then repeat. Keep your wrist, sensitivity, and display refresh rate consistent while comparing scores.</p>
+                    </article>
+                    <article class="tool-detail-card">
+                        <h2>Best For</h2>
+                        <ul>
+                            <li>Warm-ups before ranked games</li>
+                            <li>Mouse control practice</li>
+                            <li>Finding weak spots in aim mechanics</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-tools-section">
+            <div class="container">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a class="related-tool-card" href="csgo-aim-trainer.html">
+                        <img class="related-tool-media" src="../images/tool-previews/csgo-aim-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Aim Trainers</span>
+                        <h3>CS2 Aim Trainer</h3>
+                        <p>3D aim training with CS:GO-style sensitivity. Practice flicks, tracking, and crosshair placement.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="valorant-aim-trainer.html">
+                        <img class="related-tool-media" src="../images/tool-previews/valorant-aim-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Aim Trainers</span>
+                        <h3>Valorant Aim Trainer</h3>
+                        <p>Tactical headshot training for Valorant. Practice precision aiming and crosshair placement in 3D.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="apex-aim-trainer.html">
+                        <img class="related-tool-media" src="../images/tool-previews/apex-aim-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Aim Trainers</span>
+                        <h3>Apex Legends Aim Trainer</h3>
+                        <p>Battle royale movement and tracking trainer. Practice fast-paced Apex aim with tracking and flick modes.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="related-tool-card" href="cod-aim-trainer.html">
+                        <img class="related-tool-media" src="../images/tool-previews/cod-aim-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <span class="category-badge">Aim Trainers</span>
+                        <h3>COD Aim Trainer</h3>
+                        <p>Call of Duty aim training with game-specific sensitivity. Fast-paced targets mimicking Warzone scenarios.</p>
+                        <span class="card-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
-
-    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2025-2026 ReflexTester.fun — Professional Reflex Testing Platform</p></div></div></footer>
-
-    <script src="../main.js" defer></script>
+<script src="../tool-runtime.js?v=4"></script>
+    <script src="../main.js?v=5" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const arena      = document.getElementById('aimArena');
@@ -714,11 +754,11 @@
             const overlayStats = document.getElementById('overlayStats');
 
             function getGrade(acc) {
-                if (acc >= 90) return { label: '🏆 EXCEPTIONAL', cls: 'grade-exceptional' };
-                if (acc >= 75) return { label: '⚡ EXCELLENT',   cls: 'grade-excellent'   };
-                if (acc >= 60) return { label: '👍 GOOD',        cls: 'grade-good'        };
-                if (acc >= 40) return { label: '📊 AVERAGE',     cls: 'grade-average'     };
-                return           { label: '📉 POOR',             cls: 'grade-poor'        };
+                if (acc >= 90) return { label: ' EXCEPTIONAL', cls: 'grade-exceptional' };
+                if (acc >= 75) return { label: ' EXCELLENT',   cls: 'grade-excellent'   };
+                if (acc >= 60) return { label: ' GOOD',        cls: 'grade-good'        };
+                if (acc >= 40) return { label: ' AVERAGE',     cls: 'grade-average'     };
+                return           { label: ' POOR',             cls: 'grade-poor'        };
             }
 
             function startTest() {
@@ -788,14 +828,14 @@
             updateStats();
         });
     </script>
-<script src="../nav.js" defer></script>
+<script src="../nav.js?v=3" defer></script>
 <!-- cookie-consent -->
 <div id="cookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(10,10,12,0.97);border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;backdrop-filter:blur(12px);">
     <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
         <p style="color:#888880;font-size:0.85rem;margin:0;flex:1;min-width:200px;">We use cookies for analytics and to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html" style="color:#E8A020;text-decoration:underline;">Privacy Policy</a>.</p>
         <div style="display:flex;gap:8px;">
-            <button type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" style="padding:8px 20px;background:#E8A020;color:#000;border:none;border-radius:6px;font-weight:700;font-size:0.8rem;cursor:pointer;">Accept</button>
-            <button type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" style="padding:8px 20px;background:transparent;color:#888;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-size:0.8rem;cursor:pointer;">Decline</button>
+            <button aria-label="Accept" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" style="padding:8px 20px;background:#E8A020;color:#000;border:none;border-radius:6px;font-weight:700;font-size:0.8rem;cursor:pointer;">Accept</button>
+            <button aria-label="Decline" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" style="padding:8px 20px;background:transparent;color:#888;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-size:0.8rem;cursor:pointer;">Decline</button>
         </div>
     </div>
 </div>

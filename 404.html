@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found | ReflexTester.fun</title>
@@ -27,26 +29,11 @@
         .tool-sug-card .sug-name { font-family: var(--font-display); font-weight: 600; font-size: 0.9rem; color: var(--text-primary); }
         .tool-sug-card .sug-desc { font-size: 0.78rem; color: var(--text-secondary); margin-top: 4px; }
     </style>
-    <meta property="og:image" content="https://reflextester.fun/images/og-default.svg">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+    <meta property="og:image" content="https://reflextester.fun/images/404-og.jpg">
+                                            <link rel="stylesheet" href="polish.css?v=6">
 </head>
 <body>
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo"><span class="logo-icon">⚡</span> ReflexTester</a>
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="dashboard.html" class="nav-link">Dashboard</a>
-                <a href="blog.html" class="nav-link">Blog</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="tools.html" class="nav-cta">All Tools</a>
-            </div>
-            <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
-        </div>
-    </nav>
-
-    <main class="main-content error-page" id="main" role="main">
+<main class="main-content error-page" id="main" role="main">
         <div class="error-box">
             <div class="error-code">404</div>
             <h1 class="error-title">Page Not Found</h1>
@@ -55,25 +42,25 @@
                 But hey — your reflexes brought you here fast! Let's put them to good use.
             </p>
             <div class="error-actions">
-                <a href="index.html" class="btn btn-primary">🏠 Go Home</a>
-                <a href="tools.html" class="btn btn-secondary">🎮 All Tools</a>
+                <a href="index.html" class="btn btn-primary"> Go Home</a>
+                <a href="tools.html" class="btn btn-secondary"> All Tools</a>
             </div>
 
             <div class="suggested-tools">
                 <h3>Popular Tools</h3>
                 <div class="tool-suggestions">
                     <a href="tools/visual-reflex-test.html" class="tool-sug-card">
-                        <span class="sug-icon">⚡</span>
+                        <span class="sug-icon"></span>
                         <span class="sug-name">Reflex Test</span>
                         <span class="sug-desc">Test your visual reaction time</span>
                     </a>
                     <a href="tools/click-speed-test.html" class="tool-sug-card">
-                        <span class="sug-icon">🖱️</span>
+                        <span class="sug-icon"></span>
                         <span class="sug-name">CPS Test</span>
                         <span class="sug-desc">Clicks per second challenge</span>
                     </a>
                     <a href="tools/csgo-aim-trainer.html" class="tool-sug-card">
-                        <span class="sug-icon">🎯</span>
+                        <span class="sug-icon"></span>
                         <span class="sug-name">Aim Trainer</span>
                         <span class="sug-desc">Sharpen your aim</span>
                     </a>
@@ -83,12 +70,12 @@
                         <span class="sug-desc">WPM speed challenge</span>
                     </a>
                     <a href="tools/memory-sequence-test.html" class="tool-sug-card">
-                        <span class="sug-icon">🧠</span>
+                        <span class="sug-icon"></span>
                         <span class="sug-name">Memory Test</span>
                         <span class="sug-desc">Sequence memory challenge</span>
                     </a>
                     <a href="tools/hand-eye-coordination-test.html" class="tool-sug-card">
-                        <span class="sug-icon">🤝</span>
+                        <span class="sug-icon"></span>
                         <span class="sug-name">Coordination</span>
                         <span class="sug-desc">Hand-eye coordination drill</span>
                     </a>
@@ -97,7 +84,7 @@
         </div>
     </main>
 
-    <script src="main.js" defer></script>
-    <script src="nav.js" defer></script>
+    <script src="main.js?v=5" defer></script>
+    <script src="nav.js?v=3" defer></script>
 </body>
 </html>
