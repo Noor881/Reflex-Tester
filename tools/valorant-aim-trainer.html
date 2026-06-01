@@ -538,7 +538,7 @@
       ]
     }
     </script>
-                                            <link rel="stylesheet" href="../polish.css?v=6">
+                                            <link rel="stylesheet" href="../polish.css?v=7">
 </head>
 
 <body>
@@ -723,7 +723,7 @@
         </section>
     </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="../tool-runtime.js?v=4"></script>
+    <script src="../tool-runtime.js?v=5"></script>
     <script src="../main.js?v=5" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -810,6 +810,9 @@
                     alive: true,
                     scale: scale
                 };
+                if (window.ReflexGameKit) {
+                    ReflexGameKit.upgradeShooterDummy(THREE, group, { accent: '#ff4655', targetImage: 'target-precision-bot.jpg' });
+                }
                 return group;
             }
 
@@ -891,6 +894,9 @@
                 scene.add(spotRight.target);
 
                 buildRange();
+                if (window.ReflexGameKit) {
+                    ReflexGameKit.enhanceShooterScene(THREE, scene, camera, canvas, { accent: '#ff4655', weapon: 'precision', backdrop: 'arena-range.jpg', targetImage: 'target-precision-bot.jpg' });
+                }
                 animate();
             }
 

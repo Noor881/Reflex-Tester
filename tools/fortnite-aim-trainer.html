@@ -536,7 +536,7 @@
       ]
     }
     </script>
-                                            <link rel="stylesheet" href="../polish.css?v=6">
+                                            <link rel="stylesheet" href="../polish.css?v=7">
 </head>
 
 <body>
@@ -693,7 +693,7 @@
         </section>
     </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="../tool-runtime.js?v=4"></script>
+    <script src="../tool-runtime.js?v=5"></script>
     <script src="../main.js?v=5" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -773,6 +773,9 @@
 
                 group.position.set(x, y, z);
                 group.userData = { vx: (Math.random() - 0.5) * 0.03, alive: true, scale: scale };
+                if (window.ReflexGameKit) {
+                    ReflexGameKit.upgradeShooterDummy(THREE, group, { accent: '#7c3aed', targetImage: 'target-utility-bot.jpg' });
+                }
                 return group;
             }
 
@@ -848,6 +851,9 @@
                 scene.add(spotB.target);
 
                 buildArena();
+                if (window.ReflexGameKit) {
+                    ReflexGameKit.enhanceShooterScene(THREE, scene, camera, canvas, { accent: '#7c3aed', weapon: 'smg', backdrop: 'arena-rooftop.jpg', targetImage: 'target-utility-bot.jpg' });
+                }
                 animate();
             }
 
