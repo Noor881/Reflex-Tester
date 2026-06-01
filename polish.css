@@ -320,6 +320,9 @@ textarea:focus {
 
 .test-panel {
   border-top: 3px solid var(--tool-accent, var(--accent-primary)) !important;
+  background: #ffffff !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-card) !important;
 }
 
 .test-panel h1,
@@ -616,6 +619,7 @@ textarea:focus {
 .recoil-stage,
 .nade-arena,
 .lineup-arena,
+.aim-arena,
 .grenade-stage,
 .lineup-stage {
   position: relative !important;
@@ -652,6 +656,8 @@ textarea:focus {
 .game-stage-enhanced > .dummy-target,
 .game-stage-enhanced > .nade-target,
 .game-stage-enhanced > .lineup-target,
+.game-stage-enhanced > .aim-arena-overlay,
+.game-stage-enhanced > .aim-target-circle,
 .game-stage-enhanced > .nade-ground,
 .game-stage-enhanced > .nade-throw-zone,
 .game-stage-enhanced > .nade-power-bar,
@@ -661,6 +667,81 @@ textarea:focus {
 .game-stage-enhanced > .lineup-crosshair {
   position: relative;
   z-index: 2;
+}
+
+.skill-stage-enhanced {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--skill-accent, var(--tool-accent, #2563eb)) 18%, transparent), transparent 34%),
+    #f6f9fd !important;
+  background-size: 34px 34px, 34px 34px, auto, auto !important;
+  border-color: rgba(37, 99, 235, 0.14) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82), 0 18px 46px rgba(22, 42, 80, 0.10) !important;
+}
+
+.skill-stage-enhanced::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+  opacity: 0.48;
+  transform: translateX(-80%);
+  animation: stageScan 5.8s ease-in-out infinite;
+}
+
+.skill-stage-enhanced > * {
+  position: relative;
+  z-index: 1;
+}
+
+.reflex-circle-wrap.skill-stage-enhanced,
+.cps-click-zone.skill-stage-enhanced,
+.click-area.skill-stage-enhanced {
+  border-radius: 28px;
+}
+
+.reflex-circle {
+  background: linear-gradient(135deg, #ffffff, #eef6ff) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid rgba(37, 99, 235, 0.16);
+}
+
+.reflex-circle-wrap.state-ready .reflex-circle {
+  background: linear-gradient(135deg, #fff7ed, #ffffff) !important;
+}
+
+.reflex-circle-wrap.state-go .reflex-circle {
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.20), #ffffff) !important;
+}
+
+.sequence-board,
+.stroop-board,
+.color-board,
+.number-stage,
+.focus-stage,
+.peripheral-stage,
+.coordination-stage {
+  border-radius: 18px !important;
+}
+
+.sequence-tile,
+.num-pad-btn,
+.stroop-btn,
+.color-option {
+  box-shadow: 0 12px 30px rgba(22, 42, 80, 0.08);
+}
+
+@keyframes stageScan {
+  0%, 38% { transform: translateX(-85%); opacity: 0; }
+  48% { opacity: 0.42; }
+  70%, 100% { transform: translateX(85%); opacity: 0; }
 }
 
 .weapon-overlay {

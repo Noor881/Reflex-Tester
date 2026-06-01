@@ -188,6 +188,20 @@
       profile.weapon = 'smg';
       profile.weaponImage = 'weapon-compact-smg.jpg';
       profile.targetImage = 'target-utility-bot.jpg';
+    } else if (/gridshot|flick-shot|precision-aim/.test(path)) {
+      profile.accent = /gridshot/.test(path) ? '#ff3366' : '#2563eb';
+      profile.accentHex = colorToNumber(profile.accent, 0x2563eb);
+      profile.backdrop = 'arena-range.jpg';
+      profile.weapon = 'precision';
+      profile.weaponImage = 'weapon-precision-rifle.jpg';
+      profile.targetImage = 'target-precision-bot.jpg';
+    } else if (/spidershot|tracking/.test(path)) {
+      profile.accent = /spidershot/.test(path) ? '#a855f7' : '#06b6d4';
+      profile.accentHex = colorToNumber(profile.accent, 0x06b6d4);
+      profile.backdrop = 'arena-rooftop.jpg';
+      profile.weapon = 'smg';
+      profile.weaponImage = 'weapon-compact-smg.jpg';
+      profile.targetImage = 'target-utility-bot.jpg';
     }
 
     if (/grenade|lineup/.test(path)) {
@@ -419,6 +433,7 @@
       el.classList.contains('recoil-stage') ||
       el.classList.contains('nade-arena') ||
       el.classList.contains('lineup-arena') ||
+      el.classList.contains('aim-arena') ||
       el.classList.contains('grenade-stage') ||
       el.classList.contains('lineup-stage') ||
       el.classList.contains('aim-canvas-wrap') ||
@@ -434,6 +449,7 @@
       '.recoil-stage',
       '.nade-arena',
       '.lineup-arena',
+      '.aim-arena',
       '.grenade-stage',
       '.lineup-stage'
     ].join(',');
@@ -459,6 +475,31 @@
       img.setAttribute('aria-hidden', 'true');
       surface.appendChild(img);
       mountWeaponCanvas(surface, profile);
+    });
+  }
+
+  function enhanceTrainingStages() {
+    var selectors = [
+      '.reflex-circle-wrap',
+      '.cps-click-zone',
+      '.click-area',
+      '.number-stage',
+      '.focus-stage',
+      '.peripheral-stage',
+      '.coordination-stage',
+      '.sequence-board',
+      '.stroop-board',
+      '.color-board',
+      '.memory-board',
+      '.precision-hud',
+      '.reflex-hud'
+    ].join(',');
+
+    Array.prototype.slice.call(document.querySelectorAll(selectors)).forEach(function (stage) {
+      if (stage.classList.contains('skill-stage-enhanced')) return;
+      var accent = getComputedStyle(document.documentElement).getPropertyValue('--tool-accent').trim() || gameProfile().accent;
+      stage.classList.add('skill-stage-enhanced');
+      stage.style.setProperty('--skill-accent', accent);
     });
   }
 
@@ -656,12 +697,14 @@
       enhanceAccessibility();
       enhanceCanvasResize();
       enhanceGameAssets();
+      enhanceTrainingStages();
       debounceAggressiveStarts();
     });
   } else {
     enhanceAccessibility();
     enhanceCanvasResize();
     enhanceGameAssets();
+    enhanceTrainingStages();
     debounceAggressiveStarts();
   }
 })();
