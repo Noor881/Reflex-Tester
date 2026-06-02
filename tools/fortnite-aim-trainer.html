@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -536,7 +536,7 @@
       ]
     }
     </script>
-                                            <link rel="stylesheet" href="../polish.css?v=10">
+                                            <link rel="stylesheet" href="../polish.css?v=11">
 </head>
 
 <body>
@@ -693,7 +693,7 @@
         </section>
     </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="../tool-runtime.js?v=6"></script>
+    <script src="../tool-runtime.js?v=7"></script>
     <script src="../main.js?v=6" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -774,7 +774,7 @@
                 group.position.set(x, y, z);
                 group.userData = { vx: (Math.random() - 0.5) * 0.03, alive: true, scale: scale };
                 if (window.ReflexGameKit) {
-                    ReflexGameKit.upgradeShooterDummy(THREE, group, { accent: '#7c3aed', targetImage: 'target-utility-bot.jpg' });
+                    ReflexGameKit.upgradeShooterDummy(THREE, group, { accent: '#7c3aed', targetImage: 'target-fortnite-dummy.png' });
                 }
                 return group;
             }
@@ -852,7 +852,7 @@
 
                 buildArena();
                 if (window.ReflexGameKit) {
-                    ReflexGameKit.enhanceShooterScene(THREE, scene, camera, canvas, { accent: '#7c3aed', weapon: 'smg', backdrop: 'arena-rooftop.jpg', targetImage: 'target-utility-bot.jpg' });
+                    ReflexGameKit.enhanceShooterScene(THREE, scene, camera, canvas, { accent: '#7c3aed', weapon: 'smg', backdrop: 'arena-fortnite-build.png', targetImage: 'target-fortnite-dummy.png' });
                 }
                 animate();
             }

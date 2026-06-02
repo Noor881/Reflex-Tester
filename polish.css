@@ -768,6 +768,7 @@ textarea:focus {
 }
 
 .skill-stage-enhanced {
+  --skill-bg: url("images/game-assets/arena-reflex-lab.png");
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -775,8 +776,10 @@ textarea:focus {
     linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px),
     radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--skill-accent, var(--tool-accent, #2563eb)) 18%, transparent), transparent 34%),
-    #f6f9fd !important;
-  background-size: 34px 34px, 34px 34px, auto, auto !important;
+    linear-gradient(rgba(246, 249, 253, 0.82), rgba(246, 249, 253, 0.88)),
+    var(--skill-bg) !important;
+  background-size: 34px 34px, 34px 34px, auto, auto, cover !important;
+  background-position: 0 0, 0 0, center, center, center !important;
   border-color: rgba(37, 99, 235, 0.14) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82), 0 18px 46px rgba(22, 42, 80, 0.10) !important;
 }

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -535,7 +535,7 @@
       ]
     }
     </script>
-                                            <link rel="stylesheet" href="../polish.css?v=10">
+                                            <link rel="stylesheet" href="../polish.css?v=11">
 </head>
 
 <body>
@@ -712,7 +712,7 @@
         </section>
     </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="../tool-runtime.js?v=6"></script>
+    <script src="../tool-runtime.js?v=7"></script>
     <script src="../main.js?v=6" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -800,7 +800,7 @@
                     scale: scale
                 };
                 if (window.ReflexGameKit) {
-                    ReflexGameKit.upgradeShooterDummy(THREE, group, { accent: '#16a34a', targetImage: 'target-assault-bot.jpg' });
+                    ReflexGameKit.upgradeShooterDummy(THREE, group, { accent: '#16a34a', targetImage: 'target-cs2-bot.png' });
                 }
                 return group;
             }
@@ -884,7 +884,7 @@
 
                 buildRange();
                 if (window.ReflexGameKit) {
-                    ReflexGameKit.enhanceShooterScene(THREE, scene, camera, canvas, { accent: '#16a34a', weapon: 'smg', backdrop: 'arena-urban.jpg', targetImage: 'target-assault-bot.jpg' });
+                    ReflexGameKit.enhanceShooterScene(THREE, scene, camera, canvas, { accent: '#16a34a', weapon: 'smg', backdrop: 'arena-cs2-yard.png', targetImage: 'target-cs2-bot.png' });
                 }
                 animate();
             }

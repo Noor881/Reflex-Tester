@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -613,7 +613,7 @@
       ]
     }
     </script>
-                                            <link rel="stylesheet" href="../polish.css?v=10">
+                                            <link rel="stylesheet" href="../polish.css?v=11">
 </head>
 
 <body>
@@ -803,7 +803,7 @@
         </section>
     </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="../tool-runtime.js?v=6"></script>
+    <script src="../tool-runtime.js?v=7"></script>
     <script src="../main.js?v=6" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -891,7 +891,7 @@
                     scale: scale
                 };
                 if (window.ReflexGameKit) {
-                    ReflexGameKit.upgradeShooterDummy(THREE, group, { accent: '#e8692a', targetImage: 'target-heavy-bot.jpg' });
+                    ReflexGameKit.upgradeShooterDummy(THREE, group, { accent: '#e8692a', targetImage: 'target-apex-shield-bot.png' });
                 }
                 return group;
             }
@@ -975,7 +975,7 @@
 
                 buildRange();
                 if (window.ReflexGameKit) {
-                    ReflexGameKit.enhanceShooterScene(THREE, scene, camera, canvas, { accent: '#e8692a', weapon: 'smg', backdrop: 'arena-rooftop.jpg', targetImage: 'target-heavy-bot.jpg' });
+                    ReflexGameKit.enhanceShooterScene(THREE, scene, camera, canvas, { accent: '#e8692a', weapon: 'smg', backdrop: 'arena-apex-canyon.png', targetImage: 'target-apex-shield-bot.png' });
                 }
                 animate();
             }

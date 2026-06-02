@@ -163,10 +163,10 @@
     } else if (/csgo|cs2/.test(path)) {
       profile.accent = '#16a34a';
       profile.accentHex = 0x16a34a;
-      profile.backdrop = 'arena-urban.jpg';
+      profile.backdrop = 'arena-cs2-yard.png';
       profile.weapon = 'smg';
-      profile.weaponImage = 'weapon-compact-smg.jpg';
-      profile.targetImage = 'target-assault-bot.jpg';
+      profile.weaponImage = 'weapon-cs2-carbine.png';
+      profile.targetImage = 'target-cs2-bot.png';
     } else if (/cod/.test(path)) {
       profile.accent = '#8b9a2b';
       profile.accentHex = 0x8b9a2b;
@@ -177,38 +177,40 @@
     } else if (/apex/.test(path)) {
       profile.accent = '#e8692a';
       profile.accentHex = 0xe8692a;
-      profile.backdrop = 'arena-rooftop.jpg';
+      profile.backdrop = 'arena-apex-canyon.png';
       profile.weapon = /recoil/.test(path) ? 'heavy' : 'smg';
-      profile.weaponImage = /recoil/.test(path) ? 'weapon-heavy-rifle.jpg' : 'weapon-compact-smg.jpg';
-      profile.targetImage = 'target-heavy-bot.jpg';
+      profile.weaponImage = 'weapon-apex-energy-smg.png';
+      profile.targetImage = 'target-apex-shield-bot.png';
     } else if (/fortnite/.test(path)) {
       profile.accent = '#7c3aed';
       profile.accentHex = 0x7c3aed;
-      profile.backdrop = 'arena-rooftop.jpg';
+      profile.backdrop = 'arena-fortnite-build.png';
       profile.weapon = 'smg';
-      profile.weaponImage = 'weapon-compact-smg.jpg';
-      profile.targetImage = 'target-utility-bot.jpg';
+      profile.weaponImage = 'weapon-fortnite-carbine.png';
+      profile.targetImage = 'target-fortnite-dummy.png';
     } else if (/gridshot|flick-shot|precision-aim/.test(path)) {
       profile.accent = /gridshot/.test(path) ? '#ff3366' : '#2563eb';
       profile.accentHex = colorToNumber(profile.accent, 0x2563eb);
-      profile.backdrop = 'arena-range.jpg';
+      profile.backdrop = 'arena-aim-lab.png';
       profile.weapon = 'precision';
       profile.weaponImage = 'weapon-precision-rifle.jpg';
       profile.targetImage = 'target-precision-bot.jpg';
     } else if (/spidershot|tracking/.test(path)) {
       profile.accent = /spidershot/.test(path) ? '#a855f7' : '#06b6d4';
       profile.accentHex = colorToNumber(profile.accent, 0x06b6d4);
-      profile.backdrop = 'arena-rooftop.jpg';
+      profile.backdrop = 'arena-aim-lab.png';
       profile.weapon = 'smg';
       profile.weaponImage = 'weapon-compact-smg.jpg';
       profile.targetImage = 'target-utility-bot.jpg';
     }
 
     if (/grenade|lineup/.test(path)) {
-      profile.backdrop = 'arena-rooftop.jpg';
       profile.weapon = 'grenade';
       profile.weaponImage = 'weapon-grenade-device.jpg';
-      profile.targetImage = 'target-utility-bot.jpg';
+      if (/valorant/.test(path)) {
+        profile.backdrop = 'arena-rooftop.jpg';
+        profile.targetImage = 'target-utility-bot.jpg';
+      }
     }
 
     if (overrides) {
@@ -218,6 +220,14 @@
       profile.accentHex = colorToNumber(profile.accent, profile.accentHex);
     }
     return profile;
+  }
+
+  function skillStageProfile() {
+    var path = window.location.pathname.toLowerCase();
+    if (/typing|memory|sequence|number|focus|stroop|color-match|peripheral/.test(path)) {
+      return { backdrop: 'arena-cognitive-lab.png' };
+    }
+    return { backdrop: 'arena-reflex-lab.png' };
   }
 
   var threeLoadPromise = null;
@@ -498,8 +508,10 @@
     Array.prototype.slice.call(document.querySelectorAll(selectors)).forEach(function (stage) {
       if (stage.classList.contains('skill-stage-enhanced')) return;
       var accent = getComputedStyle(document.documentElement).getPropertyValue('--tool-accent').trim() || gameProfile().accent;
+      var profile = skillStageProfile();
       stage.classList.add('skill-stage-enhanced');
       stage.style.setProperty('--skill-accent', accent);
+      stage.style.setProperty('--skill-bg', 'url("' + gameAssetPath(profile.backdrop) + '")');
     });
   }
 
@@ -673,6 +685,7 @@
     drawWeapon: drawWeapon,
     rafLoop: rafLoop,
     gameProfile: gameProfile,
+    skillStageProfile: skillStageProfile,
     createFirstPersonWeapon: createFirstPersonWeapon,
     enhanceShooterScene: enhanceShooterScene,
     upgradeShooterDummy: upgradeShooterDummy
