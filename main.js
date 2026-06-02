@@ -397,6 +397,117 @@
   }
 
   /* ── Error Boundary ────────────────────────────────────── */
+  function initAdblockGate() {
+    var gateId = 'adblockGate';
+    var baitId = 'rtAdBlockBait';
+    var gateLiftTimer = null;
+    var localDebug = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname) &&
+      new URLSearchParams(window.location.search).has('adblock-test');
+
+    function makeBait() {
+      var bait = document.getElementById(baitId);
+      if (bait) return bait;
+
+      bait = document.createElement('div');
+      bait.id = baitId;
+      bait.className = 'adsbygoogle adsbox ad-banner ad-unit banner_ads text-ad textads pub_300x250 ad-placement';
+      bait.setAttribute('aria-hidden', 'true');
+      bait.style.cssText = 'position:absolute;left:-10000px;top:-10000px;width:1px;height:1px;pointer-events:none;';
+      document.body.appendChild(bait);
+      return bait;
+    }
+
+    function isBaitBlocked(bait) {
+      if (localDebug) return true;
+      if (!bait) return false;
+      var style = window.getComputedStyle ? window.getComputedStyle(bait) : null;
+      return bait.offsetHeight === 0 ||
+        bait.offsetWidth === 0 ||
+        (style && (style.display === 'none' || style.visibility === 'hidden' || parseFloat(style.opacity || '1') === 0));
+    }
+
+    function removeGate() {
+      var gate = document.getElementById(gateId);
+      if (gate) gate.remove();
+      if (gateLiftTimer) {
+        window.clearInterval(gateLiftTimer);
+        gateLiftTimer = null;
+      }
+      document.body.classList.remove('adblock-locked');
+    }
+
+    function showGate() {
+      if (document.getElementById(gateId)) return;
+
+      var gate = document.createElement('div');
+      gate.id = gateId;
+      gate.className = 'adblock-gate';
+      gate.setAttribute('role', 'dialog');
+      gate.setAttribute('aria-modal', 'true');
+      gate.setAttribute('aria-labelledby', 'adblockGateTitle');
+      gate.innerHTML =
+        '<div class="adblock-gate-shell">' +
+          '<div class="adblock-gate-visual" aria-hidden="true">' +
+            '<span class="adblock-gate-pulse"></span>' +
+            '<span class="adblock-gate-shield"></span>' +
+          '</div>' +
+          '<p class="adblock-gate-kicker">Ads support free training tools</p>' +
+          '<h2 id="adblockGateTitle">Please turn off your ad blocker</h2>' +
+          '<p class="adblock-gate-copy">ReflexTester stays free because ads help cover hosting and development. Disable your blocker for this site, then refresh the page to continue.</p>' +
+          '<div class="adblock-gate-steps" aria-label="How to continue">' +
+            '<span>Disable ad blocker</span>' +
+            '<span>Allow this site</span>' +
+            '<span>Refresh page</span>' +
+          '</div>' +
+          '<div class="adblock-gate-actions">' +
+            '<button type="button" class="adblock-gate-primary" data-adblock-refresh>Refresh page</button>' +
+            '<button type="button" class="adblock-gate-secondary" data-adblock-check>Check again</button>' +
+          '</div>' +
+          '<p class="adblock-gate-note">Already disabled it? Use refresh so the ad placements can load cleanly.</p>' +
+        '</div>';
+
+      document.body.appendChild(gate);
+      document.body.classList.add('adblock-locked');
+      gateLiftTimer = window.setInterval(function () {
+        if (!gate.parentNode) return;
+        if (document.body.lastElementChild !== gate) document.body.appendChild(gate);
+      }, 500);
+
+      var refresh = gate.querySelector('[data-adblock-refresh]');
+      var check = gate.querySelector('[data-adblock-check]');
+      if (refresh) refresh.addEventListener('click', function () { window.location.reload(); });
+      if (check) {
+        check.addEventListener('click', function () {
+          check.textContent = 'Checking...';
+          window.setTimeout(function () {
+            if (isBaitBlocked(makeBait())) {
+              check.textContent = 'Still blocked';
+              window.setTimeout(function () { check.textContent = 'Check again'; }, 1200);
+              return;
+            }
+            window.location.reload();
+          }, 260);
+        });
+      }
+    }
+
+    function runCheck() {
+      var bait = makeBait();
+      window.setTimeout(function () {
+        if (isBaitBlocked(bait)) {
+          showGate();
+        } else {
+          removeGate();
+        }
+      }, 120);
+    }
+
+    window.setTimeout(runCheck, 700);
+    window.addEventListener('load', function () {
+      window.setTimeout(runCheck, 900);
+    });
+  }
+
   function initErrorBoundary() {
     window.addEventListener('error', function (e) {
       // Only catch errors from tool scripts, not external
@@ -437,6 +548,7 @@
 
   /* ── Init All ──────────────────────────────────────────── */
   function init() {
+    initAdblockGate();
     initMobileNav();
     setActiveNavLink();
     initSmoothScroll();

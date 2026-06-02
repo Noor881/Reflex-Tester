@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,21 +9,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Sequence Test — How Good Is Your Memory? [Free Game]</title>
+    <title>Memory Sequence Test â€” How Good Is Your Memory? [Free Game]</title>
     <meta name="description"
-        content="How many patterns can you remember? Test your short-term memory by repeating illuminated tile sequences. Most people fail at level 7 — how far can you go? Free, no sign-up, instant results.">
+        content="How many patterns can you remember? Test your short-term memory by repeating illuminated tile sequences. Most people fail at level 7 â€” how far can you go? Free, no sign-up, instant results.">
     <meta name="keywords"
         content="memory sequence test, memory test, sequence memory game, short term memory test, working memory test, memory test online free, pattern memory test, memory game online, brain memory test, how good is my memory, memory training game, cognitive memory test">
     <link rel="canonical" href="https://reflextester.fun/tools/memory-sequence-test.html">
-    <meta property="og:title" content="Memory Sequence Test — How Good Is Your Memory?">
-    <meta property="og:description" content="Repeat illuminated tile sequences. Most people fail at level 7 — how far can you go?">
+    <meta property="og:title" content="Memory Sequence Test â€” How Good Is Your Memory?">
+    <meta property="og:description" content="Repeat illuminated tile sequences. Most people fail at level 7 â€” how far can you go?">
     <meta property="og:url" content="https://reflextester.fun/tools/memory-sequence-test.html">
     <meta property="og:image" content="https://reflextester.fun/images/tool-previews/memory-sequence-test.png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Memory Sequence Test — How Good Is Your Memory?">
-    <meta name="twitter:description" content="Repeat tile sequences. Most people fail at level 7 — how far can you go?">
+    <meta name="twitter:title" content="Memory Sequence Test â€” How Good Is Your Memory?">
+    <meta name="twitter:description" content="Repeat tile sequences. Most people fail at level 7 â€” how far can you go?">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="../styles.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
     <style>
-        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
+        /* â•â•â• Tool Identity Theme â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         :root {
             --tool-accent:     #0EA5E9;
             --tool-accent-rgb: 14,165,233;
@@ -49,7 +49,7 @@
             --tool-header:     #38BDF8;
         }
 
-        /* Test panel — unique top border + subtle bg tint */
+        /* Test panel â€” unique top border + subtle bg tint */
         .test-panel {
             border-top: 2px solid #0EA5E9 !important;
             background: #02080f !important;
@@ -61,7 +61,7 @@
             color: #38BDF8;
         }
 
-        /* Primary button — tool color */
+        /* Primary button â€” tool color */
         .btn-primary {
             background: #0EA5E9 !important;
             color: #fff !important;
@@ -74,7 +74,7 @@
             transform: translateY(-1px);
         }
 
-        /* HUD cells — tool accent top strip */
+        /* HUD cells â€” tool accent top strip */
         .hud-cell {
             border-top: 2px solid #0EA5E9 !important;
             background: color-mix(in srgb, #02080f 90%, #fff 10%) !important;
@@ -154,7 +154,7 @@
             background: rgba(14,165,233, 0.2) !important;
         }
 
-        /* Reflex circle states — override to tool accent for result */
+        /* Reflex circle states â€” override to tool accent for result */
         .reflex-circle-wrap.state-result .reflex-ring {
             border-color: #0EA5E9 !important;
             box-shadow: 0 0 20px rgba(14,165,233, 0.25) !important;
@@ -249,7 +249,7 @@
         :focus-visible {
             outline-color: #0EA5E9 !important;
         }
-        /* ═══════════════════════════════════════════════════════════════════ */
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
         .memory-arena {
             display: flex;
@@ -274,7 +274,7 @@
         .mem-hud-lbl { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 1px; }
         .mem-hud-pair { text-align: center; }
 
-        /* The 3×3 tile grid */
+        /* The 3Ã—3 tile grid */
         .memory-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -380,14 +380,14 @@
             .reflex-hud { grid-template-columns:repeat(3,1fr); }
         }
 
-        /* ── Performance Lab Design System (injected) ── */
+        /* â”€â”€ Performance Lab Design System (injected) â”€â”€ */
         :root {
             --orange: #FF4D00;
             --orange-dim: rgba(255,77,0,0.15);
             --orange-glow: 0 0 24px rgba(255,77,0,0.3);
         }
 
-        /* Grade badges — Performance Lab */
+        /* Grade badges â€” Performance Lab */
         .grade-badge {
             display: inline-flex;
             align-items: center;
@@ -477,7 +477,7 @@
       ]
     }
     </script>
-                                            <link rel="stylesheet" href="../polish.css?v=11">
+                                            <link rel="stylesheet" href="../polish.css?v=13">
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1300997"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1301012"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1301015"></script>
@@ -499,9 +499,9 @@
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a>
-                <span class="separator">›</span>
+                <span class="separator">â€º</span>
                 <a href="../tools.html">Tools</a>
-                <span class="separator">›</span>
+                <span class="separator">â€º</span>
                 <span>Memory Sequence Test</span>
             </nav>
         </div>
@@ -516,11 +516,11 @@
                     <!-- HUD bar -->
                     <div class="memory-hud-bar" id="memHudBar">
                         <div class="mem-hud-pair">
-                            <div class="mem-hud-val" id="memLevel">—</div>
+                            <div class="mem-hud-val" id="memLevel">â€”</div>
                             <div class="mem-hud-lbl">Level</div>
                         </div>
                         <div class="mem-hud-pair">
-                            <div class="mem-hud-val" id="memBestLive" style="color:var(--accent-yellow);">—</div>
+                            <div class="mem-hud-val" id="memBestLive" style="color:var(--accent-yellow);">â€”</div>
                             <div class="mem-hud-lbl">Best</div>
                         </div>
                         <div class="mem-hud-pair">
@@ -534,15 +534,15 @@
 
                     <!-- 3x3 Tile grid -->
                     <div class="memory-grid" id="memGrid">
-                        <div class="mem-tile locked" data-index="0">●</div>
-                        <div class="mem-tile locked" data-index="1">●</div>
-                        <div class="mem-tile locked" data-index="2">●</div>
-                        <div class="mem-tile locked" data-index="3">●</div>
-                        <div class="mem-tile locked" data-index="4">●</div>
-                        <div class="mem-tile locked" data-index="5">●</div>
-                        <div class="mem-tile locked" data-index="6">●</div>
-                        <div class="mem-tile locked" data-index="7">●</div>
-                        <div class="mem-tile locked" data-index="8">●</div>
+                        <div class="mem-tile locked" data-index="0">â—</div>
+                        <div class="mem-tile locked" data-index="1">â—</div>
+                        <div class="mem-tile locked" data-index="2">â—</div>
+                        <div class="mem-tile locked" data-index="3">â—</div>
+                        <div class="mem-tile locked" data-index="4">â—</div>
+                        <div class="mem-tile locked" data-index="5">â—</div>
+                        <div class="mem-tile locked" data-index="6">â—</div>
+                        <div class="mem-tile locked" data-index="7">â—</div>
+                        <div class="mem-tile locked" data-index="8">â—</div>
                     </div>
 
                     <!-- Input progress -->
@@ -555,9 +555,9 @@
 
                     <!-- Persistent stats -->
                     <div class="reflex-hud" id="refHud" style="display:none;">
-                        <div class="hud-cell"><div class="hud-cell-val" id="hudBest">—</div><div class="hud-cell-lbl">Best Level</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudBest">â€”</div><div class="hud-cell-lbl">Best Level</div></div>
                         <div class="hud-cell"><div class="hud-cell-val" id="hudGames">0</div><div class="hud-cell-lbl">Games</div></div>
-                        <div class="hud-cell"><div class="hud-cell-val" id="hudAvg">—</div><div class="hud-cell-lbl">Avg Level</div></div>
+                        <div class="hud-cell"><div class="hud-cell-val" id="hudAvg">â€”</div><div class="hud-cell-lbl">Avg Level</div></div>
                     </div>
 
                     <div class="test-actions">
@@ -571,7 +571,7 @@
         <section class="info-section">
             <div class="container-narrow">
                 <h2>About the Memory Sequence Test</h2>
-                <p>Each round, one more tile is added to the sequence. Watch the colored tiles flash in order, then tap them back in the exact same sequence. The tiles are color-coded so each position is unique. Average human working memory can hold 7±2 items.</p>
+                <p>Each round, one more tile is added to the sequence. Watch the colored tiles flash in order, then tap them back in the exact same sequence. The tiles are color-coded so each position is unique. Average human working memory can hold 7Â±2 items.</p>
 
                 <h3>Working Memory in Gaming</h3>
                 <ul>
@@ -583,10 +583,10 @@
 
                 <h3>Memory Level Benchmarks</h3>
                 <ul>
-                    <li><strong style="color:#ff6450;">Level 3–4 — Average:</strong> Normal working memory capacity</li>
-                    <li><strong style="color:#ffc800;">Level 5–6 — Good:</strong> Above average memory span</li>
-                    <li><strong style="color:#00c8ff;">Level 7–8 — Excellent:</strong> Well-trained working memory</li>
-                    <li><strong style="color:#00e650;">Level 9+ — Exceptional:</strong> Elite cognitive capacity</li>
+                    <li><strong style="color:#ff6450;">Level 3â€“4 â€” Average:</strong> Normal working memory capacity</li>
+                    <li><strong style="color:#ffc800;">Level 5â€“6 â€” Good:</strong> Above average memory span</li>
+                    <li><strong style="color:#00c8ff;">Level 7â€“8 â€” Excellent:</strong> Well-trained working memory</li>
+                    <li><strong style="color:#00e650;">Level 9+ â€” Exceptional:</strong> Elite cognitive capacity</li>
                 </ul>
             </div>
         </section>
@@ -650,7 +650,7 @@
         </section>
     </main>
 <script src="../tool-runtime.js?v=7"></script>
-    <script src="../main.js?v=6" defer></script>
+    <script src="../main.js?v=8" defer></script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
         (function () {
@@ -699,8 +699,8 @@
             }
 
             function updateLiveHUD() {
-                document.getElementById('memLevel').textContent   = level || '—';
-                document.getElementById('memBestLive').textContent= bestLevel || '—';
+                document.getElementById('memLevel').textContent   = level || 'â€”';
+                document.getElementById('memBestLive').textContent= bestLevel || 'â€”';
                 document.getElementById('memGames').textContent   = gamesPlayed;
             }
             function updateFinalHUD() {
@@ -708,7 +708,7 @@
                 refHud.style.display = 'grid';
                 document.getElementById('hudBest').textContent  = bestLevel;
                 document.getElementById('hudGames').textContent = gamesPlayed;
-                const avg = allLevels.length ? Math.round(allLevels.reduce((a,b)=>a+b,0)/allLevels.length) : '—';
+                const avg = allLevels.length ? Math.round(allLevels.reduce((a,b)=>a+b,0)/allLevels.length) : 'â€”';
                 document.getElementById('hudAvg').textContent   = avg;
             }
 
@@ -736,7 +736,7 @@
                 inputProg.style.display = 'none';
                 playerIndex = 0; // Reset input index at start of each sequence
                 statusEl.className = 'memory-status watching';
-                statusEl.textContent = 'Watch the sequence…';
+                statusEl.textContent = 'Watch the sequenceâ€¦';
                 await new Promise(r => setTimeout(r, 500));
 
                 // Flash speed increases with level

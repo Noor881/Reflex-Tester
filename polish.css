@@ -52,6 +52,9 @@ html,
 body {
   background: var(--bg-primary) !important;
   color: var(--text-primary) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
 }
 
 body {
@@ -68,6 +71,16 @@ body {
 .article-page,
 .blog-page {
   background: transparent !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
 }
 
 .gradient-text,
@@ -246,11 +259,17 @@ button:not(.btn-primary):not(.nav-toggle) {
 .blog-card-image {
   display: block !important;
   width: 100% !important;
-  aspect-ratio: 16 / 9 !important;
-  min-height: clamp(190px, 17vw, 270px) !important;
+  height: clamp(230px, 24vw, 360px) !important;
+  max-height: none !important;
+  aspect-ratio: 4 / 3 !important;
+  min-height: 0 !important;
   object-fit: contain !important;
-  padding: 12px !important;
+  object-position: center center !important;
+  padding: clamp(12px, 2vw, 18px) !important;
   box-sizing: border-box !important;
+  border-radius: 16px !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(238, 246, 255, 0.92)) !important;
 }
 
 .blog-card,
@@ -291,6 +310,7 @@ button:not(.btn-primary):not(.nav-toggle) {
 .site-content-image {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 9;
   object-fit: contain;
   padding: 12px;
@@ -332,6 +352,27 @@ button:not(.btn-primary):not(.nav-toggle) {
 .blog-preview-card,
 .related-tool-card {
   min-height: 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+  padding: clamp(16px, 2.4vw, 22px) !important;
+}
+
+.tool-card > *,
+.blog-card > *,
+.tool-feature-card > *,
+.blog-preview-card > *,
+.related-tool-card > * {
+  min-width: 0 !important;
+}
+
+.blog-card-content,
+.tool-card-content,
+.related-tool-card-content {
+  padding: 0 !important;
 }
 
 .search-bar input,
@@ -1093,11 +1134,298 @@ textarea:focus {
   border: 1px solid var(--border-medium) !important;
 }
 
+body.adblock-locked {
+  overflow: hidden !important;
+}
+
+body.adblock-locked > *:not(.adblock-gate):not(#rtAdBlockBait),
+body.adblock-locked iframe {
+  visibility: hidden !important;
+}
+
+body.adblock-locked .adblock-gate,
+body.adblock-locked .adblock-gate * {
+  visibility: visible !important;
+}
+
+.adblock-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 4vw, 56px);
+  background:
+    linear-gradient(rgba(37, 99, 235, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 20% 16%, rgba(37, 99, 235, 0.20), transparent 30%),
+    radial-gradient(circle at 82% 20%, rgba(124, 58, 237, 0.18), transparent 28%),
+    linear-gradient(135deg, rgba(248, 251, 255, 0.97), rgba(239, 247, 255, 0.97) 58%, rgba(255, 248, 237, 0.97));
+  background-size: 56px 56px, 56px 56px, auto, auto, auto;
+  color: var(--text-primary);
+  backdrop-filter: blur(18px) saturate(130%);
+}
+
+.adblock-gate-shell {
+  width: calc(100vw - 28px);
+  max-width: 760px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-sizing: border-box;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  border: 1px solid rgba(37, 99, 235, 0.16);
+  border-radius: 8px;
+  padding: clamp(30px, 6vw, 58px);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 251, 255, 0.92)),
+    linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(124, 58, 237, 0.08));
+  box-shadow: 0 36px 90px rgba(22, 42, 80, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.96);
+  text-align: center;
+}
+
+.adblock-gate-shell *,
+.adblock-gate h2,
+.adblock-gate-copy,
+.adblock-gate-note {
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.adblock-gate-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.86) 45%, transparent 72%),
+    radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.12), transparent 34%);
+  opacity: 0.9;
+}
+
+.adblock-gate-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 98px;
+  height: 98px;
+  margin: 0 auto 22px;
+}
+
+.adblock-gate-pulse,
+.adblock-gate-shield {
+  position: absolute;
+  display: block;
+}
+
+.adblock-gate-pulse {
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.16), rgba(124, 58, 237, 0.06) 55%, transparent 72%);
+  animation: adblockPulse 2.8s ease-in-out infinite;
+}
+
+.adblock-gate-shield {
+  width: 58px;
+  height: 68px;
+  border-radius: 8px;
+  background: var(--gradient-primary);
+  box-shadow: 0 18px 34px rgba(37, 99, 235, 0.28);
+  clip-path: polygon(50% 0, 92% 14%, 84% 72%, 50% 100%, 16% 72%, 8% 14%);
+}
+
+.adblock-gate-shield::before,
+.adblock-gate-shield::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 34px;
+  height: 5px;
+  border-radius: 999px;
+  background: #ffffff;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.adblock-gate-shield::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.adblock-gate-kicker {
+  margin: 0 0 12px;
+  color: #1d4ed8;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.adblock-gate h2 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.adblock-gate-copy {
+  width: min(100%, 610px);
+  margin: 18px auto 0;
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.adblock-gate-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 28px auto 0;
+}
+
+.adblock-gate-steps span {
+  padding: 9px 13px;
+  border: 1px solid rgba(37, 99, 235, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.adblock-gate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 30px 0 0;
+}
+
+.adblock-gate-primary,
+.adblock-gate-secondary {
+  min-width: 150px;
+  min-height: 48px;
+  border-radius: 8px !important;
+  padding: 12px 18px !important;
+  font-weight: 800 !important;
+  cursor: pointer;
+}
+
+.adblock-gate-primary {
+  border: 0 !important;
+  background: var(--gradient-primary) !important;
+  color: #ffffff !important;
+  box-shadow: var(--shadow-button) !important;
+}
+
+.adblock-gate-secondary {
+  border: 1px solid var(--border-medium) !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: var(--text-primary) !important;
+}
+
+.adblock-gate-note {
+  margin: 18px 0 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+@keyframes adblockPulse {
+  0%, 100% { transform: scale(0.96); opacity: 0.72; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+.container,
+.container-narrow,
+.rt-hero-grid,
+.tool-hero-inner,
+.tools-grid,
+.blog-grid,
+.tool-feature-grid,
+.blog-preview-grid,
+.related-tools-grid,
+.related-grid,
+.stats-bar-grid,
+.mockup-grid,
+.category-pills,
+.footer-grid {
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.rt-hero-grid,
+.tool-hero-inner,
+.hero-actions,
+.category-header,
+.stats-bar-grid,
+.footer-grid {
+  min-width: 0 !important;
+}
+
+.hero-actions,
+.adblock-gate-actions,
+.adblock-gate-steps,
+.category-header {
+  flex-wrap: wrap !important;
+}
+
+.btn,
+.nav-cta,
+button,
+input,
+select,
+textarea {
+  max-width: 100% !important;
+}
+
+table,
+pre,
+code {
+  max-width: 100%;
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+}
+
+pre {
+  overflow-x: auto;
+}
+
 @media (max-width: 1023px) {
+  .rt-hero {
+    min-height: auto !important;
+    align-items: flex-start !important;
+    padding: clamp(38px, 9vw, 76px) 0 !important;
+  }
+
+  .rt-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: clamp(22px, 6vw, 38px) !important;
+  }
+
+  .site-hero-media {
+    width: 100% !important;
+    max-width: 680px !important;
+    margin: 0 !important;
+  }
+
+  .site-hero-media img,
+  .site-content-image {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
   .tool-hero-art {
     position: static !important;
     opacity: 1 !important;
-    width: min(100%, 380px) !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    min-width: 0 !important;
     margin: 0 !important;
   }
 
@@ -1113,24 +1441,278 @@ textarea:focus {
 }
 
 @media (max-width: 640px) {
+  .container,
+  .container-narrow {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  html,
+  body,
+  .main-content,
+  main,
+  section,
+  header,
+  footer {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  .section,
+  .stats-bar-section,
+  .related-tools-section,
+  .related-posts-section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .rt-hero {
+    padding: 32px 0 40px !important;
+  }
+
+  .rt-hero-grid,
+  .tool-hero-inner,
+  .tools-grid,
+  .blog-grid,
+  .tool-feature-grid,
+  .blog-preview-grid,
+  .related-tools-grid,
+  .related-grid,
+  .stats-bar-grid,
+  .mockup-grid,
+  .category-pills,
+  .footer-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .rt-hero h1,
+  .blog-hero h1,
+  .tools-hero h1,
+  .tools-directory-hero h1,
+  .tool-hero-copy h1 {
+    max-width: 100% !important;
+    font-size: clamp(2rem, 9.5vw, 2.85rem) !important;
+    line-height: 1.06 !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    text-wrap: balance;
+  }
+
+  .rt-hero .hero-subtitle,
+  .blog-hero p,
+  .tools-hero p,
+  .section-subtitle,
+  .tool-hero-copy p {
+    max-width: 100% !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .hero-actions,
+  .hero-actions .btn,
+  .search-bar,
+  .search-bar input {
+    width: 100% !important;
+  }
+
+  .hero-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .tools-grid,
+  .blog-grid,
+  .tool-feature-grid,
+  .blog-preview-grid,
+  .related-tools-grid,
+  .related-grid,
+  .stats-bar-grid,
+  .mockup-grid,
+  .category-pills,
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tool-card,
+  .blog-card,
+  .tool-feature-card,
+  .blog-preview-card,
+  .related-tool-card,
+  .related-post-card,
+  .article-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .tool-card-media,
+  .tool-feature-media,
+  .related-tool-media,
+  .blog-card-image {
+    width: 100% !important;
+    height: clamp(220px, 68vw, 300px) !important;
+    aspect-ratio: 4 / 3 !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 10px !important;
+  }
+
+  .site-hero-media,
+  .site-page-media,
+  .site-content-image,
+  .tool-hero-art {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .filter-bar,
+  .blog-hero + .container > div:first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .filter-btn,
+  .category-pill {
+    white-space: normal !important;
+  }
+
+  .test-panel,
+  .typing-area,
+  .calculator-card,
+  .settings-card,
+  .result-card,
+  .score-card,
+  .info-section,
+  .stats-panel,
+  .coordination-area,
+  .number-game-area,
+  .peripheral-area,
+  .cps-area,
+  .color-options,
+  .tool-details-grid,
+  .benchmark-table,
+  .article-content,
+  .article-header,
+  .article-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .coordination-area,
+  .number-game-area,
+  .peripheral-area,
+  .cps-area {
+    height: min(78vw, 360px) !important;
+  }
+
+  .color-target {
+    width: min(180px, 52vw) !important;
+    height: min(180px, 52vw) !important;
+  }
+
+  .stats-grid,
+  .hud-row,
+  .test-controls,
+  .game-controls,
+  .mode-buttons,
+  .aim-mode-buttons {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex-wrap: wrap !important;
+  }
+
+  .category-header {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    align-items: center !important;
+  }
+
+  .category-header .cat-badge {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  #cookieConsent {
+    padding: 12px 14px !important;
+  }
+
+  #cookieConsent > div {
+    width: 100% !important;
+    align-items: stretch !important;
+  }
+
+  #cookieConsent p {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #cookieConsent button {
+    flex: 1 1 120px;
+    min-width: 0;
+  }
+
+  .adblock-gate {
+    padding: 14px;
+  }
+
+  .adblock-gate-shell {
+    padding: 24px 16px;
+  }
+
+  .adblock-gate-visual {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 16px;
+  }
+
+  .adblock-gate-shield {
+    width: 44px;
+    height: 52px;
+  }
+
+  .adblock-gate h2 {
+    font-size: clamp(1.9rem, 8vw, 2.35rem);
+    text-wrap: balance;
+  }
+
+  .adblock-gate-copy {
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
+
+  .adblock-gate-steps,
+  .adblock-gate-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: min(100%, 280px);
+  }
+
+  .adblock-gate-primary,
+  .adblock-gate-secondary {
+    width: 100%;
+    min-width: 0;
+  }
+
   .tool-hero-art {
     min-width: 0 !important;
     width: min(86vw, 340px) !important;
     align-self: center !important;
   }
 
-  .rt-hero h1,
-  .tools-directory-hero h1 {
-    font-size: clamp(2.25rem, 14vw, 3.5rem) !important;
-  }
-
   .blog-wrapper {
     width: min(100% - 28px, 920px) !important;
     margin-top: calc(var(--nav-height, 76px) + var(--space-xl)) !important;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr !important;
   }
 
   .weapon-overlay,
@@ -1159,7 +1741,8 @@ textarea:focus {
   .tool-hero-art,
   .article-hero-image,
   .site-hero-media img,
-  .site-content-image {
+  .site-content-image,
+  .adblock-gate-pulse {
     transition: none !important;
     animation: none !important;
   }

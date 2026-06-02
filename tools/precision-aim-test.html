@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Precision Aim Test — Click Accuracy & Target Size Challenge [Free]</title>
+    <title>Precision Aim Test â€” Click Accuracy & Target Size Challenge [Free]</title>
     <meta name="description" content="Test your mouse precision by clicking increasingly smaller targets. Measures accuracy percentage and average miss distance. Essential for FPS gamers and shooter training.">
     <meta name="keywords" content="precision aim test, mouse accuracy, click precision, aim training, small target test, FPS aim, click accuracy test">
     <link rel="canonical" href="https://reflextester.fun/tools/precision-aim-test.html">
@@ -21,7 +21,7 @@
     </script>
     <link rel="stylesheet" href="../styles.css">
     <style>
-        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
+        /* â•â•â• Tool Identity Theme â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         :root {
             --tool-accent:     #F0F0F0;
             --tool-accent-rgb: 240,240,240;
@@ -32,7 +32,7 @@
             --tool-header:     #FFFFFF;
         }
 
-        /* Test panel — unique top border + subtle bg tint */
+        /* Test panel â€” unique top border + subtle bg tint */
         .test-panel {
             border-top: 2px solid #F0F0F0 !important;
             background: #050505 !important;
@@ -44,7 +44,7 @@
             color: #FFFFFF;
         }
 
-        /* Primary button — tool color */
+        /* Primary button â€” tool color */
         .btn-primary {
             background: #F0F0F0 !important;
             color: #000 !important;
@@ -57,7 +57,7 @@
             transform: translateY(-1px);
         }
 
-        /* HUD cells — tool accent top strip */
+        /* HUD cells â€” tool accent top strip */
         .hud-cell {
             border-top: 2px solid #F0F0F0 !important;
             background: color-mix(in srgb, #050505 90%, #fff 10%) !important;
@@ -137,7 +137,7 @@
             background: rgba(240,240,240, 0.2) !important;
         }
 
-        /* Reflex circle states — override to tool accent for result */
+        /* Reflex circle states â€” override to tool accent for result */
         .reflex-circle-wrap.state-result .reflex-ring {
             border-color: #F0F0F0 !important;
             box-shadow: 0 0 20px rgba(240,240,240, 0.25) !important;
@@ -232,7 +232,7 @@
         :focus-visible {
             outline-color: #F0F0F0 !important;
         }
-        /* ═══════════════════════════════════════════════════════════════════ */
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
         .aim-arena {
             width: 100%;
@@ -322,14 +322,14 @@
         .progress-dot.hit  { background: var(--accent-green); }
         .progress-dot.miss { background: #ef4444; }
 
-        /* ── Performance Lab Design System (injected) ── */
+        /* â”€â”€ Performance Lab Design System (injected) â”€â”€ */
         :root {
             --orange: #FF4D00;
             --orange-dim: rgba(255,77,0,0.15);
             --orange-glow: 0 0 24px rgba(255,77,0,0.3);
         }
 
-        /* Grade badges — Performance Lab */
+        /* Grade badges â€” Performance Lab */
         .grade-badge {
             display: inline-flex;
             align-items: center;
@@ -494,7 +494,7 @@
     }
     </script>
     <meta property="og:image" content="https://reflextester.fun/images/tool-previews/precision-aim-test.png">
-                                            <link rel="stylesheet" href="../polish.css?v=11">
+                                            <link rel="stylesheet" href="../polish.css?v=13">
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1300997"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1301012"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1301015"></script>
@@ -514,8 +514,8 @@
 
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
-                <a href="../index.html">Home</a><span class="separator">›</span>
-                <a href="../tools.html">Tools</a><span class="separator">›</span>
+                <a href="../index.html">Home</a><span class="separator">â€º</span>
+                <a href="../tools.html">Tools</a><span class="separator">â€º</span>
                 <span>Precision Aim Test</span>
             </nav>
         </div>
@@ -523,16 +523,16 @@
         <section class="test-area">
             <div class="test-panel active">
                 <h1> Precision Aim Test</h1>
-                <p class="test-desc">Click the target circles as accurately as possible. Targets shrink with each level — 20 targets total. Miss distance is measured in pixels!</p>
+                <p class="test-desc">Click the target circles as accurately as possible. Targets shrink with each level â€” 20 targets total. Miss distance is measured in pixels!</p>
 
                 <div class="precision-hud">
                     <div class="hud-chip"><div class="hud-val" id="hitCountP">0</div><div class="hud-lbl">Hits</div></div>
                     <div class="hud-chip"><div class="hud-val" id="missCountP">0</div><div class="hud-lbl">Misses</div></div>
-                    <div class="hud-chip"><div class="hud-val" id="accuracyP">—</div><div class="hud-lbl">Accuracy</div></div>
-                    <div class="hud-chip"><div class="hud-val" id="avgMissP">—</div><div class="hud-lbl">Avg Miss (px)</div></div>
+                    <div class="hud-chip"><div class="hud-val" id="accuracyP">â€”</div><div class="hud-lbl">Accuracy</div></div>
+                    <div class="hud-chip"><div class="hud-val" id="avgMissP">â€”</div><div class="hud-lbl">Avg Miss (px)</div></div>
                 </div>
 
-                <div class="level-banner">Level <span id="levelNum">—</span> — Target Size: <span id="targetSizeLabel">—</span>px</div>
+                <div class="level-banner">Level <span id="levelNum">â€”</span> â€” Target Size: <span id="targetSizeLabel">â€”</span>px</div>
 
                 <div class="progress-dots" id="progressDots"></div>
 
@@ -555,8 +555,8 @@
 
                 <div class="stats-panel" id="precStatsPanel" style="display:none;">
                     <h4> Precision Records</h4>
-                    <div class="stat-row"><span class="stat-label">Best Accuracy</span><span class="stat-value" id="precBestAcc">—</span></div>
-                    <div class="stat-row"><span class="stat-label">Best Avg Miss</span><span class="stat-value" id="precBestMiss">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Best Accuracy</span><span class="stat-value" id="precBestAcc">â€”</span></div>
+                    <div class="stat-row"><span class="stat-label">Best Avg Miss</span><span class="stat-value" id="precBestMiss">â€”</span></div>
                     <div class="stat-row"><span class="stat-label">Sessions</span><span class="stat-value" id="precSessions">0</span></div>
                 </div>
             </div>
@@ -565,13 +565,13 @@
         <section class="info-section">
             <div class="container-narrow">
                 <h2>What Does Precision Aim Measure?</h2>
-                <p>Precision aim tests your ability to place your cursor exactly on small targets — the same skill used in FPS headshots, MOBA skill shots, and RTS micro-management. This test tracks both hit/miss ratio AND average miss distance in pixels.</p>
+                <p>Precision aim tests your ability to place your cursor exactly on small targets â€” the same skill used in FPS headshots, MOBA skill shots, and RTS micro-management. This test tracks both hit/miss ratio AND average miss distance in pixels.</p>
                 <h3>Precision Benchmarks</h3>
                 <ul>
-                    <li><strong>90%+ Accuracy:</strong> Elite — Pro FPS level precision</li>
-                    <li><strong>75–89%:</strong> Great — Strong competitive aim</li>
-                    <li><strong>60–74%:</strong> Average — Typical casual gamer</li>
-                    <li><strong>Below 60%:</strong> Needs training — Practice daily!</li>
+                    <li><strong>90%+ Accuracy:</strong> Elite â€” Pro FPS level precision</li>
+                    <li><strong>75â€“89%:</strong> Great â€” Strong competitive aim</li>
+                    <li><strong>60â€“74%:</strong> Average â€” Typical casual gamer</li>
+                    <li><strong>Below 60%:</strong> Needs training â€” Practice daily!</li>
                 </ul>
             </div>
         </section>
@@ -635,7 +635,7 @@
         </section>
     </main>
 <script src="../tool-runtime.js?v=7"></script>
-    <script src="../main.js?v=6" defer></script>
+    <script src="../main.js?v=8" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const arena      = document.getElementById('aimArena');
@@ -712,8 +712,8 @@
                 const total = hits + misses;
                 hitEl.textContent  = hits;
                 missEl.textContent = misses;
-                accEl.textContent  = total > 0 ? ((hits / total) * 100).toFixed(0) + '%' : '—';
-                avgMissEl.textContent = misses > 0 ? (totalMissDist / misses).toFixed(0) + 'px' : '—';
+                accEl.textContent  = total > 0 ? ((hits / total) * 100).toFixed(0) + '%' : 'â€”';
+                avgMissEl.textContent = misses > 0 ? (totalMissDist / misses).toFixed(0) + 'px' : 'â€”';
             }
 
             arena.addEventListener('click', function (e) {
@@ -792,7 +792,7 @@
 
                 overlayTitle.textContent = acc.toFixed(0) + '% Accuracy';
                 overlayTitle.style.color = g.cls.includes('exceptional') ? '#00e650' : g.cls.includes('excellent') ? '#00c8ff' : '#ffc800';
-                overlayDesc.textContent  = hits + '/' + total + ' targets hit · Avg miss: ' + avgM + 'px';
+                overlayDesc.textContent  = hits + '/' + total + ' targets hit Â· Avg miss: ' + avgM + 'px';
                 overlayGrade.innerHTML   = '<span class="grade-badge ' + g.cls + '">' + g.label + '</span>';
                 overlayStats.textContent = 'Levels completed: ' + targetIndex + '/20';
 
@@ -823,7 +823,7 @@
                 statsPanel.style.display = 'block';
                 document.getElementById('precBestAcc').textContent  = Math.max(...results.map(r=>r.accuracy)).toFixed(0) + '%';
                 const missArr = results.filter(r=>r.avgMiss>0).map(r=>r.avgMiss);
-                document.getElementById('precBestMiss').textContent = missArr.length ? Math.min(...missArr).toFixed(0) + 'px' : '—';
+                document.getElementById('precBestMiss').textContent = missArr.length ? Math.min(...missArr).toFixed(0) + 'px' : 'â€”';
                 document.getElementById('precSessions').textContent = results.length;
             }
 

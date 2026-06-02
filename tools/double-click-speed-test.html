@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Double Click Speed Test — Measure Your Double-Click CPS [Free Online]</title>
+    <title>Double Click Speed Test â€” Measure Your Double-Click CPS [Free Online]</title>
     <meta name="description" content="Test how fast you can double-click your mouse. Measures double-clicks per second, total DPS, and compares you against gaming benchmarks. Free, instant, no sign-up.">
     <meta name="keywords" content="double click speed test, double click per second, dps test, mouse double click speed, gaming mouse test, click speed">
     <link rel="canonical" href="https://reflextester.fun/tools/double-click-speed-test.html">
@@ -21,7 +21,7 @@
     </script>
     <link rel="stylesheet" href="../styles.css">
     <style>
-        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
+        /* â•â•â• Tool Identity Theme â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         :root {
             --tool-accent:     #EC4899;
             --tool-accent-rgb: 236,72,153;
@@ -32,7 +32,7 @@
             --tool-header:     #F472B6;
         }
 
-        /* Test panel — unique top border + subtle bg tint */
+        /* Test panel â€” unique top border + subtle bg tint */
         .test-panel {
             border-top: 2px solid #EC4899 !important;
             background: #0f0508 !important;
@@ -44,7 +44,7 @@
             color: #F472B6;
         }
 
-        /* Primary button — tool color */
+        /* Primary button â€” tool color */
         .btn-primary {
             background: #EC4899 !important;
             color: #fff !important;
@@ -57,7 +57,7 @@
             transform: translateY(-1px);
         }
 
-        /* HUD cells — tool accent top strip */
+        /* HUD cells â€” tool accent top strip */
         .hud-cell {
             border-top: 2px solid #EC4899 !important;
             background: color-mix(in srgb, #0f0508 90%, #fff 10%) !important;
@@ -137,7 +137,7 @@
             background: rgba(236,72,153, 0.2) !important;
         }
 
-        /* Reflex circle states — override to tool accent for result */
+        /* Reflex circle states â€” override to tool accent for result */
         .reflex-circle-wrap.state-result .reflex-ring {
             border-color: #EC4899 !important;
             box-shadow: 0 0 20px rgba(236,72,153, 0.25) !important;
@@ -232,7 +232,7 @@
         :focus-visible {
             outline-color: #EC4899 !important;
         }
-        /* ═══════════════════════════════════════════════════════════════════ */
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
         .dclick-zone {
             width: 100%;
@@ -270,14 +270,14 @@
         .dps-badge.avg  { background:#f59e0b; color:#000; }
         .dps-badge.low  { background:#6b7280; color:#fff; }
 
-        /* ── Performance Lab Design System (injected) ── */
+        /* â”€â”€ Performance Lab Design System (injected) â”€â”€ */
         :root {
             --orange: #FF4D00;
             --orange-dim: rgba(255,77,0,0.15);
             --orange-glow: 0 0 24px rgba(255,77,0,0.3);
         }
 
-        /* Grade badges — Performance Lab */
+        /* Grade badges â€” Performance Lab */
         .grade-badge {
             display: inline-flex;
             align-items: center;
@@ -588,7 +588,7 @@
     }
     </script>
     <meta property="og:image" content="https://reflextester.fun/images/tool-previews/double-click-speed-test.png">
-                                            <link rel="stylesheet" href="../polish.css?v=11">
+                                            <link rel="stylesheet" href="../polish.css?v=13">
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1300997"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1301012"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1301015"></script>
@@ -608,8 +608,8 @@
 
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
-                <a href="../index.html">Home</a><span class="separator">›</span>
-                <a href="../tools.html">Tools</a><span class="separator">›</span>
+                <a href="../index.html">Home</a><span class="separator">â€º</span>
+                <a href="../tools.html">Tools</a><span class="separator">â€º</span>
                 <span>Double Click Speed Test</span>
             </nav>
         </div>
@@ -641,7 +641,7 @@
                         <div class="stat-label">DPS (Per Second)</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value" id="timeLeft">—</div>
+                        <div class="stat-value" id="timeLeft">â€”</div>
                         <div class="stat-label">Time Left</div>
                     </div>
                 </div>
@@ -650,8 +650,8 @@
 
                 <div class="stats-panel" id="statsPanel" style="display:none;">
                     <h4> Your Double-Click Stats</h4>
-                    <div class="stat-row"><span class="stat-label">Best DPS</span><span class="stat-value" id="bestDps">—</span></div>
-                    <div class="stat-row"><span class="stat-label">Avg DPS</span><span class="stat-value" id="avgDps">—</span></div>
+                    <div class="stat-row"><span class="stat-label">Best DPS</span><span class="stat-value" id="bestDps">â€”</span></div>
+                    <div class="stat-row"><span class="stat-label">Avg DPS</span><span class="stat-value" id="avgDps">â€”</span></div>
                     <div class="stat-row"><span class="stat-label">Sessions</span><span class="stat-value" id="dclickSessions">0</span></div>
                     <div class="stat-row"><span class="stat-label">Total Double-Clicks</span><span class="stat-value" id="totalClicks">0</span></div>
                 </div>
@@ -661,18 +661,18 @@
         <section class="info-section">
             <div class="container-narrow">
                 <h2>What Is Double Click Speed?</h2>
-                <p>Double-click speed (DPS — Double-clicks Per Second) measures how quickly you can perform consecutive double-click actions. This matters for drag-select speed in games, file management, and any UI that requires rapid double-inputs.</p>
+                <p>Double-click speed (DPS â€” Double-clicks Per Second) measures how quickly you can perform consecutive double-click actions. This matters for drag-select speed in games, file management, and any UI that requires rapid double-inputs.</p>
                 <h3>DPS Benchmarks</h3>
                 <ul>
-                    <li><strong>1–4 DPS:</strong> Average — most casual users</li>
-                    <li><strong>5–8 DPS:</strong> Good — experienced PC users</li>
-                    <li><strong>9–12 DPS:</strong> Fast — competitive gamers</li>
-                    <li><strong>13+ DPS:</strong> Elite — top 1% of clickers</li>
+                    <li><strong>1â€“4 DPS:</strong> Average â€” most casual users</li>
+                    <li><strong>5â€“8 DPS:</strong> Good â€” experienced PC users</li>
+                    <li><strong>9â€“12 DPS:</strong> Fast â€” competitive gamers</li>
+                    <li><strong>13+ DPS:</strong> Elite â€” top 1% of clickers</li>
                 </ul>
                 <h3>Tips to Improve</h3>
                 <ul>
-                    <li>Use a gaming mouse with a fast debounce time (1ms–4ms)</li>
-                    <li>Rest your arm — wrist tension reduces click speed</li>
+                    <li>Use a gaming mouse with a fast debounce time (1msâ€“4ms)</li>
+                    <li>Rest your arm â€” wrist tension reduces click speed</li>
                     <li>Butterfly clicking (two fingers alternating on one button) can exceed 20 DPS</li>
                 </ul>
             </div>
@@ -737,7 +737,7 @@
         </section>
     </main>
 <script src="../tool-runtime.js?v=7"></script>
-    <script src="../main.js?v=6" defer></script>
+    <script src="../main.js?v=8" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const zone      = document.getElementById('dclickZone');
@@ -783,7 +783,7 @@
                 sub.textContent = 'Double-click the zone as fast as you can';
                 countEl.textContent = '0';
                 dpsEl.textContent = '0.0';
-                timeEl.textContent = '—';
+                timeEl.textContent = 'â€”';
                 resultEl.style.display = 'none';
             }
 
@@ -824,10 +824,10 @@
                 let grade, badgeClass;
                 const dnum = parseFloat(finalDps);
                 if (dnum >= 13)      { grade = 'Elite! Top 1% ';   badgeClass = 'pro'; }
-                else if (dnum >= 9)  { grade = 'Fast — Competitive Level '; badgeClass = 'pro'; }
-                else if (dnum >= 5)  { grade = 'Good — Above Average '; badgeClass = 'good'; }
-                else if (dnum >= 2)  { grade = 'Average — Keep Practicing';  badgeClass = 'avg'; }
-                else                 { grade = 'Getting Started — Keep Going!'; badgeClass = 'low'; }
+                else if (dnum >= 9)  { grade = 'Fast â€” Competitive Level '; badgeClass = 'pro'; }
+                else if (dnum >= 5)  { grade = 'Good â€” Above Average '; badgeClass = 'good'; }
+                else if (dnum >= 2)  { grade = 'Average â€” Keep Practicing';  badgeClass = 'avg'; }
+                else                 { grade = 'Getting Started â€” Keep Going!'; badgeClass = 'low'; }
 
                 resultEl.innerHTML = '<div class="result-score">' + finalDps + ' DPS</div>' +
                     '<div class="result-grade">' + dclicks + ' double-clicks in ' + duration + 's</div>' +

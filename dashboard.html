@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Dashboard — Track Progress | ReflexTester.fun</title>
+    <title>Your Dashboard â€” Track Progress | ReflexTester.fun</title>
     <meta name="description"
         content="View your personal reflex testing stats and track progress over time. See your best scores, averages, and improvement trends.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://reflextester.fun/dashboard.html">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Your Dashboard — Track Progress | ReflexTester.fun">
+    <meta property="og:title" content="Your Dashboard â€” Track Progress | ReflexTester.fun">
     <meta property="og:description"
         content="View your personal reflex testing stats and track progress over time. See your best scores, averages, and improvement trends.">
     <meta property="og:url" content="https://reflextester.fun/dashboard.html">
@@ -26,7 +26,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Dashboard — Track Your Progress | ReflexTester.fun">
+    <meta name="twitter:title" content="Dashboard â€” Track Your Progress | ReflexTester.fun">
     <meta name="twitter:description" content="View your reflex testing stats and track progress over time.">
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -123,7 +123,7 @@
         }
     </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
-                                            <link rel="stylesheet" href="polish.css?v=11">
+                                            <link rel="stylesheet" href="polish.css?v=13">
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1300997"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1301012"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1301015"></script>
@@ -145,32 +145,32 @@
             <div class="dashboard-grid" id="statsGrid">
                 <div class="stat-card">
                     <h3> Visual Reflex</h3>
-                    <div class="value" id="visualBest">—</div>
+                    <div class="value" id="visualBest">â€”</div>
                     <div class="subtitle">Best Time (ms)</div>
                 </div>
                 <div class="stat-card">
                     <h3> Audio Reflex</h3>
-                    <div class="value" id="audioBest">—</div>
+                    <div class="value" id="audioBest">â€”</div>
                     <div class="subtitle">Best Time (ms)</div>
                 </div>
                 <div class="stat-card">
                     <h3> Click Speed</h3>
-                    <div class="value" id="cpsBest">—</div>
+                    <div class="value" id="cpsBest">â€”</div>
                     <div class="subtitle">Best CPS</div>
                 </div>
                 <div class="stat-card">
-                    <h3>⌨️ Typing Speed</h3>
-                    <div class="value" id="typingBest">—</div>
+                    <h3>âŒ¨ï¸ Typing Speed</h3>
+                    <div class="value" id="typingBest">â€”</div>
                     <div class="subtitle">Best WPM</div>
                 </div>
                 <div class="stat-card">
                     <h3> Memory Sequence</h3>
-                    <div class="value" id="memoryBest">—</div>
+                    <div class="value" id="memoryBest">â€”</div>
                     <div class="subtitle">Best Level</div>
                 </div>
                 <div class="stat-card">
                     <h3> CS:GO Aim</h3>
-                    <div class="value" id="csgoBest">—</div>
+                    <div class="value" id="csgoBest">â€”</div>
                     <div class="subtitle">Best Score</div>
                 </div>
             </div>
@@ -188,9 +188,9 @@
             <button type="button" class="btn btn-secondary clear-btn" id="clearBtn">Clear All Data</button>
         </section>
     </main>
-<script src="main.js?v=6" defer></script>
+<script src="main.js?v=8" defer></script>
     <script>
-        /* Wait for main.js?v=6 defer to load so ReflexStore is available */
+        /* Wait for main.js?v=8 defer to load so ReflexStore is available */
         document.addEventListener('DOMContentLoaded', function () {
             function loadStats() {
                 var visual  = ReflexStore.get('visual_results', []);
@@ -207,24 +207,24 @@
 
                 // Visual: array of ms numbers
                 document.getElementById('visualBest').textContent =
-                    visual.length ? Math.min.apply(null, visual) + 'ms' : '—';
+                    visual.length ? Math.min.apply(null, visual) + 'ms' : 'â€”';
                 // Audio: array of ms numbers
                 document.getElementById('audioBest').textContent =
-                    audio.length ? Math.min.apply(null, audio) + 'ms' : '—';
+                    audio.length ? Math.min.apply(null, audio) + 'ms' : 'â€”';
                 // CPS: array of cps float numbers
                 document.getElementById('cpsBest').textContent =
-                    cps.length ? Math.max.apply(null, cps).toFixed(1) + ' CPS' : '—';
+                    cps.length ? Math.max.apply(null, cps).toFixed(1) + ' CPS' : 'â€”';
                 // Typing: array of {wpm, accuracy} objects
                 document.getElementById('typingBest').textContent =
-                    typing.length ? Math.max.apply(null, typing.map(function(r) { return r.wpm || 0; })) + ' WPM' : '—';
+                    typing.length ? Math.max.apply(null, typing.map(function(r) { return r.wpm || 0; })) + ' WPM' : 'â€”';
                 // Memory: best level reached (number)
                 document.getElementById('memoryBest').textContent =
-                    memBest > 0 ? 'Level ' + memBest + ' (' + memGames + ' games)' : '—';
+                    memBest > 0 ? 'Level ' + memBest + ' (' + memGames + ' games)' : 'â€”';
                 // CS:GO aim: best score
                 var csgoBestEl = document.getElementById('csgoBest');
                 if (csgoBestEl) {
                     csgoBestEl.textContent = csgo.length ?
-                        Math.max.apply(null, csgo.map(function(r) { return r.score || 0; })) + ' pts' : '—';
+                        Math.max.apply(null, csgo.map(function(r) { return r.score || 0; })) + ' pts' : 'â€”';
                 }
 
                 var historyContainer = document.getElementById('historyContainer');
