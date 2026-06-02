@@ -20,7 +20,7 @@
     <meta property="og:description"
         content="View your personal reflex testing stats and track progress over time. See your best scores, averages, and improvement trends.">
     <meta property="og:url" content="https://reflextester.fun/dashboard.html">
-    <meta property="og:image" content="https://reflextester.fun/images/dashboard-og.svg">
+    <meta property="og:image" content="https://reflextester.fun/images/site/dashboard-analytics.png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ReflexTester.fun">
 
@@ -123,15 +123,18 @@
         }
     </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
-                                            <link rel="stylesheet" href="polish.css?v=8">
+                                            <link rel="stylesheet" href="polish.css?v=9">
 </head>
 
 <body>
 <main role="main" class="main-content" id="main">
         <section class="dashboard-hero">
             <div class="container">
-                <h1> Your Dashboard</h1>
+                <h1>Your Dashboard</h1>
                 <p>Track your reflex testing progress and see how you stack up against benchmarks.</p>
+                <figure class="site-hero-media site-page-media" aria-label="Performance analytics dashboard">
+                    <img src="images/site/dashboard-analytics.png?v=1" alt="Reaction-time analytics dashboard on a monitor with timing light sensor" width="1200" height="675" loading="eager" decoding="async" fetchpriority="high">
+                </figure>
             </div>
         </section>
 
@@ -182,9 +185,9 @@
             <button type="button" class="btn btn-secondary clear-btn" id="clearBtn">Clear All Data</button>
         </section>
     </main>
-<script src="main.js?v=5" defer></script>
+<script src="main.js?v=6" defer></script>
     <script>
-        /* Wait for main.js?v=5 defer to load so ReflexStore is available */
+        /* Wait for main.js?v=6 defer to load so ReflexStore is available */
         document.addEventListener('DOMContentLoaded', function () {
             function loadStats() {
                 var visual  = ReflexStore.get('visual_results', []);

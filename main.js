@@ -155,7 +155,12 @@
       '.blog-preview-card',
       '.related-tool-card',
       '.tool-detail-card',
-      '.stat-card'
+      '.stat-card',
+      '.related-card',
+      '.related-post-card',
+      '.article-hero-image',
+      '.site-hero-media img',
+      '.site-content-image'
     ].join(',');
     var items = Array.prototype.slice.call(document.querySelectorAll(selectors));
     if (!items.length) return;
