@@ -259,15 +259,15 @@ button:not(.btn-primary):not(.nav-toggle) {
 .blog-card-image {
   display: block !important;
   width: 100% !important;
-  height: clamp(230px, 24vw, 360px) !important;
+  height: auto !important;
   max-height: none !important;
-  aspect-ratio: 4 / 3 !important;
+  aspect-ratio: 16 / 10 !important;
   min-height: 0 !important;
   object-fit: contain !important;
   object-position: center center !important;
-  padding: clamp(12px, 2vw, 18px) !important;
+  padding: 10px !important;
   box-sizing: border-box !important;
-  border-radius: 16px !important;
+  border-radius: 10px !important;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(238, 246, 255, 0.92)) !important;
 }
@@ -332,18 +332,24 @@ button:not(.btn-primary):not(.nav-toggle) {
 }
 
 .tools-grid {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)) !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(18px, 2vw, 26px) !important;
 }
 
 .blog-grid {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)) !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(18px, 2vw, 28px) !important;
 }
 
 .tool-feature-grid,
 .related-tools-grid,
 .blog-preview-grid,
 .related-grid {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)) !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(18px, 2vw, 28px) !important;
 }
 
 .tool-card,
@@ -351,14 +357,15 @@ button:not(.btn-primary):not(.nav-toggle) {
 .tool-feature-card,
 .blog-preview-card,
 .related-tool-card {
-  min-height: 100% !important;
   width: 100% !important;
   max-width: 100% !important;
   min-width: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 14px !important;
-  padding: clamp(16px, 2.4vw, 22px) !important;
+  gap: 12px !important;
+  padding: 16px !important;
+  border-radius: 10px !important;
+  min-height: 0 !important;
 }
 
 .tool-card > *,
@@ -372,7 +379,32 @@ button:not(.btn-primary):not(.nav-toggle) {
 .blog-card-content,
 .tool-card-content,
 .related-tool-card-content {
-  padding: 0 !important;
+  padding: 4px 0 0 !important;
+}
+
+.tool-card-title,
+.tool-feature-card h3,
+.blog-preview-card h3,
+.related-tool-card h3,
+.blog-card h2,
+.blog-card h3 {
+  margin-top: 0 !important;
+  margin-bottom: 4px !important;
+  line-height: 1.24 !important;
+}
+
+.tool-card-desc,
+.tool-feature-card p,
+.blog-preview-card p,
+.related-tool-card p,
+.blog-card p {
+  margin: 0 !important;
+  line-height: 1.55 !important;
+}
+
+.card-arrow,
+.featured-arrow {
+  margin-top: auto !important;
 }
 
 .search-bar input,
@@ -1435,6 +1467,15 @@ pre {
     padding: var(--space-xl) 0;
   }
 
+  .tools-grid,
+  .blog-grid,
+  .tool-feature-grid,
+  .blog-preview-grid,
+  .related-tools-grid,
+  .related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
@@ -1557,8 +1598,8 @@ pre {
   .related-tool-media,
   .blog-card-image {
     width: 100% !important;
-    height: clamp(220px, 68vw, 300px) !important;
-    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
     min-height: 0 !important;
     max-height: none !important;
     padding: 10px !important;
