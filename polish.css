@@ -247,8 +247,10 @@ button:not(.btn-primary):not(.nav-toggle) {
   display: block !important;
   width: 100% !important;
   aspect-ratio: 16 / 9 !important;
-  object-fit: cover !important;
-  padding: 0 !important;
+  min-height: clamp(190px, 17vw, 270px) !important;
+  object-fit: contain !important;
+  padding: 12px !important;
+  box-sizing: border-box !important;
 }
 
 .blog-card,
@@ -260,18 +262,21 @@ button:not(.btn-primary):not(.nav-toggle) {
 }
 
 .tool-hero-banner {
-  min-height: 210px !important;
+  min-height: 290px !important;
 }
 
 .tool-hero-inner {
-  min-height: 210px !important;
+  min-height: 290px !important;
 }
 
 .tool-hero-art {
-  width: min(34vw, 420px) !important;
+  width: min(46vw, 620px) !important;
   min-width: 240px !important;
-  max-height: 280px !important;
-  padding: 10px !important;
+  max-height: none !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: contain !important;
+  padding: 12px !important;
+  box-sizing: border-box !important;
   border-radius: 18px !important;
   filter: none !important;
 }
@@ -287,7 +292,9 @@ button:not(.btn-primary):not(.nav-toggle) {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 12px;
+  box-sizing: border-box;
   border-radius: 18px;
   border: 1px solid var(--border-subtle);
   box-shadow: 0 24px 70px rgba(22, 42, 80, 0.14);
@@ -302,6 +309,29 @@ button:not(.btn-primary):not(.nav-toggle) {
 .site-page-media {
   margin: clamp(28px, 5vw, 44px) auto 0;
   width: min(100%, 980px);
+}
+
+.tools-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)) !important;
+}
+
+.blog-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)) !important;
+}
+
+.tool-feature-grid,
+.related-tools-grid,
+.blog-preview-grid,
+.related-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)) !important;
+}
+
+.tool-card,
+.blog-card,
+.tool-feature-card,
+.blog-preview-card,
+.related-tool-card {
+  min-height: 100% !important;
 }
 
 .search-bar input,
@@ -514,10 +544,13 @@ textarea:focus {
 
 .article-hero-image {
   display: block;
-  width: min(1120px, calc(100vw - 32px));
+  width: min(1180px, calc(100vw - 32px));
   max-width: none;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 12px;
+  box-sizing: border-box;
+  background: #ffffff;
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
   box-shadow: 0 24px 70px rgba(22, 42, 80, 0.14);
