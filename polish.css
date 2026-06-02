@@ -248,7 +248,6 @@ button:not(.btn-primary):not(.nav-toggle) {
 .related-tool-media,
 .blog-card-image,
 .tool-hero-art {
-  background: #ffffff !important;
   border-color: var(--border-subtle) !important;
   box-shadow: 0 16px 36px rgba(22, 42, 80, 0.10) !important;
 }
@@ -259,17 +258,33 @@ button:not(.btn-primary):not(.nav-toggle) {
 .blog-card-image {
   display: block !important;
   width: 100% !important;
-  height: auto !important;
+  height: 220px !important;
   max-height: none !important;
-  aspect-ratio: 16 / 10 !important;
+  aspect-ratio: auto !important;
   min-height: 0 !important;
-  object-fit: contain !important;
+  object-fit: cover !important;
   object-position: center center !important;
-  padding: 10px !important;
+  padding: 0 !important;
   box-sizing: border-box !important;
   border-radius: 10px !important;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(238, 246, 255, 0.92)) !important;
+  background: transparent !important;
+  overflow: hidden !important;
+}
+
+.tool-card img,
+.tool-feature-card img,
+.blog-card img,
+.blog-preview-card img,
+.related-tool-card img,
+.related-post-card img,
+.article-card img {
+  display: block !important;
+  width: 100% !important;
+  height: 220px !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  padding: 0 !important;
+  background: transparent !important;
 }
 
 .blog-card,
@@ -277,7 +292,7 @@ button:not(.btn-primary):not(.nav-toggle) {
 .tool-card,
 .related-tool-card,
 .tool-detail-card {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .tool-hero-banner {
@@ -1598,11 +1613,12 @@ pre {
   .related-tool-media,
   .blog-card-image {
     width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 16 / 10 !important;
+    height: 220px !important;
+    aspect-ratio: auto !important;
     min-height: 0 !important;
     max-height: none !important;
-    padding: 10px !important;
+    padding: 0 !important;
+    object-fit: cover !important;
   }
 
   .site-hero-media,
