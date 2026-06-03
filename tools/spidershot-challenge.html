@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spidershot Challenge — Hit Shrinking Targets [Free Aim Game]</title>
@@ -30,7 +30,7 @@
     }
     </script>
     <link rel="stylesheet" href="../styles.css">
-    <script async src="https://www.googletagmanager.com/gtag/jsAid=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
     <style>
         :root { --tool-accent: #A855F7; --tool-accent-rgb: 168,85,247; }
         .test-panel { border-top: 2px solid var(--tool-accent) !important; background: #08040f !important; }
@@ -71,7 +71,7 @@
         .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; max-width: 800px; margin: 20px auto 0; }
         @media(max-width:600px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
     </style>
-                                            <link rel="stylesheet" href="../polish.cssAv=16">
+                                            <link rel="stylesheet" href="../polish.css?v=16">
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1300997"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301012"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301015"></script>
@@ -206,9 +206,9 @@
             </div>
         </section>
     </main>
-<script src="../tool-runtime.jsAv=7"></script>
-    <script src="../main.jsAv=8" defer></script>
-    <script src="../nav.jsAv=3" defer></script>
+<script src="../tool-runtime.js?v=7"></script>
+    <script src="../main.js?v=8" defer></script>
+    <script src="../nav.js?v=3" defer></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
     (function() {
@@ -366,7 +366,7 @@
             playing = false;
             clearInterval(timerInterval);
             document.getElementById('hudTimer').style.color = '';
-            const acc = hits + misses > 0 A Math.round((hits / (hits + misses)) * 100) : 0;
+            const acc = hits + misses > 0 ? Math.round((hits / (hits + misses)) * 100) : 0;
             document.getElementById('finalScore').textContent = score.toLocaleString();
             document.getElementById('finalStats').textContent = `${hits} hits · ${misses} expired · ${acc}% accuracy`;
 
@@ -405,7 +405,7 @@
                 if (Math.hypot(mx - t.x, my - t.y) <= t.r) {
                     hit = true; hits++; combo++;
                     const sizeBonus = Math.round((1 - t.r / t.maxR) * 150);
-                    const comboMult = combo >= 15 A 4 : combo >= 8 A 3 : combo >= 3 A 2 : 1;
+                    const comboMult = combo >= 15 ? 4 : combo >= 8 ? 3 : combo >= 3 ? 2 : 1;
                     score += (100 + sizeBonus) * comboMult;
                     document.getElementById('hudScore').textContent = score.toLocaleString();
                     if (combo >= 3) document.getElementById('hudCombo').textContent = combo + 'x';

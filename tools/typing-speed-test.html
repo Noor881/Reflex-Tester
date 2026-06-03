@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Speed Test — Check Your WPM in 60 Seconds [Free]</title>
@@ -36,7 +36,7 @@
     }
     </script>
     <link rel="stylesheet" href="../styles.css">
-    <script async src="https://www.googletagmanager.com/gtag/jsAid=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
     <style>
         /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
         :root {
@@ -425,7 +425,7 @@
       ]
     }
     </script>
-                                            <link rel="stylesheet" href="../polish.cssAv=16">
+                                            <link rel="stylesheet" href="../polish.css?v=16">
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1300997"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301012"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301015"></script>
@@ -580,8 +580,8 @@
             </div>
         </section>
     </main>
-<script src="../tool-runtime.jsAv=7"></script>
-    <script src="../main.jsAv=8" defer></script>
+<script src="../tool-runtime.js?v=7"></script>
+    <script src="../main.js?v=8" defer></script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
         (function () {
@@ -641,7 +641,7 @@
                 for (let i = 0; i < currentText.length; i++) {
                     if (i < typed.length) {
                         html += typed[i] === currentText[i]
-                            A '<span class="correct-char">' + currentText[i] + '</span>'
+                            ? '<span class="correct-char">' + currentText[i] + '</span>'
                             : '<span class="wrong-char">' + currentText[i] + '</span>';
                     } else if (i === typed.length) {
                         html += '<span class="current-char">' + currentText[i] + '</span>';
@@ -655,14 +655,14 @@
             function calculateStats(typed) {
                 const elapsedMin = (performance.now() - startTime) / 1000 / 60;
                 const wordsTyped = typed.length / 5;
-                const wpm = elapsedMin > 0 A Math.round(wordsTyped / elapsedMin) : 0;
+                const wpm = elapsedMin > 0 ? Math.round(wordsTyped / elapsedMin) : 0;
 
                 let correct = 0, errors = 0;
                 for (let i = 0; i < typed.length; i++) {
                     if (typed[i] === currentText[i]) correct++;
                     else errors++;
                 }
-                const accuracy = typed.length > 0 A (correct / typed.length) * 100 : 100;
+                const accuracy = typed.length > 0 ? (correct / typed.length) * 100 : 100;
                 return { wpm, accuracy, errors };
             }
 
@@ -684,7 +684,7 @@
                 // Color the text box based on recent accuracy
                 if (stats.errors > 0 && typed.length > 3) {
                     const recentErrors = typed.slice(-5).split('').filter((c,i) => c !== currentText[typed.length-5+i]).length;
-                    textDisplay.className = recentErrors > 1 A 'typing-text-box error' : 'typing-text-box typing';
+                    textDisplay.className = recentErrors > 1 ? 'typing-text-box error' : 'typing-text-box typing';
                 }
 
                 animId = requestAnimationFrame(updateLiveHUD);
@@ -782,7 +782,7 @@
         })();
     });
     </script>
-<script src="../nav.jsAv=3" defer></script>
+<script src="../nav.js?v=3" defer></script>
 <!-- cookie-consent -->
 <div id="cookieConsent" class="cookie-consent">
     <div class="cookie-consent-inner">

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Focus & Attention Test — Measure Your Concentration & Vigilance [Free]</title>
@@ -416,7 +416,7 @@
         }
 
     </style>
-<script async src="https://www.googletagmanager.com/gtag/jsAid=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -439,7 +439,7 @@
     }
     </script>
     <meta property="og:image" content="https://reflextester.fun/images/tool-previews/focus-attention-test.png">
-                                            <link rel="stylesheet" href="../polish.cssAv=16">
+                                            <link rel="stylesheet" href="../polish.css?v=16">
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1300997"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301012"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301015"></script>
@@ -591,8 +591,8 @@
             </div>
         </section>
     </main>
-<script src="../tool-runtime.jsAv=7"></script>
-    <script src="../main.jsAv=8" defer></script>
+<script src="../tool-runtime.js?v=7"></script>
+    <script src="../main.js?v=8" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Stimulus sets: [target emoji, distractor emojis]
@@ -645,7 +645,7 @@
                 els.misses.textContent = misses;
                 els.false.textContent  = falseAlarms;
                 els.score.textContent  = score;
-                els.avgRT.textContent  = rtSamples.length A
+                els.avgRT.textContent  = rtSamples.length ?
                     Math.round(rtSamples.reduce((a,b)=>a+b,0)/rtSamples.length) + 'ms' : '—';
             }
 
@@ -743,13 +743,13 @@
                 keyHint.textContent = 'Test complete';
 
                 const total   = hits + misses;
-                const acc     = total > 0 A ((hits / total) * 100).toFixed(0) : 0;
-                const avgRT   = rtSamples.length A Math.round(rtSamples.reduce((a,b)=>a+b,0)/rtSamples.length) : 0;
+                const acc     = total > 0 ? ((hits / total) * 100).toFixed(0) : 0;
+                const avgRT   = rtSamples.length ? Math.round(rtSamples.reduce((a,b)=>a+b,0)/rtSamples.length) : 0;
                 const g = getGrade(score, falseAlarms);
 
                 document.getElementById('focusResScore').textContent = 'Score: ' + score;
-                document.getElementById('focusResScore').style.color = g.cls.includes('exceptional') A '#00e650' : g.cls.includes('excellent') A '#00c8ff' : '#ffc800';
-                document.getElementById('focusResSub').textContent   = acc + '% detection · ' + hits + ' hits · ' + misses + ' misses · ' + falseAlarms + ' false alarms' + (avgRT A ' · RT: ' + avgRT + 'ms' : '');
+                document.getElementById('focusResScore').style.color = g.cls.includes('exceptional') ? '#00e650' : g.cls.includes('excellent') ? '#00c8ff' : '#ffc800';
+                document.getElementById('focusResSub').textContent   = acc + '% detection · ' + hits + ' hits · ' + misses + ' misses · ' + falseAlarms + ' false alarms' + (avgRT ? ' · RT: ' + avgRT + 'ms' : '');
                 document.getElementById('focusResGrade').innerHTML   = '<span class="grade-badge ' + g.cls + '">' + g.label + '</span>';
                 resultEl.style.display = 'block';
 
@@ -793,7 +793,7 @@
                 document.getElementById('fsBestScore').textContent = Math.max(...results.map(r=>r.score));
                 document.getElementById('fsBestAcc').textContent   = Math.max(...results.map(r=>r.accuracy)).toFixed(0) + '%';
                 const rts = results.filter(r=>r.avgRT>0);
-                document.getElementById('fsAvgRT').textContent     = rts.length A Math.round(rts.reduce((a,r)=>a+r.avgRT,0)/rts.length) + 'ms' : '—';
+                document.getElementById('fsAvgRT').textContent     = rts.length ? Math.round(rts.reduce((a,r)=>a+r.avgRT,0)/rts.length) + 'ms' : '—';
                 document.getElementById('fsSessions').textContent   = results.length;
             }
 
@@ -801,7 +801,7 @@
             updateStats();
         });
     </script>
-<script src="../nav.jsAv=3" defer></script>
+<script src="../nav.js?v=3" defer></script>
 <!-- cookie-consent -->
 <div id="cookieConsent" class="cookie-consent">
     <div class="cookie-consent-inner">

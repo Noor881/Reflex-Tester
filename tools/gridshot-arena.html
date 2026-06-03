@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gridshot Arena — Destroy Targets in a Grid [Free Aim Game]</title>
@@ -30,7 +30,7 @@
     }
     </script>
     <link rel="stylesheet" href="../styles.css">
-    <script async src="https://www.googletagmanager.com/gtag/jsAid=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
     <style>
         :root {
             --tool-accent: #FF3366;
@@ -99,7 +99,7 @@
         .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; max-width: 800px; margin: 20px auto 0; }
         @media(max-width:600px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
     </style>
-                                            <link rel="stylesheet" href="../polish.cssAv=16">
+                                            <link rel="stylesheet" href="../polish.css?v=16">
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1300997"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301012"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301015"></script>
@@ -249,9 +249,9 @@
             </div>
         </section>
     </main>
-<script src="../tool-runtime.jsAv=7"></script>
-    <script src="../main.jsAv=8" defer></script>
-    <script src="../nav.jsAv=3" defer></script>
+<script src="../tool-runtime.js?v=7"></script>
+    <script src="../main.js?v=8" defer></script>
+    <script src="../nav.js?v=3" defer></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
     (function() {
@@ -399,7 +399,7 @@
             if (combo >= 5 && playing) {
                 ctx.save();
                 ctx.font = 'bold 14px "Plus Jakarta Sans", sans-serif';
-                ctx.fillStyle = combo >= 20 A '#FF3366' : combo >= 10 A '#FFD700' : '#00E88A';
+                ctx.fillStyle = combo >= 20 ? '#FF3366' : combo >= 10 ? '#FFD700' : '#00E88A';
                 ctx.textAlign = 'center';
                 ctx.fillText('x' + getComboMultiplier() + ' COMBO', W / 2, H - 20);
                 ctx.restore();
@@ -439,7 +439,7 @@
             hudTimer.style.color = '';
 
             document.getElementById('finalScore').textContent = score.toLocaleString();
-            const acc = hits + misses > 0 A Math.round((hits / (hits + misses)) * 100) : 0;
+            const acc = hits + misses > 0 ? Math.round((hits / (hits + misses)) * 100) : 0;
             document.getElementById('finalStats').textContent = `${hits} hits · ${misses} misses · ${acc}% accuracy · Max combo: ${maxCombo}`;
 
             // Grade

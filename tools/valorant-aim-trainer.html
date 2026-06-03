@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valorant Aim Trainer — Free 3D Agent Training</title>
@@ -516,7 +516,7 @@
         }
 
     </style>
-<script async src="https://www.googletagmanager.com/gtag/jsAid=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -538,7 +538,7 @@
       ]
     }
     </script>
-                                            <link rel="stylesheet" href="../polish.cssAv=16">
+                                            <link rel="stylesheet" href="../polish.css?v=16">
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1300997"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301012"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301015"></script>
@@ -726,8 +726,8 @@
         </section>
     </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="../tool-runtime.jsAv=7"></script>
-    <script src="../main.jsAv=8" defer></script>
+    <script src="../tool-runtime.js?v=7"></script>
+    <script src="../main.js?v=8" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             (function () {
@@ -916,7 +916,7 @@
             }
 
             function spawnDummy() {
-                const scale = mode === 'precision' A 0.6 : 1.0;
+                const scale = mode === 'precision' ? 0.6 : 1.0;
                 const x = (Math.random() - 0.5) * 12;
                 const z = -5 - Math.random() * 5;
                 const y = -0.4;
@@ -942,7 +942,7 @@
                 hitCountEl.textContent = hits;
                 missCountEl.textContent = misses;
                 const total = hits + misses;
-                accuracyDisplay.textContent = total > 0 A ((hits / total) * 100).toFixed(1) + '%' : '0%';
+                accuracyDisplay.textContent = total > 0 ? ((hits / total) * 100).toFixed(1) + '%' : '0%';
             }
 
             function updateStats() {
@@ -982,7 +982,7 @@
                 startBtn.textContent = 'Play Again';
 
                 const total = hits + misses;
-                const accuracy = total > 0 A (hits / total) * 100 : 0;
+                const accuracy = total > 0 ? (hits / total) * 100 : 0;
                 const score = hits * 100 + Math.round(accuracy * 2);
 
                 results.push({ score, accuracy, hits, misses });
@@ -996,7 +996,7 @@
                 else                     { gLabel = ' POOR';         gCls = 'grade-poor';        }
 
                 document.getElementById('sDisplayScore').textContent = score + ' pts';
-                document.getElementById('sDisplayScore').style.color = gCls.includes('exceptional') A '#00e650' : gCls.includes('excellent') A '#00c8ff' : '#ffc800';
+                document.getElementById('sDisplayScore').style.color = gCls.includes('exceptional') ? '#00e650' : gCls.includes('excellent') ? '#00c8ff' : '#ffc800';
                 document.getElementById('sDisplaySub').textContent   = hits + ' kills · ' + accuracy.toFixed(1) + '% accuracy';
                 document.getElementById('sDisplayGrade').innerHTML   = '<span class="grade-badge ' + gCls + '">' + gLabel + '</span>';
                 scoreDisplay.style.display = 'block';
@@ -1080,7 +1080,7 @@
         })();
         });
     </script>
-<script src="../nav.jsAv=3" defer></script>
+<script src="../nav.js?v=3" defer></script>
 <!-- cookie-consent -->
 <div id="cookieConsent" class="cookie-consent">
     <div class="cookie-consent-inner">

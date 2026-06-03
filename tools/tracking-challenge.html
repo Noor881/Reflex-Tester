@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tracking Challenge — Follow the Moving Target [Free Aim Game]</title>
@@ -30,7 +30,7 @@
     }
     </script>
     <link rel="stylesheet" href="../styles.css">
-    <script async src="https://www.googletagmanager.com/gtag/jsAid=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
     <style>
         :root { --tool-accent: #06B6D4; --tool-accent-rgb: 6,182,212; }
         .test-panel { border-top: 2px solid var(--tool-accent) !important; background: #030a0c !important; }
@@ -79,7 +79,7 @@
         .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; max-width: 800px; margin: 20px auto 0; }
         @media(max-width:600px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
     </style>
-                                            <link rel="stylesheet" href="../polish.cssAv=16">
+                                            <link rel="stylesheet" href="../polish.css?v=16">
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1300997"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301012"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301015"></script>
@@ -226,9 +226,9 @@
             </div>
         </section>
     </main>
-<script src="../tool-runtime.jsAv=7"></script>
-    <script src="../main.jsAv=8" defer></script>
-    <script src="../nav.jsAv=3" defer></script>
+<script src="../tool-runtime.js?v=7"></script>
+    <script src="../main.js?v=8" defer></script>
+    <script src="../nav.js?v=3" defer></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
     (function() {
@@ -309,7 +309,7 @@
             trail.push({ x: mouseX, y: mouseY, onTarget, time: performance.now() });
             if (trail.length > 60) trail.shift();
 
-            const acc = totalFrames > 0 A Math.round((onTargetFrames / totalFrames) * 100) : 0;
+            const acc = totalFrames > 0 ? Math.round((onTargetFrames / totalFrames) * 100) : 0;
             document.getElementById('hudAccuracy').textContent = acc + '%';
         }
 
@@ -339,14 +339,14 @@
             const onTarget = dist <= target.r;
 
             const grad = ctx.createRadialGradient(target.x, target.y, target.r * 0.3, target.x, target.y, target.r * 2);
-            grad.addColorStop(0, onTarget A 'rgba(34,211,238,0.2)' : 'rgba(6,182,212,0.1)');
+            grad.addColorStop(0, onTarget ? 'rgba(34,211,238,0.2)' : 'rgba(6,182,212,0.1)');
             grad.addColorStop(1, 'transparent');
             ctx.fillStyle = grad;
             ctx.beginPath(); ctx.arc(target.x, target.y, target.r * 2, 0, Math.PI * 2); ctx.fill();
 
             // Target
-            ctx.strokeStyle = onTarget A '#22D3EE' : 'rgba(6,182,212,0.5)';
-            ctx.lineWidth = onTarget A 3 : 2;
+            ctx.strokeStyle = onTarget ? '#22D3EE' : 'rgba(6,182,212,0.5)';
+            ctx.lineWidth = onTarget ? 3 : 2;
             ctx.beginPath(); ctx.arc(target.x, target.y, target.r, 0, Math.PI * 2); ctx.stroke();
 
             if (onTarget) {
@@ -360,11 +360,11 @@
             ctx.beginPath(); ctx.arc(target.x, target.y, target.r * 0.5, 0, Math.PI * 2); ctx.stroke();
 
             // Center dot
-            ctx.fillStyle = onTarget A '#22D3EE' : '#06B6D4';
+            ctx.fillStyle = onTarget ? '#22D3EE' : '#06B6D4';
             ctx.beginPath(); ctx.arc(target.x, target.y, 4, 0, Math.PI * 2); ctx.fill();
 
             // Custom crosshair cursor
-            ctx.strokeStyle = onTarget A '#22D3EE' : 'rgba(255,255,255,0.6)';
+            ctx.strokeStyle = onTarget ? '#22D3EE' : 'rgba(255,255,255,0.6)';
             ctx.lineWidth = 1.5;
             const cs = 10;
             ctx.beginPath(); ctx.moveTo(mouseX - cs, mouseY); ctx.lineTo(mouseX - 3, mouseY); ctx.stroke();
@@ -378,7 +378,7 @@
                 const barW = 200, barH = 4, barX = (W - barW) / 2, barY = H - 20;
                 ctx.fillStyle = 'rgba(255,255,255,0.05)';
                 ctx.fillRect(barX, barY, barW, barH);
-                ctx.fillStyle = acc > 0.7 A '#22D3EE' : acc > 0.4 A '#FFD700' : '#FF3366';
+                ctx.fillStyle = acc > 0.7 ? '#22D3EE' : acc > 0.4 ? '#FFD700' : '#FF3366';
                 ctx.fillRect(barX, barY, barW * acc, barH);
             }
         }
@@ -407,8 +407,8 @@
         function endGame() {
             playing = false;
             clearInterval(timerInterval);
-            const acc = totalFrames > 0 A Math.round((onTargetFrames / totalFrames) * 100) : 0;
-            const avgSmooth = smoothSamples.length > 0 A Math.round(smoothSamples.reduce((a,b)=>a+b,0) / smoothSamples.length * 10) / 10 : 0;
+            const acc = totalFrames > 0 ? Math.round((onTargetFrames / totalFrames) * 100) : 0;
+            const avgSmooth = smoothSamples.length > 0 ? Math.round(smoothSamples.reduce((a,b)=>a+b,0) / smoothSamples.length * 10) / 10 : 0;
 
             document.getElementById('finalScore').textContent = acc + '%';
             document.getElementById('finalStats').textContent = `${onTargetFrames}/${totalFrames} frames on target · Smoothness: ${avgSmooth}px/frame`;
@@ -435,7 +435,7 @@
             document.getElementById('statBest').textContent = Math.max(...accs) + '%';
             document.getElementById('statAvg').textContent = Math.round(accs.reduce((a,b)=>a+b,0)/accs.length) + '%';
             const smoothVals = results.filter(r => r.smoothness).map(r => r.smoothness);
-            document.getElementById('statSmooth').textContent = smoothVals.length > 0 A (Math.round(Math.min(...smoothVals) * 10) / 10) + 'px' : '—';
+            document.getElementById('statSmooth').textContent = smoothVals.length > 0 ? (Math.round(Math.min(...smoothVals) * 10) / 10) + 'px' : '—';
             document.getElementById('statGames').textContent = results.length;
         }
 

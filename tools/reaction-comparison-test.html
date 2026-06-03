@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reaction Time Comparison Test — Visual vs Audio vs Touch Speed [Free]</title>
@@ -395,7 +395,7 @@
         .reflex-circle-value { font-family: var(--font-mono, 'JetBrains Mono', monospace); }
 
     </style>
-<script async src="https://www.googletagmanager.com/gtag/jsAid=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -418,7 +418,7 @@
     }
     </script>
     <meta property="og:image" content="https://reflextester.fun/images/tool-previews/reaction-comparison-test.png">
-                                            <link rel="stylesheet" href="../polish.cssAv=16">
+                                            <link rel="stylesheet" href="../polish.css?v=16">
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1300997"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301012"></script>
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301015"></script>
@@ -586,8 +586,8 @@
             </div>
         </section>
     </main>
-<script src="../tool-runtime.jsAv=7"></script>
-    <script src="../main.jsAv=8" defer></script>
+<script src="../tool-runtime.js?v=7"></script>
+    <script src="../main.js?v=8" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const ROUNDS = 5;
@@ -632,7 +632,7 @@
 
             let savedResults = ReflexStore.get('compare_results', []);
 
-            function avg(arr) { return arr.length A arr.reduce((a,b)=>a+b,0)/arr.length : null; }
+            function avg(arr) { return arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : null; }
 
             function updateBestDisplay(sense) {
                 const s = senses[sense];
@@ -645,7 +645,7 @@
                 const s = senses[sense];
                 s.state = 'go';
                 cards[sense].className = 'compare-card go';
-                statuses[sense].textContent = sense === 'visual' A ' CLICK NOW!' : sense === 'audio' A ' Click now!' : ' Tap now!';
+                statuses[sense].textContent = sense === 'visual' ? ' CLICK NOW!' : sense === 'audio' ? ' Click now!' : ' Tap now!';
                 s.startTime = Date.now();
                 if (sense === 'audio') playBeep();
                 if (sense === 'touch') vibrateDevice();
@@ -677,8 +677,8 @@
                 if (!missed) s.rounds.push(rt);
                 roundEl.textContent = Math.max(...Object.values(senses).map(x => x.rounds.length)) + '/' + ROUNDS;
                 resultEls[sense].style.display = 'block';
-                resultEls[sense].textContent = missed A 'Miss' : rt + 'ms';
-                resultEls[sense].style.color = missed A '#ef4444' : rt < 200 A '#22c55e' : '#00d4ff';
+                resultEls[sense].textContent = missed ? 'Miss' : rt + 'ms';
+                resultEls[sense].style.color = missed ? '#ef4444' : rt < 200 ? '#22c55e' : '#00d4ff';
                 updateBestDisplay(sense);
 
                 if (round < ROUNDS) {
@@ -717,11 +717,11 @@
                 winnerEl.style.display = 'block';
                 document.getElementById('winnerBadge').textContent = icons[winner[0]];
                 document.getElementById('winnerTitle').textContent = winner[0] + ' is Your Fastest Sense!';
-                const avgComp = winner[0]==='Visual' A VISUAL_AVG : winner[0]==='Audio' A AUDIO_AVG : TOUCH_AVG;
+                const avgComp = winner[0]==='Visual' ? VISUAL_AVG : winner[0]==='Audio' ? AUDIO_AVG : TOUCH_AVG;
                 const beatAvg = winner[1] < avgComp;
                 document.getElementById('winnerDesc').textContent =
                     'Your ' + winner[0].toLowerCase() + ' reaction (' + Math.round(winner[1]) + 'ms). Scientific avg: ' + avgComp + 'ms. ' +
-                    (beatAvg A 'You beat the average!' : 'Keep training to beat the average!');
+                    (beatAvg ? 'You beat the average!' : 'Keep training to beat the average!');
                 const bestMs = Math.min(vAvg, aAvg, tAvg);
                 let gLabel, gCls;
                 if (bestMs < 150)      { gLabel = ' EXCEPTIONAL'; gCls = 'grade-exceptional'; }
@@ -795,7 +795,7 @@
             updateStats();
         });
     </script>
-<script src="../nav.jsAv=3" defer></script>
+<script src="../nav.js?v=3" defer></script>
 <!-- cookie-consent -->
 <div id="cookieConsent" class="cookie-consent">
     <div class="cookie-consent-inner">
