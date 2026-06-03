@@ -908,7 +908,7 @@
         var sfxEnabled = localStorage.getItem('sfx_enabled') !== '0';
         window.SFX = {
             enabled: sfxEnabled,
-            toggle: function(){ this.enabled=!this.enabled; localStorage.setItem('sfx_enabled', this.enabledA'1':'0'); },
+            toggle: function(){ this.enabled=!this.enabled; localStorage.setItem('sfx_enabled', this.enabled?'1':'0'); },
             play: function(type){
                 if(!this.enabled) return;
                 try {

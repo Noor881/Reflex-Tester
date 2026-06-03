@@ -409,7 +409,7 @@
             for (let i = 1; i <= totalPages; i++) {
                 const pageBtn = document.createElement('button');
                 pageBtn.textContent = i;
-                pageBtn.className = 'page-btn' + (i === currentPage A ' active' : '');
+                pageBtn.className = 'page-btn' + (i === currentPage ? ' active' : '');
                 pageBtn.onclick = () => {
                     currentPage = i;
                     displayArticles(currentPage);
