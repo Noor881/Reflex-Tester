@@ -258,9 +258,9 @@ button:not(.btn-primary):not(.nav-toggle) {
 .blog-card-image {
   display: block !important;
   width: 100% !important;
-  height: 220px !important;
+  height: calc(100cqw * 4 / 3) !important;
   max-height: none !important;
-  aspect-ratio: auto !important;
+  aspect-ratio: 3 / 4 !important;
   min-height: 0 !important;
   object-fit: cover !important;
   object-position: center center !important;
@@ -280,7 +280,8 @@ button:not(.btn-primary):not(.nav-toggle) {
 .article-card img {
   display: block !important;
   width: 100% !important;
-  height: 220px !important;
+  height: calc(100cqw * 4 / 3) !important;
+  aspect-ratio: 3 / 4 !important;
   object-fit: cover !important;
   object-position: center center !important;
   padding: 0 !important;
@@ -365,6 +366,16 @@ button:not(.btn-primary):not(.nav-toggle) {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: clamp(18px, 2vw, 28px) !important;
+}
+
+.tool-card,
+.blog-card,
+.tool-feature-card,
+.blog-preview-card,
+.related-tool-card,
+.related-post-card,
+.article-card {
+  container-type: inline-size !important;
 }
 
 .tool-card,
@@ -1613,8 +1624,8 @@ pre {
   .related-tool-media,
   .blog-card-image {
     width: 100% !important;
-    height: 220px !important;
-    aspect-ratio: auto !important;
+    height: calc(100cqw * 4 / 3) !important;
+    aspect-ratio: 3 / 4 !important;
     min-height: 0 !important;
     max-height: none !important;
     padding: 0 !important;

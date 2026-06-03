@@ -1,22 +1,22 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Legends Aim Trainer â€” Free 3D Movement Trainer</title>
+    <title>Apex Legends Aim Trainer — Free 3D Movement Trainer</title>
     <meta name="description"
-        content="Train your Apex Legends aim with movement-focused 3D trainer. Practice tracking, flick shots, and hipfire accuracy. Runs in your browser â€”no download needed.">
+        content="Train your Apex Legends aim with movement-focused 3D trainer. Practice tracking, flick shots, and hipfire accuracy. Runs in your browser —no download needed.">
     <meta name="keywords"
         content="apex legends aim trainer, apex aim practice, apex tracking trainer, wingman aim trainer, r99 aim trainer, free apex trainer, apex sensitivity trainer, apex aim lab, battle royale aim trainer, no download apex trainer">
     <link rel="canonical" href="https://reflextester.fun/tools/apex-aim-trainer.html">
 
-    <meta property="og:title" content="Apex Legends Aim Trainer â€” Free 3D Movement Trainer">
+    <meta property="og:title" content="Apex Legends Aim Trainer — Free 3D Movement Trainer">
     <meta property="og:description"
         content="Train your Apex aim with fast-paced movement and tracking. Practice tracking, flicks, and mid-range combat.">
     <meta property="og:url" content="https://reflextester.fun/tools/apex-aim-trainer.html">
@@ -27,7 +27,7 @@
     <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Apex Legends Aim Trainer â€” Free Movement Trainer">
+    <meta name="twitter:title" content="Apex Legends Aim Trainer — Free Movement Trainer">
     <meta name="twitter:description" content="Train Apex aim with movement-focused tracking and flick practice.">
     <meta name="twitter:image" content="https://reflextester.fun/images/tool-previews/apex-aim-trainer.png">
 
@@ -45,7 +45,7 @@
 
     <link rel="stylesheet" href="../styles.css">
     <style>
-        /* â•â•â• Tool Identity Theme â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
         :root {
             --tool-accent:     #E8692A;
             --tool-accent-rgb: 232,105,42;
@@ -56,7 +56,7 @@
             --tool-header:     #F97316;
         }
 
-        /* Test panel â€” unique top border + subtle bg tint */
+        /* Test panel — unique top border + subtle bg tint */
         .test-panel {
             border-top: 2px solid #E8692A !important;
             background: #0c0602 !important;
@@ -68,7 +68,7 @@
             color: #F97316;
         }
 
-        /* Primary button â€” tool color */
+        /* Primary button — tool color */
         .btn-primary {
             background: #E8692A !important;
             color: #fff !important;
@@ -81,7 +81,7 @@
             transform: translateY(-1px);
         }
 
-        /* HUD cells â€” tool accent top strip */
+        /* HUD cells — tool accent top strip */
         .hud-cell {
             border-top: 2px solid #E8692A !important;
             background: color-mix(in srgb, #0c0602 90%, #fff 10%) !important;
@@ -161,7 +161,7 @@
             background: rgba(232,105,42, 0.2) !important;
         }
 
-        /* Reflex circle states â€” override to tool accent for result */
+        /* Reflex circle states — override to tool accent for result */
         .reflex-circle-wrap.state-result .reflex-ring {
             border-color: #E8692A !important;
             box-shadow: 0 0 20px rgba(232,105,42, 0.25) !important;
@@ -256,7 +256,7 @@
         :focus-visible {
             outline-color: #E8692A !important;
         }
-        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+        /* ═══════════════════════════════════════════════════════════════════ */
 
         .aim-canvas-wrap {
             position: relative;
@@ -366,14 +366,14 @@
         .grade-average     { background:rgba(255,200,0,0.1); color:#ffc800; border-color:rgba(255,200,0,0.3); }
         .grade-poor        { background:rgba(255,100,80,0.1); color:#ff6450; border-color:rgba(255,100,80,0.3); }
 
-        /* â”€â”€ Performance Lab Design System (injected) â”€â”€ */
+        /* ── Performance Lab Design System (injected) ── */
         :root {
             --orange: #FF4D00;
             --orange-dim: rgba(255,77,0,0.15);
             --orange-glow: 0 0 24px rgba(255,77,0,0.3);
         }
 
-        /* Grade badges â€” Performance Lab */
+        /* Grade badges — Performance Lab */
         .grade-badge {
             display: inline-flex;
             align-items: center;
@@ -591,7 +591,7 @@
         }
 
     </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
+<script async src="https://www.googletagmanager.com/gtag/jsAid=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -608,15 +608,15 @@
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Is this tool free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, all tools on ReflexTester.fun are completely free with no registration required. Your results are saved locally in your browser."}},
-        {"@type": "Question", "name": "How accurate are the results?", "acceptedAnswer": {"@type": "Answer", "text": "Our tools use high-precision browser timing (performance.now()) for millisecond accuracy. Results may vary slightly based on your hardware and browser."}}
+        {"@type": "Question", "name": "Is this tool free to useA", "acceptedAnswer": {"@type": "Answer", "text": "Yes, all tools on ReflexTester.fun are completely free with no registration required. Your results are saved locally in your browser."}},
+        {"@type": "Question", "name": "How accurate are the resultsA", "acceptedAnswer": {"@type": "Answer", "text": "Our tools use high-precision browser timing (performance.now()) for millisecond accuracy. Results may vary slightly based on your hardware and browser."}}
       ]
     }
     </script>
-                                            <link rel="stylesheet" href="../polish.css?v=15">
-    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1300997"></script>
-    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1301012"></script>
-    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1301015"></script>
+                                            <link rel="stylesheet" href="../polish.cssAv=16">
+    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1300997"></script>
+    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301012"></script>
+    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301015"></script>
 </head>
 
 <body>
@@ -628,16 +628,16 @@
                     <h1>Apex Legends Aim Trainer</h1>
                     <p>Battle royale movement and tracking trainer. Practice fast-paced Apex aim with tracking and flick modes.</p>
                 </div>
-                <img class="tool-hero-art" src="../images/tool-previews/apex-aim-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="eager" decoding="async">
+                <img class="tool-hero-art" src="../images/tool-previews/apex-aim-trainer.pngAv=2" alt="" aria-hidden="true" width="200" height="160" loading="eager" decoding="async">
             </div>
         </section>
 
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="../index.html">Home</a>
-                <span class="separator">â€º</span>
+                <span class="separator">›</span>
                 <a href="../tools.html">Tools</a>
-                <span class="separator">â€º</span>
+                <span class="separator">›</span>
                 <span>Apex Legends Aim Trainer</span>
             </nav>
         </div>
@@ -690,15 +690,15 @@
                     <h4> Your Apex Stats</h4>
                     <div class="stat-row">
                         <span class="stat-label">Last Score</span>
-                        <span class="stat-value" id="lastScore">â€”</span>
+                        <span class="stat-value" id="lastScore">—</span>
                     </div>
                     <div class="stat-row">
                         <span class="stat-label">Best Score</span>
-                        <span class="stat-value" id="bestScore">â€”</span>
+                        <span class="stat-value" id="bestScore">—</span>
                     </div>
                     <div class="stat-row">
                         <span class="stat-label">Best Accuracy</span>
-                        <span class="stat-value" id="bestAccuracy">â€”</span>
+                        <span class="stat-value" id="bestAccuracy">—</span>
                     </div>
                     <div class="stat-row">
                         <span class="stat-label">Sessions</span>
@@ -713,15 +713,15 @@
                 <h2>About Apex Legends Aim Training</h2>
                 <p>Apex Legends combines fast movement with precise aim. This trainer helps you develop the tracking
                     skills and flick accuracy needed for intense firefights. Practice the hybrid aim style that makes
-                    Apex unique â€” smooth tracking for R-99/CAR sprays combined with snappy Wingman flicks.</p>
+                    Apex unique — smooth tracking for R-99/CAR sprays combined with snappy Wingman flicks.</p>
 
                 <h3>Training Modes</h3>
                 <ul>
-                    <li><strong>Tracking:</strong> Follow fast-moving targets with smooth crosshair control â€” essential
+                    <li><strong>Tracking:</strong> Follow fast-moving targets with smooth crosshair control — essential
                         for SMG and AR accuracy</li>
-                    <li><strong>Flick Shots:</strong> Instant target acquisition practice â€” critical for Wingman,
+                    <li><strong>Flick Shots:</strong> Instant target acquisition practice — critical for Wingman,
                         Peacekeeper, and Kraber shots</li>
-                    <li><strong>Target Switch:</strong> Rapid switching between multiple targets â€” third-party scenarios
+                    <li><strong>Target Switch:</strong> Rapid switching between multiple targets — third-party scenarios
                         and multi-enemy fights</li>
                 </ul>
 
@@ -736,12 +736,12 @@
 
                 <h3>Apex-Specific Tips</h3>
                 <ul>
-                    <li><strong>Movement Tracking:</strong> Apex enemies move fast â€” practice leading your shots and
+                    <li><strong>Movement Tracking:</strong> Apex enemies move fast — practice leading your shots and
                         tracking strafes</li>
-                    <li><strong>Mid-Range Focus:</strong> Most fights happen at 20-50m â€” optimize for sustained tracking
+                    <li><strong>Mid-Range Focus:</strong> Most fights happen at 20-50m — optimize for sustained tracking
                         accuracy</li>
-                    <li><strong>Hipfire Practice:</strong> Close-range hipfire is critical â€” don't over-ADS in CQC</li>
-                    <li><strong>Target Switching:</strong> Third-parties are constant â€” practice switching targets
+                    <li><strong>Hipfire Practice:</strong> Close-range hipfire is critical — don't over-ADS in CQC</li>
+                    <li><strong>Target Switching:</strong> Third-parties are constant — practice switching targets
                         quickly</li>
                 </ul>
             </div>
@@ -774,28 +774,28 @@
                 <h2>Related Tools</h2>
                 <div class="related-tools-grid">
                     <a class="related-tool-card" href="csgo-aim-trainer.html">
-                        <img class="related-tool-media" src="../images/tool-previews/csgo-aim-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <img class="related-tool-media" src="../images/tool-previews/csgo-aim-trainer.pngAv=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
                         <span class="category-badge">Aim Trainers</span>
                         <h3>CS2 Aim Trainer</h3>
                         <p>3D aim training with CS:GO-style sensitivity. Practice flicks, tracking, and crosshair placement.</p>
                         <span class="card-arrow" aria-hidden="true">&rarr;</span>
                     </a>
                     <a class="related-tool-card" href="valorant-aim-trainer.html">
-                        <img class="related-tool-media" src="../images/tool-previews/valorant-aim-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <img class="related-tool-media" src="../images/tool-previews/valorant-aim-trainer.pngAv=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
                         <span class="category-badge">Aim Trainers</span>
                         <h3>Valorant Aim Trainer</h3>
                         <p>Tactical headshot training for Valorant. Practice precision aiming and crosshair placement in 3D.</p>
                         <span class="card-arrow" aria-hidden="true">&rarr;</span>
                     </a>
                     <a class="related-tool-card" href="cod-aim-trainer.html">
-                        <img class="related-tool-media" src="../images/tool-previews/cod-aim-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <img class="related-tool-media" src="../images/tool-previews/cod-aim-trainer.pngAv=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
                         <span class="category-badge">Aim Trainers</span>
                         <h3>COD Aim Trainer</h3>
                         <p>Call of Duty aim training with game-specific sensitivity. Fast-paced targets mimicking Warzone scenarios.</p>
                         <span class="card-arrow" aria-hidden="true">&rarr;</span>
                     </a>
                     <a class="related-tool-card" href="fortnite-aim-trainer.html">
-                        <img class="related-tool-media" src="../images/tool-previews/fortnite-aim-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <img class="related-tool-media" src="../images/tool-previews/fortnite-aim-trainer.pngAv=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
                         <span class="category-badge">Aim Trainers</span>
                         <h3>Fortnite Aim Trainer</h3>
                         <p>Fortnite-style aim training with building target patterns. Practice shotgun flicks and AR tracking in 3D.</p>
@@ -806,8 +806,8 @@
         </section>
     </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="../tool-runtime.js?v=7"></script>
-    <script src="../main.js?v=8" defer></script>
+    <script src="../tool-runtime.jsAv=7"></script>
+    <script src="../main.jsAv=8" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             (function () {
@@ -996,7 +996,7 @@
             }
 
             function spawnDummy() {
-                const scale = mode === 'precision' ? 0.65 : 1.0;
+                const scale = mode === 'precision' A 0.65 : 1.0;
                 const x = (Math.random() - 0.5) * 12;
                 const z = -5 - Math.random() * 5;
                 const y = -0.4;
@@ -1022,7 +1022,7 @@
                 hitCountEl.textContent = hits;
                 missCountEl.textContent = misses;
                 const total = hits + misses;
-                accuracyDisplay.textContent = total > 0 ? ((hits / total) * 100).toFixed(1) + '%' : '0%';
+                accuracyDisplay.textContent = total > 0 A ((hits / total) * 100).toFixed(1) + '%' : '0%';
             }
 
             function updateStats() {
@@ -1062,7 +1062,7 @@
                 startBtn.textContent = 'Play Again';
 
                 const total = hits + misses;
-                const accuracy = total > 0 ? (hits / total) * 100 : 0;
+                const accuracy = total > 0 A (hits / total) * 100 : 0;
                 const score = hits * 100 + Math.round(accuracy * 2);
 
                 results.push({ score, accuracy, hits, misses });
@@ -1076,8 +1076,8 @@
                 else                     { gLabel = ' POOR';         gCls = 'grade-poor';        }
 
                 document.getElementById('sDisplayScore').textContent = score + ' pts';
-                document.getElementById('sDisplayScore').style.color = gCls.includes('exceptional') ? '#00e650' : gCls.includes('excellent') ? '#00c8ff' : '#ffc800';
-                document.getElementById('sDisplaySub').textContent   = hits + ' kills Â· ' + accuracy.toFixed(1) + '% accuracy';
+                document.getElementById('sDisplayScore').style.color = gCls.includes('exceptional') A '#00e650' : gCls.includes('excellent') A '#00c8ff' : '#ffc800';
+                document.getElementById('sDisplaySub').textContent   = hits + ' kills · ' + accuracy.toFixed(1) + '% accuracy';
                 document.getElementById('sDisplayGrade').innerHTML   = '<span class="grade-badge ' + gCls + '">' + gLabel + '</span>';
                 scoreDisplay.style.display = 'block';
                 updateStats();
@@ -1160,18 +1160,18 @@
         })();
         });
     </script>
-<script src="../nav.js?v=3" defer></script>
+<script src="../nav.jsAv=3" defer></script>
 <!-- cookie-consent -->
-<div id="cookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(10,10,12,0.97);border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;backdrop-filter:blur(12px);">
-    <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-        <p style="color:#888880;font-size:0.85rem;margin:0;flex:1;min-width:200px;">We use cookies for analytics and to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html" style="color:#E8A020;text-decoration:underline;">Privacy Policy</a>.</p>
-        <div style="display:flex;gap:8px;">
-            <button aria-label="Accept" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" style="padding:8px 20px;background:#E8A020;color:#000;border:none;border-radius:6px;font-weight:700;font-size:0.8rem;cursor:pointer;">Accept</button>
-            <button aria-label="Decline" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" style="padding:8px 20px;background:transparent;color:#888;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-size:0.8rem;cursor:pointer;">Decline</button>
+<div id="cookieConsent" class="cookie-consent">
+    <div class="cookie-consent-inner">
+        <p class="cookie-consent-copy">We use cookies for analytics and to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+        <div class="cookie-consent-actions">
+            <button aria-label="Accept" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" class="cookie-consent-accept">Accept</button>
+            <button aria-label="Decline" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" class="cookie-consent-decline">Decline</button>
         </div>
     </div>
 </div>
-<script>if(!localStorage.getItem('cookie_consent'))document.getElementById('cookieConsent').style.display='block';</script>
+<script>if(!localStorage.getItem('cookie_consent'))document.getElementById('cookieConsent').classList.add('visible');</script>
 
     <!-- keyboard-shortcuts -->
     <script>
@@ -1181,9 +1181,9 @@
             var btn=document.querySelector('.btn-primary')||document.querySelector('[id*="start"]')||document.querySelector('[id*="newTest"]')||document.querySelector('[id*="restart"]');
             if(btn){e.preventDefault();btn.click();}
         }
-        if(e.key==='?') {
+        if(e.key==='A') {
             var toast=document.createElement('div');
-            toast.innerHTML='<div style="position:fixed;bottom:80px;right:20px;background:#1a1a1e;border:1px solid rgba(232,160,32,0.3);border-radius:10px;padding:16px 20px;z-index:9998;font-size:0.82rem;color:#ccc;box-shadow:0 8px 32px rgba(0,0,0,0.5);"><p style=\"font-weight:700;color:#E8A020;margin:0 0 8px;\">Keyboard Shortcuts</p><p style=\"margin:2px 0;\"><kbd style=\"background:#222;padding:2px 6px;border-radius:3px;font-size:0.75rem;\">R</kbd> Restart / New Test</p><p style=\"margin:2px 0;\"><kbd style=\"background:#222;padding:2px 6px;border-radius:3px;font-size:0.75rem;\">?</kbd> Show shortcuts</p></div>';
+            toast.innerHTML='<div style="position:fixed;bottom:80px;right:20px;background:#1a1a1e;border:1px solid rgba(232,160,32,0.3);border-radius:10px;padding:16px 20px;z-index:9998;font-size:0.82rem;color:#ccc;box-shadow:0 8px 32px rgba(0,0,0,0.5);"><p style=\"font-weight:700;color:#E8A020;margin:0 0 8px;\">Keyboard Shortcuts</p><p style=\"margin:2px 0;\"><kbd style=\"background:#222;padding:2px 6px;border-radius:3px;font-size:0.75rem;\">R</kbd> Restart / New Test</p><p style=\"margin:2px 0;\"><kbd style=\"background:#222;padding:2px 6px;border-radius:3px;font-size:0.75rem;\">A</kbd> Show shortcuts</p></div>';
             document.body.appendChild(toast);
             setTimeout(function(){toast.remove();},3000);
         }
@@ -1196,7 +1196,7 @@
         var sfxEnabled = localStorage.getItem('sfx_enabled') !== '0';
         window.SFX = {
             enabled: sfxEnabled,
-            toggle: function(){ this.enabled=!this.enabled; localStorage.setItem('sfx_enabled', this.enabled?'1':'0'); },
+            toggle: function(){ this.enabled=!this.enabled; localStorage.setItem('sfx_enabled', this.enabledA'1':'0'); },
             play: function(type){
                 if(!this.enabled) return;
                 try {

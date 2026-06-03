@@ -2783,8 +2783,75 @@ button {
 }
 
 /* ============================================================
-   2026 Corporate Trust Gaming Refresh
+   Cookie Consent + 2026 Corporate Trust Gaming Refresh
    ============================================================ */
+
+.cookie-consent-banner {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(10, 10, 12, 0.97);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 24px;
+  backdrop-filter: blur(12px);
+}
+
+.cookie-consent-banner.visible {
+  display: block;
+}
+
+.cookie-consent-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cookie-consent-copy {
+  color: #888880;
+  font-size: 0.85rem;
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+
+.cookie-consent-copy a,
+.cookie-consent-link {
+  color: #E8A020;
+  text-decoration: underline;
+}
+
+.cookie-consent-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.cookie-consent-accept,
+.cookie-consent-decline {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.cookie-consent-accept {
+  background: #E8A020;
+  color: #000;
+  font-weight: 700;
+}
+
+.cookie-consent-decline {
+  background: transparent;
+  color: #888;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
 
 ::selection {
   background: rgba(99, 102, 241, 0.35);
@@ -3719,3 +3786,71 @@ html body .blog-card .blog-card-image {
   object-position: center center !important;
 }
 
+
+
+/* Cookie consent */
+.cookie-consent {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(10, 10, 12, 0.97);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 16px 24px;
+  backdrop-filter: blur(12px);
+}
+.cookie-consent-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cookie-consent-copy {
+  color: #888880;
+  font-size: 0.85rem;
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+.cookie-consent-copy a {
+  color: #E8A020;
+  text-decoration: underline;
+}
+.cookie-consent-actions {
+  display: flex;
+  gap: 8px;
+}
+.cookie-consent-accept,
+.cookie-consent-decline {
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: none;
+}
+.cookie-consent-accept {
+  background: #E8A020;
+  color: #000;
+}
+.cookie-consent-decline {
+  background: transparent;
+  color: #888;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+@media (max-width: 640px) {
+  .cookie-consent-inner {
+    align-items: flex-start;
+  }
+  .cookie-consent-actions {
+    width: 100%;
+  }
+  .cookie-consent-actions button {
+    flex: 1;
+  }
+}

@@ -1,21 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS:GO Grenade Trainer â€” Practice Smoke & Flash Lineups [Free]</title>
+    <title>CS:GO Grenade Trainer — Practice Smoke & Flash Lineups [Free]</title>
     <meta name="description"
         content="Free CS:GO grenade practice tool. Drag to aim, release to throw. Train smoke, flash, molotov and HE accuracy with arc trajectory visualization.">
     <meta name="keywords"
         content="csgo grenade trainer, csgo smoke lineups, csgo utility practice, csgo flash practice, cs2 grenade trainer">
     <link rel="canonical" href="https://reflextester.fun/tools/csgo-grenade-trainer.html">
-    <meta property="og:title" content="CS:GO Grenade Trainer â€” Practice Utility Lineups">
+    <meta property="og:title" content="CS:GO Grenade Trainer — Practice Utility Lineups">
     <meta property="og:description" content="Free CS:GO grenade practice tool with arc trajectory. Train smoke, flash, molotov accuracy.">
     <meta property="og:url" content="https://reflextester.fun/tools/csgo-grenade-trainer.html">
     <meta property="og:type" content="website">
@@ -24,9 +24,9 @@
     {"@context":"https://schema.org","@type":"SoftwareApplication","name":"CS:GO Grenade Trainer","applicationCategory":"GameApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":0,"priceCurrency":"USD"}}
     </script>
     <link rel="stylesheet" href="../styles.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
+    <script async src="https://www.googletagmanager.com/gtag/jsAid=G-SQXHSZ3JNC"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-SQXHSZ3JNC");</script>
     <style>
-        /* â•â•â• Tool Identity Theme â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+        /* ═══ Tool Identity Theme ════════════════════════════════════════════ */
         :root {
             --tool-accent:     #E8C800;
             --tool-accent-rgb: 232,200,0;
@@ -37,7 +37,7 @@
             --tool-header:     #FDE047;
         }
 
-        /* Test panel â€” unique top border + subtle bg tint */
+        /* Test panel — unique top border + subtle bg tint */
         .test-panel {
             border-top: 2px solid #E8C800 !important;
             background: #050a0f !important;
@@ -49,7 +49,7 @@
             color: #FDE047;
         }
 
-        /* Primary button â€” tool color */
+        /* Primary button — tool color */
         .btn-primary {
             background: #E8C800 !important;
             color: #000 !important;
@@ -62,7 +62,7 @@
             transform: translateY(-1px);
         }
 
-        /* HUD cells â€” tool accent top strip */
+        /* HUD cells — tool accent top strip */
         .hud-cell {
             border-top: 2px solid #E8C800 !important;
             background: color-mix(in srgb, #050a0f 90%, #fff 10%) !important;
@@ -142,7 +142,7 @@
             background: rgba(232,200,0, 0.2) !important;
         }
 
-        /* Reflex circle states â€” override to tool accent for result */
+        /* Reflex circle states — override to tool accent for result */
         .reflex-circle-wrap.state-result .reflex-ring {
             border-color: #E8C800 !important;
             box-shadow: 0 0 20px rgba(232,200,0, 0.25) !important;
@@ -237,7 +237,7 @@
         :focus-visible {
             outline-color: #E8C800 !important;
         }
-        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+        /* ═══════════════════════════════════════════════════════════════════ */
 
         .nade-arena {
             position: relative;
@@ -374,14 +374,14 @@
         .hud-cell-lbl { font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; }
         @media(max-width:540px) { .reflex-hud { grid-template-columns:repeat(2,1fr); } }
 
-        /* â”€â”€ Performance Lab Design System (injected) â”€â”€ */
+        /* ── Performance Lab Design System (injected) ── */
         :root {
             --orange: #FF4D00;
             --orange-dim: rgba(255,77,0,0.15);
             --orange-glow: 0 0 24px rgba(255,77,0,0.3);
         }
 
-        /* Grade badges â€” Performance Lab */
+        /* Grade badges — Performance Lab */
         .grade-badge {
             display: inline-flex;
             align-items: center;
@@ -466,16 +466,16 @@
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Is this tool free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, all tools on ReflexTester.fun are completely free with no registration required. Your results are saved locally in your browser."}},
-        {"@type": "Question", "name": "How accurate are the results?", "acceptedAnswer": {"@type": "Answer", "text": "Our tools use high-precision browser timing (performance.now()) for millisecond accuracy. Results may vary slightly based on your hardware and browser."}}
+        {"@type": "Question", "name": "Is this tool free to useA", "acceptedAnswer": {"@type": "Answer", "text": "Yes, all tools on ReflexTester.fun are completely free with no registration required. Your results are saved locally in your browser."}},
+        {"@type": "Question", "name": "How accurate are the resultsA", "acceptedAnswer": {"@type": "Answer", "text": "Our tools use high-precision browser timing (performance.now()) for millisecond accuracy. Results may vary slightly based on your hardware and browser."}}
       ]
     }
     </script>
     <meta property="og:image" content="https://reflextester.fun/images/tool-previews/csgo-grenade-trainer.png">
-                                            <link rel="stylesheet" href="../polish.css?v=15">
-    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1300997"></script>
-    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1301012"></script>
-    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1301015"></script>
+                                            <link rel="stylesheet" href="../polish.cssAv=16">
+    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1300997"></script>
+    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301012"></script>
+    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/Awbbcd=1301015"></script>
 </head>
 
 <body>
@@ -487,21 +487,21 @@
                     <h1>CS2 Grenade Trainer</h1>
                     <p>Master grenade throws with moving targets. Practice smokes, flashes, and mollies with accuracy tracking.</p>
                 </div>
-                <img class="tool-hero-art" src="../images/tool-previews/csgo-grenade-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="eager" decoding="async">
+                <img class="tool-hero-art" src="../images/tool-previews/csgo-grenade-trainer.pngAv=2" alt="" aria-hidden="true" width="200" height="160" loading="eager" decoding="async">
             </div>
         </section>
 
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
-                <a href="../index.html">Home</a> <span class="separator">â€º</span>
-                <a href="../tools.html">Tools</a> <span class="separator">â€º</span>
+                <a href="../index.html">Home</a> <span class="separator">›</span>
+                <a href="../tools.html">Tools</a> <span class="separator">›</span>
                 <span>CS:GO Grenade Trainer</span>
             </nav>
         </div>
         <section class="test-area">
             <div class="test-panel active">
                 <h1> CS:GO Grenade Trainer</h1>
-                <p class="test-desc">Click inside the arena to throw grenades at the target zone. Power is based on distance from throw position. 15 throws per round â€” hit the target circle!</p>
+                <p class="test-desc">Click inside the arena to throw grenades at the target zone. Power is based on distance from throw position. 15 throws per round — hit the target circle!</p>
 
                 <div class="nade-controls">
                     <select class="nade-select" id="nadeType">
@@ -530,20 +530,20 @@
                     </div>
                     <div class="nade-result-overlay" id="resultOverlay">
                         <div class="nade-result-score" id="resultScore">0 pts</div>
-                        <div class="nade-result-sub" id="resultSub">â€”</div>
+                        <div class="nade-result-sub" id="resultSub">—</div>
                         <div id="resultGrade"></div>
                     </div>
                 </div>
 
                 <div class="test-actions" style="margin-top:16px;">
-                    <button aria-label="â–¶ Start Practice" type="button" class="btn btn-primary" id="startBtn">â–¶ Start Practice</button>
+                    <button aria-label="▶ Start Practice" type="button" class="btn btn-primary" id="startBtn">▶ Start Practice</button>
                     <button aria-label=" Reset Stats" type="button" class="btn btn-secondary" id="resetBtn"> Reset Stats</button>
                 </div>
 
                 <div class="reflex-hud" id="statsHud" style="display:none;margin-top:16px;">
-                    <div class="hud-cell"><div class="hud-cell-val" id="hudBest">â€”</div><div class="hud-cell-lbl">Best</div></div>
-                    <div class="hud-cell"><div class="hud-cell-val" id="hudAccuracy">â€”</div><div class="hud-cell-lbl">Best Acc</div></div>
-                    <div class="hud-cell"><div class="hud-cell-val" id="hudAvg">â€”</div><div class="hud-cell-lbl">Avg Score</div></div>
+                    <div class="hud-cell"><div class="hud-cell-val" id="hudBest">—</div><div class="hud-cell-lbl">Best</div></div>
+                    <div class="hud-cell"><div class="hud-cell-val" id="hudAccuracy">—</div><div class="hud-cell-lbl">Best Acc</div></div>
+                    <div class="hud-cell"><div class="hud-cell-val" id="hudAvg">—</div><div class="hud-cell-lbl">Avg Score</div></div>
                     <div class="hud-cell"><div class="hud-cell-val" id="hudGames">0</div><div class="hud-cell-lbl">Sessions</div></div>
                 </div>
             </div>
@@ -597,28 +597,28 @@
                 <h2>Related Tools</h2>
                 <div class="related-tools-grid">
                     <a class="related-tool-card" href="valorant-crosshair-generator.html">
-                        <img class="related-tool-media" src="../images/tool-previews/valorant-crosshair-generator.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <img class="related-tool-media" src="../images/tool-previews/valorant-crosshair-generator.pngAv=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
                         <span class="category-badge">Game Utilities</span>
                         <h3>Valorant Crosshair Generator</h3>
                         <p>Customize your Valorant crosshair with real-time preview. Includes pro player presets and code export.</p>
                         <span class="card-arrow" aria-hidden="true">&rarr;</span>
                     </a>
                     <a class="related-tool-card" href="valorant-lineup-trainer.html">
-                        <img class="related-tool-media" src="../images/tool-previews/valorant-lineup-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <img class="related-tool-media" src="../images/tool-previews/valorant-lineup-trainer.pngAv=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
                         <span class="category-badge">Game Utilities</span>
                         <h3>Valorant Lineup Trainer</h3>
                         <p>Practice utility lineups with moving targets. Master crosshair placement for each agent.</p>
                         <span class="card-arrow" aria-hidden="true">&rarr;</span>
                     </a>
                     <a class="related-tool-card" href="csgo-crosshair-generator.html">
-                        <img class="related-tool-media" src="../images/tool-previews/csgo-crosshair-generator.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <img class="related-tool-media" src="../images/tool-previews/csgo-crosshair-generator.pngAv=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
                         <span class="category-badge">Game Utilities</span>
                         <h3>CS2 Crosshair Generator</h3>
                         <p>Create CS:GO/CS2 crosshairs with console command export. Pro player presets included.</p>
                         <span class="card-arrow" aria-hidden="true">&rarr;</span>
                     </a>
                     <a class="related-tool-card" href="apex-recoil-trainer.html">
-                        <img class="related-tool-media" src="../images/tool-previews/apex-recoil-trainer.png?v=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
+                        <img class="related-tool-media" src="../images/tool-previews/apex-recoil-trainer.pngAv=2" alt="" aria-hidden="true" width="200" height="160" loading="lazy" decoding="async">
                         <span class="category-badge">Game Utilities</span>
                         <h3>Apex Legends Recoil Trainer</h3>
                         <p>Master weapon recoil patterns for R-301, R-99, Flatline &amp; Volt. Includes barrel stabilizer support.</p>
@@ -628,8 +628,8 @@
             </div>
         </section>
     </main>
-<script src="../tool-runtime.js?v=7"></script>
-    <script src="../main.js?v=8" defer></script>
+<script src="../tool-runtime.jsAv=7"></script>
+    <script src="../main.jsAv=8" defer></script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
         (function () {
@@ -672,7 +672,7 @@
 
             function nadeIcon() {
                 const v = nadeType.value;
-                return v === 'smoke' ? '' : v === 'flash' ? '' : v === 'molotov' ? '' : '';
+                return v === 'smoke' A '' : v === 'flash' A '' : v === 'molotov' A '' : '';
             }
 
             function spawnTarget() {
@@ -763,7 +763,7 @@
                     marker.className = 'nade-land';
                     marker.style.left = landX + 'px';
                     marker.style.top  = landY + 'px';
-                    marker.style.background = isHit ? '#22c55e' : '#ef4444';
+                    marker.style.background = isHit A '#22c55e' : '#ef4444';
                     arena.appendChild(marker);
                     marker.addEventListener('animationend', () => marker.remove());
 
@@ -817,15 +817,15 @@
                 target.style.display = 'none';
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 startBtn.disabled = false;
-                startBtn.textContent = 'â–¶ Play Again';
+                startBtn.textContent = '▶ Play Again';
                 arena.className = 'nade-arena idle';
 
                 const acc = Math.round((hits / TOTAL_THROWS) * 100);
                 const g = getGrade(acc);
 
                 resultScore.textContent = score + ' pts';
-                resultScore.style.color = g.cls.includes('exceptional') ? '#00e650' : g.cls.includes('excellent') ? '#00c8ff' : '#ffc800';
-                resultSub.textContent = hits + '/' + TOTAL_THROWS + ' hits Â· ' + acc + '% accuracy';
+                resultScore.style.color = g.cls.includes('exceptional') A '#00e650' : g.cls.includes('excellent') A '#00c8ff' : '#ffc800';
+                resultSub.textContent = hits + '/' + TOTAL_THROWS + ' hits · ' + acc + '% accuracy';
                 resultGrade.className = 'grade-badge ' + g.cls;
                 resultGrade.textContent = g.label;
                 resultOverlay.classList.add('show');
@@ -847,7 +847,7 @@
                 scoreHud.textContent = '0';
                 throwCountEl.textContent = '0';
                 startBtn.disabled = false;
-                startBtn.textContent = 'â–¶ Start Practice';
+                startBtn.textContent = '▶ Start Practice';
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 updateStats();
             });
@@ -867,18 +867,18 @@
         })();
     });
     </script>
-<script src="../nav.js?v=3" defer></script>
+<script src="../nav.jsAv=3" defer></script>
 <!-- cookie-consent -->
-<div id="cookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(10,10,12,0.97);border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;backdrop-filter:blur(12px);">
-    <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-        <p style="color:#888880;font-size:0.85rem;margin:0;flex:1;min-width:200px;">We use cookies for analytics and to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html" style="color:#E8A020;text-decoration:underline;">Privacy Policy</a>.</p>
-        <div style="display:flex;gap:8px;">
-            <button aria-label="Accept" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" style="padding:8px 20px;background:#E8A020;color:#000;border:none;border-radius:6px;font-weight:700;font-size:0.8rem;cursor:pointer;">Accept</button>
-            <button aria-label="Decline" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" style="padding:8px 20px;background:transparent;color:#888;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-size:0.8rem;cursor:pointer;">Decline</button>
+<div id="cookieConsent" class="cookie-consent">
+    <div class="cookie-consent-inner">
+        <p class="cookie-consent-copy">We use cookies for analytics and to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+        <div class="cookie-consent-actions">
+            <button aria-label="Accept" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','1')" class="cookie-consent-accept">Accept</button>
+            <button aria-label="Decline" type="button" onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookie_consent','0')" class="cookie-consent-decline">Decline</button>
         </div>
     </div>
 </div>
-<script>if(!localStorage.getItem('cookie_consent'))document.getElementById('cookieConsent').style.display='block';</script>
+<script>if(!localStorage.getItem('cookie_consent'))document.getElementById('cookieConsent').classList.add('visible');</script>
 
     <!-- keyboard-shortcuts -->
     <script>
@@ -888,9 +888,9 @@
             var btn=document.querySelector('.btn-primary')||document.querySelector('[id*="start"]')||document.querySelector('[id*="newTest"]')||document.querySelector('[id*="restart"]');
             if(btn){e.preventDefault();btn.click();}
         }
-        if(e.key==='?') {
+        if(e.key==='A') {
             var toast=document.createElement('div');
-            toast.innerHTML='<div style="position:fixed;bottom:80px;right:20px;background:#1a1a1e;border:1px solid rgba(232,160,32,0.3);border-radius:10px;padding:16px 20px;z-index:9998;font-size:0.82rem;color:#ccc;box-shadow:0 8px 32px rgba(0,0,0,0.5);"><p style=\"font-weight:700;color:#E8A020;margin:0 0 8px;\">Keyboard Shortcuts</p><p style=\"margin:2px 0;\"><kbd style=\"background:#222;padding:2px 6px;border-radius:3px;font-size:0.75rem;\">R</kbd> Restart / New Test</p><p style=\"margin:2px 0;\"><kbd style=\"background:#222;padding:2px 6px;border-radius:3px;font-size:0.75rem;\">?</kbd> Show shortcuts</p></div>';
+            toast.innerHTML='<div style="position:fixed;bottom:80px;right:20px;background:#1a1a1e;border:1px solid rgba(232,160,32,0.3);border-radius:10px;padding:16px 20px;z-index:9998;font-size:0.82rem;color:#ccc;box-shadow:0 8px 32px rgba(0,0,0,0.5);"><p style=\"font-weight:700;color:#E8A020;margin:0 0 8px;\">Keyboard Shortcuts</p><p style=\"margin:2px 0;\"><kbd style=\"background:#222;padding:2px 6px;border-radius:3px;font-size:0.75rem;\">R</kbd> Restart / New Test</p><p style=\"margin:2px 0;\"><kbd style=\"background:#222;padding:2px 6px;border-radius:3px;font-size:0.75rem;\">A</kbd> Show shortcuts</p></div>';
             document.body.appendChild(toast);
             setTimeout(function(){toast.remove();},3000);
         }
@@ -903,7 +903,7 @@
         var sfxEnabled = localStorage.getItem('sfx_enabled') !== '0';
         window.SFX = {
             enabled: sfxEnabled,
-            toggle: function(){ this.enabled=!this.enabled; localStorage.setItem('sfx_enabled', this.enabled?'1':'0'); },
+            toggle: function(){ this.enabled=!this.enabled; localStorage.setItem('sfx_enabled', this.enabledA'1':'0'); },
             play: function(type){
                 if(!this.enabled) return;
                 try {
