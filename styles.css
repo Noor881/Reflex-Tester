@@ -3661,8 +3661,8 @@ html body .blog-card .blog-card-image {
   max-height: none !important;
   object-fit: contain !important;
   object-position: center center !important;
-  background: var(--bg-tertiary) !important;
-  padding: 0.5rem !important;
+  background: linear-gradient(180deg, rgba(99,102,241,0.06), rgba(124,58,237,0.04)) !important;
+  padding: 0.75rem !important;
   border: none !important;
   border-bottom: 1px solid var(--border-subtle) !important;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
