@@ -150,6 +150,8 @@ img {
 .blog-card-image {
   height: auto !important;
   aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center center;
 }
 
 ul,
@@ -3657,9 +3659,10 @@ html body .blog-card .blog-card-image {
   height: auto !important;
   min-height: 0 !important;
   max-height: none !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
   object-position: center center !important;
-  padding: 0 !important;
+  background: var(--bg-tertiary) !important;
+  padding: 0.5rem !important;
   border: none !important;
   border-bottom: 1px solid var(--border-subtle) !important;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
