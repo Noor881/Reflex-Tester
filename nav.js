@@ -20,6 +20,24 @@
     document.head.appendChild(fontLink);
   }
 
+  // AdMaven Integration
+  if (!document.querySelector('meta[name="admaven-placement"]')) {
+    const adMeta = document.createElement('meta');
+    adMeta.name = 'admaven-placement';
+    adMeta.content = 'BqjsEqTU5';
+    document.head.appendChild(adMeta);
+  }
+
+  const adScripts = ['1245132', '1300997', '1301012', '1301015'];
+  adScripts.forEach(id => {
+    if (!document.querySelector(`script[src*="${id}"]`)) {
+      const s = document.createElement('script');
+      s.dataset.cfasync = 'false';
+      s.src = `https://dcbbwymp1bhlf.cloudfront.net/Awbbcd=${id}`;
+      document.head.appendChild(s);
+    }
+  });
+
   function isActive(href) {
     const full = base + href;
     return path.endsWith(full) || path.endsWith(href);
