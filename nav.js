@@ -28,12 +28,12 @@
     document.head.appendChild(adMeta);
   }
 
-  const adScripts = ['1245132', '1300997', '1301012', '1301015'];
+  const adScripts = ['1515369'];
   adScripts.forEach(id => {
     if (!document.querySelector(`script[src*="${id}"]`)) {
       const s = document.createElement('script');
       s.dataset.cfasync = 'false';
-      s.src = `https://dcbbwymp1bhlf.cloudfront.net/Awbbcd=${id}`;
+      s.src = `//dcbbwymp1bhlf.cloudfront.net/?wbbcd=${id}`;
       document.head.appendChild(s);
     }
   });
