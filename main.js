@@ -397,25 +397,6 @@
   }
 
   /* ── Error Boundary ────────────────────────────────────── */
-  function initAdblockGate() {
-    var gateId = 'adblockGate';
-    var baitId = 'rtAdBlockBait';
-    var gateLiftTimer = null;
-    var localDebug = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname) &&
-      new URLSearchParams(window.location.search).has('adblock-test');
-
-    function makeBait() {
-      var bait = document.getElementById(baitId);
-      if (bait) return bait;
-
-      bait = document.createElement('div');
-      bait.id = baitId;
-      bait.className = 'adsbygoogle adsbox ad-banner ad-unit banner_ads text-ad textads pub_300x250 ad-placement';
-      bait.setAttribute('aria-hidden', 'true');
-      bait.style.cssText = 'position:absolute;left:-10000px;top:-10000px;width:1px;height:1px;pointer-events:none;';
-      document.body.appendChild(bait);
-      return bait;
-    }
 
     function isBaitBlocked(bait) {
       if (localDebug) return true;
@@ -548,7 +529,6 @@
 
   /* ── Init All ──────────────────────────────────────────── */
   function init() {
-    initAdblockGate();
     initMobileNav();
     setActiveNavLink();
     initSmoothScroll();
