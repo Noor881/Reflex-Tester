@@ -57,7 +57,7 @@ const scenarios = [
     test: `({
       title: document.title,
       light: getComputedStyle(document.documentElement).backgroundColor === 'rgb(244, 242, 237)',
-      noHeroImage: !document.querySelector('.home-intro img'),
+      heroImage: Boolean(document.querySelector('.home-intro img')),
       nav: Boolean(document.querySelector('.site-header nav')),
       directTest: Boolean(document.querySelector('a[href="./tools/visual-reflex-test.html"]'))
     })`
@@ -82,10 +82,22 @@ const scenarios = [
   {
     name: 'gridshot', path: '/tools/gridshot-arena.html?smoke=1',
     test: `(() => {
-      const button = document.querySelector('[data-intro] button');
+      const button = document.querySelector('.target-stage .instruction button');
       button?.click();
-      return { button: Boolean(button), target: Boolean(document.querySelector('.aim-target')), hud: document.querySelector('.aim-hud')?.hidden === false };
+      return { button: Boolean(button), targets: document.querySelectorAll('.aim-target').length === 3, hud: Boolean(document.querySelector('.aim-hud')) };
     })()`
+  },
+  {
+    name: 'tracking', path: '/tools/tracking-challenge.html?smoke=1',
+    test: `(() => { const button=document.querySelector('.instruction button'); button?.click(); return { button:Boolean(button), movingTarget:Boolean(document.querySelector('.tracking-target')), contactHud:Boolean(document.querySelector('[data-contact]')) }; })()`
+  },
+  {
+    name: 'fortnite edit', path: '/tools/fortnite-edit-trainer.html?smoke=1',
+    test: `(() => { const button=document.querySelector('.instruction button'); button?.click(); return { button:Boolean(button), cells:document.querySelectorAll('.edit-grid button').length===9, reference:document.querySelectorAll('.edit-reference .active').length===3 }; })()`
+  },
+  {
+    name: 'recoil', path: '/tools/apex-recoil-trainer.html?smoke=1',
+    test: `({ pad:Boolean(document.querySelector('.recoil-pad')), guide:Boolean(document.querySelector('.recoil-guide')), start:Boolean(document.querySelector('.recoil-start')) })`
   },
   {
     name: 'sensitivity utility', path: '/tools/sensitivity-calculator.html?smoke=1',

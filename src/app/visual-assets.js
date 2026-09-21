@@ -34,13 +34,4 @@ export function mountVisualAssets(root) {
     }
   }
 
-  if (document.body.dataset.tool === 'recoil-control-trainer') {
-    const observer = new MutationObserver(() => {
-      const pad = document.querySelector('[data-pad]');
-      if (!pad || pad.querySelector('img')) return;
-      pad.innerHTML = `<img class="recoil-reference" src="${root}/assets/game/recoil-reference.svg" alt="Reference recoil path">`;
-      observer.disconnect();
-    });
-    observer.observe(document.querySelector('#main'), { childList: true, subtree: true });
-  }
 }

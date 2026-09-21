@@ -9,4 +9,23 @@
 .aim-target.small{background-image:url('../../assets/game/target-precision.svg')}
 .crosshair-preview{background:#d9ddd9 url('../../assets/game/crosshair-calibration.svg') center/cover no-repeat}
 .recoil-reference{display:block;width:min(13rem,70%);height:85%;object-fit:contain;pointer-events:none}
-@media(max-width:760px){.home-photo{margin-top:0}.home-photo img{max-height:24rem}}
+.recoil-drill{width:min(62rem,100%);display:grid;grid-template-columns:minmax(15rem,22rem) 1fr;gap:2rem;align-items:center}
+.recoil-copy h2{font-size:1.7rem}.recoil-metrics{display:flex;gap:1rem;flex-wrap:wrap}.recoil-metrics span{padding:.7rem;border:1px solid var(--line);background:var(--surface)}
+.recoil-pad{position:relative;height:28rem;touch-action:none;border:1px solid var(--line-strong);background:#f4f5f2 url('../../assets/game/arena-grid.svg') center/cover;user-select:none}
+.recoil-pad svg{position:absolute;inset:1.5rem;width:calc(100% - 3rem);height:calc(100% - 3rem);overflow:visible}.recoil-guide{fill:none;stroke:#717a75;stroke-width:1.5;stroke-dasharray:3 3;vector-effect:non-scaling-stroke}.recoil-trace{fill:none;stroke:#0879d9;stroke-width:2.5;vector-effect:non-scaling-stroke}.recoil-start{fill:#0879d9;stroke:white;stroke-width:1}.recoil-pad [data-status]{position:absolute;left:1rem;bottom:1rem;padding:.4rem .55rem;background:rgba(255,255,255,.9);font-size:.8rem}
+.target-stage[class*="arena-"]{background-color:#f6f6f2;background-position:center;background-size:cover}
+.arena-grid,.arena-spider,.arena-flick,.arena-precision{background-image:url('../../assets/game/arena-grid.svg')}
+.arena-valorant,.arena-cs2{background-image:url('../../assets/game/arena-tactical.svg')}
+.arena-tracking,.arena-apex{background-image:url('../../assets/game/arena-tracking.svg')}
+.arena-cod{background-image:url('../../assets/game/arena-speed.svg')}
+.arena-fortnite{background-image:url('../../assets/game/arena-build.svg')}
+.aim-target.anchor{background-image:url('../../assets/game/target-anchor.svg');width:3rem!important;height:3rem!important}
+.aim-hud,.edit-hud{position:absolute;z-index:3;top:1rem;left:1rem;display:flex;gap:1.35rem;padding:.55rem .7rem;background:rgba(247,247,244,.9);border:1px solid var(--line);backdrop-filter:blur(6px);font-variant-numeric:tabular-nums}
+.edit-game{position:absolute;inset:0;display:grid;place-items:center;background:#ecebe5 url('../../assets/game/arena-build.svg') center/cover;padding:1rem}
+.edit-hud{right:1rem;left:1rem;justify-content:center}
+.edit-grid,.edit-reference{display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem;width:min(23rem,72vw);aspect-ratio:1;margin-top:4.5rem}
+.edit-reference{position:absolute;top:4.5rem;right:2rem;width:7.5rem;height:7.5rem;margin:0;padding:.4rem;background:rgba(255,255,255,.88);border:1px solid var(--line)}
+.edit-grid button,.edit-reference i{border:1px solid #7d858b;background:rgba(255,255,255,.78)}
+.edit-grid button.selected,.edit-reference i.active{background:#0879d9;border-color:#07599d;box-shadow:inset 0 0 0 3px rgba(255,255,255,.55)}
+.edit-game>[data-confirm]{position:absolute;bottom:1.25rem}
+@media(max-width:760px){.home-photo{margin-top:0}.home-photo img{max-height:24rem}.recoil-drill{grid-template-columns:1fr}.recoil-pad{height:23rem}.edit-reference{width:5.5rem;height:5.5rem;right:.75rem}}

@@ -6,6 +6,7 @@ import { mountClick } from '../tools/click.js';
 import { mountAim } from '../tools/aim.js';
 import { mountCognitive } from '../tools/cognitive.js';
 import { mountUtility } from '../tools/utility.js';
+import { mountRecoil } from '../tools/recoil.js';
 
 const slug=document.body.dataset.tool;
 const tool=toolBySlug[slug];
@@ -23,4 +24,5 @@ if(tool.mechanic==='cps')mountClick(root,tool);
 else if(reaction.includes(tool.mechanic))mountReaction(root,tool);
 else if(cognitive.includes(tool.mechanic))mountCognitive(root,tool);
 else if(aim.includes(tool.mechanic))mountAim(root,tool);
+else if(tool.mechanic.includes('recoil'))mountRecoil(root,tool);
 else mountUtility(root,tool);
