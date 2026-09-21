@@ -20,6 +20,14 @@
     document.head.appendChild(fontLink);
   }
 
+  if (!document.querySelector('link[data-reflex-design-system]')) {
+    const designLink = document.createElement('link');
+    designLink.rel = 'stylesheet';
+    designLink.href = base + 'design-system.css?v=1';
+    designLink.dataset.reflexDesignSystem = 'true';
+    document.head.appendChild(designLink);
+  }
+
   // AdMaven Integration
   if (!document.querySelector('meta[name="admaven-placement"]')) {
     const adMeta = document.createElement('meta');
@@ -48,9 +56,9 @@
     <div class="scroll-progress" aria-hidden="true"></div>
     <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="nav-inner">
-        <a href="${base}index.html" class="nav-logo">
-          <span class="logo-icon" aria-hidden="true">RT</span>
-          <span><span class="logo-gradient">Reflex</span>Tester</span>
+        <a href="${base}index.html" class="nav-logo" aria-label="ReflexTester home">
+          <span class="logo-icon" aria-hidden="true"><i></i>RT</span>
+          <span class="logo-wordmark"><span class="logo-gradient">Reflex</span>Tester<small>PERFORMANCE LAB</small></span>
         </a>
         <div class="nav-menu" id="navMenu">
           <a href="${base}index.html" class="nav-link${isActive('index.html') ? ' active' : ''}">Home</a>
@@ -60,7 +68,7 @@
           <a href="${base}contact.html" class="nav-link${isActive('contact.html') ? ' active' : ''}">Contact</a>
           <a href="${base}tools.html" class="nav-cta">All Tools</a>
         </div>
-        <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </nav>
   `;

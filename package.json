@@ -1,8 +1,10 @@
 {
-  "name": "my-v0-project",
-  "version": "0.1.0",
+  "name": "reflex-tester",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
-    "build": "echo 'no build script'"
+    "check": "node --check main.js && node --check nav.js && node --check tool-runtime.js && node scripts/validate-site.mjs",
+    "smoke": "node scripts/browser-smoke.mjs",
+    "build": "npm run check"
   }
 }

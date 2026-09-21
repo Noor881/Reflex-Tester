@@ -3,11 +3,12 @@
    PWA Offline Support + Cache-First Strategy
    ============================================================ */
 
-const CACHE_NAME = 'reflextester-v1';
+const CACHE_NAME = 'reflextester-2026-v1';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/styles.css',
+  '/design-system.css',
   '/main.js',
   '/nav.js',
   '/manifest.json',
@@ -72,7 +73,21 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // CSS, JS, images: Cache-first with network fallback
+  // CSS and JS: network-first so a release never keeps running stale game code.
+  if (request.destination === 'style' || request.destination === 'script') {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+          return response;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
+
+  // Images and fonts: stale-while-revalidate for fast repeat visits.
   event.respondWith(
     caches.match(request).then((cached) => {
       if (cached) {

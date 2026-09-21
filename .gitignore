@@ -5,3 +5,6 @@ CLAUDE.md
 
 # Auto-generated agent rules (personalized per developer)
 .brainsync/agent-rules.md
+
+# Local visual QA output and disposable browser profiles
+/artifacts/
