@@ -1,16 +1,19 @@
 /* ============================================================
-   ReflexTester.fun — Service Worker
-   PWA Offline Support + Cache-First Strategy
+   ReflexTester — Service Worker
+   Offline shell with network-first application code
    ============================================================ */
 
-const CACHE_NAME = 'reflextester-2026-v1';
+const CACHE_NAME = 'reflextester-rebuild-v1';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
-  '/styles.css',
-  '/design-system.css',
-  '/main.js',
-  '/nav.js',
+  '/src/styles/base.css',
+  '/src/styles/site.css',
+  '/src/styles/tool.css',
+  '/src/styles/article.css',
+  '/src/app/shell.js',
+  '/src/data/tools.js',
+  '/src/core/store.js',
   '/manifest.json',
   '/tools.html',
   '/dashboard.html',

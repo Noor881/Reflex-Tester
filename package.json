@@ -2,8 +2,10 @@
   "name": "reflex-tester",
   "version": "2.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "check": "node --check main.js && node --check nav.js && node --check tool-runtime.js && node scripts/validate-site.mjs",
+    "generate": "node scripts/generate-site.mjs",
+    "check": "node scripts/validate-site.mjs",
     "smoke": "node scripts/browser-smoke.mjs",
     "build": "npm run check"
   }

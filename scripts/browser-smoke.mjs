@@ -56,45 +56,50 @@ const scenarios = [
     name: 'homepage', path: '/index.html?smoke=1',
     test: `({
       title: document.title,
-      store: typeof window.ReflexStore === 'object',
-      designSystem: [...document.styleSheets].some(sheet => sheet.href?.includes('design-system.css')),
-      heroImage: document.querySelector('.site-hero-media img')?.complete === true,
-      nav: Boolean(document.querySelector('.nav'))
+      light: getComputedStyle(document.documentElement).backgroundColor === 'rgb(244, 242, 237)',
+      noHeroImage: !document.querySelector('.home-intro img'),
+      nav: Boolean(document.querySelector('.site-header nav')),
+      directTest: Boolean(document.querySelector('a[href="./tools/visual-reflex-test.html"]'))
     })`
   },
   {
     name: 'visual reflex', path: '/tools/visual-reflex-test.html?smoke=1',
     test: `(() => {
-      const zone = document.querySelector('#circleWrap');
-      zone?.click();
-      return { zone: Boolean(zone), started: Boolean(zone && !zone.classList.contains('state-idle')), store: typeof window.ReflexStore === 'object' };
+      const zone = document.querySelector('.reaction-field');
+      zone?.dispatchEvent(new PointerEvent('pointerdown', {bubbles:true}));
+      return { zone: Boolean(zone), earlyState: zone?.classList.contains('early') === true, moduleRoute: Boolean(document.querySelector('.workspace')) };
     })()`
   },
   {
     name: 'click speed', path: '/tools/click-speed-test.html?smoke=1',
     test: `(() => {
-      const zone = document.querySelector('#cpsZone');
-      zone?.click(); zone?.click();
-      return { zone: Boolean(zone), started: zone?.classList.contains('running') === true, store: typeof window.ReflexStore === 'object' };
+      const zone = document.querySelector('[data-zone]');
+      zone?.dispatchEvent(new PointerEvent('pointerdown', {bubbles:true}));
+      zone?.dispatchEvent(new PointerEvent('pointerdown', {bubbles:true}));
+      return { zone: Boolean(zone), started: zone?.textContent === 'Click', liveStatus: document.querySelector('[data-status]')?.textContent.includes('remaining') === true };
     })()`
   },
   {
     name: 'gridshot', path: '/tools/gridshot-arena.html?smoke=1',
     test: `(() => {
-      const button = document.querySelector('#playBtn');
+      const button = document.querySelector('[data-intro] button');
       button?.click();
-      const overlay = document.querySelector('#startOverlay');
-      return { button: Boolean(button), started: Boolean(overlay && (overlay.classList.contains('hidden') || getComputedStyle(overlay).display === 'none')), canvas: Boolean(document.querySelector('#gameCanvas')) };
+      return { button: Boolean(button), target: Boolean(document.querySelector('.aim-target')), hud: document.querySelector('.aim-hud')?.hidden === false };
     })()`
   },
   {
-    name: 'valorant trainer', path: '/tools/valorant-aim-trainer.html?smoke=1',
+    name: 'sensitivity utility', path: '/tools/sensitivity-calculator.html?smoke=1',
     test: `(() => {
-      const button = document.querySelector('#startBtn');
-      const before = button?.textContent;
-      button?.click();
-      return { button: Boolean(button), started: button?.textContent !== before, canvas: Boolean(document.querySelector('canvas')), store: typeof window.ReflexStore === 'object' };
+      const input = document.querySelector('input[name="sens"]');
+      const output = document.querySelector('[data-result]');
+      const before = output?.textContent;
+      if (input) { input.value = '0.7'; input.dispatchEvent(new Event('input', {bubbles:true})); }
+      return { input: Boolean(input), output: Boolean(output), recalculated: output?.textContent !== before };
     })()`
+  },
+  {
+    name: 'article migration', path: '/blog/what-is-reaction-time.html?smoke=1',
+    test: `({ article: Boolean(document.querySelector('.article')), heading: Boolean(document.querySelector('.article h1')), substantial: document.querySelectorAll('.article p').length > 5, toc: Boolean(document.querySelector('.article-aside')) })`
   }
 ];
 

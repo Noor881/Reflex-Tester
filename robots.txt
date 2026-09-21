@@ -1,5 +1,5 @@
-# robots.txt for ReflexTester.fun
-# Updated 2026-05-11
+# robots.txt for ReflexTester
+# Updated 2026-09-21
 
 User-agent: *
 Allow: /
@@ -54,4 +54,4 @@ User-agent: Bingbot
 Allow: /
 
 # Sitemap location
-Sitemap: https://reflextester.fun/sitemap.xml
+Sitemap: https://reflextester.vercel.app/sitemap.xml

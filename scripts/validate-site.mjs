@@ -29,7 +29,7 @@ for (const file of (await walk(root)).filter((path) => extname(path) === '.html'
   if (duplicates.length) errors.push(`${label}: duplicate ids: ${[...new Set(duplicates)].join(', ')}`);
 
   for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
-    if (/\bsrc\s*=|type=["']application\/ld\+json/i.test(match[1])) continue;
+    if (/\bsrc\s*=|type=["'](?:application\/ld\+json|module)/i.test(match[1])) continue;
     const source = match[2].trim();
     if (!source) continue;
     scriptCount += 1;
