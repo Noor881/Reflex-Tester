@@ -8,9 +8,10 @@
     "check": "node scripts/validate-site.mjs",
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
-    "format": "prettier --write \"src/**/*.{js,css}\" \"scripts/*.mjs\" \"tests/*.mjs\"",
-    "format:check": "prettier --check \"src/**/*.{js,css}\" \"scripts/*.mjs\" \"tests/*.mjs\"",
+    "format": "prettier --write \"src/**/*.{js,css}\" \"scripts/*.mjs\" \"tests/*.mjs\" \"admin/**/*.{js,css,html}\"",
+    "format:check": "prettier --check \"src/**/*.{js,css}\" \"scripts/*.mjs\" \"tests/*.mjs\" \"admin/**/*.{js,css,html}\"",
     "images": "node scripts/optimize-images.mjs",
+    "cms": "node scripts/cms-server.mjs",
     "build:dist": "node scripts/build-dist.mjs",
     "smoke": "node scripts/browser-smoke.mjs",
     "build": "npm run generate && npm run check && npm test && npm run build:dist"

@@ -5,20 +5,22 @@
 ReflexTester is a generated static application. Source data and interaction engines live under `src/`; `scripts/generate-site.mjs` creates crawlable route entries; `scripts/build-dist.mjs` copies only deployable files into `dist/`.
 
 ```text
-src/data ──> generator ──> HTML routes ──> validator/tests ──> dist ──> Vercel
-    │                         │
-    ├── tools registry       ├── app shell and page modules
-    └── article registry     └── isolated interaction engines
+CMS ──> content/articles.json ──> generator ──> HTML routes ──> validator/tests ──> dist ──> Vercel
+                                      │
+                                      ├── app shell and page modules
+                                      └── isolated interaction engines
 ```
 
 ## Boundaries
 
-- `src/data/` is the canonical route and editorial inventory.
+- `content/articles.json` is the canonical editorial inventory; the local Editorial Studio writes it without requiring source-code edits.
+- `src/data/` contains the loaders and canonical tool registry.
 - `src/core/` owns defensive local persistence and statistics.
 - `src/tools/` contains interaction engines grouped by reaction, cognition, aim, recoil and utility families.
 - `src/app/` composes pages and shared navigation without a framework runtime.
 - `src/styles/` contains tokens, shared primitives and page-family layouts.
 - `scripts/` owns generation, validation, image optimisation and distribution output.
+- `admin/` contains the local-only CMS UI; `scripts/cms-server.mjs` binds only to loopback and is not copied into `dist/`.
 - `tests/` covers registry integrity, generated output, affiliate semantics and representative browser flows.
 
 ## Build contract

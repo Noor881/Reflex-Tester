@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Editorial Studio — ReflexTester</title>
+    <meta
+      name="description"
+      content="Local editorial CMS for creating search-ready ReflexTester guides."
+    />
+    <link rel="stylesheet" href="./admin.css" />
+  </head>
+  <body>
+    <header class="cms-header">
+      <div>
+        <p class="kicker">ReflexTester / publishing</p>
+        <h1>Editorial Studio</h1>
+        <p class="subhead">
+          Create, optimise and publish guides without editing source code.
+        </p>
+      </div>
+      <div class="header-actions">
+        <span class="local-badge">Local-only CMS</span>
+        <button class="button secondary" type="button" data-build>
+          Build site
+        </button>
+      </div>
+    </header>
+
+    <main class="cms-layout">
+      <aside class="library panel" aria-label="Article library">
+        <div class="library-head">
+          <div>
+            <p class="kicker">Library</p>
+            <h2>Guides</h2>
+          </div>
+          <button class="button accent" type="button" data-new>
+            New guide
+          </button>
+        </div>
+        <label class="search-label">
+          <span>Search library</span>
+          <input type="search" placeholder="Title or slug" data-search />
+        </label>
+        <div class="article-list" data-article-list>
+          <p class="muted">Loading guides…</p>
+        </div>
+      </aside>
+
+      <section class="editor" aria-label="Guide editor">
+        <div class="editor-toolbar">
+          <div>
+            <p class="kicker" data-editor-state>New guide</p>
+            <h2 data-editor-title>Untitled guide</h2>
+          </div>
+          <div class="toolbar-actions">
+            <button class="button ghost" type="button" data-preview>
+              Preview
+            </button>
+            <button class="button secondary" type="button" data-save>
+              Save draft
+            </button>
+            <button class="button accent" type="button" data-publish>
+              Publish &amp; generate
+            </button>
+          </div>
+        </div>
+
+        <form class="editor-form" data-form>
+          <input type="hidden" name="originalSlug" />
+          <div class="form-grid two">
+            <label class="field wide">
+              <span>Title <b>*</b></span>
+              <input
+                name="title"
+                required
+                maxlength="140"
+                placeholder="How to improve reaction consistency"
+              />
+              <small data-title-count>0 / 140</small>
+            </label>
+            <label class="field">
+              <span>Content type</span>
+              <select name="type">
+                <option value="editorial">Editorial guide</option>
+                <option value="affiliate">Affiliate buyer’s guide</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Status</span>
+              <select name="status">
+                <option value="draft">Draft</option>
+                <option value="published">Published</option>
+                <option value="archived">Archived</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>URL slug <b>*</b></span>
+              <input
+                name="slug"
+                required
+                pattern="[a-z0-9]+(?:-[a-z0-9]+)*"
+                maxlength="90"
+                placeholder="improve-reaction-consistency"
+              />
+              <small>Lowercase words separated by hyphens.</small>
+            </label>
+            <label class="field">
+              <span>Category</span>
+              <input name="category" maxlength="60" placeholder="Training" />
+            </label>
+            <label class="field">
+              <span>Focus keyword</span>
+              <input
+                name="focusKeyword"
+                maxlength="80"
+                placeholder="reaction time training"
+              />
+            </label>
+            <label class="field">
+              <span>Hero image</span>
+              <select name="heroImage">
+                <option value="reaction-study.webp">Reaction study</option>
+                <option value="aim-hardware.webp">Aim hardware</option>
+                <option value="sleep-recovery.webp">
+                  Sleep &amp; recovery
+                </option>
+                <option value="performance-workspace.webp">
+                  Performance workspace
+                </option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Published date</span>
+              <input name="publishedAt" type="date" />
+            </label>
+            <label class="field">
+              <span>Updated date</span>
+              <input name="updatedAt" type="date" />
+            </label>
+            <label class="field">
+              <span>Author line</span>
+              <input
+                name="author"
+                maxlength="80"
+                placeholder="ReflexTester Editorial"
+              />
+            </label>
+          </div>
+
+          <div class="form-grid two seo-fields">
+            <label class="field">
+              <span>SEO title</span>
+              <input
+                name="seoTitle"
+                maxlength="70"
+                placeholder="Defaults to the article title"
+              />
+              <small data-seo-title-count>0 / 70</small>
+            </label>
+            <label class="field">
+              <span>Meta description <b>*</b></span>
+              <textarea
+                name="seoDescription"
+                rows="3"
+                maxlength="180"
+                placeholder="A clear 50–180 character answer-focused summary."
+              ></textarea>
+              <small data-seo-description-count>0 / 180</small>
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Short introduction</span>
+            <textarea
+              name="intro"
+              rows="3"
+              maxlength="600"
+              placeholder="What will the reader learn, and why should they trust this guide?"
+            ></textarea>
+          </label>
+
+          <div class="form-grid two">
+            <label class="field">
+              <span>Key ideas <small>(one per line)</small></span>
+              <textarea
+                name="focus"
+                rows="7"
+                placeholder="The most important point&#10;A useful limit or caveat&#10;What the reader should compare"
+              ></textarea>
+            </label>
+            <label class="field">
+              <span>Practical steps <small>(one per line)</small></span>
+              <textarea
+                name="actions"
+                rows="7"
+                placeholder="Start with a baseline&#10;Change one variable&#10;Review the median over time"
+              ></textarea>
+            </label>
+          </div>
+
+          <label class="field">
+            <span
+              >Article body
+              <small
+                >(optional Markdown: use ## headings, blank lines and -
+                bullets)</small
+              ></span
+            >
+            <textarea
+              name="body"
+              rows="14"
+              placeholder="## What this means&#10;&#10;Write the complete guide here. Keep claims specific and useful.&#10;&#10;- A practical point&#10;- Another practical point"
+            ></textarea>
+          </label>
+
+          <fieldset class="affiliate-fields" data-affiliate-fields>
+            <legend>Affiliate details</legend>
+            <div class="form-grid two">
+              <label class="field wide">
+                <span>Product name</span>
+                <input
+                  name="product"
+                  maxlength="180"
+                  placeholder="Exact product and pack name"
+                />
+              </label>
+              <label class="field wide">
+                <span>Amazon UK link</span>
+                <input
+                  name="link"
+                  type="url"
+                  maxlength="500"
+                  placeholder="https://amzn.to/..."
+                />
+              </label>
+              <label class="field wide">
+                <span>Product summary</span>
+                <textarea name="summary" rows="3" maxlength="1000"></textarea>
+              </label>
+              <label class="field">
+                <span>Buying checks <small>(one per line)</small></span>
+                <textarea name="checks" rows="6"></textarea>
+              </label>
+              <label class="field">
+                <span>Verdict</span>
+                <textarea name="verdict" rows="6"></textarea>
+              </label>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+
+      <aside class="inspector" aria-label="SEO inspector">
+        <section class="panel score-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="kicker">SEO check</p>
+              <h2 data-score>0 / 100</h2>
+            </div>
+            <span class="score-ring" data-score-ring>0</span>
+          </div>
+          <ul class="checklist" data-checklist></ul>
+          <p class="muted small">
+            This is an editorial checklist, not a ranking guarantee. Helpful,
+            original content still matters most.
+          </p>
+        </section>
+        <section class="panel preview-panel">
+          <p class="kicker">Search preview</p>
+          <div class="search-preview">
+            <p class="preview-url" data-preview-url>
+              reflextester.vercel.app/blog/your-slug
+            </p>
+            <h3 data-preview-title>Your guide title</h3>
+            <p data-preview-description>
+              Your meta description will appear here.
+            </p>
+          </div>
+        </section>
+        <section class="panel help-panel">
+          <p class="kicker">Workflow</p>
+          <ol>
+            <li>Create a draft and run the SEO checklist.</li>
+            <li>Preview, then publish and generate the static pages.</li>
+            <li>Run the build before committing and deploying.</li>
+          </ol>
+          <p class="muted small">
+            The CMS writes to <code>content/articles.json</code>. It is
+            deliberately local-only and excluded from production output.
+          </p>
+        </section>
+      </aside>
+    </main>
+
+    <div class="toast" role="status" aria-live="polite" data-toast></div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

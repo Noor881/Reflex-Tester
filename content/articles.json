@@ -1,0 +1,913 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-21",
+  "articles": [
+    {
+      "slug": "average-reaction-time-by-age",
+      "title": "Average reaction time by age: how to read your result",
+      "description": "Understand why response speed changes across a lifetime and how to compare your own attempts fairly.",
+      "category": "Measurement",
+      "focus": [
+        "Age is only one influence; hardware, sleep and familiarity also change a browser score.",
+        "Compare repeated attempts under the same conditions instead of chasing a universal benchmark.",
+        "Look at your median and consistency, not only your fastest click."
+      ],
+      "actions": [
+        "Run five attempts after a short warm-up.",
+        "Repeat at the same time on three different days.",
+        "Track the median and the spread between attempts."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "breathing-techniques-faster-reflexes",
+      "title": "Breathing techniques for calmer, more consistent reactions",
+      "description": "A practical pre-test breathing routine for reducing tension without making unsupported speed claims.",
+      "category": "Preparation",
+      "focus": [
+        "Breathing is useful for controlling arousal and tension, not as a guaranteed shortcut to faster reflexes.",
+        "Slow exhalations can make a test routine feel more repeatable.",
+        "If light-headedness occurs, stop and return to normal breathing."
+      ],
+      "actions": [
+        "Sit comfortably and relax your grip.",
+        "Use four gentle breaths with a slightly longer exhale.",
+        "Begin the test within one minute and record how you felt."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "caffeine-cognitive-performance-timing",
+      "title": "Caffeine timing and cognitive performance",
+      "description": "Plan caffeine use around alertness, sleep and personal tolerance rather than relying on a fixed internet formula.",
+      "category": "Preparation",
+      "focus": [
+        "Caffeine response varies with dose, habit, body size and sleep.",
+        "Late intake can harm sleep and undermine performance the next day.",
+        "More caffeine does not necessarily produce better fine-motor control."
+      ],
+      "actions": [
+        "Record your normal uncaffeinated baseline first.",
+        "Keep the drink and timing consistent during comparisons.",
+        "Stop if you experience palpitations, anxiety or tremor."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "caffeine-reaction-time-study",
+      "title": "Caffeine and reaction time: a careful interpretation",
+      "description": "What caffeine may change, what browser tests can measure and how to run a responsible personal comparison.",
+      "category": "Research literacy",
+      "focus": [
+        "Small performance changes can be hidden by normal attempt-to-attempt variation.",
+        "A personal browser test cannot establish a medical or nutritional conclusion.",
+        "Sleep loss, expectations and tolerance can confound comparisons."
+      ],
+      "actions": [
+        "Collect a baseline on several caffeine-free days.",
+        "Change one factor at a time and keep hardware constant.",
+        "Treat the result as personal observation, not dosing advice."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "dehydration-reaction-time-study",
+      "title": "Hydration and reaction performance",
+      "description": "A practical look at hydration, fatigue and attention without turning a browser score into a medical test.",
+      "category": "Wellbeing",
+      "focus": [
+        "Thirst, heat and prolonged activity can make concentration feel harder.",
+        "Excess water can also be harmful; normal hydration is the goal.",
+        "Reaction scores should never be used to diagnose dehydration."
+      ],
+      "actions": [
+        "Use normal drinking habits before testing.",
+        "Note exercise, heat and sleep alongside the score.",
+        "Seek medical advice for concerning symptoms."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "sleep-recovery.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "exercise-vs-medication-anxiety",
+      "title": "Exercise, anxiety and performance: avoid false comparisons",
+      "description": "Why exercise and prescribed treatment are not interchangeable, and how anxiety can affect a reaction session.",
+      "category": "Wellbeing",
+      "focus": [
+        "Exercise can support general wellbeing but is not a replacement for prescribed care.",
+        "Anxiety may increase rushing, muscle tension or distraction.",
+        "Medication decisions belong with a qualified clinician."
+      ],
+      "actions": [
+        "Use the test only as a low-stakes personal activity.",
+        "Pause if testing increases anxiety.",
+        "Discuss treatment questions with your clinician."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "fastest-reaction-time-ever-recorded",
+      "title": "Why “fastest reaction time ever” is the wrong benchmark",
+      "description": "Extremely low online scores often reflect equipment, anticipation or test design rather than human response alone.",
+      "category": "Measurement",
+      "focus": [
+        "Different tests measure different signals and cannot be ranked as one record.",
+        "Anticipation can produce implausibly fast results.",
+        "Browser, display and input latency remain part of the measurement."
+      ],
+      "actions": [
+        "Reject obvious anticipation attempts.",
+        "Compare like-for-like tests on the same setup.",
+        "Use a median across several valid trials."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "female-vs-male-reaction-time-study",
+      "title": "Sex differences in reaction-time research",
+      "description": "How to interpret group averages without using them to predict an individual person’s ability.",
+      "category": "Research literacy",
+      "focus": [
+        "Group-level differences often overlap heavily.",
+        "Training, age, equipment and task design can matter more for an individual.",
+        "A browser test cannot identify biological causes."
+      ],
+      "actions": [
+        "Avoid treating averages as personal limits.",
+        "Compare your own repeated sessions.",
+        "Read methods and sample details before trusting a headline."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "genetics-vs-training-reaction-time",
+      "title": "Genetics, practice and reaction speed",
+      "description": "Separate inherited influences from skills that can improve through familiarity, attention and movement practice.",
+      "category": "Training",
+      "focus": [
+        "Performance is shaped by many biological and environmental factors.",
+        "Practice often improves task familiarity as well as response execution.",
+        "Progress slows, so consistency matters more than dramatic daily gains."
+      ],
+      "actions": [
+        "Choose one drill and practise briefly three times weekly.",
+        "Keep sensitivity and hardware stable.",
+        "Review weekly medians rather than single personal bests."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "hardware-guide-reaction-time",
+      "title": "Hardware guide for reliable reaction testing",
+      "description": "Understand how displays, mice, keyboards and browsers influence the number shown after a test.",
+      "category": "Equipment",
+      "focus": [
+        "Refresh rate affects when a visual change becomes visible.",
+        "Input devices and operating systems add latency and variability.",
+        "Expensive hardware does not replace good test design."
+      ],
+      "actions": [
+        "Use a wired or stable low-latency input where practical.",
+        "Close heavy background applications.",
+        "Record the setup whenever comparing results."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "aim-hardware.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "improve-reaction-time-naturally",
+      "title": "Improve reaction consistency with everyday habits",
+      "description": "A realistic routine built around sleep, movement, focus and deliberate practice.",
+      "category": "Training",
+      "focus": [
+        "Recovery and attention are the foundation of consistent performance.",
+        "Short focused practice is usually more sustainable than marathon sessions.",
+        "General fitness advice is not medical treatment."
+      ],
+      "actions": [
+        "Protect a regular sleep schedule.",
+        "Warm up with two easy rounds.",
+        "Stop when accuracy or concentration clearly declines."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "improve-reaction-time",
+      "title": "How to improve reaction time: a practical programme",
+      "description": "Build a repeatable reaction-training plan with measurement, accuracy work and sensible progression.",
+      "category": "Training",
+      "focus": [
+        "Measure a baseline before changing the routine.",
+        "Speed without accuracy encourages anticipation.",
+        "Transfer improves when practice includes more than one task."
+      ],
+      "actions": [
+        "Train for ten focused minutes, three times weekly.",
+        "Alternate simple reaction and choice-response drills.",
+        "Retest the baseline once per week."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "improve-reflexes-30-days",
+      "title": "A 30-day reflex practice plan",
+      "description": "A four-week schedule that prioritises repeatability, gradual difficulty and recovery.",
+      "category": "Training",
+      "focus": [
+        "The first week establishes technique and a stable baseline.",
+        "Difficulty should rise only when accuracy remains controlled.",
+        "Rest days prevent low-quality practice from becoming the habit."
+      ],
+      "actions": [
+        "Week 1: baseline and technique.",
+        "Weeks 2–3: add choice and aim drills.",
+        "Week 4: reduce volume and compare the baseline."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "meditation-mindfulness-reaction-speed",
+      "title": "Mindfulness and reaction performance",
+      "description": "Use brief mindfulness practice to improve task focus without promising instant neurological upgrades.",
+      "category": "Preparation",
+      "focus": [
+        "Mindfulness may help attention and emotional regulation.",
+        "It is not a guaranteed method for reducing reaction time.",
+        "A short consistent routine is easier to evaluate than occasional long sessions."
+      ],
+      "actions": [
+        "Sit quietly for three minutes.",
+        "Return attention to breathing whenever distracted.",
+        "Start the test calmly and record perceived focus."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "monitor-refresh-rate",
+      "title": "Monitor refresh rate and reaction tests",
+      "description": "What 60 Hz, 120 Hz and higher refresh rates change—and what they do not.",
+      "category": "Equipment",
+      "focus": [
+        "A higher refresh rate can reduce display waiting time.",
+        "Frame rate, browser rendering and input latency also matter.",
+        "Results from different monitors are not directly comparable."
+      ],
+      "actions": [
+        "Confirm the selected refresh rate in system settings.",
+        "Keep the browser on the same display.",
+        "Compare multiple trials before and after a hardware change."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "aim-hardware.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "mouse-sensitivity-reaction-time",
+      "title": "Mouse sensitivity and aim performance",
+      "description": "Find a sensitivity that supports controlled movement instead of copying a professional player’s number.",
+      "category": "Equipment",
+      "focus": [
+        "Sensitivity changes movement distance, not visual reaction speed.",
+        "Very high settings can make small corrections harder.",
+        "Equivalent sensitivity depends on game-specific yaw and field of view."
+      ],
+      "actions": [
+        "Choose a comfortable 360-degree distance.",
+        "Keep the setting unchanged for a full practice week.",
+        "Track both hit speed and accuracy."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "aim-hardware.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "nootropics-reaction-time-enhancement",
+      "title": "Nootropics and reaction-time claims",
+      "description": "A safety-first framework for evaluating supplement marketing and weak performance evidence.",
+      "category": "Research literacy",
+      "focus": [
+        "“Natural” does not mean risk-free.",
+        "Small studies and surrogate outcomes are often exaggerated in advertising.",
+        "Supplements can interact with medicines and health conditions."
+      ],
+      "actions": [
+        "Do not use this website for dosing decisions.",
+        "Check independent evidence rather than testimonials.",
+        "Ask a pharmacist or clinician about safety and interactions."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "nutrition-reaction-time-performance",
+      "title": "Nutrition and reaction performance",
+      "description": "Focus on regular meals and overall dietary quality instead of searching for a single speed-boosting food.",
+      "category": "Wellbeing",
+      "focus": [
+        "Energy, comfort and hydration can influence concentration.",
+        "No ordinary food guarantees an immediate reaction-time improvement.",
+        "Individual needs vary, especially with medical conditions."
+      ],
+      "actions": [
+        "Avoid testing when unusually hungry or overfull.",
+        "Keep pre-test meals similar during comparisons.",
+        "Use qualified dietary advice for personal health needs."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "power-naps-vs-full-sleep",
+      "title": "Power naps versus full sleep for performance",
+      "description": "Understand what a short nap can help with and why it cannot replace adequate overnight sleep.",
+      "category": "Recovery",
+      "focus": [
+        "A short nap may temporarily improve alertness.",
+        "Sleep inertia can briefly worsen performance after waking.",
+        "Chronic sleep restriction is not solved by occasional naps."
+      ],
+      "actions": [
+        "Allow time to become fully alert after waking.",
+        "Record nap duration when comparing sessions.",
+        "Prioritise a stable overnight sleep opportunity."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "sleep-recovery.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "pro-gamer-reaction-times",
+      "title": "Pro gamer reaction times: what the numbers miss",
+      "description": "Why elite play depends on anticipation, positioning and decision quality—not just a single click test.",
+      "category": "Gaming",
+      "focus": [
+        "Simple reaction tests capture only one narrow component.",
+        "Experts reduce uncertainty through pattern recognition and positioning.",
+        "Accuracy and decision quality matter alongside speed."
+      ],
+      "actions": [
+        "Use reaction tests as a baseline, not a rank.",
+        "Practise game-specific scenarios and review mistakes.",
+        "Track accuracy, decision time and consistency together."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "aim-hardware.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "reaction-time-age-study",
+      "title": "Reaction time across the lifespan",
+      "description": "A cautious guide to age-related trends, individual variation and fair self-comparison.",
+      "category": "Research literacy",
+      "focus": [
+        "Average response speed often changes gradually with age.",
+        "Variation within an age group is large.",
+        "Health, sleep, practice and equipment affect individual results."
+      ],
+      "actions": [
+        "Compare yourself with your own stable baseline.",
+        "Use the same device for long-term tracking.",
+        "Seek professional advice for sudden functional changes."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "reaction-time-gaming-advantage",
+      "title": "Does faster reaction time create a gaming advantage?",
+      "description": "See where raw response speed helps and where prediction, mechanics and strategy matter more.",
+      "category": "Gaming",
+      "focus": [
+        "Fast response can help once a relevant event is detected.",
+        "Better positioning reduces how quickly a player must react.",
+        "Training should combine mechanics with decisions."
+      ],
+      "actions": [
+        "Warm up aim without exhausting your hand.",
+        "Review whether misses came from speed or poor choices.",
+        "Practise common situations deliberately."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "aim-hardware.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "reaction-time-professions-comparison",
+      "title": "Comparing reaction demands across professions",
+      "description": "Why pilots, drivers, athletes and clinicians face different tasks that cannot be reduced to one leaderboard.",
+      "category": "Measurement",
+      "focus": [
+        "Professional response tasks vary in complexity and consequence.",
+        "Training emphasises procedures and judgement, not only speed.",
+        "A consumer browser test is not occupational certification."
+      ],
+      "actions": [
+        "Do not use scores for hiring or safety decisions.",
+        "Choose simulations that resemble the real task.",
+        "Follow the standards of the relevant profession."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "rem-sleep-memory-consolidation",
+      "title": "REM sleep, memory and skill learning",
+      "description": "A plain-language overview of sleep stages and why recovery supports learning without oversimplifying the science.",
+      "category": "Recovery",
+      "focus": [
+        "Memory processing occurs across multiple sleep stages.",
+        "One poor night does not reveal a permanent ability level.",
+        "Consumer reaction tests cannot measure sleep architecture."
+      ],
+      "actions": [
+        "Keep practice and sleep timing reasonably consistent.",
+        "Avoid interpreting a single morning score.",
+        "Consult a clinician for persistent sleep problems."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "sleep-recovery.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "sleep-deprivation-immune-function",
+      "title": "Sleep loss, wellbeing and performance",
+      "description": "Why sleep affects more than speed and when tiredness should take priority over another training session.",
+      "category": "Recovery",
+      "focus": [
+        "Sleep loss can affect attention, mood and physical wellbeing.",
+        "A browser test cannot assess immune function.",
+        "Severe tiredness creates safety risks for driving and machinery."
+      ],
+      "actions": [
+        "Do not use a test score to decide whether driving is safe.",
+        "Choose rest over low-quality training.",
+        "Seek medical advice for persistent or severe sleepiness."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "sleep-recovery.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "sleep-deprivation-reaction-time",
+      "title": "Sleep deprivation and reaction consistency",
+      "description": "Understand lapses, variability and why an average can hide tiredness-related slow responses.",
+      "category": "Recovery",
+      "focus": [
+        "Sleep loss often increases inconsistency as well as average response time.",
+        "A few fast attempts do not cancel out dangerous lapses.",
+        "Online testing is not a fitness-to-drive assessment."
+      ],
+      "actions": [
+        "Track the slowest valid responses as well as the average.",
+        "Stop if you are fighting sleep.",
+        "Restore normal sleep before comparing ability."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "sleep-recovery.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "sports-reaction-time-training",
+      "title": "Reaction training for sport",
+      "description": "Combine perception, movement and sport-specific decisions instead of relying only on flashing-light drills.",
+      "category": "Sport",
+      "focus": [
+        "Sport reactions depend on meaningful cues and movement choices.",
+        "General drills can warm up attention but transfer is limited.",
+        "Quality technique should remain intact as speed rises."
+      ],
+      "actions": [
+        "Start with predictable technique practice.",
+        "Add realistic cues and choices.",
+        "Finish with short game-like situations."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "stress-anxiety-reaction-time-impact",
+      "title": "Stress, anxiety and reaction performance",
+      "description": "How arousal can change rushing, hesitation and consistency during a test.",
+      "category": "Wellbeing",
+      "focus": [
+        "Moderate arousal can feel energising while excessive stress can disrupt control.",
+        "People respond differently to the same pressure.",
+        "Testing should not become another source of distress."
+      ],
+      "actions": [
+        "Use a low-stakes baseline environment.",
+        "Note tension and perceived stress with each session.",
+        "Pause and seek support if anxiety is persistent or disruptive."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "time-of-day-reaction-performance",
+      "title": "Time of day and reaction performance",
+      "description": "Plan fair comparisons around sleep, routine and your own daily pattern.",
+      "category": "Measurement",
+      "focus": [
+        "Alertness can vary across the day.",
+        "Meals, caffeine, work and sleep timing can confound results.",
+        "There is no single best testing hour for everyone."
+      ],
+      "actions": [
+        "Test at the same time when tracking progress.",
+        "Record major routine changes.",
+        "Use several days before deciding a pattern is real."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "vision-training-faster-reactions",
+      "title": "Vision training and faster responses",
+      "description": "Separate useful visual practice from exaggerated claims about permanently upgrading eyesight.",
+      "category": "Training",
+      "focus": [
+        "Visual search and peripheral-attention tasks can be practised.",
+        "Training effects may remain specific to the exercise.",
+        "Eye symptoms require professional assessment."
+      ],
+      "actions": [
+        "Use short visual-search drills with good lighting.",
+        "Keep the screen at a comfortable distance.",
+        "Stop for pain, double vision or persistent discomfort."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "vr-reaction-time-training",
+      "title": "VR reaction training: benefits and limitations",
+      "description": "Use immersive practice thoughtfully while accounting for motion discomfort, tracking latency and task transfer.",
+      "category": "Gaming",
+      "focus": [
+        "VR can combine perception with larger physical movement.",
+        "Headset tracking and display latency affect scores.",
+        "Motion sickness is a clear signal to stop."
+      ],
+      "actions": [
+        "Clear the play area before starting.",
+        "Use short sessions and stable headset settings.",
+        "Compare VR results only with the same setup."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "aim-hardware.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "what-is-reaction-time",
+      "title": "What is reaction time?",
+      "description": "A clear introduction to stimulus detection, decision-making, movement and browser measurement.",
+      "category": "Fundamentals",
+      "focus": [
+        "Reaction time begins with detecting a signal and ends with an observable response.",
+        "Simple and choice-reaction tasks measure different demands.",
+        "The displayed number includes both human and device latency."
+      ],
+      "actions": [
+        "Use several valid attempts.",
+        "Avoid guessing before the signal.",
+        "Compare medians under consistent conditions."
+      ],
+      "type": "editorial",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "beaphar-wormclear-dog-wormer-guide",
+      "title": "Beaphar WORMclear tablets for dogs: a practical buying guide",
+      "description": "A careful UK buying guide covering label checks, suitability and safe purchasing questions.",
+      "category": "Affiliate guide",
+      "product": "Beaphar WORMclear Tablets for Dogs up to 40kg — 4 tablets",
+      "link": "https://amzn.to/46y28Xt",
+      "summary": "A pork-flavoured veterinary medicine listing intended for common intestinal worms in suitable dogs.",
+      "checks": [
+        "Confirm your dog’s current weight and age against the label.",
+        "Read the contraindications and active ingredients before purchase.",
+        "Ask a veterinary professional if your dog is unwell, pregnant, taking medication or has an uncertain diagnosis."
+      ],
+      "verdict": "Suitable only when the current label matches the individual dog. This guide cannot diagnose worms or replace veterinary advice.",
+      "type": "affiliate",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "catsan-hygiene-plus-cat-litter-review",
+      "title": "Catsan Hygiene Plus 20L: practical buyer’s guide",
+      "description": "An independent guide to format, daily maintenance and the households this non-clumping litter may suit.",
+      "category": "Affiliate guide",
+      "product": "Catsan Hygiene Plus Cat Litter, White, 20L",
+      "link": "https://amzn.to/4xsg14t",
+      "summary": "A mineral, non-clumping litter marketed for liquid absorption and odour control.",
+      "checks": [
+        "Confirm that you want non-clumping rather than clumping litter.",
+        "Compare tray size, storage space and cost per litre.",
+        "Introduce any litter change gradually if your cat is sensitive to texture changes."
+      ],
+      "verdict": "A practical option for owners who prefer mineral non-clumping litter and are comfortable with regular tray replacement.",
+      "type": "affiliate",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    },
+    {
+      "slug": "kenco-flat-white-sachets-review",
+      "title": "Kenco Flat White sachets: practical buyer’s guide",
+      "description": "A straightforward guide to preparation, convenience, pack format and caffeine considerations.",
+      "category": "Affiliate guide",
+      "product": "Kenco Flat White Instant Coffee Sachets, multipack",
+      "link": "https://amzn.to/3TfpX3k",
+      "summary": "Single-serve instant flat-white sachets designed for quick preparation with hot water.",
+      "checks": [
+        "Check the current pack count and ingredients on the listing.",
+        "Compare cost per serving with jars, pods and café drinks.",
+        "Consider caffeine timing if coffee affects your sleep or anxiety."
+      ],
+      "verdict": "Best suited to buyers prioritising consistent portions and quick preparation over custom strength and café-style texture.",
+      "type": "affiliate",
+      "status": "published",
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "author": "ReflexTester Editorial",
+      "heroImage": "reaction-study.webp",
+      "focusKeyword": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "faq": []
+    }
+  ]
+}
