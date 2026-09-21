@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title id="title">Precision aim target</title>
+  <circle cx="60" cy="60" r="55" fill="#f8f7f3" stroke="#171916" stroke-width="2"/>
+  <path d="M60 3v28M60 89v28M3 60h28M89 60h28" stroke="#171916" stroke-width="2"/>
+  <circle cx="60" cy="60" r="17" fill="none" stroke="#2f6fe4" stroke-width="4"/>
+  <circle cx="60" cy="60" r="4" fill="#171916"/>
+</svg>

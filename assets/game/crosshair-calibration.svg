@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title">
+  <title id="title">Crosshair calibration field</title>
+  <rect width="320" height="320" fill="#dfe3df"/>
+  <g stroke="#c2c7c1" stroke-width="1"><path d="M40 0v320M80 0v320M120 0v320M160 0v320M200 0v320M240 0v320M280 0v320"/><path d="M0 40h320M0 80h320M0 120h320M0 160h320M0 200h320M0 240h320M0 280h320"/></g>
+  <circle cx="160" cy="160" r="64" fill="none" stroke="#8f958d"/>
+  <path d="M160 120v26M160 174v26M120 160h26M174 160h26" stroke="#16774b" stroke-width="5"/>
+  <circle cx="160" cy="160" r="3" fill="#16774b"/>
+</svg>

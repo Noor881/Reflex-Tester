@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 420" role="img" aria-labelledby="title desc">
+  <title id="title">Recoil compensation reference</title><desc id="desc">A measured upward recoil path and the opposite downward correction path.</desc>
+  <rect x="1" y="1" width="318" height="418" fill="#f8f7f3" stroke="#d7d4cc"/>
+  <g stroke="#e1dfd8" stroke-width="1"><path d="M40 1v418M80 1v418M120 1v418M160 1v418M200 1v418M240 1v418M280 1v418"/><path d="M1 40h318M1 80h318M1 120h318M1 160h318M1 200h318M1 240h318M1 280h318M1 320h318M1 360h318M1 400h318"/></g>
+  <path d="M160 372c-18-32 24-45 4-79s-42-45-19-81 45-43 21-79-5-58 8-87" fill="none" stroke="#b4272d" stroke-width="5" stroke-linecap="round"/>
+  <path d="M220 54c-10 36-25 58-10 92s-13 58-30 86-5 52 10 77-4 46-24 68" fill="none" stroke="#2f6fe4" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 8"/>
+  <circle cx="160" cy="372" r="8" fill="#171916"/>
+</svg>

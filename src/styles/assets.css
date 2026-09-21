@@ -1,0 +1,12 @@
+.brand-mark{display:block;width:2rem;height:2rem;flex:0 0 2rem;background:transparent;color:inherit}
+.home-photo{grid-column:1/-1;position:relative;margin:1rem 0 0;background:var(--surface);border:1px solid var(--line);overflow:hidden}
+.home-photo img{display:block;width:100%;max-height:34rem;object-fit:cover;object-position:center 48%;filter:saturate(.86) contrast(1.03)}
+.home-photo figcaption,.article-cover figcaption{padding:.65rem .8rem;color:var(--muted);font-size:.76rem;border-top:1px solid var(--line)}
+.article-cover{margin:1.5rem 0 2.5rem;border:1px solid var(--line);background:var(--surface);overflow:hidden}
+.article-cover img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;margin:0;filter:saturate(.82) contrast(1.02)}
+.aim-target{border:0;background:transparent url('../../assets/game/target-standard.svg') center/contain no-repeat;box-shadow:none}
+.aim-target::before{display:none}
+.aim-target.small{background-image:url('../../assets/game/target-precision.svg')}
+.crosshair-preview{background:#d9ddd9 url('../../assets/game/crosshair-calibration.svg') center/cover no-repeat}
+.recoil-reference{display:block;width:min(13rem,70%);height:85%;object-fit:contain;pointer-events:none}
+@media(max-width:760px){.home-photo{margin-top:0}.home-photo img{max-height:24rem}}

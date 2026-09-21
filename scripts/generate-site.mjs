@@ -3,6 +3,11 @@ import { tools } from '../src/data/tools.js';
 
 const root = new URL('../', import.meta.url);
 const esc = value => value.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+const decode = value => {
+  let result = value;
+  while (/&(?:amp|quot|lt|gt);/i.test(result)) result = result.replaceAll('&amp;','&').replaceAll('&quot;','"').replaceAll('&lt;','<').replaceAll('&gt;','>');
+  return result;
+};
 const head = ({title,description,path='',depth='.',type='website'}) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="https://reflextester.vercel.app/${path}"><meta property="og:type" content="${type}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="https://reflextester.vercel.app/${path}"><link rel="icon" href="${depth}/favicon.ico"><link rel="stylesheet" href="${depth}/src/styles/base.css">`;
 const end = module => `<script type="module" src="${module}"></script></body></html>`;
 
@@ -28,7 +33,7 @@ const blogFiles=(await readdir(new URL('../blog/',import.meta.url))).filter(file
 const articles=[];
 for(const file of blogFiles){
   const source=await readFile(new URL(`../blog/${file}`,import.meta.url),'utf8');
-  const title=(source.match(/<title>(.*?)<\/title>/is)?.[1]||file.replace('.html','').replaceAll('-',' ')).replace(/\s*(?:\||—)\s*ReflexTester.*$/i,'').replaceAll('TimeA Complete','Time: Complete').replaceAll('TimesA','Times:').trim();
+  const title=decode(source.match(/<title>(.*?)<\/title>/is)?.[1]||file.replace('.html','').replaceAll('-',' ')).replace(/\s*(?:\||—)\s*ReflexTester.*$/i,'').replaceAll('TimeA Complete','Time: Complete').replaceAll('TimesA','Times:').trim();
   const description=source.match(/<meta\s+name="description"\s+content="([^"]*)"/i)?.[1]||`Read ${title} on ReflexTester.`;
   const startCandidates=[source.indexOf('<article class="blog-article"'),source.indexOf('<article class="affiliate-article"'),source.indexOf('<article class="article"'),source.indexOf('<article>')].filter(index=>index>=0);
   if(!startCandidates.length) continue;
