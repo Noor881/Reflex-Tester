@@ -13,6 +13,12 @@
     "id": "/",
     "icons": [
         {
+            "src": "/assets/brand/reflextester-mark.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
+        {
             "src": "/favicon-16x16.png",
             "sizes": "16x16",
             "type": "image/png"
@@ -49,7 +55,7 @@
             "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
         },
         {
-            "name": "CS:GO Aim Trainer",
+            "name": "CS2 Aim Trainer",
             "short_name": "Aim Trainer",
             "url": "/tools/csgo-aim-trainer.html",
             "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]

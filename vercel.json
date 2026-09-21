@@ -1,8 +1,20 @@
 {
-    "buildCommand": "echo 'Static site'",
-    "outputDirectory": ".",
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist",
     "cleanUrls": true,
     "trailingSlash": false,
+    "redirects": [
+        {
+            "source": "/blog/moniter-refresh-rate",
+            "destination": "/blog/monitor-refresh-rate",
+            "permanent": true
+        },
+        {
+            "source": "/blog/moniter-refresh-rate.html",
+            "destination": "/blog/monitor-refresh-rate.html",
+            "permanent": true
+        }
+    ],
     "rewrites": [
         {
             "source": "/",
@@ -26,10 +38,6 @@
                     "value": "SAMEORIGIN"
                 },
                 {
-                    "key": "X-XSS-Protection",
-                    "value": "1; mode=block"
-                },
-                {
                     "key": "Referrer-Policy",
                     "value": "strict-origin-when-cross-origin"
                 },
@@ -39,7 +47,7 @@
                 },
                 {
                     "key": "Content-Security-Policy",
-                    "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'self';"
+                    "value": "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'self'; form-action 'self' mailto:; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests"
                 },
                 {
                     "key": "Strict-Transport-Security",

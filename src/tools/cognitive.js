@@ -1,18 +1,245 @@
-import { store } from '../core/store.js';
+import { store } from "../core/store.js";
 
-function finish(root, tool, score, label='score', extra={}) {
-  store.record(tool.slug,{score,unit:label,...extra});
-  root.innerHTML=`<div class="result-panel"><span class="eyebrow">Completed</span><div class="instrument-readout">${score}<span class="instrument-unit">${label}</span></div><button class="button accent" data-retry>Try again</button></div>`;
-  root.querySelector('[data-retry]').onclick=()=>mountCognitive(root,tool);
+function finish(root, tool, score, label = "score", extra = {}) {
+  store.record(tool.slug, { score, unit: label, ...extra });
+  root.innerHTML = `<div class="result-panel"><span class="eyebrow">Completed</span><div class="instrument-readout">${score}<span class="instrument-unit">${label}</span></div><button class="button accent" data-retry>Try again</button></div>`;
+  root.querySelector("[data-retry]").onclick = () => mountCognitive(root, tool);
 }
 
-function numberGrid(root,tool){let expected=1,start=performance.now();const nums=Array.from({length:25},(_,i)=>i+1).sort(()=>Math.random()-.5);root.innerHTML=`<div><p style="text-align:center">Select 1 through 25 in order.</p><div class="test-grid">${nums.map(n=>`<button>${n}</button>`).join('')}</div></div>`;root.querySelectorAll('.test-grid button').forEach(btn=>btn.onclick=()=>{if(Number(btn.textContent)!==expected)return;btn.disabled=true;expected++;if(expected===26)finish(root,tool,((performance.now()-start)/1000).toFixed(1),'seconds');});}
-function memory(root,tool){let level=3,sequence=[];const render=()=>{root.innerHTML=`<div class="instruction"><span class="eyebrow">Level ${level-2}</span><h2>Watch the sequence</h2><div class="sequence-pad">${Array.from({length:9},(_,i)=>`<button data-i="${i}" aria-label="Position ${i+1}"></button>`).join('')}</div><p data-state>Get ready.</p></div>`;sequence=Array.from({length:level},()=>Math.floor(Math.random()*9));const pads=[...root.querySelectorAll('.sequence-pad button')];let delay=500;sequence.forEach(index=>{setTimeout(()=>pads[index].classList.add('flash'),delay);setTimeout(()=>pads[index].classList.remove('flash'),delay+300);delay+=520;});let input=[];setTimeout(()=>{root.querySelector('[data-state]').textContent='Repeat it.';pads.forEach(pad=>pad.onclick=()=>{input.push(Number(pad.dataset.i));const idx=input.length-1;if(input[idx]!==sequence[idx])return finish(root,tool,level-3,'levels');if(input.length===sequence.length){level++;setTimeout(render,500);}});},delay);};render();}
-function stroop(root,tool){const colors=[['Red','#c93434'],['Blue','#2361c7'],['Green','#14784a'],['Orange','#b45d00']];let round=0,correct=0,start=performance.now();const next=()=>{if(round===12)return finish(root,tool,correct,'correct',{duration:performance.now()-start});const word=colors[Math.floor(Math.random()*colors.length)][0];let ink=colors[Math.floor(Math.random()*colors.length)];root.innerHTML=`<div class="instruction"><span class="eyebrow">${round+1} / 12</span><div style="font-size:4rem;font-weight:750;color:${ink[1]};margin:2rem">${word}</div><p>Select the ink color, not the word.</p><div class="instruction-actions">${colors.map(c=>`<button class="button secondary" data-color="${c[0]}">${c[0]}</button>`).join('')}</div></div>`;root.querySelectorAll('[data-color]').forEach(button=>button.onclick=()=>{if(button.dataset.color===ink[0])correct++;round++;next();});};next();}
-function typing(root,tool){const text='Accuracy improves when speed stays controlled. Keep your eyes on the text and use a steady rhythm.';const start=performance.now();root.innerHTML=`<div style="width:min(48rem,100%)"><p style="font-family:Georgia,serif;font-size:1.35rem;color:var(--ink)">${text}</p><label class="field"><span>Type the passage</span><textarea rows="5" autocomplete="off" autocapitalize="off"></textarea></label><p data-progress>0 / ${text.length} characters</p></div>`;const input=root.querySelector('textarea');input.focus();input.oninput=()=>{root.querySelector('[data-progress]').textContent=`${input.value.length} / ${text.length} characters`;if(input.value.length>=text.length){const minutes=(performance.now()-start)/60000;const words=text.trim().split(/\s+/).length;const correct=[...text].filter((c,i)=>input.value[i]===c).length;finish(root,tool,Math.round(words/minutes),'WPM',{accuracy:correct/text.length*100});}};}
-function focus(root,tool){let hits=0,round=0,start=performance.now();const next=()=>{if(round===10)return finish(root,tool,((performance.now()-start)/1000).toFixed(1),'seconds',{hits});const target=Math.floor(Math.random()*25);root.innerHTML=`<div><p style="text-align:center">Find the circle with the dot.</p><div class="test-grid">${Array.from({length:25},(_,i)=>`<button aria-label="Choice ${i+1}">${i===target?'•':'○'}</button>`).join('')}</div></div>`;[...root.querySelectorAll('.test-grid button')].forEach((btn,i)=>btn.onclick=()=>{if(i!==target)return;hits++;round++;next();});};next();}
-function color(root,tool){const palette=['#d13b3b','#2468c9','#168052','#b66200'];let round=0,correct=0;const next=()=>{if(round===12)return finish(root,tool,correct,'correct');const target=palette[Math.floor(Math.random()*palette.length)];const options=[...palette].sort(()=>Math.random()-.5);root.innerHTML=`<div class="instruction"><span class="eyebrow">${round+1} / 12</span><div style="width:7rem;height:7rem;margin:1rem auto;background:${target}"></div><p>Select the matching color.</p><div class="instruction-actions">${options.map(c=>`<button aria-label="Color choice" style="width:4rem;height:4rem;border:1px solid var(--line-strong);background:${c}" data-color="${c}"></button>`).join('')}</div></div>`;root.querySelectorAll('[data-color]').forEach(btn=>btn.onclick=()=>{if(btn.dataset.color===target)correct++;round++;next();});};next();}
-function peripheral(root,tool){let round=0,correct=0,start=0;const positions=['8% 8%','50% 7%','92% 8%','7% 50%','93% 50%','8% 92%','50% 93%','92% 92%'];const next=()=>{if(round===10)return finish(root,tool,correct,'correct');const position=positions[Math.floor(Math.random()*positions.length)],number=1+Math.floor(Math.random()*4);root.innerHTML=`<div style="position:absolute;inset:0"><div style="position:absolute;inset:50%;width:1rem;height:1rem;transform:translate(-50%,-50%);border:2px solid var(--ink);border-radius:50%" aria-label="Keep your eyes on the center"></div><div data-flash style="position:absolute;left:${position.split(' ')[0]};top:${position.split(' ')[1]};transform:translate(-50%,-50%);font-size:2.5rem;font-weight:750">${number}</div><div class="instruction-actions" style="position:absolute;bottom:1rem;left:0;right:0">${[1,2,3,4].map(n=>`<button class="button secondary" data-answer="${n}">${n}</button>`).join('')}</div></div>`;start=performance.now();root.querySelectorAll('[data-answer]').forEach(btn=>btn.onclick=()=>{if(Number(btn.dataset.answer)===number)correct++;round++;next();});setTimeout(()=>root.querySelector('[data-flash]')?.remove(),350);};next();}
-function coordination(root,tool){let hits=0,misses=0,endAt=performance.now()+20000,raf=0;root.innerHTML=`<div class="target-stage"><div class="aim-hud" style="position:absolute;z-index:2;top:1rem;left:1rem"><span><strong data-time>20.0</strong>s</span><span><strong data-hits>0</strong> hits</span></div><button class="aim-target" aria-label="Moving target"></button></div>`;const stage=root.firstElementChild,target=stage.querySelector('.aim-target');let x=100,y=100,vx=2.6,vy=2.1;target.onpointerdown=e=>{e.stopPropagation();hits++;stage.querySelector('[data-hits]').textContent=hits;vx*=1.04;vy*=1.04};stage.onpointerdown=()=>misses++;function frame(now){const rect=stage.getBoundingClientRect();x+=vx;y+=vy;if(x<35||x>rect.width-35)vx*=-1;if(y<55||y>rect.height-35)vy*=-1;target.style.left=`${x}px`;target.style.top=`${y}px`;const remain=(endAt-now)/1000;if(remain<=0){cancelAnimationFrame(raf);return finish(root,tool,hits,'hits',{accuracy:hits/Math.max(1,hits+misses)*100});}stage.querySelector('[data-time]').textContent=remain.toFixed(1);raf=requestAnimationFrame(frame)}raf=requestAnimationFrame(frame);}
+function numberGrid(root, tool) {
+  let expected = 1,
+    start = performance.now();
+  const nums = Array.from({ length: 25 }, (_, i) => i + 1).sort(
+    () => Math.random() - 0.5,
+  );
+  root.innerHTML = `<div><p style="text-align:center">Select 1 through 25 in order.</p><div class="test-grid">${nums.map((n) => `<button>${n}</button>`).join("")}</div></div>`;
+  root.querySelectorAll(".test-grid button").forEach(
+    (btn) =>
+      (btn.onclick = () => {
+        if (Number(btn.textContent) !== expected) return;
+        btn.disabled = true;
+        expected++;
+        if (expected === 26)
+          finish(
+            root,
+            tool,
+            ((performance.now() - start) / 1000).toFixed(1),
+            "seconds",
+          );
+      }),
+  );
+}
+function memory(root, tool) {
+  let level = 3,
+    sequence = [];
+  const render = () => {
+    root.innerHTML = `<div class="instruction"><span class="eyebrow">Level ${level - 2}</span><h2>Watch the sequence</h2><div class="sequence-pad">${Array.from({ length: 9 }, (_, i) => `<button data-i="${i}" aria-label="Position ${i + 1}"></button>`).join("")}</div><p data-state>Get ready.</p></div>`;
+    sequence = Array.from({ length: level }, () =>
+      Math.floor(Math.random() * 9),
+    );
+    const pads = [...root.querySelectorAll(".sequence-pad button")];
+    let delay = 500;
+    sequence.forEach((index) => {
+      setTimeout(() => pads[index].classList.add("flash"), delay);
+      setTimeout(() => pads[index].classList.remove("flash"), delay + 300);
+      delay += 520;
+    });
+    let input = [];
+    setTimeout(() => {
+      root.querySelector("[data-state]").textContent = "Repeat it.";
+      pads.forEach(
+        (pad) =>
+          (pad.onclick = () => {
+            input.push(Number(pad.dataset.i));
+            const idx = input.length - 1;
+            if (input[idx] !== sequence[idx])
+              return finish(root, tool, level - 3, "levels");
+            if (input.length === sequence.length) {
+              level++;
+              setTimeout(render, 500);
+            }
+          }),
+      );
+    }, delay);
+  };
+  render();
+}
+function stroop(root, tool) {
+  const colors = [
+    ["Red", "#c93434"],
+    ["Blue", "#2361c7"],
+    ["Green", "#14784a"],
+    ["Orange", "#b45d00"],
+  ];
+  let round = 0,
+    correct = 0,
+    start = performance.now();
+  const next = () => {
+    if (round === 12)
+      return finish(root, tool, correct, "correct", {
+        duration: performance.now() - start,
+      });
+    const word = colors[Math.floor(Math.random() * colors.length)][0];
+    let ink = colors[Math.floor(Math.random() * colors.length)];
+    root.innerHTML = `<div class="instruction"><span class="eyebrow">${round + 1} / 12</span><div style="font-size:4rem;font-weight:750;color:${ink[1]};margin:2rem">${word}</div><p>Select the ink color, not the word.</p><div class="instruction-actions">${colors.map((c) => `<button class="button secondary" data-color="${c[0]}">${c[0]}</button>`).join("")}</div></div>`;
+    root.querySelectorAll("[data-color]").forEach(
+      (button) =>
+        (button.onclick = () => {
+          if (button.dataset.color === ink[0]) correct++;
+          round++;
+          next();
+        }),
+    );
+  };
+  next();
+}
+function typing(root, tool) {
+  const text =
+    "Accuracy improves when speed stays controlled. Keep your eyes on the text and use a steady rhythm.";
+  const start = performance.now();
+  root.innerHTML = `<div style="width:min(48rem,100%)"><p style="font-family:Georgia,serif;font-size:1.35rem;color:var(--ink)">${text}</p><label class="field"><span>Type the passage</span><textarea rows="5" autocomplete="off" autocapitalize="off"></textarea></label><p data-progress>0 / ${text.length} characters</p></div>`;
+  const input = root.querySelector("textarea");
+  input.focus();
+  input.oninput = () => {
+    root.querySelector("[data-progress]").textContent =
+      `${input.value.length} / ${text.length} characters`;
+    if (input.value.length >= text.length) {
+      const minutes = (performance.now() - start) / 60000;
+      const words = text.trim().split(/\s+/).length;
+      const correct = [...text].filter((c, i) => input.value[i] === c).length;
+      finish(root, tool, Math.round(words / minutes), "WPM", {
+        accuracy: (correct / text.length) * 100,
+      });
+    }
+  };
+}
+function focus(root, tool) {
+  let hits = 0,
+    round = 0,
+    start = performance.now();
+  const next = () => {
+    if (round === 10)
+      return finish(
+        root,
+        tool,
+        ((performance.now() - start) / 1000).toFixed(1),
+        "seconds",
+        { hits },
+      );
+    const target = Math.floor(Math.random() * 25);
+    root.innerHTML = `<div><p style="text-align:center">Find the circle with the dot.</p><div class="test-grid">${Array.from({ length: 25 }, (_, i) => `<button aria-label="Choice ${i + 1}">${i === target ? "•" : "○"}</button>`).join("")}</div></div>`;
+    [...root.querySelectorAll(".test-grid button")].forEach(
+      (btn, i) =>
+        (btn.onclick = () => {
+          if (i !== target) return;
+          hits++;
+          round++;
+          next();
+        }),
+    );
+  };
+  next();
+}
+function color(root, tool) {
+  const palette = ["#d13b3b", "#2468c9", "#168052", "#b66200"];
+  let round = 0,
+    correct = 0;
+  const next = () => {
+    if (round === 12) return finish(root, tool, correct, "correct");
+    const target = palette[Math.floor(Math.random() * palette.length)];
+    const options = [...palette].sort(() => Math.random() - 0.5);
+    root.innerHTML = `<div class="instruction"><span class="eyebrow">${round + 1} / 12</span><div style="width:7rem;height:7rem;margin:1rem auto;background:${target}"></div><p>Select the matching color.</p><div class="instruction-actions">${options.map((c) => `<button aria-label="Color choice" style="width:4rem;height:4rem;border:1px solid var(--line-strong);background:${c}" data-color="${c}"></button>`).join("")}</div></div>`;
+    root.querySelectorAll("[data-color]").forEach(
+      (btn) =>
+        (btn.onclick = () => {
+          if (btn.dataset.color === target) correct++;
+          round++;
+          next();
+        }),
+    );
+  };
+  next();
+}
+function peripheral(root, tool) {
+  let round = 0,
+    correct = 0,
+    start = 0;
+  const positions = [
+    "8% 8%",
+    "50% 7%",
+    "92% 8%",
+    "7% 50%",
+    "93% 50%",
+    "8% 92%",
+    "50% 93%",
+    "92% 92%",
+  ];
+  const next = () => {
+    if (round === 10) return finish(root, tool, correct, "correct");
+    const position = positions[Math.floor(Math.random() * positions.length)],
+      number = 1 + Math.floor(Math.random() * 4);
+    root.innerHTML = `<div style="position:absolute;inset:0"><div style="position:absolute;inset:50%;width:1rem;height:1rem;transform:translate(-50%,-50%);border:2px solid var(--ink);border-radius:50%" aria-label="Keep your eyes on the center"></div><div data-flash style="position:absolute;left:${position.split(" ")[0]};top:${position.split(" ")[1]};transform:translate(-50%,-50%);font-size:2.5rem;font-weight:750">${number}</div><div class="instruction-actions" style="position:absolute;bottom:1rem;left:0;right:0">${[1, 2, 3, 4].map((n) => `<button class="button secondary" data-answer="${n}">${n}</button>`).join("")}</div></div>`;
+    start = performance.now();
+    root.querySelectorAll("[data-answer]").forEach(
+      (btn) =>
+        (btn.onclick = () => {
+          if (Number(btn.dataset.answer) === number) correct++;
+          round++;
+          next();
+        }),
+    );
+    setTimeout(() => root.querySelector("[data-flash]")?.remove(), 350);
+  };
+  next();
+}
+function coordination(root, tool) {
+  let hits = 0,
+    misses = 0,
+    endAt = performance.now() + 20000,
+    raf = 0;
+  root.innerHTML = `<div class="target-stage"><div class="aim-hud" style="position:absolute;z-index:2;top:1rem;left:1rem"><span><strong data-time>20.0</strong>s</span><span><strong data-hits>0</strong> hits</span></div><button class="aim-target" aria-label="Moving target"></button></div>`;
+  const stage = root.firstElementChild,
+    target = stage.querySelector(".aim-target");
+  let x = 100,
+    y = 100,
+    vx = 2.6,
+    vy = 2.1;
+  target.onpointerdown = (e) => {
+    e.stopPropagation();
+    hits++;
+    stage.querySelector("[data-hits]").textContent = hits;
+    vx *= 1.04;
+    vy *= 1.04;
+  };
+  stage.onpointerdown = () => misses++;
+  function frame(now) {
+    const rect = stage.getBoundingClientRect();
+    x += vx;
+    y += vy;
+    if (x < 35 || x > rect.width - 35) vx *= -1;
+    if (y < 55 || y > rect.height - 35) vy *= -1;
+    target.style.left = `${x}px`;
+    target.style.top = `${y}px`;
+    const remain = (endAt - now) / 1000;
+    if (remain <= 0) {
+      cancelAnimationFrame(raf);
+      return finish(root, tool, hits, "hits", {
+        accuracy: (hits / Math.max(1, hits + misses)) * 100,
+      });
+    }
+    stage.querySelector("[data-time]").textContent = remain.toFixed(1);
+    raf = requestAnimationFrame(frame);
+  }
+  raf = requestAnimationFrame(frame);
+}
 
-export function mountCognitive(root,tool){if(tool.mechanic==='numbers')return numberGrid(root,tool);if(tool.mechanic==='memory')return memory(root,tool);if(tool.mechanic==='stroop')return stroop(root,tool);if(tool.mechanic==='typing')return typing(root,tool);if(tool.mechanic==='color')return color(root,tool);if(tool.mechanic==='peripheral')return peripheral(root,tool);if(tool.mechanic==='coordination')return coordination(root,tool);return focus(root,tool);}
+export function mountCognitive(root, tool) {
+  if (tool.mechanic === "numbers") return numberGrid(root, tool);
+  if (tool.mechanic === "memory") return memory(root, tool);
+  if (tool.mechanic === "stroop") return stroop(root, tool);
+  if (tool.mechanic === "typing") return typing(root, tool);
+  if (tool.mechanic === "color") return color(root, tool);
+  if (tool.mechanic === "peripheral") return peripheral(root, tool);
+  if (tool.mechanic === "coordination") return coordination(root, tool);
+  return focus(root, tool);
+}

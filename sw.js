@@ -3,7 +3,7 @@
    Offline shell with network-first application code
    ============================================================ */
 
-const CACHE_NAME = 'reflextester-rebuild-v1';
+const CACHE_NAME = 'reflextester-2026-v3';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -11,7 +11,14 @@ const STATIC_ASSETS = [
   '/src/styles/site.css',
   '/src/styles/tool.css',
   '/src/styles/article.css',
+  '/src/styles/assets.css',
   '/src/app/shell.js',
+  '/src/app/static-page.js',
+  '/src/app/visual-assets.js',
+  '/src/app/home.js',
+  '/src/app/catalog.js',
+  '/src/app/dashboard.js',
+  '/src/app/tool-page.js',
   '/src/data/tools.js',
   '/src/core/store.js',
   '/manifest.json',
@@ -20,6 +27,9 @@ const STATIC_ASSETS = [
   '/blog.html',
   '/about.html',
   '/contact.html',
+  '/404.html',
+  '/assets/brand/reflextester-mark.svg',
+  '/assets/photos/performance-workspace.webp',
   '/favicon.ico',
   '/android-chrome-192x192.png',
   '/android-chrome-512x512.png',
@@ -71,7 +81,7 @@ self.addEventListener('fetch', (event) => {
           caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
           return response;
         })
-        .catch(() => caches.match(request).then((cached) => cached || caches.match('/index.html')))
+        .catch(() => caches.match(request).then((cached) => cached || caches.match('/404.html')))
     );
     return;
   }

@@ -1,35 +1,38 @@
-# ReflexTester rebuild architecture
+# ReflexTester architecture
 
-The repository treats the previous site as a route and content inventory only. The shipped application is generated from the new `src/` system.
+## System shape
 
-## Information architecture
+ReflexTester is a generated static application. Source data and interaction engines live under `src/`; `scripts/generate-site.mjs` creates crawlable route entries; `scripts/build-dist.mjs` copies only deployable files into `dist/`.
 
-- **Test** — repeatable reaction, speed, vision and cognition measurements.
-- **Train** — aim, tracking, coordination and game-specific practice.
-- **Utilities** — sensitivity, crosshair, recoil, loadout, lineup and tier-list tools.
-- **Results** — activity-derived local history, bests and averages.
-- **Guides** — preserved long-form articles in a new reading layout.
+```text
+src/data ──> generator ──> HTML routes ──> validator/tests ──> dist ──> Vercel
+    │                         │
+    ├── tools registry       ├── app shell and page modules
+    └── article registry     └── isolated interaction engines
+```
 
-## Source boundaries
+## Boundaries
 
-- `src/data/tools.js` is the canonical tool inventory and route metadata.
-- `src/core/store.js` owns defensive local persistence and statistics.
-- `src/tools/` contains isolated mechanics by interaction family.
-- `src/app/` contains page composition and navigation behavior.
-- `src/styles/` contains the light-only visual system and page-specific layouts.
-- `scripts/generate-site.mjs` creates SEO-preserving static route entries and migrates article bodies.
-- `scripts/validate-site.mjs` checks routes, assets, duplicate IDs and inline syntax.
+- `src/data/` is the canonical route and editorial inventory.
+- `src/core/` owns defensive local persistence and statistics.
+- `src/tools/` contains interaction engines grouped by reaction, cognition, aim, recoil and utility families.
+- `src/app/` composes pages and shared navigation without a framework runtime.
+- `src/styles/` contains tokens, shared primitives and page-family layouts.
+- `scripts/` owns generation, validation, image optimisation and distribution output.
+- `tests/` covers registry integrity, generated output, affiliate semantics and representative browser flows.
 
-Tool routes remain static HTML URLs for direct loading and search indexing. They load small ES modules without a framework or global application bundle. No personal performance figure is displayed unless it comes from activity stored on the current device.
+## Build contract
 
-## Mechanics
+`npm run build` always runs generation, validation, unit tests and the curated distribution build. Vercel deploys `dist/`, not the repository root. GitHub Actions also verifies formatting, reproducible generation and browser flows.
 
-- Reaction timing uses `performance.now()` with early-input recovery and five-attempt sessions.
-- Aim and coordination tasks use Pointer Events and `requestAnimationFrame()`.
-- Audio reaction uses the Web Audio API and runs only after user interaction.
-- Calculators use deterministic conversion factors and persist settings locally.
-- Each engine records a compact result object through the shared store.
+## URL policy
 
-## Build
+Every important page has a static HTML entry, canonical URL and crawlable internal link. Existing `.html` URLs remain supported. The corrected `monitor-refresh-rate` route permanently redirects from the historical misspelling.
 
-Run `npm run generate` after route/content metadata changes, then `npm run build`. The project has no runtime package dependencies.
+## Data and privacy
+
+Results and preferences use the `rt2:` local-storage namespace and never contain credentials or account data. Stored values are treated as non-sensitive device-local state. No third-party JavaScript is loaded.
+
+## SEO and AI-search policy
+
+Pages expose unique titles and descriptions, canonical URLs, Open Graph/Twitter metadata, XML sitemap entries, RSS discovery and schema.org JSON-LD that matches visible content. AI-search eligibility relies on the same crawlability and people-first quality requirements as ordinary search; no unsupported “GEO hacks” are used.

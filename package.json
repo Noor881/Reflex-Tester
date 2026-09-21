@@ -6,7 +6,18 @@
   "scripts": {
     "generate": "node scripts/generate-site.mjs",
     "check": "node scripts/validate-site.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "format": "prettier --write \"src/**/*.{js,css}\" \"scripts/*.mjs\" \"tests/*.mjs\"",
+    "format:check": "prettier --check \"src/**/*.{js,css}\" \"scripts/*.mjs\" \"tests/*.mjs\"",
+    "images": "node scripts/optimize-images.mjs",
+    "build:dist": "node scripts/build-dist.mjs",
     "smoke": "node scripts/browser-smoke.mjs",
-    "build": "npm run check"
+    "build": "npm run generate && npm run check && npm test && npm run build:dist"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "prettier": "^3.9.8",
+    "sharp": "^0.35.4"
   }
 }
