@@ -20,7 +20,8 @@ CMS ──> content/articles.json ──> generator ──> HTML routes ──> 
 - `src/app/` composes pages and shared navigation without a framework runtime.
 - `src/styles/` contains tokens, shared primitives and page-family layouts.
 - `scripts/` owns generation, validation, image optimisation and distribution output.
-- `admin/` contains the local-only CMS UI; `scripts/cms-server.mjs` binds only to loopback and is not copied into `dist/`.
+- `admin/` contains the CMS UI; the local server binds only to loopback, while hosted writes require the API admin token.
+- `api/` contains Vercel Functions for authenticated GitHub-backed editorial writes, contact delivery and optional Neon/webhook event storage.
 - `tests/` covers registry integrity, generated output, affiliate semantics and representative browser flows.
 
 ## Build contract

@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 # Search and AI search features use the same crawlable, indexable pages.
 # No important CSS, JavaScript, images, or article content is blocked.

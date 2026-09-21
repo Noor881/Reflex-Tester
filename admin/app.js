@@ -4,6 +4,12 @@ const list = $("[data-article-list]");
 const toast = $("[data-toast]");
 const field = (name) => form.elements.namedItem(name);
 const state = { data: null, current: null, slugTouched: false };
+const token = () => sessionStorage.getItem("reflex-cms-token") || "";
+const apiFetch = (url, options = {}) => {
+  const headers = new Headers(options.headers || {});
+  if (token()) headers.set("Authorization", `Bearer ${token()}`);
+  return fetch(url, { ...options, headers });
+};
 
 const emptyArticle = () => ({
   type: "editorial",
@@ -256,7 +262,7 @@ const save = async (publish = false) => {
   const article = getForm();
   try {
     showToast("Saving and regenerating pages…");
-    const response = await fetch("/api/articles", {
+    const response = await apiFetch("/api/articles", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(article),
@@ -270,8 +276,8 @@ const save = async (publish = false) => {
     setForm(result.article);
     showToast(
       publish
-        ? "Published and regenerated successfully."
-        : "Draft saved and pages regenerated.",
+        ? result.deployment || "Published successfully."
+        : result.deployment || "Draft saved successfully.",
     );
   } catch (error) {
     showToast(error.message, true);
@@ -281,7 +287,7 @@ const save = async (publish = false) => {
 const build = async () => {
   try {
     showToast("Running the full production build…");
-    const response = await fetch("/api/build", { method: "POST" });
+    const response = await apiFetch("/api/build", { method: "POST" });
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || "Build failed.");
     showToast("Production build passed. You can commit and deploy.");
@@ -292,7 +298,11 @@ const build = async () => {
 
 const load = async () => {
   try {
-    const response = await fetch("/api/articles");
+    const response = await apiFetch("/api/articles");
+    if (response.status === 401)
+      throw new Error(
+        "Enter the production CMS admin token, then click Connect.",
+      );
     state.data = await response.json();
     setForm(emptyArticle());
     updateList();
@@ -301,6 +311,13 @@ const load = async () => {
   }
 };
 
+$("[data-auth-form]").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const value = $("[data-token]").value.trim();
+  if (value) sessionStorage.setItem("reflex-cms-token", value);
+  else sessionStorage.removeItem("reflex-cms-token");
+  await load();
+});
 $("[data-new]").addEventListener("click", () => {
   setForm(emptyArticle());
   updateList();

@@ -1,4 +1,5 @@
 import { mountShell } from "./shell.js";
+import "./affiliate-tracking.js";
 
 mountShell(document.body.dataset.active || "");
 

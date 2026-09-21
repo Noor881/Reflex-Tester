@@ -8,8 +8,8 @@
     "check": "node scripts/validate-site.mjs",
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
-    "format": "prettier --write \"src/**/*.{js,css}\" \"scripts/*.mjs\" \"tests/*.mjs\" \"admin/**/*.{js,css,html}\"",
-    "format:check": "prettier --check \"src/**/*.{js,css}\" \"scripts/*.mjs\" \"tests/*.mjs\" \"admin/**/*.{js,css,html}\"",
+    "format": "prettier --write \"src/**/*.{js,css}\" \"scripts/*.mjs\" \"tests/*.mjs\" \"admin/**/*.{js,css,html}\" \"api/**/*.{js,mjs}\"",
+    "format:check": "prettier --check \"src/**/*.{js,css}\" \"scripts/*.mjs\" \"tests/*.mjs\" \"admin/**/*.{js,css,html}\" \"api/**/*.{js,mjs}\"",
     "images": "node scripts/optimize-images.mjs",
     "cms": "node scripts/cms-server.mjs",
     "build:dist": "node scripts/build-dist.mjs",
@@ -20,5 +20,8 @@
     "@playwright/test": "^1.63.0",
     "prettier": "^3.9.8",
     "sharp": "^0.35.4"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0"
   }
 }

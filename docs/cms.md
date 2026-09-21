@@ -1,6 +1,6 @@
 # Editorial Studio
 
-ReflexTester includes a local-only editorial CMS for creating and updating guides without editing JavaScript. It is intentionally excluded from `dist/`; it never exposes a write API on the public website.
+ReflexTester includes an Editorial Studio for creating and updating guides without editing JavaScript. It works locally by default and can also be deployed as a noindex admin UI; all production writes go through the token-protected API.
 
 ## Start the CMS
 
@@ -23,4 +23,30 @@ The editor writes articles to `content/articles.json`. It supports editorial and
 
 Draft and archived entries are excluded from public article routes, sitemap and RSS. Changing a slug should be treated as a URL change; add a redirect when an established article is renamed.
 
-The server binds to `127.0.0.1` only and accepts Amazon links only over HTTPS from `amzn.to` or Amazon UK hosts. Do not expose the CMS port to the internet or place credentials in the content file.
+The local server binds to `127.0.0.1` only and accepts Amazon links only over HTTPS from `amzn.to` or Amazon UK hosts. Do not expose the local CMS port to the internet or place credentials in the content file.
+
+## Production backend
+
+The repository also includes Vercel Functions under `api/`:
+
+- `POST /api/articles` validates an article and commits `content/articles.json` through the GitHub Contents API. A connected Vercel project then rebuilds the static site.
+- `POST /api/contact` stores messages in Neon when configured and delivers them through a webhook or Resend.
+- `POST /api/events` records affiliate clicks and tool events in Neon, or forwards them to an analytics webhook.
+
+Set these Vercel environment variables before using the hosted CMS:
+
+```text
+CMS_ADMIN_TOKEN=long-random-secret
+GITHUB_TOKEN=server-side-fine-grained-token
+GITHUB_REPO=Noor881/Reflex-Tester
+GITHUB_BRANCH=main
+DATABASE_URL=Neon-connection-string
+CONTACT_TO=your-inbox@example.com
+RESEND_API_KEY=optional
+CONTACT_FROM=ReflexTester <noreply@your-domain.example>
+CONTACT_WEBHOOK_URL=optional
+ANALYTICS_WEBHOOK_URL=optional
+VERCEL_DEPLOY_HOOK_URL=optional
+```
+
+Never put `GITHUB_TOKEN`, `CMS_ADMIN_TOKEN`, database credentials or email API keys in browser code. The production admin UI is `noindex`; the API remains locked behind the admin token.

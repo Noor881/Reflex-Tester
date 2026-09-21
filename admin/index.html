@@ -8,6 +8,7 @@
       name="description"
       content="Local editorial CMS for creating search-ready ReflexTester guides."
     />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
     <link rel="stylesheet" href="./admin.css" />
   </head>
   <body>
@@ -20,7 +21,18 @@
         </p>
       </div>
       <div class="header-actions">
-        <span class="local-badge">Local-only CMS</span>
+        <span class="local-badge">Local / hosted CMS</span>
+        <form class="auth-form" data-auth-form>
+          <label class="sr-only" for="cms-token">CMS admin token</label>
+          <input
+            id="cms-token"
+            type="password"
+            placeholder="Admin token (production)"
+            autocomplete="off"
+            data-token
+          />
+          <button class="button ghost" type="submit">Connect</button>
+        </form>
         <button class="button secondary" type="button" data-build>
           Build site
         </button>

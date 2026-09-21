@@ -6,6 +6,7 @@ const output = resolve(root, "dist");
 const files = [
   "404.html",
   "500.html",
+  "admin",
   "about.html",
   "ads.txt",
   "apple-touch-icon.png",
