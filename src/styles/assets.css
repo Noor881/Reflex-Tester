@@ -3,6 +3,7 @@
 .home-photo img{display:block;width:100%;max-height:34rem;object-fit:cover;object-position:center 48%;filter:saturate(.86) contrast(1.03)}
 .home-photo figcaption,.article-cover figcaption{padding:.65rem .8rem;color:var(--muted);font-size:.76rem;border-top:1px solid var(--line)}
 .article-cover{margin:1.5rem 0 2.5rem;border:1px solid var(--line);background:var(--surface);overflow:hidden}
+.article-deck{font-family:InterVariable,Inter,sans-serif!important;font-size:1.3rem!important;line-height:1.55!important;color:var(--ink)!important;letter-spacing:-.015em}
 .article-cover img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;margin:0;filter:saturate(.82) contrast(1.02)}
 .aim-target{border:0;background:transparent url('../../assets/game/target-standard.svg') center/contain no-repeat;box-shadow:none}
 .aim-target::before{display:none}

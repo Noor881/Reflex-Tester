@@ -1,13 +1,9 @@
-import { readFile, writeFile, readdir } from 'node:fs/promises';
+import { writeFile } from 'node:fs/promises';
 import { tools } from '../src/data/tools.js';
+import { articles as editorialArticles, affiliateArticles } from '../src/data/articles.js';
 
 const root = new URL('../', import.meta.url);
 const esc = value => value.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
-const decode = value => {
-  let result = value;
-  while (/&(?:amp|quot|lt|gt);/i.test(result)) result = result.replaceAll('&amp;','&').replaceAll('&quot;','"').replaceAll('&lt;','<').replaceAll('&gt;','>');
-  return result;
-};
 const head = ({title,description,path='',depth='.',type='website'}) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="https://reflextester.vercel.app/${path}"><meta property="og:type" content="${type}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="https://reflextester.vercel.app/${path}"><link rel="icon" href="${depth}/favicon.ico"><link rel="stylesheet" href="${depth}/src/styles/base.css">`;
 const end = module => `<script type="module" src="${module}"></script></body></html>`;
 
@@ -29,28 +25,22 @@ const rootPages = {
 };
 for (const [file,html] of Object.entries(rootPages)) await writeFile(new URL(`../${file}`,import.meta.url),html);
 
-const blogFiles=(await readdir(new URL('../blog/',import.meta.url))).filter(file=>file.endsWith('.html')&&file!=='index.html');
+const section = (id,title,body) => `<section><h2 id="${id}">${title}</h2>${body}</section>`;
+const list = values => `<ul>${values.map(value=>`<li>${value}</li>`).join('')}</ul>`;
+const renderEditorial = item => {
+  const intro=`<p class="article-deck">${item.description}</p><p>Performance is variable. A useful guide should help you test an idea without pretending that one score explains your health, talent or future potential. This article focuses on repeatable observation and practical decisions.</p>`;
+  return `<article class="article"><span class="eyebrow">${item.category}</span><h1>${item.title}</h1><div class="article-meta">ReflexTester editorial · Reviewed 21 September 2026 · 6 min read</div>${intro}${section('key-ideas','The key ideas',list(item.focus))}${section('practical-method','A practical method',`<p>Use a simple routine so that normal variation is less likely to mislead you.</p>${list(item.actions)}<p>Keep the browser, display, input device and posture unchanged during a comparison. If you change several factors together, the score cannot tell you which change mattered.</p>`)}${section('read-results','How to read the result','<p>Use multiple valid attempts and report the median. Also look at the range: a slightly faster median with much wider variation may not represent better control. Discard attempts affected by an accidental click, interruption or obvious anticipation, but do not remove ordinary slow responses simply because they look disappointing.</p>')}${section('limits','Limits and safety','<p>ReflexTester is a recreational measurement and practice website. Browser results include display, operating-system and input-device delay. They are not medical tests, fitness-to-drive assessments, occupational certification or treatment advice.</p>')}${section('next-step','Try it consistently','<p>Choose one relevant ReflexTester tool, record the conditions and repeat the same short protocol on another day. Consistent methods produce more useful observations than dramatic one-off scores.</p><p><a class="button accent" href="../tools.html">Browse testing and training tools</a></p>')}</article>`;
+};
+const renderAffiliate = item => `<article class="article"><span class="eyebrow">${item.category}</span><h1>${item.title}</h1><div class="article-meta">Independent buyer’s guide · Updated 21 September 2026 · 5 min read</div><p class="affiliate-disclosure"><strong>Affiliate disclosure:</strong> As an Amazon Associate, ReflexTester may earn from qualifying purchases made through links on this page, at no additional cost to you.</p><p class="article-deck">${item.description}</p>${section('product-summary','Product summary',`<div class="affiliate-product"><h3>${item.product}</h3><p>${item.summary}</p><a class="affiliate-button" href="${item.link}" target="_blank" rel="sponsored nofollow noopener">Check the current Amazon UK listing →</a><p><small>Price, seller, availability and listing details can change. Confirm them before ordering.</small></p></div>`)}${section('before-buying','What to check before buying',list(item.checks))}${section('fit','Who it may suit',`<p>${item.verdict}</p><p>This page is an editorial overview, not a substitute for the current product label, manufacturer instructions or professional advice.</p>`)}${section('decision','A sensible buying decision','<p>Open the current listing, verify the exact product and pack, compare the total delivered price and read recent reviews for recurring issues. Avoid relying on a single rating or promotional claim.</p>')}<div class="affiliate-product"><h2 id="current-listing">Check the current offer</h2><a class="affiliate-button" href="${item.link}" target="_blank" rel="sponsored nofollow noopener">View on Amazon UK →</a></div></article>`;
+
 const articles=[];
-for(const file of blogFiles){
-  const source=await readFile(new URL(`../blog/${file}`,import.meta.url),'utf8');
-  const title=decode(source.match(/<title>(.*?)<\/title>/is)?.[1]||file.replace('.html','').replaceAll('-',' ')).replace(/\s*(?:\||—)\s*ReflexTester.*$/i,'').replaceAll('TimeA Complete','Time: Complete').replaceAll('TimesA','Times:').trim();
-  const description=source.match(/<meta\s+name="description"\s+content="([^"]*)"/i)?.[1]||`Read ${title} on ReflexTester.`;
-  const startCandidates=[source.indexOf('<article class="blog-article"'),source.indexOf('<article class="affiliate-article"'),source.indexOf('<article class="article"'),source.indexOf('<article>')].filter(index=>index>=0);
-  if(!startCandidates.length) continue;
-  const start=Math.min(...startCandidates),endIndex=source.indexOf('</article>',start);
-  let article=source.slice(start,endIndex+10)
-    .replace(/<script[\s\S]*?<\/script>/gi,'')
-    .replace(/<img\b[^>]*>/gi,'')
-    .replaceAll('TimeA Complete','Time: Complete')
-    .replaceAll('TimesA','Times:');
-  article=article.replace(/class="blog-article"/,'class="article"').replace(/class="affiliate-article"/,'class="article"').replace(/<div class="affiliate-body">/,'<div>');
-  article=article.replace(/\s+id="section-\d+"/gi,'');
-  const headings=[...article.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/gi)].map((match,index)=>({id:`section-${index+1}`,label:match[1].replace(/<[^>]+>/g,'').trim()}));
-  let headingIndex=0;article=article.replace(/<h2([^>]*)>/gi,(_,attrs)=>`<h2${attrs} id="${headings[headingIndex++]?.id||''}">`);
-  const toc=headings.length>2?`<aside class="article-aside"><span class="eyebrow">On this page</span><nav>${headings.map(h=>`<a href="#${h.id}">${h.label}</a>`).join('')}</nav></aside>`:'';
-  const html=`${head({title:`${title} — ReflexTester`,description,path:`blog/${file}`,depth:'..',type:'article'})}<link rel="stylesheet" href="../src/styles/article.css"></head><body><main id="main" class="article-layout">${article}${toc}</main><script type="module">import {mountShell} from '../src/app/shell.js';mountShell('learn')</script></body></html>`;
+for(const item of [...editorialArticles,...affiliateArticles]){
+  const file=`${item.slug}.html`,article=item.link?renderAffiliate(item):renderEditorial(item);
+  const headings=[...article.matchAll(/<h2[^>]*id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/gi)].map(match=>({id:match[1],label:match[2].replace(/<[^>]+>/g,'').trim()}));
+  const toc=`<aside class="article-aside"><span class="eyebrow">On this page</span><nav>${headings.map(h=>`<a href="#${h.id}">${h.label}</a>`).join('')}</nav></aside>`;
+  const html=`${head({title:`${item.title} — ReflexTester`,description:item.description,path:`blog/${file}`,depth:'..',type:'article'})}<link rel="stylesheet" href="../src/styles/article.css"></head><body><main id="main" class="article-layout">${article}${toc}</main><script type="module">import {mountShell} from '../src/app/shell.js';mountShell('learn')</script></body></html>`;
   await writeFile(new URL(`../blog/${file}`,import.meta.url),html.replace(/[ \t]+$/gm,''));
-  articles.push({file,title,description});
+  articles.push({file,title:item.title,description:item.description});
 }
 
 const cards=articles.map(article=>`<a class="tool-row" href="./blog/${article.file}"><span class="tool-kind">Guide</span><span class="tool-name">${article.title}</span><p>${article.description}</p><span class="tool-arrow">→</span></a>`).join('');
@@ -60,4 +50,4 @@ const insideCards=articles.map(article=>`<a class="tool-row" href="./${article.f
 const insideIndex=`${head({title:'Guides — ReflexTester',description:'Practical guides to reaction time, aim training, cognition and performance.',path:'blog/',depth:'..'})}<link rel="stylesheet" href="../src/styles/site.css"></head><body><main id="main"><div class="page"><header class="catalog-head"><div><span class="eyebrow">Learning</span><h1>Understand your performance.</h1><p class="lede">Evidence-aware explanations and practical training guidance.</p></div><label class="field"><span>Search guides</span><input type="search" data-search placeholder="Reaction time, sleep, hardware…"></label></header><div class="tool-list" data-list>${insideCards}</div></div></main><script type="module">import {mountShell} from '../src/app/shell.js';mountShell('learn');const input=document.querySelector('[data-search]');input.oninput=()=>{const q=input.value.toLowerCase();document.querySelectorAll('.tool-row').forEach(row=>row.hidden=!row.textContent.toLowerCase().includes(q))}</script></body></html>`;
 await writeFile(new URL('../blog/index.html',import.meta.url),insideIndex);
 
-console.log(`Generated ${tools.length} tool routes and migrated ${articles.length} articles.`);
+console.log(`Generated ${tools.length} tool routes and rebuilt ${articles.length} original articles.`);
